@@ -17,5 +17,4 @@ public class Main {
 		MainWindow2D SimulatorWindow = new MainWindow2D();
 		SimulatorWindow.runSimulation();
 	}
-
 }
