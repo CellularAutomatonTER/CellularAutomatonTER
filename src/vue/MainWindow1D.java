@@ -17,16 +17,21 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import controller.Close1DEvent;
 import controller.CloseAllEvent;
 import controller.CloseEvent;
 import controller.CreditsEvent;
 import controller.NewEvent;
 import controller.OpenFileEvent;
+import controller.PauseSimulation1DEvent;
 import controller.PauseSimulationEvent;
 import controller.QuitEvent;
+import controller.RefreshSimulation1DEvent;
 import controller.RefreshSimulationEvent;
 import controller.SpeedSimulationEvent;
+import controller.StartSimulation1DEvent;
 import controller.StartSimulationEvent;
+import controller.StopSimulation1DEvent;
 import controller.StopSimulationEvent;
 import model.SimulationState;
 import controller.ConwayRules;
@@ -200,7 +205,7 @@ public class MainWindow1D extends JFrame {
 	private JPanel m_panelUniform;
 	private GroupLayout m_GroupLayoutPanelTypeCellularAutomaton;
 	private JComboBox m_comboBoxUniform;
-	private JComboBox m_comboBoxCellularAutomaton;
+	private JButton m_buttonCellularAutomatonSetting;
 	private JToolBar m_toolBarSimulationTools;
 	private JPanel m_panelSimulationTools;
 	private JButton m_buttonLauncher;
@@ -211,12 +216,10 @@ public class MainWindow1D extends JFrame {
 	private JButton m_buttonReload;
 	private JToolBar m_toolBarControlTools;
 	private JPanel m_panelControlTools;
-	private JPanel m_panelSimulationSpeed;
-	private JPanel m_panelSimulationMode;
-	private JRadioButton m_radioButtonContinuous;
-	private JRadioButton m_radioButtonStepBystep;
-	private ButtonGroup m_radioButtonGroup;
-	private JSlider m_sliderSpeedSimulation;
+	private JPanel m_panelBorderCondition;
+	private JPanel m_panelDirectionOfEvolution;
+	private JButton m_buttonDirectionOfEvolution;
+	private JButton m_buttonBorderCondition;
 	private JSeparator m_separatorInControlTools;
 	private JDesktopPane m_mainDesktopPane;
 	private JPanel m_panelLateralTools;
@@ -232,7 +235,7 @@ public class MainWindow1D extends JFrame {
 	private JComboBox comboBoxFormCells;
 	private JPanel m_panelColorCells;
 	private GroupLayout m_GroupLayoutPanelColorCells;
-	private JComboBox m_comboBoxColorCells;
+	private JButton m_buttonColorCells;
 	private JPanel m_panelBackgroundColor;
 	private GroupLayout m_GroupLayoutPanelBackgroundColor;
 	private JComboBox m_comboBoxBackgroundColor;
@@ -279,8 +282,8 @@ public class MainWindow1D extends JFrame {
 		return m_internalFrameSimulation;
 	}
 	
-	public JSlider getm_sliderSpeedSimulation() {
-		return m_sliderSpeedSimulation;
+	public JButton getm_sliderSpeedSimulation() {
+		return m_buttonBorderCondition;
 	}
 	
 	/******SETTERS******/	
@@ -547,7 +550,7 @@ public class MainWindow1D extends JFrame {
 	private void addListenerFile (){
 		m_menuBarFileItem1.addActionListener(new NewEvent());
 		m_menuBarFileItem2.addActionListener(new OpenFileEvent());
-		m_menuBarFileItem7.addActionListener(new CloseEvent(this));
+		m_menuBarFileItem7.addActionListener(new Close1DEvent(this));
 		m_menuBarFileItem8.addActionListener(new CloseAllEvent());
 		m_menuBarFileItem9.addActionListener(new QuitEvent());
 	}
@@ -626,8 +629,8 @@ public class MainWindow1D extends JFrame {
 	
 	public void buildComponentChooseCellularAutomaton(){
 		//Build the component of the panel ChooseCellularAutomaton
-		m_comboBoxCellularAutomaton = new JComboBox();
-		m_panelChooseCellularAutomaton.add(m_comboBoxCellularAutomaton, BorderLayout.CENTER);
+		m_buttonCellularAutomatonSetting = new JButton("Cellular Automaton Setting");
+		m_panelChooseCellularAutomaton.add(m_buttonCellularAutomatonSetting, BorderLayout.CENTER);
 	}
 	
 	public void buildPanelUniform(){
@@ -650,7 +653,7 @@ public class MainWindow1D extends JFrame {
 		m_GroupLayoutPanelTypeCellularAutomaton.setHorizontalGroup(
 			m_GroupLayoutPanelTypeCellularAutomaton.createParallelGroup(Alignment.LEADING)
 				.addGroup(m_GroupLayoutPanelTypeCellularAutomaton.createSequentialGroup()
-					.addComponent(m_panelChooseCellularAutomaton, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+					.addComponent(m_panelChooseCellularAutomaton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(m_separatorInTypeCellularAutomaton, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -721,64 +724,49 @@ public class MainWindow1D extends JFrame {
 		m_panelControlTools.setBorder(BorderFactory.createTitledBorder("Control tools"));//Set a border of JPanel
 		m_panelControlTools.setLayout(null);
 		
-		buildPanelSimulationSpeed();//Set the panel SimulationSpeed
-		buildPanelSimulationMode();//Set the panel SimulationMode
+		buildPanelBorderCondition();//Set the panel BorderCondition
+		buildPanelDirectionOfEvolution();//Set the panel DirectionOfEvolution
 		
-		m_panelControlTools.add(m_panelSimulationSpeed);//Add the panel of "Simulation Speed" to panel of "ControlTools"
-		m_panelControlTools.add(m_panelSimulationMode);//Add the panel of "Simulation Mode" to panel of "ControlTools"
+		m_panelControlTools.add(m_panelBorderCondition);//Add the panel of "BorderCondition" to panel of "ControlTools"
+		m_panelControlTools.add(m_panelDirectionOfEvolution);//Add the panel of "DirectionOfEvolution" to panel of "ControlTools"
 		
 		buildSeparatorInControlTools();//Build the separator in ControlTools
 	}
 	
 	
-	public void buildPanelSimulationSpeed(){
-		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
-		m_panelSimulationSpeed.setBounds(6, 16, 180, 50);//Set size of JPanel
-		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
+	public void buildPanelBorderCondition(){
+		m_panelBorderCondition = new JPanel();//Creation of panel for BorderCondition
+		m_panelBorderCondition.setBounds(6, 16, 180, 50);//Set size of JPanel
+		m_panelBorderCondition.setBorder(BorderFactory.createTitledBorder("Border Condition"));//Set a border of JPanel
 		
-		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
+		buildComponentBorderCondition();//Set the component of Panel "BorderCondition"
 	}
 	
-	public void buildComponentSimulationSpeed(){ 
-		m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
-		m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
-		m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
-		m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
-		m_sliderSpeedSimulation.setValue(30);//Set the value of slider to 30 by default
-		m_sliderSpeedSimulation.setPaintTicks(true);//Set the paint ticks of slider
-		m_sliderSpeedSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
-		m_sliderSpeedSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
-		m_panelSimulationSpeed.add(m_sliderSpeedSimulation, BorderLayout.CENTER);//Add the slider to panel m_panelSimulationSpeed
+	public void buildComponentBorderCondition(){ 
+		m_panelBorderCondition.setLayout(new BorderLayout(0, 0));
+		m_buttonBorderCondition = new JButton("Border Condition Setting");//Creation of Button for panel "BorderCondition"
+		m_panelBorderCondition.add(m_buttonBorderCondition, BorderLayout.CENTER);//Add the Button to panel BorderCondition
 	}
 	
 	
 	
-	public void buildPanelSimulationMode(){
-		m_panelSimulationMode = new JPanel();//Creation of JPanel for SimulationMode
-		m_panelSimulationMode.setBounds(207, 16, 210, 50);//Set size of JPanel
-		m_panelSimulationMode.setBorder(BorderFactory.createTitledBorder("Simulation Mode"));//Set a border of JPanel
+	public void buildPanelDirectionOfEvolution(){
+		m_panelDirectionOfEvolution = new JPanel();//Creation of JPanel for DirectionOfEvolution
+		m_panelDirectionOfEvolution.setBounds(207, 16, 210, 50);//Set size of JPanel
+		m_panelDirectionOfEvolution.setBorder(BorderFactory.createTitledBorder("Direction of Evolution"));//Set a border of JPanel
 		
-		buildComponentSimulationMode();//Set the component of Panel "Simulation Mode"
+		buildComponentDirectionOfEvolution();//Set the component of Panel "DirectionOfEvolution"
 	}
 	
-	public void buildComponentSimulationMode(){
-		//Creation of RadioButton
-		m_radioButtonContinuous = new JRadioButton("Continuous");//Create the radioButton m_radioButtonContinuous
-		m_panelSimulationMode.add(m_radioButtonContinuous);//Add the radioButton m_radioButtonContinuous to panel m_panelSimulationMode
-		
-		m_radioButtonStepBystep = new JRadioButton("Step By Step");//Create the radioButton m_radioButtonStepBystep
-		m_panelSimulationMode.add(m_radioButtonStepBystep);//Add the radioButton m_radioButtonStepBystep to panel m_panelSimulationMode
-		
-		//Creation of ButtonGroup
-		m_radioButtonGroup = new ButtonGroup();//Create ButtonGroup
-		m_radioButtonGroup.add(m_radioButtonContinuous);//Adding the radioButton m_radioButtonContinuous to ButtonGroup m_radioButtonGroup
-		m_radioButtonGroup.add(m_radioButtonStepBystep);//Adding the radioButton m_radioButtonStepBystep to ButtonGroup m_radioButtonGroup
-		m_radioButtonContinuous.setSelected(true);//Set the radioButton m_radioButtonContinuous to true by default 
+	public void buildComponentDirectionOfEvolution(){
+		m_panelDirectionOfEvolution.setLayout(new BorderLayout(0, 0));//The component take full place of panel
+		m_buttonDirectionOfEvolution = new JButton("Direction of Evolution Setting");//Creation of Button for panel "Direction of evolution"
+		m_panelDirectionOfEvolution.add(m_buttonDirectionOfEvolution);//Add the radioButton m_radioButtonContinuous to panel m_panelSimulationMode
 	}
 
 	
 	public void buildSeparatorInControlTools(){
-		//Creation of Separator between the panel of "Simulation Speed" and the panel "Simulation Mode"
+		//Creation of Separator between the panel of "BorderCondition" and the panel "DirectionOfEvolution"
 		m_separatorInControlTools = new JSeparator();//Create JSeparator
 		m_separatorInControlTools.setOrientation(SwingConstants.VERTICAL);//Set the orientation of separator to vertical
 		m_separatorInControlTools.setBounds(194, 23, 2, 43);//Set the position and size of separator
@@ -950,34 +938,6 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	public void buildComponentLateralToolsColorCells(){
-		m_comboBoxColorCells = new JComboBox();
-		m_GroupLayoutPanelColorCells = new GroupLayout(m_panelColorCells);
-		
-		buildGroupLayoutComponentColorCells();
-	}
-	
-	public void buildGroupLayoutComponentColorCells(){
-		m_GroupLayoutPanelColorCells.setHorizontalGroup(
-			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 158, Short.MAX_VALUE)
-				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_comboBoxColorCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		m_GroupLayoutPanelColorCells.setVerticalGroup(
-			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 71, Short.MAX_VALUE)
-				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_comboBoxColorCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(17, Short.MAX_VALUE))
-		);
-		m_panelColorCells.setLayout(m_GroupLayoutPanelColorCells);
-	}
-	
-	
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
 		m_GroupLayoutPanelBackgroundColor = new GroupLayout(m_panelBackgroundColor);
@@ -1004,6 +964,34 @@ public class MainWindow1D extends JFrame {
 			);
 			m_panelBackgroundColor.setLayout(m_GroupLayoutPanelBackgroundColor);
 	}
+	
+	
+	public void buildComponentLateralToolsColorCells(){
+		m_buttonColorCells = new JButton("Color Cells Setting");
+		m_GroupLayoutPanelColorCells = new GroupLayout(m_panelColorCells);
+		
+		buildGroupLayoutComponentColorCells();
+	}
+	
+	public void buildGroupLayoutComponentColorCells(){
+		m_GroupLayoutPanelColorCells.setHorizontalGroup(
+			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 158, Short.MAX_VALUE)
+				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_buttonColorCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		m_GroupLayoutPanelColorCells.setVerticalGroup(
+			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 71, Short.MAX_VALUE)
+				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_buttonColorCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(17, Short.MAX_VALUE))
+		);
+		m_panelColorCells.setLayout(m_GroupLayoutPanelColorCells);
+	}
 
 	
 	public void buildGroupLayoutPanelLateralTools(){
@@ -1024,11 +1012,11 @@ public class MainWindow1D extends JFrame {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
 						.addContainerGap()
-						.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_GroupLayoutPanelLateralTools.setVerticalGroup(
@@ -1041,9 +1029,9 @@ public class MainWindow1D extends JFrame {
 					.addGap(18)
 					.addComponent(m_panelFormCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
 					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(251, Short.MAX_VALUE))
 		);
 		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
@@ -1061,31 +1049,28 @@ public class MainWindow1D extends JFrame {
 	}
 
 	private void addListenerLaucher(){
-		m_buttonLauncher.addActionListener(new StartSimulationEvent(this));
+		m_buttonLauncher.addActionListener(new StartSimulation1DEvent(this));
 	}
 	
 	private void addListenerPause(){
-		m_buttonPause.addActionListener(new PauseSimulationEvent(this));
+		m_buttonPause.addActionListener(new PauseSimulation1DEvent(this));
 	}
 	
 	private void addListenerStop(){
-		m_buttonStop.addActionListener(new StopSimulationEvent(this));
+		m_buttonStop.addActionListener(new StopSimulation1DEvent(this));
 	}
 	
 	private void addListenerRefresh(){
-		m_buttonReload.addActionListener(new RefreshSimulationEvent(this));
+		m_buttonReload.addActionListener(new RefreshSimulation1DEvent(this));
 	}
 	
 	
 	
 	/***Listeners Control Tools***/
 	private void addListenerControlTools(){
-		this.addListenerSlider();//add listener of slider Speed Simulation
+		
 	}
 
-	private void addListenerSlider(){
-		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulationEvent(this));
-	}
 	
 
 	
