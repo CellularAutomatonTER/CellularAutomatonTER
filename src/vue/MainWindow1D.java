@@ -234,7 +234,6 @@ public class MainWindow1D extends JFrame {
 	private GroupLayout m_GroupLayoutPanelFormCells;
 	private JComboBox comboBoxFormCells;
 	private JPanel m_panelColorCells;
-	private GroupLayout m_GroupLayoutPanelColorCells;
 	private JButton m_buttonColorCells;
 	private JPanel m_panelBackgroundColor;
 	private GroupLayout m_GroupLayoutPanelBackgroundColor;
@@ -736,7 +735,7 @@ public class MainWindow1D extends JFrame {
 	
 	public void buildPanelBorderCondition(){
 		m_panelBorderCondition = new JPanel();//Creation of panel for BorderCondition
-		m_panelBorderCondition.setBounds(6, 16, 180, 50);//Set size of JPanel
+		m_panelBorderCondition.setBounds(6, 16, 190, 50);//Set size of JPanel
 		m_panelBorderCondition.setBorder(BorderFactory.createTitledBorder("Border Condition"));//Set a border of JPanel
 		
 		buildComponentBorderCondition();//Set the component of Panel "BorderCondition"
@@ -968,29 +967,13 @@ public class MainWindow1D extends JFrame {
 	
 	public void buildComponentLateralToolsColorCells(){
 		m_buttonColorCells = new JButton("Color Cells Setting");
-		m_GroupLayoutPanelColorCells = new GroupLayout(m_panelColorCells);
 		
 		buildGroupLayoutComponentColorCells();
 	}
 	
 	public void buildGroupLayoutComponentColorCells(){
-		m_GroupLayoutPanelColorCells.setHorizontalGroup(
-			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 158, Short.MAX_VALUE)
-				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_buttonColorCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		m_GroupLayoutPanelColorCells.setVerticalGroup(
-			m_GroupLayoutPanelColorCells.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 71, Short.MAX_VALUE)
-				.addGroup(m_GroupLayoutPanelColorCells.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_buttonColorCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(17, Short.MAX_VALUE))
-		);
-		m_panelColorCells.setLayout(m_GroupLayoutPanelColorCells);
+		m_panelColorCells.setLayout(new BorderLayout(0, 0));
+		m_panelColorCells.add(m_buttonColorCells);
 	}
 
 	
@@ -1031,7 +1014,7 @@ public class MainWindow1D extends JFrame {
 					.addGap(18)
 					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(251, Short.MAX_VALUE))
 		);
 		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
