@@ -19,6 +19,9 @@ import controller.LocalCardWindowSettingEvent;
 
 import java.awt.CardLayout;
 import javax.swing.JCheckBox;
+import javax.swing.BoxLayout;
+import javax.swing.JTextField;
+import javax.swing.JSeparator;
 
 public class CellularAutomatonSettingWindow extends JFrame {
 
@@ -41,9 +44,30 @@ public class CellularAutomatonSettingWindow extends JFrame {
 	private GroupLayout m_groupLayoutPanelChooseTypeFunction;
 	private JCheckBox m_checkBoxSetActualSetting;
 	private CardLayout m_cardLayoutOnPanelEnterSetting;
-	private JPanel m_localcard;
+	private JPanel m_localCard;
 	private JPanel m_globalcard;
 	private boolean m_showPanelLocalSetting;
+	private JPanel m_panelOnLocalCardAlphabet;
+	private JPanel m_panelOnLocalCardRadius;
+	private JPanel m_panelOnLocalCardLocalFunction;
+	private JLabel m_labelOnLocalCardAlphabet;
+	private JTextField m_textFieldOnLocalCardAlphabet;
+	private JLabel m_labelOnLocalCardRadius;
+	private JTextField m_textFieldOnLocalCardRadius;
+	private JLabel m_labelOnLocalCardLocalFunction;
+	private JTextField m_textFieldOnLocalCardLocalFunction;
+	private JPanel m_panelOnGlobalCardAlphabet;
+	private JLabel m_labelOnGlobalCardAlphabet;
+	private JTextField m_textFieldOnGlobalCardAlphabet;
+	private JPanel m_panelOnGlobalCardGlobalFunction;
+	private JLabel m_labelOnGlobalCardGlobalFunction;
+	private JTextField m_textFieldOnGlobalCardGlobalFunction;
+	private JSeparator m_separatorOnLocalCardBetweenRadiosButtonAndAlphabet;
+	private JSeparator m_separatorOnLocalCardBetweenAlphabetAndRadius;
+	private JSeparator m_separatorOnLocalCardBetweenRadiusAndLocalFunction;
+	private JSeparator m_separatorOnLocalCardBetweenLocalFunctionAndValidate;
+	private JSeparator m_separatorOnGlobalCardBetweenRadiosButtonAndAlphabet;
+	private JSeparator m_separatorOnGlobalCardBetweenAlphabetAndGlobalFunction;
 	
 	/******GETTERS******/
 	public boolean getm_showPanelLocalSetting(){
@@ -145,6 +169,8 @@ public class CellularAutomatonSettingWindow extends JFrame {
 		m_checkBoxSetActualSetting = new JCheckBox("Set Actual Setting By Default");
 		m_buttonOK = new JButton("OK");
 		
+		m_separatorOnLocalCardBetweenLocalFunctionAndValidate = new JSeparator();
+		
 		buildGroupLayoutPanelResetValidateSetting();
 	}
 	
@@ -153,22 +179,28 @@ public class CellularAutomatonSettingWindow extends JFrame {
 		m_groupLayoutPanelResetValidateSetting.setHorizontalGroup(
 			m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.LEADING)
 				.addGroup(m_groupLayoutPanelResetValidateSetting.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-					.addGap(45)
-					.addComponent(m_checkBoxSetActualSetting)
-					.addGap(36)
-					.addComponent(m_buttonOK, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addGroup(m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.LEADING)
+						.addGroup(m_groupLayoutPanelResetValidateSetting.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+							.addGap(45)
+							.addComponent(m_checkBoxSetActualSetting)
+							.addGap(36)
+							.addComponent(m_buttonOK, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))
+						.addComponent(m_separatorOnLocalCardBetweenLocalFunctionAndValidate, GroupLayout.PREFERRED_SIZE, 462, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		m_groupLayoutPanelResetValidateSetting.setVerticalGroup(
 			m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.LEADING)
 				.addGroup(m_groupLayoutPanelResetValidateSetting.createSequentialGroup()
-					.addGap(5)
-					.addGroup(m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.BASELINE)
-						.addComponent(m_checkBoxSetActualSetting)
-						.addComponent(m_buttonOK)
-						.addComponent(m_buttonReset)))
+					.addComponent(m_separatorOnLocalCardBetweenLocalFunctionAndValidate, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.LEADING)
+						.addGroup(m_groupLayoutPanelResetValidateSetting.createParallelGroup(Alignment.BASELINE)
+							.addComponent(m_buttonReset)
+							.addComponent(m_checkBoxSetActualSetting))
+						.addComponent(m_buttonOK))
+					.addContainerGap())
 		);
 		m_panelResetValidateSetting.setLayout(m_groupLayoutPanelResetValidateSetting);
 	}
@@ -224,16 +256,275 @@ public class CellularAutomatonSettingWindow extends JFrame {
 		m_cardLayoutOnPanelEnterSetting=new CardLayout(0, 0);
 		m_panelEnterSetting.setLayout(m_cardLayoutOnPanelEnterSetting);
 		
+		buildComponentCard();
+	}
+	
+	private void buildComponentCard() {
 		//Creation of two card. The first contain the localFunction interface and the second contain the globalFunction interface
-	    m_localcard = new JPanel();
-	    m_localcard.setBackground(Color.blue);		
-	    m_globalcard = new JPanel();
-	    m_globalcard.setBackground(Color.yellow);
+	    m_localCard = new JPanel();//Create a card panel witch represent local interface
+	    m_globalcard = new JPanel();//Create a card panel witch represent global interface
 	    
 	    //Add the cards m_localcard and m_globalcard to panel m_panelEnterSetting witch has a cardLayout
-	    m_panelEnterSetting.add(m_localcard);
+	    m_panelEnterSetting.add(m_localCard);
 	    m_panelEnterSetting.add(m_globalcard);
+	    
+	    buildLocalCard();//Build component of window when user choose local function
+	    
+	    buildGlobalCard();//Build component of window when user choose global function
+	}
+	
+	private void buildLocalCard() {
+		buildComponentPanelOnLocalCardAlphabet();//Add the panel Alphabet
+	    
+		buildComponentPanelOnLocalCardRadius();//Add the panel Radius
+		
+		buildComponentPanelOnLocalCardLocalFunction();//Add the panel LocalFunction
+	    
+		buildGroupLayoutlocalCard();//Set the layout of panel m_localCard
+	}
+	
+	private void buildComponentPanelOnLocalCardAlphabet(){
+		m_panelOnLocalCardAlphabet = new JPanel();
+	    m_labelOnLocalCardAlphabet = new JLabel("Alphabet (0 to ?):");
+	    m_textFieldOnLocalCardAlphabet = new JTextField();
+	    m_textFieldOnLocalCardAlphabet.setColumns(10);
+	    
+	    m_separatorOnLocalCardBetweenRadiosButtonAndAlphabet = new JSeparator();
+	    
+	    buildGroupLayoutPanelOnLocalCardAlphabet();
+	}
+	
+	private void buildGroupLayoutPanelOnLocalCardAlphabet() {
+		
+		
+		GroupLayout gl_panel = new GroupLayout(m_panelOnLocalCardAlphabet);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_labelOnLocalCardAlphabet)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(m_textFieldOnLocalCardAlphabet, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(246, Short.MAX_VALUE))
+				.addComponent(m_separatorOnLocalCardBetweenRadiosButtonAndAlphabet, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(m_separatorOnLocalCardBetweenRadiosButtonAndAlphabet, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelOnLocalCardAlphabet)
+						.addComponent(m_textFieldOnLocalCardAlphabet, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+					.addGap(25))
+		);
+	    m_panelOnLocalCardAlphabet.setLayout(gl_panel);
+	}
+	
+	private void buildComponentPanelOnLocalCardRadius() {
+		m_panelOnLocalCardRadius = new JPanel();
+	    m_labelOnLocalCardRadius = new JLabel("Radius (must be equal or greater than 1):");
+	    
+	    m_textFieldOnLocalCardRadius = new JTextField();
+	    m_textFieldOnLocalCardRadius.setColumns(10);
+	    
+	    m_separatorOnLocalCardBetweenAlphabetAndRadius = new JSeparator();
+	    
+	    buildGroupLayoutPanelOnLocalCardRadius();
+	}
+	
+	private void buildGroupLayoutPanelOnLocalCardRadius() {
+		GroupLayout gl_panel_1 = new GroupLayout(m_panelOnLocalCardRadius);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_labelOnLocalCardRadius)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(m_textFieldOnLocalCardRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(162, Short.MAX_VALUE))
+				.addComponent(m_separatorOnLocalCardBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addComponent(m_separatorOnLocalCardBetweenAlphabetAndRadius, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelOnLocalCardRadius)
+						.addComponent(m_textFieldOnLocalCardRadius, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
+					.addGap(17))
+		);
+	    m_panelOnLocalCardRadius.setLayout(gl_panel_1);
+	}
+	
+	private void buildComponentPanelOnLocalCardLocalFunction() {
+		m_panelOnLocalCardLocalFunction = new JPanel();
+	    m_labelOnLocalCardLocalFunction = new JLabel("Local Function:");
+	    
+	    m_textFieldOnLocalCardLocalFunction = new JTextField();
+	    m_textFieldOnLocalCardLocalFunction.setColumns(10);
+	    
+	    m_separatorOnLocalCardBetweenRadiusAndLocalFunction = new JSeparator();
+	    
+	    builGroupLayoutPanelOnLocalCardLocalFunction();
+	}
+	
+	private void builGroupLayoutPanelOnLocalCardLocalFunction() {
+		GroupLayout gl_panel_2 = new GroupLayout(m_panelOnLocalCardLocalFunction);
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_labelOnLocalCardLocalFunction)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(m_textFieldOnLocalCardLocalFunction, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(26, Short.MAX_VALUE))
+				.addComponent(m_separatorOnLocalCardBetweenRadiusAndLocalFunction, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addComponent(m_separatorOnLocalCardBetweenRadiusAndLocalFunction, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_textFieldOnLocalCardLocalFunction, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_labelOnLocalCardLocalFunction))
+					.addContainerGap(21, Short.MAX_VALUE))
+		);
+	    m_panelOnLocalCardLocalFunction.setLayout(gl_panel_2);	
+	}
+	
+	private void buildGroupLayoutlocalCard() {
+		GroupLayout gl_m_localcard = new GroupLayout(m_localCard);
+		gl_m_localcard.setHorizontalGroup(
+			gl_m_localcard.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_m_localcard.createSequentialGroup()
+					.addGroup(gl_m_localcard.createParallelGroup(Alignment.TRAILING)
+						.addComponent(m_panelOnLocalCardLocalFunction, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+						.addGroup(Alignment.LEADING, gl_m_localcard.createParallelGroup(Alignment.LEADING, false)
+							.addComponent(m_panelOnLocalCardAlphabet, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(m_panelOnLocalCardRadius, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+					.addContainerGap(32, Short.MAX_VALUE))
+		);
+		gl_m_localcard.setVerticalGroup(
+			gl_m_localcard.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_m_localcard.createSequentialGroup()
+					.addComponent(m_panelOnLocalCardAlphabet, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(m_panelOnLocalCardRadius, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addGap(4)
+					.addComponent(m_panelOnLocalCardLocalFunction, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+		);
+	    m_localCard.setLayout(gl_m_localcard);
+	}
+	
+	private void buildGlobalCard() {
+		buildComponentGlobalCardAlphabet();
+		
+		buildComponentGlobalCardGlobalFunction();
+	    
+		buildGroupLayoutGlobalCard();//Set the layout of panel m_localCard
+	}
+	
+	private void buildComponentGlobalCardAlphabet(){
+		m_panelOnGlobalCardAlphabet = new JPanel();
+		
+		m_labelOnGlobalCardAlphabet = new JLabel("Alphabet (0 to ?):");
+		   
+		m_textFieldOnGlobalCardAlphabet = new JTextField();
+		m_textFieldOnGlobalCardAlphabet.setColumns(10);
+		
+		m_separatorOnGlobalCardBetweenRadiosButtonAndAlphabet = new JSeparator();
+		   
+		buildGroupLayoutPanelOnGlobalCardAlphabet();
+	}
+	
+	private void buildGroupLayoutPanelOnGlobalCardAlphabet() {
+		GroupLayout gl_panel = new GroupLayout(m_panelOnGlobalCardAlphabet);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(m_labelOnGlobalCardAlphabet)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(m_textFieldOnGlobalCardAlphabet, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(m_separatorOnGlobalCardBetweenRadiosButtonAndAlphabet, GroupLayout.PREFERRED_SIZE, 463, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(21, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(m_separatorOnGlobalCardBetweenRadiosButtonAndAlphabet, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelOnGlobalCardAlphabet)
+						.addComponent(m_textFieldOnGlobalCardAlphabet, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+					.addGap(25))
+		);
+		   m_panelOnGlobalCardAlphabet.setLayout(gl_panel);
+	}
+	
+	private void buildComponentGlobalCardGlobalFunction(){
+		m_panelOnGlobalCardGlobalFunction = new JPanel();
+		
+		m_labelOnGlobalCardGlobalFunction = new JLabel("Global Function:");
+		
+		m_textFieldOnGlobalCardGlobalFunction = new JTextField();
+		m_textFieldOnGlobalCardGlobalFunction.setColumns(10);
+		
+		m_separatorOnGlobalCardBetweenAlphabetAndGlobalFunction = new JSeparator();
+		
+		buildGroupLayoutGlobalCardGlobalFunction();
+	}
+	
+	private void buildGroupLayoutGlobalCardGlobalFunction() {
+		GroupLayout gl_panel = new GroupLayout(m_panelOnGlobalCardGlobalFunction);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_labelOnGlobalCardGlobalFunction, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(m_textFieldOnGlobalCardGlobalFunction, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
+					.addGap(50))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(m_separatorOnGlobalCardBetweenAlphabetAndGlobalFunction, GroupLayout.PREFERRED_SIZE, 465, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(19, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(m_separatorOnGlobalCardBetweenAlphabetAndGlobalFunction, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(39)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelOnGlobalCardGlobalFunction)
+						.addComponent(m_textFieldOnGlobalCardGlobalFunction, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(48, Short.MAX_VALUE))
+		);
+		   m_panelOnGlobalCardGlobalFunction.setLayout(gl_panel);
 	}
 	
 	
+	private void buildGroupLayoutGlobalCard() {
+		   GroupLayout gl_m_globalcard = new GroupLayout(m_globalcard);
+		   gl_m_globalcard.setHorizontalGroup(
+		   	gl_m_globalcard.createParallelGroup(Alignment.TRAILING)
+		   		.addGroup(Alignment.LEADING, gl_m_globalcard.createSequentialGroup()
+		   			.addGroup(gl_m_globalcard.createParallelGroup(Alignment.TRAILING, false)
+		   				.addComponent(m_panelOnGlobalCardGlobalFunction, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		   				.addComponent(m_panelOnGlobalCardAlphabet, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+		   			.addContainerGap(10, Short.MAX_VALUE))
+		   );
+		   gl_m_globalcard.setVerticalGroup(
+		   	gl_m_globalcard.createParallelGroup(Alignment.LEADING)
+		   		.addGroup(gl_m_globalcard.createSequentialGroup()
+		   			.addComponent(m_panelOnGlobalCardAlphabet, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+		   			.addPreferredGap(ComponentPlacement.RELATED)
+		   			.addComponent(m_panelOnGlobalCardGlobalFunction, GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+		   );
+		    m_globalcard.setLayout(gl_m_globalcard);
+	}
 }
