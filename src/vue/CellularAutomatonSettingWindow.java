@@ -1,6 +1,5 @@
 package vue;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,7 +18,6 @@ import controller.LocalCardWindowSettingEvent;
 
 import java.awt.CardLayout;
 import javax.swing.JCheckBox;
-import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 
@@ -110,7 +108,7 @@ public class CellularAutomatonSettingWindow extends JFrame {
 		this.setTitle("Cellular Automaton Setting");
 		this.setSize(480,310);
 		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		m_showPanelLocalSetting=true;//Set the radioButton m_radioButtonLocal to true by default
 		buildMainPanel();
 	}

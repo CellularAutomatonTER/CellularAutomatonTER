@@ -17,6 +17,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import controller.CellularAutomatonSetting1DEvent;
 import controller.Close1DEvent;
 import controller.CloseAllEvent;
 import controller.CloseEvent;
@@ -261,6 +262,9 @@ public class MainWindow1D extends JFrame {
 		
 		//Build the component of the window
 		this.buildComponentWindow();
+		
+		//add listeners TypeCellularAutomatonTools
+		addListenerTypeCellularAutomatonTools();
 		
 		//add listeners SimulationTools
 		addListenerSimulationTools();
@@ -1022,13 +1026,22 @@ public class MainWindow1D extends JFrame {
 	
 	
 	
+	/******Listeners TypeCellularAutomaton Tools******/
+	private void addListenerTypeCellularAutomatonTools(){
+		this.addListenerCellularAutomatonSetting();//add listener of button Launcher
+	}
 	
-	/***Listeners Simulation Tools***/
+	private void addListenerCellularAutomatonSetting(){
+		m_buttonCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent());
+	}
+	
+	
+	/******Listeners Simulation Tools******/
 	private void addListenerSimulationTools(){
 		this.addListenerLaucher();//add listener of button Launcher
 		this.addListenerPause();//add listener of button Pause
-		addListenerStop();//add listener of button Stop
-		addListenerRefresh();//add listener of button Refresh
+		this.addListenerStop();//add listener of button Stop
+		this.addListenerRefresh();//add listener of button Refresh
 	}
 
 	private void addListenerLaucher(){
