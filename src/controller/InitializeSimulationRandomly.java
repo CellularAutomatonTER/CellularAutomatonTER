@@ -15,7 +15,6 @@ public class InitializeSimulationRandomly implements IInitializeSimulationRules 
                 cells[x] [y] = new Cell(x, y, random.nextBoolean(), cellularAutomaton, formOfCells, colorOfCells);//Create randomly cells in the simulation witch is a matrix of cells which follows a certain set of rules
             }
         }
-		
 	}
 
 }
