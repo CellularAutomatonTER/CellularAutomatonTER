@@ -5,7 +5,7 @@ import java.util.Random;
 
 import vue.IForm;
 
-public class InitializeSimulationRandomly implements IInitializeSimulationRules {
+public class InitializeSimulation2DRandomly implements IInitializeSimulationRules {
 
 	@Override
 	public void initializeSimulation(Cell[][] cells, int nbCellWidth, int nbCellHeight, IRules cellularAutomaton, IForm formOfCells, Color colorOfCells) {

@@ -39,7 +39,7 @@ import controller.ConwayRules;
 import vue.IForm;
 import controller.IInitializeSimulationRules;
 import controller.IRules;
-import controller.InitializeSimulationRandomly;
+import controller.InitializeSimulation2DRandomly;
 import vue.InternalFrameSimulation;
 import vue.RectangleForm;
 
@@ -788,7 +788,7 @@ public class MainWindow1D extends JFrame {
 		IForm formOfCells = new RectangleForm();
 		Color colorOfCells = Color.BLUE;
 		Color backgroundColor = Color.BLACK;
-		IInitializeSimulationRules initializeSimulationRule = new InitializeSimulationRandomly();
+		IInitializeSimulationRules initializeSimulationRule = new InitializeSimulation2DRandomly();
 		buildInternalFrameSimulation(ruleSimulation, formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 	}
 	
