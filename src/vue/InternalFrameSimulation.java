@@ -66,7 +66,7 @@ public class InternalFrameSimulation extends JInternalFrame {
 	public void startUpdate() {
 			m_millis = 1000/m_refreshRate;
 			long before = System.currentTimeMillis();
-			m_simulation.update();
+			m_simulation.update();//Simulation update
 
 			m_screen.repaint();
 			long diff = m_millis - (System.currentTimeMillis() - before);
