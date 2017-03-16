@@ -15,8 +15,8 @@ public class Main {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		MainWindow2D SimulatorWindow = new MainWindow2D();
-		MainWindow1D SimulatorWindow1D = new MainWindow1D();
+		MainWindow2D SimulatorWindow = new MainWindow2D();//Create window 2D
+		MainWindow1D SimulatorWindow1D = new MainWindow1D();//Create window 1D
 		SimulatorWindow.runSimulation();
 	}
 }
