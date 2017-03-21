@@ -3,7 +3,7 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.ter.CellularAutomaton.vue.CellularAutomatonSettingWindow;
+import com.ter.CellularAutomaton.vue.RulesEntryModeWindow;;
 
 public class CellularAutomatonSetting1DEvent implements ActionListener {
 
@@ -14,7 +14,7 @@ public class CellularAutomatonSetting1DEvent implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		CellularAutomatonSettingWindow window = new CellularAutomatonSettingWindow();
+		RulesEntryModeWindow window = new RulesEntryModeWindow();
 	}
 
 	

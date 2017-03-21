@@ -6,9 +6,12 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-public class RulesEntryModeWindow {
+public class RulesEntryModeWindow extends JFrame {
 
-	private JFrame m_frame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel m_mainPanel;
 	private JPanel m_panelElementary;
 	private JButton m_buttonElementary;
@@ -25,19 +28,18 @@ public class RulesEntryModeWindow {
 	 * Create the application.
 	 */
 	public RulesEntryModeWindow() {
+		this.setTitle("Rules entry mode");
+		this.setSize(450, 300);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		buildMainPanel();
+		this.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void buildMainPanel() {
-		m_frame = new JFrame();
-		m_frame.setTitle("Rules entry mode");
-		m_frame.setSize(450, 300);
-		m_frame.setLocationRelativeTo(null);
-		m_frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
 		buildPanelMain();//Build the main panel
 	}
 	
@@ -45,7 +47,7 @@ public class RulesEntryModeWindow {
 	//Build the main panel
 	private void buildPanelMain(){
 		m_mainPanel = new JPanel();
-		m_frame.getContentPane().add(m_mainPanel, BorderLayout.CENTER);
+		this.getContentPane().add(m_mainPanel, BorderLayout.CENTER);
 		m_mainPanel.setLayout(new BoxLayout(m_mainPanel, BoxLayout.Y_AXIS));
 		
 		buildComponentPanelMain();//Build the component of main panel
