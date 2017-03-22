@@ -28,7 +28,6 @@ public class RulesEntryModeElementaryEvent implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("huuuuuuuu");
 		this.m_window.dispose();
 		
 	}
