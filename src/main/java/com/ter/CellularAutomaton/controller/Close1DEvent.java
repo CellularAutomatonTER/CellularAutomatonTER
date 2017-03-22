@@ -9,7 +9,7 @@ public class Close1DEvent implements ActionListener {
 
 
 	/******ATTRIBUTES******/
-	MainWindow1D window;
+	private MainWindow1D window;
 	
 	
 	/**

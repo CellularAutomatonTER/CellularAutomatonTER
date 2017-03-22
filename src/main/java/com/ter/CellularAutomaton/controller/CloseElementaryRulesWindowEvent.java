@@ -9,7 +9,7 @@ public class CloseElementaryRulesWindowEvent implements ActionListener {
 
 
 	/******ATTRIBUTES******/
-	ElementaryRulesWindow window;
+	private ElementaryRulesWindow window;
 	
 	
 	/**

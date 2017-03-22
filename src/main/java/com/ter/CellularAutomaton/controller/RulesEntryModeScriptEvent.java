@@ -9,7 +9,8 @@ public class RulesEntryModeScriptEvent implements ActionListener {
 
 
 	/******ATTRIBUTES******/
-	RulesEntryModeWindow m_window;
+	private RulesEntryModeWindow m_window;
+	
 	
 	
 	/**
@@ -29,7 +30,6 @@ public class RulesEntryModeScriptEvent implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.m_window.dispose();
-		
 	}
 
 	

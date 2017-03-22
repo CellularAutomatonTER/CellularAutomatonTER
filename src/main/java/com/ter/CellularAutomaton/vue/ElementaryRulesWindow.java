@@ -1,7 +1,5 @@
 package com.ter.CellularAutomaton.vue;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -40,6 +38,8 @@ public class ElementaryRulesWindow extends JFrame {
 		buildComponentWindow();//Build component of window
 		
 		this.initMenuBar();//We initialize our menuBar
+		
+		this.addListenerMenuBar();//We initialize Listener of menuBar
 		
 		//Set the window visible
 		this.setVisible(true);
