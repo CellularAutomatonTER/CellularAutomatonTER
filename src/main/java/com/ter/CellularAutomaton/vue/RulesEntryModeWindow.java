@@ -2,6 +2,9 @@ package com.ter.CellularAutomaton.vue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.ter.CellularAutomaton.controller.QuitEvent;
+
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -32,14 +35,19 @@ public class RulesEntryModeWindow extends JFrame {
 		this.setSize(450, 300);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		buildMainPanel();
+		
+		addListenerOnWindow ();
+		
+		buildComponentWindow();//Build component of window
+		
 		this.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void buildMainPanel() {
+	//Build component of window
+	private void buildComponentWindow() {
 		buildPanelMain();//Build the main panel
 	}
 	
@@ -127,5 +135,34 @@ public class RulesEntryModeWindow extends JFrame {
 		m_buttonScript = new JButton("Script");
 		m_panelScript.add(m_buttonScript, BorderLayout.CENTER);
 	}
+	
+	/******Add Listeners on window******/
+	private void addListenerOnWindow (){
+		this.addListenerButtonElementary ();//Add Listener on button m_buttonElementary
+		this.addListenerButtonAdditive ();//Add Listener on button m_buttonAdditive
+		this.addListenerButtonPattern ();//Add Listener on button m_buttonPattern
+		this.addListenerButtonScript ();//Add Listener on button m_buttonScript
+		
+	}
+	
+	//Listener on button m_buttonElementary
+	private void addListenerButtonElementary (){
+		
+	}
+	
+	//Listener on button m_buttonAdditive
+		private void addListenerButtonAdditive (){
+			
+		}
+		
+		//Listener on button m_buttonPattern
+		private void addListenerButtonPattern (){
+			
+		}
+		
+		//Listener on button m_buttonElementary
+		private void addListenerButtonScript (){
+			
+		}
 
 }
