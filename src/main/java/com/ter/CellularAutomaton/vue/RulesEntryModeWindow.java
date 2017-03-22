@@ -3,7 +3,7 @@ package com.ter.CellularAutomaton.vue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.ter.CellularAutomaton.controller.QuitEvent;
+import com.ter.CellularAutomaton.controller.RulesEntryModeElementaryEvent;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
@@ -36,9 +36,9 @@ public class RulesEntryModeWindow extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		addListenerOnWindow ();
-		
 		buildComponentWindow();//Build component of window
+		
+		addListenerOnWindow ();//Add Listener on window
 		
 		this.setVisible(true);
 	}
@@ -147,7 +147,7 @@ public class RulesEntryModeWindow extends JFrame {
 	
 	//Listener on button m_buttonElementary
 	private void addListenerButtonElementary (){
-		
+		m_buttonElementary.addActionListener(new RulesEntryModeElementaryEvent(this));
 	}
 	
 	//Listener on button m_buttonAdditive
