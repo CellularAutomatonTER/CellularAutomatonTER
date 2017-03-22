@@ -37,7 +37,7 @@ public class ElementaryRulesWindow extends JFrame {
 	 */
 	public ElementaryRulesWindow() {
 		
-		buildComponentWindow();//Buil component of window
+		buildComponentWindow();//Build component of window
 		
 		this.initMenuBar();//We initialize our menuBar
 		
