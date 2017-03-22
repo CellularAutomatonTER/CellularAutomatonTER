@@ -1,9 +1,12 @@
 package com.ter.CellularAutomaton.vue;
 
+import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
@@ -37,6 +40,8 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		buildComponentWindow();//Build component of window
 		
+		this.initMenuMnemonic();//Set mnemonic of the MenuBar
+		
 		this.initMenuBar();//We initialize our menuBar
 		
 		this.addListenerMenuBar();//We initialize Listener of menuBar
@@ -65,6 +70,8 @@ public class ElementaryRulesWindow extends JFrame {
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
 		this.setJMenuBar(m_menuBar);//the MenuBar tab is added to Window
+		
+		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
 	
 	/**
@@ -77,6 +84,30 @@ public class ElementaryRulesWindow extends JFrame {
 		this.m_menuBar.add(m_menuFile);//the File tab is added to MenuBar
 	}
 	
+	
+	/******Mnemonic******/
+	/**
+	 * Inits the menu mnemonic.
+	 */
+	private void initMenuMnemonic(){
+		//add all the mnémonic for the MenuBar
+		m_menuFile.setMnemonic('F');
+	}
+	
+	/******Accelerator******/
+	/**
+	 * *Init the accelerators**.
+	 */
+	private void initAcceleratorMenuBar(){
+		//add all the accelerators for the items
+		this.initAcceleratorFile(); //accelerator of tab File
+	}
+	
+	private void initAcceleratorFile(){
+		//add all the accelerators for the items of tab File
+		m_menuBarFileItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
+		m_menuBarFileItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
+	}
 	
 	/******Listeners MenuBar******/
 	//add listeners MenuBar
