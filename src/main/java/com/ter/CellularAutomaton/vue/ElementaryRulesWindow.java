@@ -79,11 +79,12 @@ public class ElementaryRulesWindow extends JFrame {
 	
 	
 	/******Listeners MenuBar******/
-
+	//add listeners MenuBar
 	private void addListenerMenuBar (){
 		this.addListenerFile(); //add listener of tab File
 	}
 
+	//add listeners for tab File in MenuBar
 	private void addListenerFile (){
 		m_menuBarFileItem1.addActionListener(new CloseElementaryRulesWindowEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
