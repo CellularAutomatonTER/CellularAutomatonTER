@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.ter.CellularAutomaton.controller.RulesEntryModeElementaryEvent;
+import com.ter.CellularAutomaton.controller.RulesEntryModePatternEvent;
+import com.ter.CellularAutomaton.controller.RulesEntryModeScriptEvent;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
@@ -152,17 +154,17 @@ public class RulesEntryModeWindow extends JFrame {
 	
 	//Listener on button m_buttonAdditive
 		private void addListenerButtonAdditive (){
-			
+			m_buttonAdditive.addActionListener(new RulesEntryModeElementaryEvent(this));
 		}
 		
 		//Listener on button m_buttonPattern
 		private void addListenerButtonPattern (){
-			
+			m_buttonPattern.addActionListener(new RulesEntryModePatternEvent(this));
 		}
 		
 		//Listener on button m_buttonElementary
 		private void addListenerButtonScript (){
-			
+			m_buttonScript.addActionListener(new RulesEntryModeScriptEvent(this));
 		}
 
 }
