@@ -26,6 +26,9 @@ import java.awt.Font;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JFormattedTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
 
 public class ElementaryRulesWindow extends JFrame {
 
@@ -47,9 +50,6 @@ public class ElementaryRulesWindow extends JFrame {
 
 	/** The menu bar file item 2. */
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
-	
-	/** Component of window */
-	private final JPanel panel = new JPanel();
 	private final JPanel panel_1 = new JPanel();
 	private final JButton btnReset = new JButton("Reset");
 	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Set Actual Setting By Default");
@@ -57,8 +57,6 @@ public class ElementaryRulesWindow extends JFrame {
 	private final Component rigidArea = Box.createRigidArea(new Dimension(80, 20));
 	private final Component rigidArea_1 = Box.createRigidArea(new Dimension(80, 20));
 	private final JPanel panel_2 = new JPanel();
-	private final JPanel panel_3 = new JPanel();
-	private final JPanel panel_4 = new JPanel();
 
 
 	/**
@@ -98,11 +96,7 @@ public class ElementaryRulesWindow extends JFrame {
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
 		this.setJMenuBar(m_menuBar);
-		
-		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
-		
-		panel.add(panel_1, BorderLayout.SOUTH);
+		getContentPane().add(panel_1, BorderLayout.SOUTH);
 		
 		panel_1.add(btnReset);
 		
@@ -113,44 +107,17 @@ public class ElementaryRulesWindow extends JFrame {
 		panel_1.add(rigidArea_1);
 		
 		panel_1.add(btnOk);
-		
-		panel.add(panel_2, BorderLayout.CENTER);
-		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.Y_AXIS));
-		
-		panel_2.add(panel_3);
-		
-		JLabel lblAlphabet = new JLabel("Alphabet (0 to ?):");
-		 // new font size is 10
-		lblAlphabet.setFont(new Font(lblAlphabet.getFont().getName(), lblAlphabet.getFont().getStyle(), 20));
-		
-		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
-		gl_panel_3.setHorizontalGroup(
-			gl_panel_3.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_3.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblAlphabet)
-					.addContainerGap(408, Short.MAX_VALUE))
-		);
-		gl_panel_3.setVerticalGroup(
-			gl_panel_3.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_3.createSequentialGroup()
-					.addGap(58)
-					.addComponent(lblAlphabet)
-					.addContainerGap(60, Short.MAX_VALUE))
-		);
-		panel_3.setLayout(gl_panel_3);
-		
-		panel_2.add(panel_4);
-		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
-		gl_panel_4.setHorizontalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
+		getContentPane().add(panel_5, BorderLayout.CENTER);
+		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
+		gl_panel_5.setHorizontalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 464, Short.MAX_VALUE)
 		);
-		gl_panel_4.setVerticalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 59, Short.MAX_VALUE)
+		gl_panel_5.setVerticalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 217, Short.MAX_VALUE)
 		);
-		panel_4.setLayout(gl_panel_4);
+		panel_5.setLayout(gl_panel_5);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
