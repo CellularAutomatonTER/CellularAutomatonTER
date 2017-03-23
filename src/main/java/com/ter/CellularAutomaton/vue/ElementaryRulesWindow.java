@@ -60,7 +60,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField m_formattedTextFieldAlphabet = new JFormattedTextField();
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
-	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
+	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 
 
@@ -156,7 +156,7 @@ public class ElementaryRulesWindow extends JFrame {
 							.addContainerGap()
 							.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_panel_5.setVerticalGroup(
@@ -172,7 +172,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGap(33)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-						.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+						.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
 					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
