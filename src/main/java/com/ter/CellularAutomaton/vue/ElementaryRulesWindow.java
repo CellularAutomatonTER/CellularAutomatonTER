@@ -53,10 +53,10 @@ public class ElementaryRulesWindow extends JFrame {
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
 	
 	/** Component of window */
-	private final JPanel panel_1 = new JPanel();
+	private final JPanel m_panelControl = new JPanel();
 	private final JButton btnReset = new JButton("Reset");
 	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
-	private final JPanel panel_2 = new JPanel();
+	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel label = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField formattedTextField = new JFormattedTextField();
 	private final JLabel label_1 = new JLabel("Rules (0 to 255):");
@@ -101,8 +101,8 @@ public class ElementaryRulesWindow extends JFrame {
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
 		this.setJMenuBar(m_menuBar);
-		getContentPane().add(panel_1, BorderLayout.SOUTH);
-		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		getContentPane().add(m_panelControl, BorderLayout.SOUTH);
+		GroupLayout gl_panel_1 = new GroupLayout(m_panelControl);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
@@ -124,12 +124,12 @@ public class ElementaryRulesWindow extends JFrame {
 						.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		panel_1.setLayout(gl_panel_1);
+		m_panelControl.setLayout(gl_panel_1);
 		
 		label.setFont(new Font(label.getFont().getName(), label.getFont().getStyle(), 15));// new font size is 15
 		label_1.setFont(new Font(label_1.getFont().getName(), label_1.getFont().getStyle(), 15));// new font size is 15
 		
-		getContentPane().add(panel_2, BorderLayout.CENTER);
+		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
 		
 		JSeparator separator = new JSeparator();
 		
@@ -138,7 +138,7 @@ public class ElementaryRulesWindow extends JFrame {
 		JButton btnNewButton = new JButton("Personalize");
 		
 		
-		GroupLayout gl_panel_5 = new GroupLayout(panel_2);
+		GroupLayout gl_panel_5 = new GroupLayout(m_panelRulesSetting);
 		gl_panel_5.setHorizontalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_5.createSequentialGroup()
@@ -176,7 +176,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
 					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
-		panel_2.setLayout(gl_panel_5);
+		m_panelRulesSetting.setLayout(gl_panel_5);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
