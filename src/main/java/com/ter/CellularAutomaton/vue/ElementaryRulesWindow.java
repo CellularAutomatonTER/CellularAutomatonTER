@@ -59,7 +59,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField formattedTextField = new JFormattedTextField();
-	private final JLabel label_1 = new JLabel("Rules (0 to 255):");
+	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
 	private final JButton btnOk = new JButton("OK");
 
@@ -127,7 +127,7 @@ public class ElementaryRulesWindow extends JFrame {
 		m_panelControl.setLayout(gl_panel_1);
 		
 		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
-		label_1.setFont(new Font(label_1.getFont().getName(), label_1.getFont().getStyle(), 15));// new font size is 15
+		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
 		
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
 		
@@ -154,7 +154,7 @@ public class ElementaryRulesWindow extends JFrame {
 							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_5.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+							.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -171,7 +171,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(33)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
 					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
