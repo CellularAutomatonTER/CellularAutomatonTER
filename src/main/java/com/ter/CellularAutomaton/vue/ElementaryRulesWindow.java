@@ -121,25 +121,32 @@ public class ElementaryRulesWindow extends JFrame {
 		JSeparator separator = new JSeparator();
 		
 		JSeparator separator_1 = new JSeparator();
+		
+		JButton btnNewButton = new JButton("Personalize");
+		
+		
 		GroupLayout gl_panel_5 = new GroupLayout(panel_2);
 		gl_panel_5.setHorizontalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_5.createSequentialGroup()
-					.addGroup(gl_panel_5.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(separator_1, Alignment.LEADING)
-						.addGroup(Alignment.LEADING, gl_panel_5.createSequentialGroup()
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel_5.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel_5.createSequentialGroup()
 									.addComponent(label, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
+									.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
+									.addGap(53)
+									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_panel_5.createSequentialGroup()
 									.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))))
-						.addComponent(separator, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
-					.addContainerGap(0, Short.MAX_VALUE))
+									.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
+							.addGap(9549))
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_panel_5.setVerticalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
@@ -147,14 +154,15 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGap(41)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label)
-						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
 					.addGap(30)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(26)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
 					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		panel_2.setLayout(gl_panel_5);
