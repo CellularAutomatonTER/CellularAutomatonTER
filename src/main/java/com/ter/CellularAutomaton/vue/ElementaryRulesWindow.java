@@ -7,11 +7,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import javax.swing.border.LineBorder;
 
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -19,6 +22,10 @@ import javax.swing.JCheckBox;
 import javax.swing.Box;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 
 public class ElementaryRulesWindow extends JFrame {
 
@@ -40,6 +47,8 @@ public class ElementaryRulesWindow extends JFrame {
 
 	/** The menu bar file item 2. */
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
+	
+	/** Component of window */
 	private final JPanel panel = new JPanel();
 	private final JPanel panel_1 = new JPanel();
 	private final JButton btnReset = new JButton("Reset");
@@ -47,6 +56,9 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JButton btnOk = new JButton("OK");
 	private final Component rigidArea = Box.createRigidArea(new Dimension(80, 20));
 	private final Component rigidArea_1 = Box.createRigidArea(new Dimension(80, 20));
+	private final JPanel panel_2 = new JPanel();
+	private final JPanel panel_3 = new JPanel();
+	private final JPanel panel_4 = new JPanel();
 
 
 	/**
@@ -102,6 +114,44 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		panel_1.add(btnOk);
 		
+		panel.add(panel_2, BorderLayout.CENTER);
+		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.Y_AXIS));
+		
+		panel_2.add(panel_3);
+		
+		JLabel lblAlphabet = new JLabel("Alphabet (0 to ?):");
+		 // new font size is 10
+		lblAlphabet.setFont(new Font(lblAlphabet.getFont().getName(), lblAlphabet.getFont().getStyle(), 20));
+		
+		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
+		gl_panel_3.setHorizontalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblAlphabet)
+					.addContainerGap(408, Short.MAX_VALUE))
+		);
+		gl_panel_3.setVerticalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addGap(58)
+					.addComponent(lblAlphabet)
+					.addContainerGap(60, Short.MAX_VALUE))
+		);
+		panel_3.setLayout(gl_panel_3);
+		
+		panel_2.add(panel_4);
+		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
+		gl_panel_4.setHorizontalGroup(
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 464, Short.MAX_VALUE)
+		);
+		gl_panel_4.setVerticalGroup(
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 59, Short.MAX_VALUE)
+		);
+		panel_4.setLayout(gl_panel_4);
+		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
 	
@@ -151,5 +201,4 @@ public class ElementaryRulesWindow extends JFrame {
 		m_menuBarFileItem1.addActionListener(new CloseElementaryRulesWindowEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
 	}
-
 }

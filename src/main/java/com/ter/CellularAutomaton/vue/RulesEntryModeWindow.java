@@ -3,6 +3,7 @@ package com.ter.CellularAutomaton.vue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ter.CellularAutomaton.controller.RulesEntryModeAdditiveEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeElementaryEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModePatternEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeScriptEvent;
@@ -154,7 +155,7 @@ public class RulesEntryModeWindow extends JFrame {
 	
 	//Listener on button m_buttonAdditive
 		private void addListenerButtonAdditive (){
-			m_buttonAdditive.addActionListener(new RulesEntryModeElementaryEvent(this));
+			m_buttonAdditive.addActionListener(new RulesEntryModeAdditiveEvent(this));
 		}
 		
 		//Listener on button m_buttonPattern
