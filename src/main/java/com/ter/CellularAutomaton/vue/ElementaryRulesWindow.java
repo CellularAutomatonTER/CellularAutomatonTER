@@ -51,6 +51,8 @@ public class ElementaryRulesWindow extends JFrame {
 
 	/** The menu bar file item 2. */
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
+	
+	/** Component of window */
 	private final JPanel panel_1 = new JPanel();
 	private final JButton btnReset = new JButton("Reset");
 	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
