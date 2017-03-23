@@ -28,6 +28,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JSeparator;
 
 
 public class ElementaryRulesWindow extends JFrame {
@@ -116,21 +117,29 @@ public class ElementaryRulesWindow extends JFrame {
 		label_1.setFont(new Font(label_1.getFont().getName(), label_1.getFont().getStyle(), 15));// new font size is 15
 		
 		getContentPane().add(panel_2, BorderLayout.CENTER);
+		
+		JSeparator separator = new JSeparator();
+		
+		JSeparator separator_1 = new JSeparator();
 		GroupLayout gl_panel_5 = new GroupLayout(panel_2);
 		gl_panel_5.setHorizontalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_5.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_5.createSequentialGroup()
-							.addComponent(label, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel_5.createSequentialGroup()
-							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(186, Short.MAX_VALUE))
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(separator_1, Alignment.LEADING)
+						.addGroup(Alignment.LEADING, gl_panel_5.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel_5.createSequentialGroup()
+									.addComponent(label, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_panel_5.createSequentialGroup()
+									.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))))
+						.addComponent(separator, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+					.addContainerGap(0, Short.MAX_VALUE))
 		);
 		gl_panel_5.setVerticalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
@@ -139,11 +148,14 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label)
 						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addGap(58)
+					.addGap(30)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(55, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		panel_2.setLayout(gl_panel_5);
 		
