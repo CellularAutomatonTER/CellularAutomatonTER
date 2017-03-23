@@ -102,7 +102,7 @@ public class ElementaryRulesWindow extends JFrame {
 		this.setJMenuBar(m_menuBar);
 		getContentPane().add(m_panelControl, BorderLayout.SOUTH);
 		
-		buildGroupLayoutPanelControl();
+		buildGroupLayoutPanelControl();//Set Layout for Panel Control
 		
 		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
 		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
