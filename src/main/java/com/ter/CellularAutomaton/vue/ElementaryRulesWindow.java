@@ -61,7 +61,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JFormattedTextField formattedTextField = new JFormattedTextField();
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-	private final JButton btnOk = new JButton("OK");
+	private final JButton m_buttonOk = new JButton("OK");
 
 
 	/**
@@ -111,7 +111,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGap(32)
 					.addComponent(chckbxNewCheckBox)
 					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-					.addComponent(btnOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		gl_panel_1.setVerticalGroup(
@@ -120,7 +120,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGap(5)
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
 						.addComponent(chckbxNewCheckBox)
-						.addComponent(btnOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
