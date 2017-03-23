@@ -57,7 +57,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JButton m_buttonReset = new JButton("Reset");
 	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
 	private final JPanel m_panelRulesSetting = new JPanel();
-	private final JLabel label = new JLabel("Alphabet (0 to ?):");
+	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField formattedTextField = new JFormattedTextField();
 	private final JLabel label_1 = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
@@ -126,7 +126,7 @@ public class ElementaryRulesWindow extends JFrame {
 		);
 		m_panelControl.setLayout(gl_panel_1);
 		
-		label.setFont(new Font(label.getFont().getName(), label.getFont().getStyle(), 15));// new font size is 15
+		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
 		label_1.setFont(new Font(label_1.getFont().getName(), label_1.getFont().getStyle(), 15));// new font size is 15
 		
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
@@ -147,7 +147,7 @@ public class ElementaryRulesWindow extends JFrame {
 						.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 10000, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel_5.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(label, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+							.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
 							.addGap(33)
@@ -164,7 +164,7 @@ public class ElementaryRulesWindow extends JFrame {
 				.addGroup(gl_panel_5.createSequentialGroup()
 					.addGap(32)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label)
+						.addComponent(m_labelAlphabet)
 						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNewButton))
 					.addGap(39)
