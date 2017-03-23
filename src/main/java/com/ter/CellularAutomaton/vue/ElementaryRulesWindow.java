@@ -58,7 +58,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
-	private final JFormattedTextField formattedTextField = new JFormattedTextField();
+	private final JFormattedTextField m_formattedTextFieldAlphabet = new JFormattedTextField();
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
@@ -149,7 +149,7 @@ public class ElementaryRulesWindow extends JFrame {
 							.addContainerGap()
 							.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
+							.addComponent(m_formattedTextFieldAlphabet, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
 							.addGap(33)
 							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel_5.createSequentialGroup()
@@ -165,7 +165,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGap(32)
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
 						.addComponent(m_labelAlphabet)
-						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_formattedTextFieldAlphabet, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNewButton))
 					.addGap(39)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
