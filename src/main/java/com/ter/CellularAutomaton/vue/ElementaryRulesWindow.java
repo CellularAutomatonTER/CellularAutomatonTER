@@ -53,7 +53,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
 	private final JPanel panel_1 = new JPanel();
 	private final JButton btnReset = new JButton("Reset");
-	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Set Actual Setting By Default");
+	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
 	private final JPanel panel_2 = new JPanel();
 	private final JLabel label = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField formattedTextField = new JFormattedTextField();
