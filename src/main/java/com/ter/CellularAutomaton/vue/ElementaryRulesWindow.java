@@ -62,6 +62,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
+	private JSeparator separator;
 
 
 	/**
@@ -131,7 +132,7 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
 		
-		JSeparator separator = new JSeparator();
+		separator = new JSeparator();
 		
 		JSeparator separator_1 = new JSeparator();
 		
