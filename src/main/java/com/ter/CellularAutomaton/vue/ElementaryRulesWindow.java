@@ -10,6 +10,15 @@ import javax.swing.KeyStroke;
 
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.Box;
+import java.awt.Component;
+import java.awt.Dimension;
 
 public class ElementaryRulesWindow extends JFrame {
 
@@ -31,6 +40,13 @@ public class ElementaryRulesWindow extends JFrame {
 
 	/** The menu bar file item 2. */
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
+	private final JPanel panel = new JPanel();
+	private final JPanel panel_1 = new JPanel();
+	private final JButton btnReset = new JButton("Reset");
+	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Set Actual Setting By Default");
+	private final JButton btnOk = new JButton("OK");
+	private final Component rigidArea = Box.createRigidArea(new Dimension(80, 20));
+	private final Component rigidArea_1 = Box.createRigidArea(new Dimension(80, 20));
 
 
 	/**
@@ -69,7 +85,22 @@ public class ElementaryRulesWindow extends JFrame {
 		//We initialize our menuBar 
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
-		this.setJMenuBar(m_menuBar);//the MenuBar tab is added to Window
+		this.setJMenuBar(m_menuBar);
+		
+		getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		panel.add(panel_1, BorderLayout.SOUTH);
+		
+		panel_1.add(btnReset);
+		
+		panel_1.add(rigidArea);
+		
+		panel_1.add(chckbxNewCheckBox);
+		
+		panel_1.add(rigidArea_1);
+		
+		panel_1.add(btnOk);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
