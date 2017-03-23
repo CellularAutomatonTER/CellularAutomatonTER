@@ -57,6 +57,10 @@ public class ElementaryRulesWindow extends JFrame {
 	private final Component rigidArea = Box.createRigidArea(new Dimension(80, 20));
 	private final Component rigidArea_1 = Box.createRigidArea(new Dimension(80, 20));
 	private final JPanel panel_2 = new JPanel();
+	private final JLabel label = new JLabel("Alphabet (0 to ?):");
+	private final JFormattedTextField formattedTextField = new JFormattedTextField();
+	private final JLabel label_1 = new JLabel("Rules (0 to 255):");
+	private final JFormattedTextField formattedTextField_1 = new JFormattedTextField();
 
 
 	/**
@@ -107,15 +111,39 @@ public class ElementaryRulesWindow extends JFrame {
 		panel_1.add(rigidArea_1);
 		
 		panel_1.add(btnOk);
+		
+		label.setFont(new Font(label.getFont().getName(), label.getFont().getStyle(), 15));// new font size is 15
+		label_1.setFont(new Font(label_1.getFont().getName(), label_1.getFont().getStyle(), 15));// new font size is 15
+		
 		getContentPane().add(panel_2, BorderLayout.CENTER);
 		GroupLayout gl_panel_5 = new GroupLayout(panel_2);
 		gl_panel_5.setHorizontalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 464, Short.MAX_VALUE)
+				.addGroup(gl_panel_5.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_5.createSequentialGroup()
+							.addComponent(label, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_5.createSequentialGroup()
+							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(186, Short.MAX_VALUE))
 		);
 		gl_panel_5.setVerticalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 217, Short.MAX_VALUE)
+				.addGroup(gl_panel_5.createSequentialGroup()
+					.addGap(41)
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label)
+						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+					.addGap(58)
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+						.addComponent(formattedTextField_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(55, Short.MAX_VALUE))
 		);
 		panel_2.setLayout(gl_panel_5);
 		
