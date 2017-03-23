@@ -89,7 +89,7 @@ public class ElementaryRulesWindow extends JFrame {
 		this.setTitle("Elementary Rules Window");//Set the title of window
 		this.setSize(470,320);//Set size of window
 		this.setLocationRelativeTo(null);//Center the location of window
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
 	}
 	
 	/**
