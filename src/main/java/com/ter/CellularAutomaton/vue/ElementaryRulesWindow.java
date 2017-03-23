@@ -55,7 +55,7 @@ public class ElementaryRulesWindow extends JFrame {
 	/** Component of window */
 	private final JPanel m_panelControl = new JPanel();
 	private final JButton m_buttonReset = new JButton("Reset");
-	private final JCheckBox chckbxNewCheckBox = new JCheckBox("Remember this setting");
+	private final JCheckBox m_CheckBoxRememberSetting = new JCheckBox("Remember this setting");
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField m_formattedTextFieldAlphabet = new JFormattedTextField();
@@ -109,7 +109,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addContainerGap()
 					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
 					.addGap(32)
-					.addComponent(chckbxNewCheckBox)
+					.addComponent(m_CheckBoxRememberSetting)
 					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
 					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
@@ -119,7 +119,7 @@ public class ElementaryRulesWindow extends JFrame {
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addGap(5)
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-						.addComponent(chckbxNewCheckBox)
+						.addComponent(m_CheckBoxRememberSetting)
 						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
