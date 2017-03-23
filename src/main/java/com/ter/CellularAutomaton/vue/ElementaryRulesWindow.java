@@ -63,7 +63,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 	private JSeparator m_separatorBetweenAlphabetAndRules;
-	private JSeparator separator_1;
+	private JSeparator m_separatorBetweenRulesAndPanelControl;
 
 
 	/**
@@ -135,7 +135,7 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		m_separatorBetweenAlphabetAndRules = new JSeparator();
 		
-		separator_1 = new JSeparator();
+		m_separatorBetweenRulesAndPanelControl = new JSeparator();
 		
 		JButton btnNewButton = new JButton("Personalize");
 		
@@ -146,7 +146,7 @@ public class ElementaryRulesWindow extends JFrame {
 				.addGroup(gl_panel_5.createSequentialGroup()
 					.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
 						.addComponent(m_separatorBetweenAlphabetAndRules, GroupLayout.PREFERRED_SIZE, 10000, GroupLayout.PREFERRED_SIZE)
-						.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 10000, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.PREFERRED_SIZE, 10000, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel_5.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
@@ -176,7 +176,7 @@ public class ElementaryRulesWindow extends JFrame {
 						.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		m_panelRulesSetting.setLayout(gl_panel_5);
 		
