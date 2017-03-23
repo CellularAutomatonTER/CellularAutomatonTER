@@ -91,8 +91,6 @@ public class ElementaryRulesWindow extends JFrame {
 		this.setSize(470,320);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
-		
 	}
 	
 	/**
