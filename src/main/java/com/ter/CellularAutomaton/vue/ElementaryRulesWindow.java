@@ -107,8 +107,8 @@ public class ElementaryRulesWindow extends JFrame {
 		panel_1.add(rigidArea_1);
 		
 		panel_1.add(btnOk);
-		getContentPane().add(panel_5, BorderLayout.CENTER);
-		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
+		getContentPane().add(panel_2, BorderLayout.CENTER);
+		GroupLayout gl_panel_5 = new GroupLayout(panel_2);
 		gl_panel_5.setHorizontalGroup(
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 464, Short.MAX_VALUE)
@@ -117,7 +117,7 @@ public class ElementaryRulesWindow extends JFrame {
 			gl_panel_5.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 217, Short.MAX_VALUE)
 		);
-		panel_5.setLayout(gl_panel_5);
+		panel_2.setLayout(gl_panel_5);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
