@@ -79,7 +79,6 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		this.addListenerMenuBar();//We initialize Listener of menuBar
 		
-		
 		this.setVisible(true);//Set the window visible
 	}
 
