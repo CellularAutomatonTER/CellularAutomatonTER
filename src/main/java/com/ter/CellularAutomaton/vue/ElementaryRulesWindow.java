@@ -63,6 +63,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 	private JSeparator separator;
+	private JSeparator separator_1;
 
 
 	/**
@@ -134,7 +135,7 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		separator = new JSeparator();
 		
-		JSeparator separator_1 = new JSeparator();
+		separator_1 = new JSeparator();
 		
 		JButton btnNewButton = new JButton("Personalize");
 		
