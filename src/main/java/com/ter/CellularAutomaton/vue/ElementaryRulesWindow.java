@@ -101,29 +101,8 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		this.setJMenuBar(m_menuBar);
 		getContentPane().add(m_panelControl, BorderLayout.SOUTH);
-		GroupLayout gl_panelControl = new GroupLayout(m_panelControl);
-		gl_panelControl.setHorizontalGroup(
-			gl_panelControl.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelControl.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-					.addGap(32)
-					.addComponent(m_CheckBoxRememberSetting)
-					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		gl_panelControl.setVerticalGroup(
-			gl_panelControl.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelControl.createSequentialGroup()
-					.addGap(5)
-					.addGroup(gl_panelControl.createParallelGroup(Alignment.BASELINE)
-						.addComponent(m_CheckBoxRememberSetting)
-						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		m_panelControl.setLayout(gl_panelControl);
+		
+		buildGroupLayoutPanelControl();
 		
 		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
 		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
@@ -178,6 +157,32 @@ public class ElementaryRulesWindow extends JFrame {
 		m_panelRulesSetting.setLayout(gl_panelRulesSetting);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
+	}
+	
+	private void buildGroupLayoutPanelControl(){
+		GroupLayout gl_panelControl = new GroupLayout(m_panelControl);
+		gl_panelControl.setHorizontalGroup(
+			gl_panelControl.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelControl.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+					.addGap(32)
+					.addComponent(m_CheckBoxRememberSetting)
+					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		gl_panelControl.setVerticalGroup(
+			gl_panelControl.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelControl.createSequentialGroup()
+					.addGap(5)
+					.addGroup(gl_panelControl.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_CheckBoxRememberSetting)
+						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		m_panelControl.setLayout(gl_panelControl);
 	}
 	
 	/**
