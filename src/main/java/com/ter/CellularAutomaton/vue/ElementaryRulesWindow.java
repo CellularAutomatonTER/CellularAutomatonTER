@@ -86,7 +86,7 @@ public class ElementaryRulesWindow extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void buildComponentWindow() {
-		this.setTitle("Elementary Rules Window");
+		this.setTitle("Elementary Rules Window");//Set the title of window
 		this.setSize(470,320);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
