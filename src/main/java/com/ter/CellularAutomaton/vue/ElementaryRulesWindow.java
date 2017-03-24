@@ -111,13 +111,9 @@ public class ElementaryRulesWindow extends JFrame {
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
 		
 		m_separatorBetweenAlphabetAndRules = new JSeparator();
-		
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();
 		
-		
-		
 		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
-		
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
