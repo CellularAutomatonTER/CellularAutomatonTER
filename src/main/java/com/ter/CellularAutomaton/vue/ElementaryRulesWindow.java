@@ -111,7 +111,7 @@ public class ElementaryRulesWindow extends JFrame {
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
 		
 		m_separatorBetweenAlphabetAndRules = new JSeparator();//Set separator between alphabet and rules
-		m_separatorBetweenRulesAndPanelControl = new JSeparator();
+		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
 		
 		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 		
