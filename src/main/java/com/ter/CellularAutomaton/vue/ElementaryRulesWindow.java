@@ -62,6 +62,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
+	private final JButton btnNewButton = new JButton("Personalize");
 	private JSeparator m_separatorBetweenAlphabetAndRules;
 	private JSeparator m_separatorBetweenRulesAndPanelControl;
 
@@ -113,7 +114,7 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();
 		
-		JButton btnNewButton = new JButton("Personalize");
+		
 		
 		
 		GroupLayout gl_panelRulesSetting = new GroupLayout(m_panelRulesSetting);
@@ -157,6 +158,10 @@ public class ElementaryRulesWindow extends JFrame {
 		m_panelRulesSetting.setLayout(gl_panelRulesSetting);
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
+	}
+	
+	private void buildGroupLayoutPanelRulesSetting(){
+		
 	}
 	
 	private void buildGroupLayoutPanelControl(){
