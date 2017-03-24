@@ -94,8 +94,6 @@ public class ElementaryRulesWindow extends JFrame {
 	}
 	
 	
-	
-	
 	/******GroupLayout******/
 	/**
 	 * GroupLayout of Panel RulesSetting.
