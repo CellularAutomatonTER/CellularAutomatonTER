@@ -19,12 +19,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.Box;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
 
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
