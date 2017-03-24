@@ -109,7 +109,7 @@ public class ElementaryRulesWindow extends JFrame {
 		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
 		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
 		
-		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);
+		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in SOUTH
 		
 		m_separatorBetweenAlphabetAndRules = new JSeparator();//Set separator between alphabet and rules
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
