@@ -167,6 +167,7 @@ public class ElementaryRulesWindow extends JFrame {
 	}
 	
 	
+	/******Menu bar******/
 	/**
 	 * Inits the menu bar.
 	 */
