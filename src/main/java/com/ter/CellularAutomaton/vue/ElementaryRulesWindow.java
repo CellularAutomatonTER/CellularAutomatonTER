@@ -119,6 +119,11 @@ public class ElementaryRulesWindow extends JFrame {
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
 	
+	
+	/******GroupLayout******/
+	/**
+	 * GroupLayout of Panel RulesSetting.
+	 */
 	private void buildGroupLayoutPanelRulesSetting(){
 		GroupLayout gl_panelRulesSetting = new GroupLayout(m_panelRulesSetting);
 		gl_panelRulesSetting.setHorizontalGroup(
@@ -161,6 +166,10 @@ public class ElementaryRulesWindow extends JFrame {
 		m_panelRulesSetting.setLayout(gl_panelRulesSetting);
 	}
 	
+
+	/**
+	 * GroupLayout of Panel Control.
+	 */
 	private void buildGroupLayoutPanelControl(){
 		GroupLayout gl_panelControl = new GroupLayout(m_panelControl);
 		gl_panelControl.setHorizontalGroup(
