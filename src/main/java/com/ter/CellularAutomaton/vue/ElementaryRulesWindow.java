@@ -116,7 +116,7 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		
 		
-		buildGroupLayoutPanelRulesSetting();
+		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 		
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
