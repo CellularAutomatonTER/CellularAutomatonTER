@@ -7,8 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
-import javax.swing.border.LineBorder;
-
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import javax.swing.JPanel;
