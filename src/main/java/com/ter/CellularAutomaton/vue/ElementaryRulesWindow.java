@@ -100,7 +100,7 @@ public class ElementaryRulesWindow extends JFrame {
 		//We initialize our menuBar 
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
-		this.setJMenuBar(m_menuBar);
+		this.setJMenuBar(m_menuBar);//Add menuBar to window
 		
 		getContentPane().add(m_panelControl, BorderLayout.SOUTH);//Set panel Control in SOUTH
 		
