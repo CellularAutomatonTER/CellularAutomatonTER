@@ -116,7 +116,13 @@ public class ElementaryRulesWindow extends JFrame {
 		
 		
 		
+		buildGroupLayoutPanelRulesSetting();
 		
+		
+		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
+	}
+	
+	private void buildGroupLayoutPanelRulesSetting(){
 		GroupLayout gl_panelRulesSetting = new GroupLayout(m_panelRulesSetting);
 		gl_panelRulesSetting.setHorizontalGroup(
 			gl_panelRulesSetting.createParallelGroup(Alignment.LEADING)
@@ -156,12 +162,6 @@ public class ElementaryRulesWindow extends JFrame {
 					.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		m_panelRulesSetting.setLayout(gl_panelRulesSetting);
-		
-		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
-	}
-	
-	private void buildGroupLayoutPanelRulesSetting(){
-		
 	}
 	
 	private void buildGroupLayoutPanelControl(){
