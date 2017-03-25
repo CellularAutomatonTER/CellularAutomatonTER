@@ -7,7 +7,7 @@ import com.ter.CellularAutomaton.controller.Cell;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules;
 import com.ter.CellularAutomaton.controller.IRules;
 
-public class Simulation {
+public class Simulation2D {
 	
     /******ATTRIBUTES******/
     private Cell[] [] m_matrixCells;//Matrix of cells
@@ -19,7 +19,7 @@ public class Simulation {
     private IInitializeSimulationRules m_initializeSimulationRule;//Type of initialization of the matrix of cells
 
     /******CONSTRUCTOR******/
-    public Simulation(int width, int height, IRules cellularAutomaton, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules initializeSimulationRule) {
+    public Simulation2D(int width, int height, IRules cellularAutomaton, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules initializeSimulationRule) {
         m_nbCellWidth = width/Cell.CELL_SIZE;
         m_nbCellHeight = height/Cell.CELL_SIZE;
         m_matrixCells = new Cell[m_nbCellWidth][m_nbCellHeight];//The simulator is a matrix of cell

@@ -25,7 +25,7 @@ public class InternalFrameSimulation2D extends JInternalFrame {
 	private int m_refreshRate; //Updates per seconde
 	private int m_millis;
 	private Screen m_screen;
-	private Simulation m_simulation;
+	private Simulation2D m_simulation;
 	private Color m_backgroundColor;
 
 	/******CONSTRUCTOR******/
@@ -35,7 +35,7 @@ public class InternalFrameSimulation2D extends JInternalFrame {
 		m_height = 600;
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
-		m_simulation = new Simulation(m_width, m_height, ruleOfCells, formOfCells, colorOfCells, initializeSimulationRule);
+		m_simulation = new Simulation2D(m_width, m_height, ruleOfCells, formOfCells, colorOfCells, initializeSimulationRule);
 		m_screen = new Screen();
 		m_backgroundColor=backgroundColor;
 		
@@ -51,7 +51,7 @@ public class InternalFrameSimulation2D extends JInternalFrame {
 	}
 	
 	/******GETTERS******/
-	public Simulation getm_simulation() {
+	public Simulation2D getm_simulation() {
 		return m_simulation;
 	}
 	

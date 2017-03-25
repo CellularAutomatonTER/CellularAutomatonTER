@@ -3,7 +3,7 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.*;
 
 import com.ter.CellularAutomaton.vue.IForm;
-import com.ter.CellularAutomaton.vue.Simulation;
+import com.ter.CellularAutomaton.vue.Simulation2D;
 
 public class Cell {
 	public static final int CELL_SIZE = 10;
@@ -55,7 +55,7 @@ public class Cell {
 		m_nbNeighbors++;
 	}
 	
-	public void countNeighbors(Simulation simulation) {
+	public void countNeighbors(Simulation2D simulation) {
         int xMinusOne = m_x - 1;
         if(xMinusOne < 0){
         	xMinusOne = simulation.getm_nbCellWidth()- 1;//The simulator becomes a TOR in width for left border
