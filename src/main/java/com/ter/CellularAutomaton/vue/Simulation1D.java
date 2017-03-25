@@ -67,7 +67,7 @@ public class Simulation1D {
     public void update() {
     	//For each cell
         for (int y = 0; y < m_nbCellHeight; y++) {
-        	for(int x = 0;x < m_nbCellWidth;x++) {
+        	for (int x = 0; x < m_nbCellWidth; x++) {
             	
             	m_matrixCells[x] [y].countNeighbors(this);//Count Neighbors
             	m_cellularAutomaton.applyRules(m_matrixCells[x] [y]);//Apply the rule of evolution
