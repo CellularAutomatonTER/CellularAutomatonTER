@@ -31,7 +31,7 @@ import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules;
 import com.ter.CellularAutomaton.controller.IRules;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DRandomly;
-import com.ter.CellularAutomaton.vue.InternalFrameSimulation;
+import com.ter.CellularAutomaton.vue.InternalFrameSimulation2D;
 import com.ter.CellularAutomaton.vue.RectangleForm;
 
 
@@ -230,7 +230,7 @@ public class MainWindow1D extends JFrame {
 	private JPanel m_panelBackgroundColor;
 	private GroupLayout m_GroupLayoutPanelBackgroundColor;
 	private JComboBox m_comboBoxBackgroundColor;
-	private InternalFrameSimulation m_internalFrameSimulation;
+	private InternalFrameSimulation2D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
 
@@ -272,7 +272,7 @@ public class MainWindow1D extends JFrame {
 
 	
 	/******GETTERS******/
-	public InternalFrameSimulation getm_internalFrameSimulation() {
+	public InternalFrameSimulation2D getm_internalFrameSimulation() {
 		return m_internalFrameSimulation;
 	}
 	
@@ -281,7 +281,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	/******SETTERS******/	
-	public void setm_internalFrameSimulation(InternalFrameSimulation internalFrame) {
+	public void setm_internalFrameSimulation(InternalFrameSimulation2D internalFrame) {
 		this.m_internalFrameSimulation = internalFrame;
 	}
 	
@@ -784,7 +784,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	public void buildInternalFrameSimulation(IRules ruleSimulation, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules initializeSimulationRule){
-		m_internalFrameSimulation = new InternalFrameSimulation("Simulation", ruleSimulation, formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
+		m_internalFrameSimulation = new InternalFrameSimulation2D("Simulation", ruleSimulation, formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 		m_internalFrameSimulation.setBounds(53, 11, 900, 530);
 		m_internalFrameSimulation.setVisible(true);
 		m_mainDesktopPane.setLayout(null);
