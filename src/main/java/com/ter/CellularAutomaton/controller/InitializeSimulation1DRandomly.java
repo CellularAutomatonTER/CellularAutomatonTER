@@ -5,17 +5,17 @@ import java.util.Random;
 
 import com.ter.CellularAutomaton.vue.IForm;
 
-public class InitializeSimulation1DRandomly implements IInitializeSimulationRules2D {
+public class InitializeSimulation1DRandomly implements IInitializeSimulationRules1D {
 
 	@Override
-	public void initializeSimulation(Cell2D[][] cells, int nbCellWidth, int nbCellHeight, IRules2D cellularAutomaton, IForm formOfCells, Color colorOfCells) {
+	public void initializeSimulation(Cell1D[][] cells, int nbCellWidth, int nbCellHeight, IRules1D cellularAutomaton, IForm formOfCells, Color colorOfCells) {
 		Random random = new Random();
 		for(int x = 0;x < nbCellWidth;x++) {
-                cells[x] [0] = new Cell2D(x, 0, random.nextBoolean(), cellularAutomaton, formOfCells, colorOfCells);//Create randomly cells in the simulation witch is a matrix of cells which follows a certain set of rules
+                cells[x] [0] = new Cell1D(x, 0, random.nextBoolean(), cellularAutomaton, formOfCells, colorOfCells);//Create randomly cells in the simulation witch is a matrix of cells which follows a certain set of rules
         }
         for(int x = 0;x < nbCellWidth;x++) {
             for (int y = 1; y < nbCellHeight; y++) {
-                cells[x] [y] = new Cell2D(x, y, false, cellularAutomaton, formOfCells, colorOfCells);//Create randomly cells in the simulation witch is a matrix of cells which follows a certain set of rules
+                cells[x] [y] = new Cell1D(x, y, false, cellularAutomaton, formOfCells, colorOfCells);//Create randomly cells in the simulation witch is a matrix of cells which follows a certain set of rules
             }
         }
 	}

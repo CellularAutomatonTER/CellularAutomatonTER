@@ -14,12 +14,12 @@ public class Cell1D {
 	private boolean m_isAlive;//true if cell is alive and false if cell is dead
 	private boolean m_isAliveNextRound;//true if cell is alive in the next round and false if cell is dead in the next round
 	private int m_nbNeighbors;//number of neighbors of the cell
-	private IRules2D m_rule;//Rule of evolution
+	private IRules1D m_rule;//Rule of evolution
 	private IForm m_form;//Form of cells
 	private Color m_color;//Color of cells
 
 	/******CONSTRUCTOR******/
-	public Cell1D(int x, int y, boolean alive, IRules2D rule, IForm form, Color color) {
+	public Cell1D(int x, int y, boolean alive, IRules1D rule, IForm form, Color color) {
 		this.m_x = x;
 		this.m_y = y;
 		this.m_isAlive = alive;
