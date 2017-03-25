@@ -9,8 +9,8 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
-import com.ter.CellularAutomaton.controller.IInitializeSimulationRules;
-import com.ter.CellularAutomaton.controller.IRules;
+import com.ter.CellularAutomaton.controller.IInitializeSimulationRules2D;
+import com.ter.CellularAutomaton.controller.IRules2D;
 
 public class InternalFrameSimulation2D extends JInternalFrame {
 
@@ -29,7 +29,7 @@ public class InternalFrameSimulation2D extends JInternalFrame {
 	private Color m_backgroundColor;
 
 	/******CONSTRUCTOR******/
-	public InternalFrameSimulation2D(String title, IRules ruleOfCells, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules initializeSimulationRule) {
+	public InternalFrameSimulation2D(String title, IRules2D ruleOfCells, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules2D initializeSimulationRule) {
 		super(title,true,true,true,true);
 		m_width=1000;
 		m_height = 600;

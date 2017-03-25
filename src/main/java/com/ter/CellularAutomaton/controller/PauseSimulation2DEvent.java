@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.MainWindow2D;
 
-public class PauseSimulationEvent implements ActionListener {
+public class PauseSimulation2DEvent implements ActionListener {
 	
 	/******ATTRIBUTES******/
 	private MainWindow2D window;
@@ -15,7 +15,7 @@ public class PauseSimulationEvent implements ActionListener {
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public PauseSimulationEvent(MainWindow2D window) {
+	public PauseSimulation2DEvent(MainWindow2D window) {
 		super();
 		this.window = window;
 		

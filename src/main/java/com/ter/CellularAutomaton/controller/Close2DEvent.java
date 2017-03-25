@@ -3,19 +3,19 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.MainWindow2D;
 
-public class StartSimulationEvent implements ActionListener {
-	
+public class Close2DEvent implements ActionListener {
+
+
 	/******ATTRIBUTES******/
-	private MainWindow2D window;
+	MainWindow2D window;
 	
 	
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public StartSimulationEvent(MainWindow2D window) {
+	public Close2DEvent(MainWindow2D window) {
 		super();
 		this.window = window;
 		
@@ -28,6 +28,9 @@ public class StartSimulationEvent implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.window.setm_simulationState(SimulationState.RUN);
+		this.window.dispose();
+		
 	}
+
+	
 }

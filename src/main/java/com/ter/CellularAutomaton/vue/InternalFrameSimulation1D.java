@@ -9,8 +9,8 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
-import com.ter.CellularAutomaton.controller.IInitializeSimulationRules;
-import com.ter.CellularAutomaton.controller.IRules;
+import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
+import com.ter.CellularAutomaton.controller.IRules1D;
 
 public class InternalFrameSimulation1D extends JInternalFrame {
 
@@ -25,17 +25,17 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	private int m_refreshRate; //Updates per seconde
 	private int m_millis;
 	private Screen m_screen;
-	private Simulation2D m_simulation;
+	private Simulation1D m_simulation;
 	private Color m_backgroundColor;
 
 	/******CONSTRUCTOR******/
-	public InternalFrameSimulation1D(String title, IRules ruleOfCells, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules initializeSimulationRule) {
+	public InternalFrameSimulation1D(String title, IRules1D ruleOfCells, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule) {
 		super(title,true,true,true,true);
 		m_width=1000;
 		m_height = 600;
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
-		m_simulation = new Simulation2D(m_width, m_height, ruleOfCells, formOfCells, colorOfCells, initializeSimulationRule);
+		m_simulation = new Simulation1D(m_width, m_height, ruleOfCells, formOfCells, colorOfCells, initializeSimulationRule);
 		m_screen = new Screen();
 		m_backgroundColor=backgroundColor;
 		
@@ -51,7 +51,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	}
 	
 	/******GETTERS******/
-	public Simulation2D getm_simulation() {
+	public Simulation1D getm_simulation() {
 		return m_simulation;
 	}
 	

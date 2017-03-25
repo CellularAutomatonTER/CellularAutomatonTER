@@ -1,9 +1,9 @@
 package com.ter.CellularAutomaton.controller;
 
-public class ConwayRules implements IRules{
+public class ConwayRules2D implements IRules2D{
 
 	@Override
-	public void applyRules(Cell cell) {
+	public void applyRules(Cell2D cell) {
 		//If a cell has strictly less than two or strictly more than three living neighbors
         if(cell.getm_nbNeighbors() < 2 || cell.getm_nbNeighbors() > 3){
         	cell.setIsAliveNextRound(false);//The cell died in the next step.

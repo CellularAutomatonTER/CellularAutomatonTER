@@ -3,26 +3,26 @@ package com.ter.CellularAutomaton.vue;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import com.ter.CellularAutomaton.controller.Cell2D;
-import com.ter.CellularAutomaton.controller.IInitializeSimulationRules2D;
-import com.ter.CellularAutomaton.controller.IRules2D;
+import com.ter.CellularAutomaton.controller.Cell1D;
+import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
+import com.ter.CellularAutomaton.controller.IRules1D;
 
-public class Simulation2D {
+public class Simulation1D {
 	
     /******ATTRIBUTES******/
-    private Cell2D[] [] m_matrixCells;//Matrix of cells
+    private Cell1D[] [] m_matrixCells;//Matrix of cells
     private int m_nbCellWidth;//Number of cells in width in the cell matrix
     private int m_nbCellHeight;//Number of cells in width in the cell matrix
-    private IRules2D m_cellularAutomaton;//Cellular automaton of simulation. In other hand, the rule of evolution of the cells
+    private IRules1D m_cellularAutomaton;//Cellular automaton of simulation. In other hand, the rule of evolution of the cells
     private IForm m_formOfCells;//Form of cells
     private Color m_colorOfCells;//Color of cells
-    private IInitializeSimulationRules2D m_initializeSimulationRule;//Type of initialization of the matrix of cells
+    private IInitializeSimulationRules1D m_initializeSimulationRule;//Type of initialization of the matrix of cells
 
     /******CONSTRUCTOR******/
-    public Simulation2D(int width, int height, IRules2D cellularAutomaton, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules2D initializeSimulationRule) {
-        m_nbCellWidth = width/Cell2D.CELL_SIZE;
-        m_nbCellHeight = height/Cell2D.CELL_SIZE;
-        m_matrixCells = new Cell2D[m_nbCellWidth][m_nbCellHeight];//The simulator is a matrix of cell
+    public Simulation1D(int width, int height, IRules1D cellularAutomaton, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
+        m_nbCellWidth = width/Cell1D.CELL_SIZE;
+        m_nbCellHeight = height/Cell1D.CELL_SIZE;
+        m_matrixCells = new Cell1D[m_nbCellWidth][m_nbCellHeight];//The simulator is a matrix of cell
         m_cellularAutomaton=cellularAutomaton;
         m_formOfCells=formOfCells;
         m_colorOfCells=colorOfCells;
@@ -34,7 +34,7 @@ public class Simulation2D {
     
     /******GETTERS******/    
 
-    public Cell2D[][] getm_cells() {
+    public Cell1D[][] getm_cells() {
 		return m_matrixCells;
 	}
 
@@ -46,7 +46,7 @@ public class Simulation2D {
 		return m_nbCellHeight;
 	}
 	
-	public IRules2D getm_cellularAutomaton() {
+	public IRules1D getm_cellularAutomaton() {
 			return m_cellularAutomaton;
 	}
 	
@@ -58,7 +58,7 @@ public class Simulation2D {
 		return m_colorOfCells;
 	}
 	
-	public IInitializeSimulationRules2D getm_initializeSimulationRule() {
+	public IInitializeSimulationRules1D getm_initializeSimulationRule() {
 		return m_initializeSimulationRule;
 	}
 
@@ -82,7 +82,7 @@ public class Simulation2D {
     }
     
 
-    public Cell2D getCellInSimulation(int x, int y) {
+    public Cell1D getCellInSimulation(int x, int y) {
 		return m_matrixCells[x][y];
 	}
     

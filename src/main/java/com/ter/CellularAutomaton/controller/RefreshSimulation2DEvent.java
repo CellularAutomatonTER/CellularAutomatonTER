@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.MainWindow2D;
 
-public class RefreshSimulationEvent implements ActionListener {
+public class RefreshSimulation2DEvent implements ActionListener {
 
 	/******ATTRIBUTES******/
 	private MainWindow2D window;
@@ -15,7 +15,7 @@ public class RefreshSimulationEvent implements ActionListener {
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public RefreshSimulationEvent(MainWindow2D window) {
+	public RefreshSimulation2DEvent(MainWindow2D window) {
 		super();
 		this.window = window;
 	}

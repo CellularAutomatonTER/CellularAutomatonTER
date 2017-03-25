@@ -9,7 +9,7 @@ import com.ter.CellularAutomaton.vue.MainWindow2D;
 /**
  * The Class NewEvent.
  */
-public class NewEvent implements ActionListener {
+public class New2DEvent implements ActionListener {
 
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
