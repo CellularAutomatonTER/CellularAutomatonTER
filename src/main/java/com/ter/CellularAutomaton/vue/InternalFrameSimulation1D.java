@@ -72,8 +72,11 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 			long diff = m_millis - (System.currentTimeMillis() - before);
 
 			try {
-				if(diff > 0) Thread.sleep(diff);
-			} catch (Exception e) {
+				if(diff > 0){
+					Thread.sleep(diff);
+				}
+			}
+			catch (Exception e) {
 				e.printStackTrace();
 			}
 	}
