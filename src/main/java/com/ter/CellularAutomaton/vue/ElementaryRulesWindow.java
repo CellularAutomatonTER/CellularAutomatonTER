@@ -52,13 +52,15 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):");
 	private final JFormattedTextField m_formattedTextFieldAlphabet = new JFormattedTextField();
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
+	private final JFormattedTextField formattedTextField = new JFormattedTextField();
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
-	private final JButton btnNewButton = new JButton("Personalize");
+	private final JButton m_buttonPersonalize = new JButton("Personalize");
 	private JSeparator m_separatorBetweenAlphabetAndRadius;
 	private JSeparator m_separatorBetweenRadiusAndRules;
 	private JSeparator m_separatorBetweenRulesAndPanelControl;
+	
 	
 
 
@@ -96,30 +98,31 @@ public class ElementaryRulesWindow extends JFrame {
 	private void buildGroupLayoutPanelRulesSetting(){
 		GroupLayout gl_panelRulesSetting = new GroupLayout(m_panelRulesSetting);
 		gl_panelRulesSetting.setHorizontalGroup(
-			gl_panelRulesSetting.createParallelGroup(Alignment.TRAILING)
+			gl_panelRulesSetting.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelRulesSetting.createSequentialGroup()
-					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.TRAILING)
-						.addComponent(m_separatorBetweenRadiusAndRules, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
-						.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.LEADING, false)
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.LEADING)
+						.addComponent(m_separatorBetweenRadiusAndRules, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING, gl_panelRulesSetting.createParallelGroup(Alignment.LEADING, false)
 							.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
 							.addGroup(gl_panelRulesSetting.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
-							.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
 							.addGroup(gl_panelRulesSetting.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addComponent(m_formattedTextFieldAlphabet, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
 								.addGap(33)
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(m_buttonPersonalize, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
+						.addGroup(gl_panelRulesSetting.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(m_labelRadius)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
-				.addGroup(Alignment.LEADING, gl_panelRulesSetting.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_labelRadius)
-					.addContainerGap(9944, Short.MAX_VALUE))
 		);
 		gl_panelRulesSetting.setVerticalGroup(
 			gl_panelRulesSetting.createParallelGroup(Alignment.TRAILING)
@@ -128,14 +131,16 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
 						.addComponent(m_labelAlphabet)
 						.addComponent(m_formattedTextFieldAlphabet, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton))
+						.addComponent(m_buttonPersonalize))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(m_separatorBetweenRadiusAndRules, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-					.addComponent(m_labelRadius)
-					.addGap(32)
+					.addGap(28)
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelRadius)
+						.addComponent(formattedTextField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
 					.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
 						.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
