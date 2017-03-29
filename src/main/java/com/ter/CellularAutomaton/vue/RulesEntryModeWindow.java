@@ -5,10 +5,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 
-import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.CloseRulesEntryModeWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeAdditiveEvent;
