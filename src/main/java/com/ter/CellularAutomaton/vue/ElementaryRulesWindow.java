@@ -47,7 +47,7 @@ public class ElementaryRulesWindow extends JFrame {
 	/** Component of window */
 	private final JPanel m_panelControl = new JPanel();
 	private final JButton m_buttonReset = new JButton("Reset");
-	private final JCheckBox m_CheckBoxRememberSetting = new JCheckBox("Remember this setting");
+	private final JCheckBox m_checkBoxRememberSetting = new JCheckBox("Remember this setting");
 	private final JCheckBox m_checkBoxSetActualSettingAsDefault = new JCheckBox("Set actual setting as default");
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
@@ -178,7 +178,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(m_checkBoxSetActualSettingAsDefault)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(m_CheckBoxRememberSetting)
+					.addComponent(m_checkBoxRememberSetting)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(56, Short.MAX_VALUE))
@@ -190,7 +190,7 @@ public class ElementaryRulesWindow extends JFrame {
 					.addGroup(gl_panelControl.createParallelGroup(Alignment.BASELINE)
 						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 						.addComponent(m_checkBoxSetActualSettingAsDefault)
-						.addComponent(m_CheckBoxRememberSetting)
+						.addComponent(m_checkBoxRememberSetting)
 						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
