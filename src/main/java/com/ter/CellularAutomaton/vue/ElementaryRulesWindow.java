@@ -53,14 +53,13 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
 	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField();
-	private final JLabel m_labelRules = new JLabel("Rules (0 to 2^(2*Radius+1)):");
+	private final JLabel m_labelRules = new JLabel("Rules (0 to ?):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 	private final JButton m_buttonPersonalize = new JButton("Personalize");
 	private JSeparator m_separatorBetweenAlphabetAndRadius;
 	private JSeparator m_separatorBetweenRadiusAndRules;
 	private JSeparator m_separatorBetweenRulesAndPanelControl;
-	private final JButton button = new JButton("Bookmarks");
 	
 	
 
@@ -86,28 +85,22 @@ public class ElementaryRulesWindow extends JFrame {
 	 */
 	private void buildComponentWindow() {
 		this.setTitle("Elementary Rules Window");//Set the title of window
-		this.setSize(550,400);//Set size of window
+		this.setSize(550,320);//Set size of window
 		this.setLocationRelativeTo(null);//Center the location of window
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
 		getContentPane().add(m_panelControl, BorderLayout.SOUTH);//Set panel Control in SOUTH
 		
 		buildGroupLayoutPanelControl();//Set Layout for Panel Control
-		m_labelAlphabet.setBounds(10, 27, 140, 19);
 		
 		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
-		m_labelRules.setBounds(8, 217, 200, 19);
 		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
-		m_labelRadius.setBounds(10, 108, 288, 19);
 		m_labelRadius.setFont(new Font(m_labelRadius.getFont().getName(), m_labelRadius.getFont().getStyle(), 15));// new font size is 15
 		
 		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in SOUTH
 		
 		m_separatorBetweenAlphabetAndRadius = new JSeparator();//Set separator between alphabet and Radius
-		m_separatorBetweenAlphabetAndRadius.setBounds(0, 171, 10000, 2);
 		m_separatorBetweenRadiusAndRules = new JSeparator();//Set separator between Radius and Rules
-		m_separatorBetweenRadiusAndRules.setBounds(0, 69, 10000, 2);
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
-		m_separatorBetweenRulesAndPanelControl.setBounds(0, 277, 10000, 2);
 		
 		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 	}
@@ -118,22 +111,56 @@ public class ElementaryRulesWindow extends JFrame {
 	 * GroupLayout of Panel RulesSetting.
 	 */
 	private void buildGroupLayoutPanelRulesSetting(){
-		m_panelRulesSetting.setLayout(null);
-		m_panelRulesSetting.add(m_separatorBetweenRadiusAndRules);
-		m_panelRulesSetting.add(m_separatorBetweenRulesAndPanelControl);
-		m_panelRulesSetting.add(m_labelAlphabet);
-		m_buttonPersonalize.setBounds(160, 11, 358, 49);
-		m_panelRulesSetting.add(m_buttonPersonalize);
-		m_panelRulesSetting.add(m_labelRules);
-		m_formattedTextFieldRules.setBounds(207, 212, 181, 32);
-		m_panelRulesSetting.add(m_formattedTextFieldRules);
-		m_panelRulesSetting.add(m_separatorBetweenAlphabetAndRadius);
-		m_panelRulesSetting.add(m_labelRadius);
-		m_formattedTextFieldRadius.setBounds(296, 103, 222, 33);
-		m_panelRulesSetting.add(m_formattedTextFieldRadius);
-		button.setBounds(398, 212, 120, 32);
-		
-		m_panelRulesSetting.add(button);
+		GroupLayout gl_panelRulesSetting = new GroupLayout(m_panelRulesSetting);
+		gl_panelRulesSetting.setHorizontalGroup(
+			gl_panelRulesSetting.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelRulesSetting.createSequentialGroup()
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.LEADING)
+						.addComponent(m_separatorBetweenRadiusAndRules, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING, gl_panelRulesSetting.createParallelGroup(Alignment.LEADING, false)
+							.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
+							.addGroup(gl_panelRulesSetting.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panelRulesSetting.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGap(250)
+								.addComponent(m_buttonPersonalize, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
+						.addGroup(gl_panelRulesSetting.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(m_labelRadius)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		gl_panelRulesSetting.setVerticalGroup(
+			gl_panelRulesSetting.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panelRulesSetting.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelAlphabet)
+						.addComponent(m_buttonPersonalize))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(m_separatorBetweenRadiusAndRules, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(28)
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelRadius)
+						.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+					.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_panelRulesSetting.createParallelGroup(Alignment.BASELINE)
+						.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		);
+		m_panelRulesSetting.setLayout(gl_panelRulesSetting);
 	}
 	
 
