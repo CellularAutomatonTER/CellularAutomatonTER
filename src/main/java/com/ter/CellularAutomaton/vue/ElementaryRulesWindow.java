@@ -53,7 +53,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
 	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField();
-	private final JLabel m_labelRules = new JLabel("Rules (0 to ?):");
+	private final JLabel m_labelRules = new JLabel("Rules (0 to 2^(2*Radius+1)):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 	private final JButton m_buttonPersonalize = new JButton("Personalize");
@@ -121,9 +121,9 @@ public class ElementaryRulesWindow extends JFrame {
 							.addComponent(m_separatorBetweenRulesAndPanelControl, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
 							.addGroup(gl_panelRulesSetting.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+								.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
+								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
 							.addGroup(gl_panelRulesSetting.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
@@ -133,9 +133,9 @@ public class ElementaryRulesWindow extends JFrame {
 						.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
 						.addGroup(gl_panelRulesSetting.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(m_labelRadius)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(m_labelRadius, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
 		);
 		gl_panelRulesSetting.setVerticalGroup(
