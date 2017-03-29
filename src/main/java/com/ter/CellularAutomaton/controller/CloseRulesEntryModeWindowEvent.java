@@ -3,7 +3,6 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.ter.CellularAutomaton.vue.ElementaryRulesWindow;
 import com.ter.CellularAutomaton.vue.RulesEntryModeWindow;
 
 public class CloseRulesEntryModeWindowEvent implements ActionListener {
