@@ -49,7 +49,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JButton m_buttonReset = new JButton("Reset");
 	private final JCheckBox m_CheckBoxRememberSetting = new JCheckBox("Remember this setting");
 	private final JPanel m_panelRulesSetting = new JPanel();
-	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?): 1");
+	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
 	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField();
 	private final JLabel m_labelRules = new JLabel("Rules (0 to 255):");
@@ -107,19 +107,19 @@ public class ElementaryRulesWindow extends JFrame {
 								.addContainerGap()
 								.addComponent(m_labelRules, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
+								.addComponent(m_formattedTextFieldRules, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
 							.addGroup(gl_panelRulesSetting.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(m_labelAlphabet, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED)
-								.addGap(155)
+								.addGap(250)
 								.addComponent(m_buttonPersonalize, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)))
 						.addComponent(m_separatorBetweenAlphabetAndRadius, GroupLayout.DEFAULT_SIZE, 10000, Short.MAX_VALUE)
 						.addGroup(gl_panelRulesSetting.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(m_labelRadius)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(m_formattedTextFieldRadius, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
 		);
 		gl_panelRulesSetting.setVerticalGroup(
@@ -159,24 +159,24 @@ public class ElementaryRulesWindow extends JFrame {
 			gl_panelControl.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelControl.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(chckbxSetActualSetting)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(m_CheckBoxRememberSetting)
-					.addPreferredGap(ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(56, Short.MAX_VALUE))
 		);
 		gl_panelControl.setVerticalGroup(
 			gl_panelControl.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelControl.createSequentialGroup()
 					.addGap(5)
 					.addGroup(gl_panelControl.createParallelGroup(Alignment.BASELINE)
-						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 						.addComponent(chckbxSetActualSetting)
-						.addComponent(m_CheckBoxRememberSetting))
+						.addComponent(m_CheckBoxRememberSetting)
+						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_panelControl.setLayout(gl_panelControl);
