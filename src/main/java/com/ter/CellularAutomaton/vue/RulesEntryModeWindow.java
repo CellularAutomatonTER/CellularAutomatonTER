@@ -9,6 +9,7 @@ import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
+import com.ter.CellularAutomaton.controller.CloseRulesEntryModeWindowEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeAdditiveEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeElementaryEvent;
@@ -143,7 +144,7 @@ public class RulesEntryModeWindow extends JFrame {
 
 	//add listeners for tab File in MenuBar
 	private void addListenerFile (){
-		//m_menuBarFileItem1.addActionListener(new CloseElementaryRulesWindowEvent(this));
+		m_menuBarFileItem1.addActionListener(new CloseRulesEntryModeWindowEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
 	}
 	
