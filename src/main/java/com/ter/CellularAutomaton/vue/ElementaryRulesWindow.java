@@ -48,6 +48,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JPanel m_panelControl = new JPanel();
 	private final JButton m_buttonReset = new JButton("Reset");
 	private final JCheckBox m_CheckBoxRememberSetting = new JCheckBox("Remember this setting");
+	private final JCheckBox chckbxSetActualSetting = new JCheckBox("Set actual setting as default");
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
@@ -168,7 +169,6 @@ public class ElementaryRulesWindow extends JFrame {
 	 */
 	private void buildGroupLayoutPanelControl(){
 		
-		JCheckBox chckbxSetActualSetting = new JCheckBox("Set actual setting as default");
 		GroupLayout gl_panelControl = new GroupLayout(m_panelControl);
 		gl_panelControl.setHorizontalGroup(
 			gl_panelControl.createParallelGroup(Alignment.LEADING)
