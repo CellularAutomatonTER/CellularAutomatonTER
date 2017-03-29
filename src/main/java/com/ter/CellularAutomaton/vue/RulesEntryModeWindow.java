@@ -15,7 +15,6 @@ import com.ter.CellularAutomaton.controller.RulesEntryModePatternEvent;
 import com.ter.CellularAutomaton.controller.RulesEntryModeScriptEvent;
 
 import java.awt.BorderLayout;
-import java.awt.Font;
 import java.awt.event.KeyEvent;
 
 import javax.swing.BoxLayout;
