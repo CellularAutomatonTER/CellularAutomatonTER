@@ -87,6 +87,21 @@ public class ElementaryRulesWindow extends JFrame {
 		this.setSize(550,320);//Set size of window
 		this.setLocationRelativeTo(null);//Center the location of window
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
+		getContentPane().add(m_panelControl, BorderLayout.SOUTH);//Set panel Control in SOUTH
+		
+		buildGroupLayoutPanelControl();//Set Layout for Panel Control
+		
+		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
+		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
+		m_labelRadius.setFont(new Font(m_labelRadius.getFont().getName(), m_labelRadius.getFont().getStyle(), 15));// new font size is 15
+		
+		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in SOUTH
+		
+		m_separatorBetweenAlphabetAndRadius = new JSeparator();//Set separator between alphabet and Radius
+		m_separatorBetweenRadiusAndRules = new JSeparator();//Set separator between Radius and Rules
+		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
+		
+		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 	}
 	
 	
@@ -192,22 +207,6 @@ public class ElementaryRulesWindow extends JFrame {
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
 		
 		this.setJMenuBar(m_menuBar);//Add menuBar to window
-		
-		getContentPane().add(m_panelControl, BorderLayout.SOUTH);//Set panel Control in SOUTH
-		
-		buildGroupLayoutPanelControl();//Set Layout for Panel Control
-		
-		m_labelAlphabet.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
-		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
-		m_labelRadius.setFont(new Font(m_labelRadius.getFont().getName(), m_labelRadius.getFont().getStyle(), 15));// new font size is 15
-		
-		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in SOUTH
-		
-		m_separatorBetweenAlphabetAndRadius = new JSeparator();//Set separator between alphabet and Radius
-		m_separatorBetweenRadiusAndRules = new JSeparator();//Set separator between Radius and Rules
-		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
-		
-		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 		
 		this.initAcceleratorMenuBar();//Adding all Accelerator of the MenuBar
 	}
