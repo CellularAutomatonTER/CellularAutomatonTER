@@ -84,7 +84,7 @@ public class ElementaryRulesWindow extends JFrame {
 	 */
 	private void buildComponentWindow() {
 		this.setTitle("Elementary Rules Window");//Set the title of window
-		this.setSize(470,320);//Set size of window
+		this.setSize(550,320);//Set size of window
 		this.setLocationRelativeTo(null);//Center the location of window
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
 	}
@@ -152,15 +152,19 @@ public class ElementaryRulesWindow extends JFrame {
 	 * GroupLayout of Panel Control.
 	 */
 	private void buildGroupLayoutPanelControl(){
+		
+		JCheckBox chckbxSetActualSetting = new JCheckBox("Set actual setting as default");
 		GroupLayout gl_panelControl = new GroupLayout(m_panelControl);
 		gl_panelControl.setHorizontalGroup(
 			gl_panelControl.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelControl.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(m_buttonReset, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-					.addGap(32)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(chckbxSetActualSetting)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(m_CheckBoxRememberSetting)
-					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
 					.addComponent(m_buttonOk, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
@@ -169,9 +173,10 @@ public class ElementaryRulesWindow extends JFrame {
 				.addGroup(gl_panelControl.createSequentialGroup()
 					.addGap(5)
 					.addGroup(gl_panelControl.createParallelGroup(Alignment.BASELINE)
-						.addComponent(m_CheckBoxRememberSetting)
 						.addComponent(m_buttonOk, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+						.addComponent(m_buttonReset, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+						.addComponent(chckbxSetActualSetting)
+						.addComponent(m_CheckBoxRememberSetting))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_panelControl.setLayout(gl_panelControl);
