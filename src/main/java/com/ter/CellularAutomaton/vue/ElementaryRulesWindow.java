@@ -129,7 +129,7 @@ public class ElementaryRulesWindow extends JFrame {
 		m_panelRulesSetting.add(m_formattedTextFieldRules);
 		m_panelRulesSetting.add(m_separatorBetweenAlphabetAndRadius);
 		m_panelRulesSetting.add(m_labelRadius);
-		m_formattedTextFieldRadius.setBounds(296, 103, 222, 33);
+		m_formattedTextFieldRadius.setBounds(300, 103, 218, 33);
 		m_panelRulesSetting.add(m_formattedTextFieldRadius);
 		button.setBounds(398, 212, 120, 32);
 		
