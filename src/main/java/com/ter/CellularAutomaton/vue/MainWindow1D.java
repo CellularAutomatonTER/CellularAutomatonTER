@@ -17,7 +17,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
-import com.ter.CellularAutomaton.controller.ConwayRules1D;
 import com.ter.CellularAutomaton.controller.CreditsEvent;
 import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
@@ -29,7 +28,7 @@ import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
-import com.ter.CellularAutomaton.controller.IRules1D;
+import com.ter.CellularAutomaton.controller.InitializeSimulation1DOneCell;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DRandomly;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.RectangleForm;
@@ -775,16 +774,15 @@ public class MainWindow1D extends JFrame {
 	
 	
 	public void buildInternalFrameSimulation(){
-		IRules1D ruleSimulation = new ConwayRules1D();
 		IForm formOfCells = new RectangleForm();
 		Color colorOfCells = Color.BLUE;
 		Color backgroundColor = Color.BLACK;
-		IInitializeSimulationRules1D initializeSimulationRule = new InitializeSimulation1DRandomly();
-		buildInternalFrameSimulation(ruleSimulation, formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
+		IInitializeSimulationRules1D initializeSimulationRule = new InitializeSimulation1DOneCell();
+		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 	}
 	
-	public void buildInternalFrameSimulation(IRules1D ruleSimulation, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
-		m_internalFrameSimulation = new InternalFrameSimulation1D("Simulation", ruleSimulation, formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
+	public void buildInternalFrameSimulation(IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
+		m_internalFrameSimulation = new InternalFrameSimulation1D("Simulation", formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 		m_internalFrameSimulation.setBounds(53, 11, 900, 530);
 		m_internalFrameSimulation.setVisible(true);
 		m_mainDesktopPane.setLayout(null);
@@ -1023,7 +1021,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	private void addListenerCellularAutomatonSetting(){
-		m_buttonCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent());
+		m_buttonCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent(this));
 	}
 	
 	

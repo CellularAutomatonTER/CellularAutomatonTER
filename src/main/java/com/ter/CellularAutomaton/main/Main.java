@@ -45,7 +45,6 @@ public class Main {
 		
 		// The logging.
 		if(logger.isDebugEnabled()){
-			System.out.println("debug test"); // Will not be display if the logger isn't in debug priority because of the if statement.
 			logger.debug("The main method begin.");
 		}
 		if(logger.isInfoEnabled()){
@@ -54,8 +53,9 @@ public class Main {
 		
 		// Start the application.
 		
-		//MainWindow2D SimulatorWindow = new MainWindow2D();//Create window 2D
+		//MainWindow2D SimulatorWindow2D = new MainWindow2D();//Create window 2D
 		MainWindow1D SimulatorWindow1D = new MainWindow1D();//Create window 1D
-		//SimulatorWindow.runSimulation();
+		SimulatorWindow1D.runSimulation();
+		//SimulatorWindow2D.runSimulation();
 	}
 }

@@ -27,7 +27,7 @@ public class RefreshSimulation1DEvent implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.window.getm_internalFrameSimulation().getm_simulation().getm_initializeSimulationRule().initializeSimulation(this.window.getm_internalFrameSimulation().getm_simulation().getm_cells(), this.window.getm_internalFrameSimulation().getm_simulation().getm_nbCellWidth(), this.window.getm_internalFrameSimulation().getm_simulation().getm_nbCellHeight(), this.window.getm_internalFrameSimulation().getm_simulation().getm_cellularAutomaton(), this.window.getm_internalFrameSimulation().getm_simulation().getm_formOfCells(), this.window.getm_internalFrameSimulation().getm_simulation().getm_colorOfCells());
+		this.window.getm_internalFrameSimulation().getm_simulation().getm_initializeSimulationRule().initializeSimulation(this.window.getm_internalFrameSimulation().getm_simulation());
 		this.window.getm_internalFrameSimulation().startUpdate();
 		this.window.setm_simulationState(SimulationState.STOP);
 	}

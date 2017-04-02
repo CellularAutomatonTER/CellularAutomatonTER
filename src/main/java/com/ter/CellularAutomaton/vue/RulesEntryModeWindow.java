@@ -52,16 +52,19 @@ public class RulesEntryModeWindow extends JFrame {
 	private JPanel m_panelScript;
 	private JButton m_buttonScript;
 	
+	private MainWindow1D m_currentSimulator;
+	
 	
 
 	/**
 	 * Create the application.
 	 */
-	public RulesEntryModeWindow() {
+	public RulesEntryModeWindow(MainWindow1D currentSimulator) {
 		this.setTitle("Rules entry mode");
 		this.setSize(450, 300);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		m_currentSimulator = currentSimulator;// Initialize attribute with current simulator
 		
 		buildComponentWindow();//Build component of window
 		
@@ -241,7 +244,7 @@ public class RulesEntryModeWindow extends JFrame {
 	
 	//Listener on button m_buttonElementary
 	private void addListenerButtonElementary (){
-		m_buttonElementary.addActionListener(new RulesEntryModeElementaryEvent(this));
+		m_buttonElementary.addActionListener(new RulesEntryModeElementaryEvent(this,m_currentSimulator));
 	}
 	
 	//Listener on button m_buttonAdditive
