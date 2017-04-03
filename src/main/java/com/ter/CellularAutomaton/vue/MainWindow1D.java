@@ -30,6 +30,7 @@ import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DOneCell;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DRandomly;
+import com.ter.CellularAutomaton.controller.MenubarRulesElementary1DEvent;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.RectangleForm;
 
@@ -564,10 +565,10 @@ public class MainWindow1D extends JFrame {
 	
 	private void initAcceleratorRules(){
 		//add all the accelerators for the items of tab Rules
-		m_menuBarRulesItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Elementary in tab Rules
-		m_menuBarRulesItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Additive in tab Rules
-		m_menuBarRulesItem3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Pattern in tab Rules
-		m_menuBarRulesItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Script in tab Rules
+		m_menuBarRulesItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK)); //add accelerators of Elementary in tab Rules
+		m_menuBarRulesItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK)); //add accelerators of Additive in tab Rules
+		m_menuBarRulesItem3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_MASK)); //add accelerators of Pattern in tab Rules
+		m_menuBarRulesItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK)); //add accelerators of Script in tab Rules
 	}
 
 	private void initAcceleratorHelp(){
@@ -581,6 +582,7 @@ public class MainWindow1D extends JFrame {
 
 	private void addListenerMenuBar (){
 		this.addListenerFile(); //add listener of tab File
+		this.addListenerRules(); //add listener of tab Rules
 		this.addListenerHelp(); //add listener of tab Help
 	}
 
@@ -590,6 +592,10 @@ public class MainWindow1D extends JFrame {
 		m_menuBarFileItem7.addActionListener(new Close1DEvent(this));
 		m_menuBarFileItem8.addActionListener(new CloseAllEvent());
 		m_menuBarFileItem9.addActionListener(new QuitEvent());
+	}
+	
+	private void addListenerRules (){
+		m_menuBarRulesItem1.addActionListener(new MenubarRulesElementary1DEvent(this));
 	}
 
 	private void addListenerHelp (){
