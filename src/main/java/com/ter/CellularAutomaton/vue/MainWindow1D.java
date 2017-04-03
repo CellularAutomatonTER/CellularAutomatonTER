@@ -346,7 +346,8 @@ public class MainWindow1D extends JFrame {
 		//add all the mnémonic for the MenuBar
 		m_menuFile.setMnemonic('F');
 		m_menuEdit.setMnemonic('E');
-		m_menuRun.setMnemonic('R');
+		m_menuRules.setMnemonic('R');
+		m_menuRun.setMnemonic('U');
 		m_menuOption.setMnemonic('O');
 		m_menuView.setMnemonic('V');
 		m_menuHelp.setMnemonic('H');
