@@ -428,18 +428,15 @@ public class MainWindow1D extends JFrame {
 	 * Construct tab rules menu bar.
 	 */
 	private void constructTabRulesMenuBar(){
-		//Construction of the tab "Edit" of menuBar
-		this.m_menuEdit.add(m_menuBarEditItem1);//Adding a tab "Undo" in MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem2);//Adding a tab "Redo" in MenuBar
-		this.m_menuEdit.addSeparator();//Adding a separator in tab Edit of the MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem3);//Adding a tab "Cut" in MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem4);//Adding a tab "Copy" in MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem5);//Adding a tab "Paste" in MenuBar
-		this.m_menuEdit.addSeparator();//Adding a separator in tab Edit of the MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem6);//Adding a tab "Select all" in MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem7);//Adding a tab "Find" in MenuBar
-		this.m_menuEdit.add(m_menuBarEditItem8);//Adding a tab "Find Next" in MenuBar
-		this.m_menuBar.add(m_menuEdit);//the Edit tab is added to MenuBar
+		//Construction of the tab "Rules" of menuBar
+		this.m_menuRules.add(m_menuBarRulesItem1);//Adding a tab "Elementary" in MenuBar
+		this.m_menuRules.addSeparator();//Adding a separator in tab Rules of the MenuBar
+		this.m_menuRules.add(m_menuBarRulesItem2);//Adding a tab "Additive" in MenuBar
+		this.m_menuRules.addSeparator();//Adding a separator in tab Rules of the MenuBar
+		this.m_menuRules.add(m_menuBarRulesItem3);//Adding a tab "Pattern" in MenuBar
+		this.m_menuRules.addSeparator();//Adding a separator in tab Rules of the MenuBar
+		this.m_menuRules.add(m_menuBarRulesItem4);//Adding a tab "Script" in MenuBar
+		this.m_menuBar.add(m_menuRules);//the Rules tab is added to MenuBar
 
 	}
 
