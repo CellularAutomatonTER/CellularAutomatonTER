@@ -365,6 +365,9 @@ public class MainWindow1D extends JFrame {
 		this.constructTabEditMenuBar();//Construction of the tab "Edit" of menuBar
 
 
+		this.constructTabRulesMenuBar();//Construction of the tab "Rules" of menuBar
+		
+		
 		this.constructTabRunMenuBar();//Construction of the tab "Run" of menuBar
 
 
