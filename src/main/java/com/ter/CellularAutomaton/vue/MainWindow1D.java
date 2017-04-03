@@ -52,6 +52,9 @@ public class MainWindow1D extends JFrame {
 
 	/** The menu edit. */
 	private JMenu m_menuEdit = new JMenu("Edit");
+	
+	/** The menu rules. */
+	private JMenu m_menuRules = new JMenu("Rules");
 
 	/** The menu run. */
 	private JMenu m_menuRun = new JMenu("Run");
@@ -117,6 +120,19 @@ public class MainWindow1D extends JFrame {
 
 	/** The menu bar edit item 8. */
 	private JMenuItem m_menuBarEditItem8 = new JMenuItem("Find Next");
+	
+	/** The menu bar rules item 1. */
+	// In rules menu
+	private JMenuItem m_menuBarRulesItem1 = new JMenuItem("Elementary");
+
+	/** The menu bar rules item 2. */
+	private JMenuItem m_menuBarRulesItem2 = new JMenuItem("Additive");
+
+	/** The menu bar rules item 3. */
+	private JMenuItem m_menuBarRulesItem3 = new JMenuItem("Pattern");
+
+	/** The menu bar rules item 4. */
+	private JMenuItem m_menuBarRulesItem4 = new JMenuItem("Script");
 
 	/** The menu bar run item 1. */
 	// In run menu
@@ -393,6 +409,25 @@ public class MainWindow1D extends JFrame {
 	 * Construct tab edit menu bar.
 	 */
 	private void constructTabEditMenuBar(){
+		//Construction of the tab "Edit" of menuBar
+		this.m_menuEdit.add(m_menuBarEditItem1);//Adding a tab "Undo" in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem2);//Adding a tab "Redo" in MenuBar
+		this.m_menuEdit.addSeparator();//Adding a separator in tab Edit of the MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem3);//Adding a tab "Cut" in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem4);//Adding a tab "Copy" in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem5);//Adding a tab "Paste" in MenuBar
+		this.m_menuEdit.addSeparator();//Adding a separator in tab Edit of the MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem6);//Adding a tab "Select all" in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem7);//Adding a tab "Find" in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem8);//Adding a tab "Find Next" in MenuBar
+		this.m_menuBar.add(m_menuEdit);//the Edit tab is added to MenuBar
+
+	}
+	
+	/**
+	 * Construct tab rules menu bar.
+	 */
+	private void constructTabRulesMenuBar(){
 		//Construction of the tab "Edit" of menuBar
 		this.m_menuEdit.add(m_menuBarEditItem1);//Adding a tab "Undo" in MenuBar
 		this.m_menuEdit.add(m_menuBarEditItem2);//Adding a tab "Redo" in MenuBar
