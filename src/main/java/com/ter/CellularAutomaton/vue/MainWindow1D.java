@@ -549,6 +549,7 @@ public class MainWindow1D extends JFrame {
 	private void initAcceleratorMenuBar(){
 		//add all the accelerators for the items
 		this.initAcceleratorFile(); //accelerator of tab File
+		this.initAcceleratorRules(); //accelerator of tab Rules
 		this.initAcceleratorHelp();//accelerator of tab Help
 	}
 
@@ -559,6 +560,14 @@ public class MainWindow1D extends JFrame {
 		m_menuBarFileItem7.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
 		m_menuBarFileItem8.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of CloseAll in tab File
 		m_menuBarFileItem9.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
+	}
+	
+	private void initAcceleratorRules(){
+		//add all the accelerators for the items of tab Rules
+		m_menuBarRulesItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Elementary in tab Rules
+		m_menuBarRulesItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Additive in tab Rules
+		m_menuBarRulesItem3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Pattern in tab Rules
+		m_menuBarRulesItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of Script in tab Rules
 	}
 
 	private void initAcceleratorHelp(){
