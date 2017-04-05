@@ -899,6 +899,9 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
 	}
 	
+	
+	/******LateralTools Algorithm******/
+	//Build components for Algorithm in LateralTools
 	public void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
 		m_GroupLayoutPanelAlgorithm = new GroupLayout(m_panelAlgorithm);
@@ -906,6 +909,7 @@ public class MainWindow1D extends JFrame {
 		buildGroupLayoutComponentAlgorithm();//Build the grouplayout for the component Algorithm
 	}
 	
+	//Build Layout for Algorithm in LateralTools
 	public void buildGroupLayoutComponentAlgorithm(){
 		m_GroupLayoutPanelAlgorithm.setHorizontalGroup(
 				m_GroupLayoutPanelAlgorithm.createParallelGroup(Alignment.LEADING)
