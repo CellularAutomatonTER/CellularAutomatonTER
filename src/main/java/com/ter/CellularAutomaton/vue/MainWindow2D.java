@@ -233,6 +233,8 @@ public class MainWindow2D extends JFrame {
 	private JPanel m_panelBackgroundColor;
 	private GroupLayout m_GroupLayoutPanelBackgroundColor;
 	private JComboBox m_comboBoxBackgroundColor;
+	private JPanel m_panelTypeOfSimulator;
+	private JButton m_buttonTypeOfSimulator;
 	private InternalFrameSimulation2D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
