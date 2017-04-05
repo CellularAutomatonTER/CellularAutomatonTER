@@ -823,6 +823,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******Build InternalFrameSimulation******/
 	public void buildInternalFrameSimulation(){
 		IForm formOfCells = new RectangleForm();
 		Color colorOfCells = Color.BLUE;
