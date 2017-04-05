@@ -879,6 +879,7 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsInitialPositionCells();//Create components of panel InitialPositionCells in the LateralTools
 	}
 	
+	/******Build Panel FormCells******/
 	public void buildPanelFormCells(){
 		m_panelFormCells = new JPanel();//Create the panel FormCells
 		m_panelFormCells.setBorder(BorderFactory.createTitledBorder("Form of Cells"));//Set a border for the panel FormCells
