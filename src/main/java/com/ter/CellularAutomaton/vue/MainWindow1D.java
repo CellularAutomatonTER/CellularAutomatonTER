@@ -291,6 +291,8 @@ public class MainWindow1D extends JFrame {
 		
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
+		
+		this.runSimulation();//Run the application (this method must be called after initialization of m_isRun=true)
 	}
 
 
