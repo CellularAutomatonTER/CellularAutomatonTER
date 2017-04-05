@@ -887,6 +887,7 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
 	}
 	
+	/******Build Panel ColorCells******/
 	public void buildPanelColorCells(){
 		m_panelColorCells = new JPanel();//Create the panel ColorCells
 		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
