@@ -25,6 +25,7 @@ import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
@@ -280,6 +281,9 @@ public class MainWindow1D extends JFrame {
 		
 		//add listeners ControlTools
 		addListenerControlTools();
+		
+		//add listeners LateralTools
+		addListenerLateralTools();
 
 		//Set the window visible
 		this.setVisible(true);
@@ -1165,7 +1169,17 @@ public class MainWindow1D extends JFrame {
 	private void addListenerControlTools(){
 		
 	}
-
+	
+	
+	
+	/******Listeners Lateral Tools******/
+	private void addListenerLateralTools(){
+		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
+	}
+	
+	private void addListenerSwitchTo2D(){
+		m_buttonTypeOfSimulator.addActionListener(new Switch1DTo2DSimulationEvent(this));
+	}
 	
 
 	
