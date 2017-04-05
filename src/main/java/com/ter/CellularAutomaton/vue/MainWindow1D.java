@@ -246,6 +246,8 @@ public class MainWindow1D extends JFrame {
 	private JPanel m_panelBackgroundColor;
 	private GroupLayout m_GroupLayoutPanelBackgroundColor;
 	private JComboBox m_comboBoxBackgroundColor;
+	private JPanel m_panelTypeOfSimulator;
+	private JButton m_buttonTypeOfSimulator;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
@@ -862,6 +864,8 @@ public class MainWindow1D extends JFrame {
 		
 		buildPanelBackgroundColor();//Create the panel "BackgroundColor"
 		
+		buildPanelTypeOfSimulator();//Create the panel "TypeOfSimulator"
+		
 		buildGroupLayoutPanelLateralTools();//Create the GroupLayout for the disposition of the panel "Lateral Tools"
 	}
 	
@@ -906,8 +910,16 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
 	}
 	
+	/******Build Panel TypeOfSimulator******/
+	public void buildPanelTypeOfSimulator(){
+		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
+		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
+		
+		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
+	}
 	
-	/******LateralTools Algorithm******/
+	
+	/******Components of Panel Algorithm in LateralTools******/
 	//Build components for Algorithm in LateralTools
 	public void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
@@ -936,7 +948,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	/******LateralTools InitialPositionCells******/
+	/******Components of Panel InitialPositionCells in LateralTools******/
 	//Build components for InitialPositionCells in LateralTools
 	public void buildComponentLateralToolsInitialPositionCells(){
 		m_comboBoxInitialPositionCells = new JComboBox();
@@ -967,7 +979,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	/******LateralTools FormCells******/
+	/******Components of Panel FormCells in LateralTools******/
 	//Build components for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
 		comboBoxFormCells = new JComboBox();
@@ -998,7 +1010,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	/******LateralTools BackgroundColor******/
+	/******Components of Panel BackgroundColor in LateralTools******/
 	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
@@ -1029,7 +1041,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	/******LateralTools ColorCells******/
+	/******Components of Panel ColorCells in LateralTools******/
 	//Build components for ColorCells in LateralTools
 	public void buildComponentLateralToolsColorCells(){
 		m_buttonColorCells = new JButton("Color Cells Setting");
@@ -1042,6 +1054,22 @@ public class MainWindow1D extends JFrame {
 		m_panelColorCells.setLayout(new BorderLayout(0, 0));
 		m_panelColorCells.add(m_buttonColorCells);
 	}
+	
+	
+	/******Components of Panel TypeOfSimulator in LateralTools******/
+	//Build components for ColorCells in LateralTools
+	public void buildComponentLateralToolsTypeOfSimulator(){
+		m_buttonTypeOfSimulator = new JButton("Switch to 2D");
+		
+		buildGroupLayoutComponentTypeOfSimulator();
+	}
+	
+	//Build Layout for ColorCells in LateralTools
+	public void buildGroupLayoutComponentTypeOfSimulator(){
+		m_panelTypeOfSimulator.setLayout(new BorderLayout(0, 0));
+		m_panelTypeOfSimulator.add(m_buttonTypeOfSimulator);
+	}
+
 
 	
 	/******Layout for all components of LateralTools******/
@@ -1070,6 +1098,10 @@ public class MainWindow1D extends JFrame {
 						.addContainerGap()
 						.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_GroupLayoutPanelLateralTools.setVerticalGroup(
 			m_GroupLayoutPanelLateralTools.createParallelGroup(Alignment.LEADING)
@@ -1084,6 +1116,8 @@ public class MainWindow1D extends JFrame {
 					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(251, Short.MAX_VALUE))
 		);
 		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
