@@ -828,10 +828,13 @@ public class MainWindow2D extends JFrame {
 		
 		buildPanelBackgroundColor();//Create the panel "BackgroundColor"
 		
+		buildPanelTypeOfSimulator();//Create the panel "TypeOfSimulator"
+		
 		buildGroupLayoutPanelLateralTools();//Create the GroupLayout for the disposition of the panel "Lateral Tools"
 	}
 	
 	
+	/******Build Panel Algorithm******/
 	public void buildPanelAlgorithm(){
 		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
 		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
@@ -839,7 +842,7 @@ public class MainWindow2D extends JFrame {
 		buildComponentLateralToolsAlgorithm();//Create components of panel Algorithm in the LateralTools
 	}
 	
-	
+	/******Build Panel InitialPositionCells******/
 	public void buildPanelInitialPositionCells(){
 		m_panelInitialPositionCells = new JPanel();//Create the panel InitialPositionCells
 		m_panelInitialPositionCells.setBorder(BorderFactory.createTitledBorder("Initial Position of Cells"));//Set a border for the panel InitialPositionCells
@@ -847,6 +850,7 @@ public class MainWindow2D extends JFrame {
 		buildComponentLateralToolsInitialPositionCells();//Create components of panel InitialPositionCells in the LateralTools
 	}
 	
+	/******Build Panel FormCells******/
 	public void buildPanelFormCells(){
 		m_panelFormCells = new JPanel();//Create the panel FormCells
 		m_panelFormCells.setBorder(BorderFactory.createTitledBorder("Form of Cells"));//Set a border for the panel FormCells
@@ -854,6 +858,7 @@ public class MainWindow2D extends JFrame {
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
 	}
 	
+	/******Build Panel ColorCells******/
 	public void buildPanelColorCells(){
 		m_panelColorCells = new JPanel();//Create the panel ColorCells
 		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
@@ -861,6 +866,7 @@ public class MainWindow2D extends JFrame {
 		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
 	}
 	
+	/******Build Panel BackgroundColor******/
 	public void buildPanelBackgroundColor(){
 		m_panelBackgroundColor = new JPanel();//Create the panel BackgroundColor
 		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));//Set a border for the panel BackgroundColor
@@ -868,6 +874,17 @@ public class MainWindow2D extends JFrame {
 		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
 	}
 	
+	/******Build Panel TypeOfSimulator******/
+	public void buildPanelTypeOfSimulator(){
+		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
+		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
+		
+		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
+	}
+	
+	
+	/******Components of Panel Algorithm in LateralTools******/
+	//Build components for Algorithm in LateralTools
 	public void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
 		m_GroupLayoutPanelAlgorithm = new GroupLayout(m_panelAlgorithm);
@@ -875,6 +892,7 @@ public class MainWindow2D extends JFrame {
 		buildGroupLayoutComponentAlgorithm();//Build the grouplayout for the component Algorithm
 	}
 	
+	//Build Layout for Algorithm in LateralTools
 	public void buildGroupLayoutComponentAlgorithm(){
 		m_GroupLayoutPanelAlgorithm.setHorizontalGroup(
 				m_GroupLayoutPanelAlgorithm.createParallelGroup(Alignment.LEADING)
@@ -893,6 +911,9 @@ public class MainWindow2D extends JFrame {
 			m_panelAlgorithm.setLayout(m_GroupLayoutPanelAlgorithm);
 	}
 	
+	
+	/******Components of Panel InitialPositionCells in LateralTools******/
+	//Build components for InitialPositionCells in LateralTools
 	public void buildComponentLateralToolsInitialPositionCells(){
 		m_comboBoxInitialPositionCells = new JComboBox();
 		m_GroupLayoutPanelInitialPositionCells = new GroupLayout(m_panelInitialPositionCells);
@@ -900,6 +921,7 @@ public class MainWindow2D extends JFrame {
 		buildGroupLayoutComponentInitialPositionCells();
 	}
 	
+	//Build Layout for InitialPositionCells in LateralTools
 	public void buildGroupLayoutComponentInitialPositionCells(){
 		m_GroupLayoutPanelInitialPositionCells.setHorizontalGroup(
 				m_GroupLayoutPanelInitialPositionCells.createParallelGroup(Alignment.LEADING)
@@ -921,6 +943,9 @@ public class MainWindow2D extends JFrame {
 	}
 	
 	
+	
+	/******Components of Panel FormCells in LateralTools******/
+	//Build components for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
 		comboBoxFormCells = new JComboBox();
 		m_GroupLayoutPanelFormCells = new GroupLayout(m_panelFormCells);
@@ -928,6 +953,7 @@ public class MainWindow2D extends JFrame {
 		buildGroupLayoutComponentFormCells();
 	}
 	
+	//Build Layout for FormCells in LateralTools
 	public void buildGroupLayoutComponentFormCells(){
 		m_GroupLayoutPanelFormCells.setHorizontalGroup(
 				m_GroupLayoutPanelFormCells.createParallelGroup(Alignment.LEADING)
@@ -977,6 +1003,8 @@ public class MainWindow2D extends JFrame {
 	}
 	
 	
+	/******Components of Panel BackgroundColor in LateralTools******/
+	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
 		m_GroupLayoutPanelBackgroundColor = new GroupLayout(m_panelBackgroundColor);
@@ -984,6 +1012,7 @@ public class MainWindow2D extends JFrame {
 		buildGroupLayoutComponentBackgroundColor();
 	}
 	
+	//Build Layout for BackgroundColor in LateralTools
 	public void buildGroupLayoutComponentBackgroundColor(){
 		m_GroupLayoutPanelBackgroundColor.setHorizontalGroup(
 				m_GroupLayoutPanelBackgroundColor.createParallelGroup(Alignment.LEADING)
@@ -1003,8 +1032,24 @@ public class MainWindow2D extends JFrame {
 			);
 			m_panelBackgroundColor.setLayout(m_GroupLayoutPanelBackgroundColor);
 	}
+	
+	/******Components of Panel TypeOfSimulator in LateralTools******/
+	//Build components for ColorCells in LateralTools
+	public void buildComponentLateralToolsTypeOfSimulator(){
+		m_buttonTypeOfSimulator = new JButton("Switch to 1D");
+		
+		buildGroupLayoutComponentTypeOfSimulator();
+	}
+	
+	//Build Layout for ColorCells in LateralTools
+	public void buildGroupLayoutComponentTypeOfSimulator(){
+		m_panelTypeOfSimulator.setLayout(new BorderLayout(0, 0));
+		m_panelTypeOfSimulator.add(m_buttonTypeOfSimulator);
+	}
 
 	
+	/******Layout for all components of LateralTools******/
+	//Build Layout for components of Panel LateralTools
 	public void buildGroupLayoutPanelLateralTools(){
 		m_GroupLayoutPanelLateralTools = new GroupLayout(m_panelLateralTools);
 		m_GroupLayoutPanelLateralTools.setHorizontalGroup(
@@ -1029,6 +1074,10 @@ public class MainWindow2D extends JFrame {
 						.addContainerGap()
 						.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_GroupLayoutPanelLateralTools.setVerticalGroup(
 			m_GroupLayoutPanelLateralTools.createParallelGroup(Alignment.LEADING)
@@ -1043,6 +1092,8 @@ public class MainWindow2D extends JFrame {
 					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(251, Short.MAX_VALUE))
 		);
 		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
