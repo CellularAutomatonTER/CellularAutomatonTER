@@ -924,6 +924,9 @@ public class MainWindow1D extends JFrame {
 			m_panelAlgorithm.setLayout(m_GroupLayoutPanelAlgorithm);
 	}
 	
+	
+	/******LateralTools InitialPositionCells******/
+	//Build components for InitialPositionCells in LateralTools
 	public void buildComponentLateralToolsInitialPositionCells(){
 		m_comboBoxInitialPositionCells = new JComboBox();
 		m_GroupLayoutPanelInitialPositionCells = new GroupLayout(m_panelInitialPositionCells);
@@ -931,6 +934,7 @@ public class MainWindow1D extends JFrame {
 		buildGroupLayoutComponentInitialPositionCells();
 	}
 	
+	//Build Layout for InitialPositionCells in LateralTools
 	public void buildGroupLayoutComponentInitialPositionCells(){
 		m_GroupLayoutPanelInitialPositionCells.setHorizontalGroup(
 				m_GroupLayoutPanelInitialPositionCells.createParallelGroup(Alignment.LEADING)
