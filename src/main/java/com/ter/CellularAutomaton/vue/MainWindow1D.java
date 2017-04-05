@@ -961,6 +961,7 @@ public class MainWindow1D extends JFrame {
 		buildGroupLayoutComponentFormCells();
 	}
 	
+	//Build Layout for FormCells in LateralTools
 	public void buildGroupLayoutComponentFormCells(){
 		m_GroupLayoutPanelFormCells.setHorizontalGroup(
 				m_GroupLayoutPanelFormCells.createParallelGroup(Alignment.LEADING)
