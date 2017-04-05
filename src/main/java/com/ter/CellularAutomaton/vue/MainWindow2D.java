@@ -238,6 +238,7 @@ public class MainWindow2D extends JFrame {
 	private InternalFrameSimulation2D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
+	boolean m_isRun;
 
 	/**
 	 * ****CONSTRUCTOR*****.
@@ -269,6 +270,7 @@ public class MainWindow2D extends JFrame {
 		this.setVisible(true);
 		
 		m_simulationState = SimulationState.STOP;
+		m_isRun = true;
 	}
 
 
@@ -1141,20 +1143,14 @@ public class MainWindow2D extends JFrame {
 	
 	
 	public void runSimulation() {
-		while(true){
+		while(m_isRun){
 			if(m_simulationState == SimulationState.RUN){
-				while(m_simulationState == SimulationState.RUN) {
-					m_internalFrameSimulation.startUpdate();//The simulation of the window start
-				}
+				m_internalFrameSimulation.startUpdate();//The simulation of the window start
 			}
 			else if(m_simulationState == SimulationState.PAUSE){
-				while(m_simulationState == SimulationState.PAUSE) {
-					System.out.println("Pause");
-				//TODO
-				}
+				System.out.println("Pause");
 			}
 			else{
-				//TODO
 				System.out.println("Stop");
 			}
 		}

@@ -252,6 +252,7 @@ public class MainWindow1D extends JFrame {
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
+	boolean m_isRun;
 
 	/**
 	 * ****CONSTRUCTOR*****.
@@ -289,6 +290,7 @@ public class MainWindow1D extends JFrame {
 		this.setVisible(true);
 		
 		m_simulationState = SimulationState.STOP;
+		m_isRun = true;
 	}
 
 
@@ -302,14 +304,24 @@ public class MainWindow1D extends JFrame {
 		return m_buttonBorderCondition;
 	}
 	
+	public boolean getm_isRun() {
+		return m_isRun;
+	}
+
+	
 	/******SETTERS******/	
 	public void setm_internalFrameSimulation(InternalFrameSimulation1D internalFrame) {
 		this.m_internalFrameSimulation = internalFrame;
 	}
 	
-	public void setm_simulationState(SimulationState m_simulationState) {
-		this.m_simulationState = m_simulationState;
+	public void setm_simulationState(SimulationState simulationState) {
+		this.m_simulationState = simulationState;
 	}
+	
+	public void setm_isRun(boolean isRun) {
+		this.m_isRun = isRun;
+	}
+	
 	
 
 	/**
@@ -1185,17 +1197,12 @@ public class MainWindow1D extends JFrame {
 	
 	
 	public void runSimulation() {
-		while(true){
+		while(m_isRun){
 			if(m_simulationState == SimulationState.RUN){
-				while(m_simulationState == SimulationState.RUN) {
 					m_internalFrameSimulation.startUpdate();//The simulation of the window start
-				}
 			}
 			else if(m_simulationState == SimulationState.PAUSE){
-				while(m_simulationState == SimulationState.PAUSE) {
 					System.out.println("Pause");
-				//TODO
-				}
 			}
 			else{
 				//TODO
