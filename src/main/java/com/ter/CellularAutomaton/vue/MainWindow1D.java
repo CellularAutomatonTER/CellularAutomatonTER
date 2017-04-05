@@ -845,6 +845,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******Build Panel LateralTools and its components******/
 	public void buildPanelLateralTools(){
 		m_panelLateralTools = new JPanel();//Create a JPanel for the "Lateral Tools"
 		m_mainPanel.add(m_panelLateralTools, BorderLayout.EAST);//Add the panel m_panelLateralTools to panel m_mainPanel
@@ -895,6 +896,7 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
 	}
 	
+	/******Build Panel BackgroundColor******/
 	public void buildPanelBackgroundColor(){
 		m_panelBackgroundColor = new JPanel();//Create the panel BackgroundColor
 		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));//Set a border for the panel BackgroundColor
