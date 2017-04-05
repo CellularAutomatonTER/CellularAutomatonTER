@@ -3,12 +3,9 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.ter.CellularAutomaton.main.Main;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.vue.Simulation1D;
 
