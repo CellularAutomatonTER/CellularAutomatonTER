@@ -953,7 +953,7 @@ public class MainWindow1D extends JFrame {
 	
 	
 	/******LateralTools FormCells******/
-	//Build component for FormCells in LateralTools
+	//Build components for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
 		comboBoxFormCells = new JComboBox();
 		m_GroupLayoutPanelFormCells = new GroupLayout(m_panelFormCells);
@@ -983,7 +983,7 @@ public class MainWindow1D extends JFrame {
 	
 	
 	/******LateralTools BackgroundColor******/
-	//Build component for BackgroundColor in LateralTools
+	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
 		m_GroupLayoutPanelBackgroundColor = new GroupLayout(m_panelBackgroundColor);
@@ -1014,7 +1014,7 @@ public class MainWindow1D extends JFrame {
 	
 	
 	/******LateralTools ColorCells******/
-	//Build component for ColorCells in LateralTools
+	//Build components for ColorCells in LateralTools
 	public void buildComponentLateralToolsColorCells(){
 		m_buttonColorCells = new JButton("Color Cells Setting");
 		
