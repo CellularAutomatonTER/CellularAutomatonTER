@@ -839,7 +839,7 @@ public class MainWindow1D extends JFrame {
 		m_mainDesktopPane.add(m_internalFrameSimulation);
 	}
 	
-	
+	/******Build LateralTools******/
 	public void buildLateralTools(){
 		buildPanelLateralTools();//Build the panel "Lateral Tools"
 	}
