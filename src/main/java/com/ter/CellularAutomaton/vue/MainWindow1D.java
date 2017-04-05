@@ -871,7 +871,7 @@ public class MainWindow1D extends JFrame {
 		buildComponentLateralToolsAlgorithm();//Create components of panel Algorithm in the LateralTools
 	}
 	
-	
+	/******Build Panel InitialPositionCells******/
 	public void buildPanelInitialPositionCells(){
 		m_panelInitialPositionCells = new JPanel();//Create the panel InitialPositionCells
 		m_panelInitialPositionCells.setBorder(BorderFactory.createTitledBorder("Initial Position of Cells"));//Set a border for the panel InitialPositionCells
