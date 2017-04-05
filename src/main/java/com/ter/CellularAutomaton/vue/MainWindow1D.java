@@ -863,6 +863,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******Build Panel Algorithm******/
 	public void buildPanelAlgorithm(){
 		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
 		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
