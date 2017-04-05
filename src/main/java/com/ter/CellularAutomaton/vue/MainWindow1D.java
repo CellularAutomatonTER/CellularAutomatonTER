@@ -1026,7 +1026,8 @@ public class MainWindow1D extends JFrame {
 	}
 
 	
-	//Build Layout for the component of Panel LateralTools
+	/******Layout for all components of LateralTools******/
+	//Build Layout for components of Panel LateralTools
 	public void buildGroupLayoutPanelLateralTools(){
 		m_GroupLayoutPanelLateralTools = new GroupLayout(m_panelLateralTools);
 		m_GroupLayoutPanelLateralTools.setHorizontalGroup(
