@@ -952,6 +952,8 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******LateralTools FormCells******/
+	//Build component for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
 		comboBoxFormCells = new JComboBox();
 		m_GroupLayoutPanelFormCells = new GroupLayout(m_panelFormCells);
