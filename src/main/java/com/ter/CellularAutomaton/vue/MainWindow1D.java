@@ -1161,7 +1161,7 @@ public class MainWindow1D extends JFrame {
 	
 	
 	
-	/***Listeners Control Tools***/
+	/******Listeners Control Tools******/
 	private void addListenerControlTools(){
 		
 	}
