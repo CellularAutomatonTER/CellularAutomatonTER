@@ -980,6 +980,8 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******LateralTools BackgroundColor******/
+	//Build component for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
 		m_GroupLayoutPanelBackgroundColor = new GroupLayout(m_panelBackgroundColor);
@@ -987,6 +989,7 @@ public class MainWindow1D extends JFrame {
 		buildGroupLayoutComponentBackgroundColor();
 	}
 	
+	//Build Layout for BackgroundColor in LateralTools
 	public void buildGroupLayoutComponentBackgroundColor(){
 		m_GroupLayoutPanelBackgroundColor.setHorizontalGroup(
 				m_GroupLayoutPanelBackgroundColor.createParallelGroup(Alignment.LEADING)
