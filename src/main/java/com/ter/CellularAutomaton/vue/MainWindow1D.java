@@ -1011,18 +1011,22 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
+	/******LateralTools ColorCells******/
+	//Build component for ColorCells in LateralTools
 	public void buildComponentLateralToolsColorCells(){
 		m_buttonColorCells = new JButton("Color Cells Setting");
 		
 		buildGroupLayoutComponentColorCells();
 	}
 	
+	//Build Layout for ColorCells in LateralTools
 	public void buildGroupLayoutComponentColorCells(){
 		m_panelColorCells.setLayout(new BorderLayout(0, 0));
 		m_panelColorCells.add(m_buttonColorCells);
 	}
 
 	
+	//Build Layout for the component of Panel LateralTools
 	public void buildGroupLayoutPanelLateralTools(){
 		m_GroupLayoutPanelLateralTools = new GroupLayout(m_panelLateralTools);
 		m_GroupLayoutPanelLateralTools.setHorizontalGroup(
