@@ -4,6 +4,8 @@ package com.ter.CellularAutomaton.vue;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -13,6 +15,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
+import com.ter.CellularAutomaton.controller.ResizeInternalFrameSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
 
 public class InternalFrameSimulation1D extends JInternalFrame {
 
@@ -23,7 +27,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 
 	/******ATTRIBUTES******/
 	// For the logging.
-		private static final Logger logger = LogManager.getLogger(InternalFrameSimulation1D.class.getName()); // TestLog4j1.class.getName() must be change in yourClassName.class.getName().
+	private static final Logger logger = LogManager.getLogger(InternalFrameSimulation1D.class.getName()); // TestLog4j1.class.getName() must be change in yourClassName.class.getName().
 
 	private int m_width;
 	private int m_height;
@@ -49,9 +53,12 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		
 		this.isClosable();
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.pack();
 		this.setSize(m_width + this.getInsets().left +  + this.getInsets().right, m_height + this.getInsets().bottom +  + this.getInsets().top);
+		
+		addListenerInternalFrameSimulation1D();
+		
 		this.setVisible(true);
 	}
 	
@@ -60,13 +67,39 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		return m_simulation;
 	}
 	
+	public int getm_width() {
+		return m_width;
+	}
+	
+	public int getm_height() {
+		return m_height;
+	}
+	
 	/******SETTERS******/
+	public void setm_width(int width) {
+		this.m_width = width;
+	}
+	
+	public void setm_height(int height) {
+		this.m_height = height;
+	}
+	
 	public void setm_refreshRate(int refreshRate) {
 		this.m_refreshRate = refreshRate;
 	}
 
 	
 	/******CLASS METHODS******/
+	
+	/******Listeners on InternalFrameSimulation1D******/
+	private void addListenerInternalFrameSimulation1D(){
+		addListenerResize();//add listener of button TypeOfSimulator
+	}
+	
+	private void addListenerResize(){
+		this.addComponentListener(new ResizeInternalFrameSimulation1DEvent(this));
+	}
+	
 	
 	public void startUpdate() {
 			m_millis = 1000/m_refreshRate;
