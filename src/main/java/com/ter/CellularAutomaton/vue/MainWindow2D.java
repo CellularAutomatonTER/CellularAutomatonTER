@@ -27,6 +27,8 @@ import com.ter.CellularAutomaton.controller.RunApplication2D;
 import com.ter.CellularAutomaton.controller.SpeedSimulationEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation2DEvent;
+import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
+import com.ter.CellularAutomaton.controller.Switch2DTo1DSimulationEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.controller.ConwayRules2D;
 import com.ter.CellularAutomaton.vue.IForm;
@@ -268,6 +270,9 @@ public class MainWindow2D extends JFrame {
 		
 		//add listeners ControlTools
 		addListenerControlTools();
+		
+		//add listeners LateralTools
+		addListenerLateralTools();
 
 		//Set the window visible
 		this.setVisible(true);
@@ -275,8 +280,6 @@ public class MainWindow2D extends JFrame {
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
 		
-		this.m_threadSimulation= new Thread(new RunApplication2D(this));
-		this.m_threadSimulation.start();//Run the application (this method must be called after initialization of m_isRun=true)
 	}
 
 
@@ -1171,6 +1174,16 @@ public class MainWindow2D extends JFrame {
 
 	private void addListenerSlider(){
 		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulationEvent(this));
+	}
+	
+	
+	/******Listeners Lateral Tools******/
+	private void addListenerLateralTools(){
+		addListenerSwitchTo1D();//add listener of button TypeOfSimulator
+	}
+	
+	private void addListenerSwitchTo1D(){
+		m_buttonTypeOfSimulator.addActionListener(new Switch2DTo1DSimulationEvent(this));
 	}
 	
 
