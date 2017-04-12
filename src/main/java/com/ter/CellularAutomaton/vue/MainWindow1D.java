@@ -23,6 +23,7 @@ import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.RunApplication;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
@@ -253,6 +254,7 @@ public class MainWindow1D extends JFrame {
 	
 	private SimulationState m_simulationState;
 	boolean m_isRun;
+	private Thread m_threadSimulation;
 
 	/**
 	 * ****CONSTRUCTOR*****.
@@ -292,7 +294,8 @@ public class MainWindow1D extends JFrame {
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
 		
-		this.runSimulation();//Run the application (this method must be called after initialization of m_isRun=true)
+		this.m_threadSimulation= new Thread(new RunApplication(this));
+		this.m_threadSimulation.start();//Run the application (this method must be called after initialization of m_isRun=true)
 	}
 
 
@@ -306,8 +309,24 @@ public class MainWindow1D extends JFrame {
 		return m_buttonBorderCondition;
 	}
 	
+	public JButton getm_buttonLauncher() {
+		return m_buttonLauncher;
+	}
+	
+	public JButton getm_buttonPause() {
+		return m_buttonPause;
+	}
+	
+	public JButton getm_buttonStop() {
+		return m_buttonStop;
+	}
+	
 	public boolean getm_isRun() {
 		return m_isRun;
+	}
+	
+	public Thread getm_threadSimulation() {
+		return m_threadSimulation;
 	}
 
 	
@@ -322,6 +341,10 @@ public class MainWindow1D extends JFrame {
 	
 	public void setm_isRun(boolean isRun) {
 		this.m_isRun = isRun;
+	}
+	
+	public void setm_threadSimulation(Thread threadSimulation) {
+		this.m_threadSimulation = threadSimulation;
 	}
 	
 	
@@ -1211,7 +1234,7 @@ public class MainWindow1D extends JFrame {
 				System.out.println("Stop");
 			}
 		}
-	}
+	} 
 	
 
 
