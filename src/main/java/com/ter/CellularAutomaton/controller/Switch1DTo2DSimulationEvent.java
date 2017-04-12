@@ -31,8 +31,8 @@ public class Switch1DTo2DSimulationEvent implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		this.m_window1D.setm_isRun(false);
 		this.m_window1D.dispose();//Close the current MainWindow1D
-		//MainWindow2D window2D = new MainWindow2D();//Create a new MainWindow2D
-		//window2D.runSimulation();
+		MainWindow2D window2D = new MainWindow2D();//Create a new MainWindow2D
+
 	}
 
 	

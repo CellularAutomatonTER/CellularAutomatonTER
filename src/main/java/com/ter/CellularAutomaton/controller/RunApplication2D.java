@@ -1,17 +1,17 @@
 package com.ter.CellularAutomaton.controller;
 
-import com.ter.CellularAutomaton.vue.MainWindow1D;
+import com.ter.CellularAutomaton.vue.MainWindow2D;
 
-public class RunApplication implements Runnable{
+public class RunApplication2D implements Runnable{
 	
 	/******ATTRIBUTES******/
-	private MainWindow1D window;
+	private MainWindow2D window;
 	
 	
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public RunApplication(MainWindow1D window) {
+	public RunApplication2D(MainWindow2D window) {
 		super();
 		this.window = window;
 		

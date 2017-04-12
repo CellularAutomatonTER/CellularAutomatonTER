@@ -22,6 +22,8 @@ import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation2DEvent;
+import com.ter.CellularAutomaton.controller.RunApplication1D;
+import com.ter.CellularAutomaton.controller.RunApplication2D;
 import com.ter.CellularAutomaton.controller.SpeedSimulationEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation2DEvent;
@@ -239,6 +241,7 @@ public class MainWindow2D extends JFrame {
 	
 	private SimulationState m_simulationState;
 	boolean m_isRun;
+	private Thread m_threadSimulation;
 
 	/**
 	 * ****CONSTRUCTOR*****.
@@ -272,7 +275,8 @@ public class MainWindow2D extends JFrame {
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
 		
-		this.runSimulation();//Run the application (this method must be called after initialization of m_isRun=true)
+		this.m_threadSimulation= new Thread(new RunApplication2D(this));
+		this.m_threadSimulation.start();//Run the application (this method must be called after initialization of m_isRun=true)
 	}
 
 
@@ -286,13 +290,41 @@ public class MainWindow2D extends JFrame {
 		return m_sliderSpeedSimulation;
 	}
 	
-	/******SETTERS******/	
+	public JButton getm_buttonLauncher() {
+		return m_buttonLauncher;
+	}
+	
+	public JButton getm_buttonPause() {
+		return m_buttonPause;
+	}
+	
+	public JButton getm_buttonStop() {
+		return m_buttonStop;
+	}
+	
+	public boolean getm_isRun() {
+		return m_isRun;
+	}
+	
+	public Thread getm_threadSimulation() {
+		return m_threadSimulation;
+	}
+	
+	/******SETTERS******/
 	public void setm_internalFrameSimulation(InternalFrameSimulation2D internalFrame) {
 		this.m_internalFrameSimulation = internalFrame;
 	}
 	
 	public void setm_simulationState(SimulationState m_simulationState) {
 		this.m_simulationState = m_simulationState;
+	}
+	
+	public void setm_isRun(boolean isRun) {
+		this.m_isRun = isRun;
+	}
+	
+	public void setm_threadSimulation(Thread threadSimulation) {
+		this.m_threadSimulation = threadSimulation;
 	}
 	
 

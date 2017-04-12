@@ -23,7 +23,7 @@ import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
-import com.ter.CellularAutomaton.controller.RunApplication;
+import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
@@ -294,7 +294,7 @@ public class MainWindow1D extends JFrame {
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
 		
-		this.m_threadSimulation= new Thread(new RunApplication(this));
+		this.m_threadSimulation= new Thread(new RunApplication1D(this));
 		this.m_threadSimulation.start();//Run the application (this method must be called after initialization of m_isRun=true)
 	}
 
