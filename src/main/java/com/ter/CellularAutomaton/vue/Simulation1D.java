@@ -20,6 +20,7 @@ public class Simulation1D {
 	private int m_nbCellWidth; // Number of cells in width in the cell matrix.
 	private int m_nbCellHeight; // Number of cells in width in the cell matrix.
 	private HashMap<Integer, Integer> m_evolutionRule; // Represent the table of evolution and therefore the rules: for each possible configuration (key) is associated a value of state (value) specify the rule chosen by user.
+	private int m_idOfLines;
 
 	private IForm m_formOfCells; // Form of cells.
 	private Color m_colorOfCells; // Color of cells.
@@ -27,6 +28,7 @@ public class Simulation1D {
 
 	/******CONSTRUCTOR******/
 	public Simulation1D(int width, int height, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
+		m_idOfLines=0;
 		m_nbCellWidth = width/Cell1D.CELL_SIZE;
 		m_nbCellHeight = height/Cell1D.CELL_SIZE;
 		m_matrixCells = new ArrayList<ArrayList<Cell1D>>();// The simulator is a matrix of cell.
@@ -121,11 +123,12 @@ public class Simulation1D {
 	public void update() {
 		int stateEvolutionOfCell;
 		// For each cell.
-		for (int y = 0; y < m_nbCellHeight-1; y++) {
+		if ( m_idOfLines < m_nbCellHeight-1) {
 			for (int x = 0; x < m_nbCellWidth; x++) {
-				stateEvolutionOfCell = m_matrixCells.get(x).get(y).findStateEvolution(this); // Find evolution of state of cell.
-				m_matrixCells.get(x).get(y+1).setm_state(stateEvolutionOfCell); // Set the state of Cell which represent the evolution of current cell to stateEvolutionOfCell (which is  evolution of state of the current cell).
+				stateEvolutionOfCell = m_matrixCells.get(x).get(m_idOfLines).findStateEvolution(this); // Find evolution of state of cell.
+				m_matrixCells.get(x).get(m_idOfLines+1).setm_state(stateEvolutionOfCell); // Set the state of Cell which represent the evolution of current cell to stateEvolutionOfCell (which is  evolution of state of the current cell).
 			}
+			m_idOfLines++;
 		}
 	}
 
