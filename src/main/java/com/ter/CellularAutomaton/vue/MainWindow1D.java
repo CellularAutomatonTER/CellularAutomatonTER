@@ -250,6 +250,8 @@ public class MainWindow1D extends JFrame {
 	private JComboBox m_comboBoxBackgroundColor;
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
+	private JPanel m_panelSimulationSpeed;
+	private JSlider m_sliderSpeedSimulation;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	private SimulationState m_simulationState;
@@ -905,6 +907,8 @@ public class MainWindow1D extends JFrame {
 		
 		buildPanelTypeOfSimulator();//Create the panel "TypeOfSimulator"
 		
+		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
+		
 		buildGroupLayoutPanelLateralTools();//Create the GroupLayout for the disposition of the panel "Lateral Tools"
 	}
 	
@@ -955,6 +959,14 @@ public class MainWindow1D extends JFrame {
 		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
 		
 		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
+	}
+	
+	/******Build Panel SimulationSpeed******/
+	public void buildPanelSimulationSpeed(){
+		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
+		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
+		
+		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
 	}
 	
 	
@@ -1096,17 +1108,38 @@ public class MainWindow1D extends JFrame {
 	
 	
 	/******Components of Panel TypeOfSimulator in LateralTools******/
-	//Build components for ColorCells in LateralTools
+	//Build components for TypeOfSimulator in LateralTools
 	public void buildComponentLateralToolsTypeOfSimulator(){
 		m_buttonTypeOfSimulator = new JButton("Switch to 2D");
 		
 		buildGroupLayoutComponentTypeOfSimulator();
 	}
 	
-	//Build Layout for ColorCells in LateralTools
+	//Build Layout for TypeOfSimulator in LateralTools
 	public void buildGroupLayoutComponentTypeOfSimulator(){
 		m_panelTypeOfSimulator.setLayout(new BorderLayout(0, 0));
 		m_panelTypeOfSimulator.add(m_buttonTypeOfSimulator);
+	}
+	
+	
+	/******Components of Panel TypeOfSimulator in LateralTools******/
+	//Build components for TypeOfSimulator in LateralTools
+	public void buildComponentSimulationSpeed(){ 
+		m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
+		m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
+		m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
+		m_sliderSpeedSimulation.setValue(30);//Set the value of slider to 30 by default
+		m_sliderSpeedSimulation.setPaintTicks(true);//Set the paint ticks of slider
+		m_sliderSpeedSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
+		m_sliderSpeedSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
+	
+		buildGroupLayoutComponentSimulationSpeed();//Build Layout for SimulationSpeed in LateralTools
+	}
+	
+	//Build Layout for SimulationSpeed in LateralTools
+	public void buildGroupLayoutComponentSimulationSpeed(){
+		m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 	}
 
 
@@ -1141,6 +1174,10 @@ public class MainWindow1D extends JFrame {
 						.addContainerGap()
 						.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(m_panelSimulationSpeed, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		m_GroupLayoutPanelLateralTools.setVerticalGroup(
 			m_GroupLayoutPanelLateralTools.createParallelGroup(Alignment.LEADING)
@@ -1157,6 +1194,8 @@ public class MainWindow1D extends JFrame {
 					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(m_panelSimulationSpeed, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(251, Short.MAX_VALUE))
 		);
 		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
@@ -1233,7 +1272,4 @@ public class MainWindow1D extends JFrame {
 			}
 		}
 	} 
-	
-
-
 }
