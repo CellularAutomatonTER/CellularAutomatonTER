@@ -24,7 +24,7 @@ import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.RunApplication2D;
-import com.ter.CellularAutomaton.controller.SpeedSimulationEvent;
+import com.ter.CellularAutomaton.controller.SpeedSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
@@ -1173,7 +1173,7 @@ public class MainWindow2D extends JFrame {
 	}
 
 	private void addListenerSlider(){
-		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulationEvent(this));
+		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation2DEvent(this));
 	}
 	
 	

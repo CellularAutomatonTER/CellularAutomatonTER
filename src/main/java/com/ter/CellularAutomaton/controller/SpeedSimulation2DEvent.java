@@ -5,7 +5,7 @@ import javax.swing.event.ChangeListener;
 
 import com.ter.CellularAutomaton.vue.MainWindow2D;
 
-public class SpeedSimulationEvent implements ChangeListener {
+public class SpeedSimulation2DEvent implements ChangeListener {
 	
 	/******ATTRIBUTES******/
 	private MainWindow2D window;
@@ -14,7 +14,7 @@ public class SpeedSimulationEvent implements ChangeListener {
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public SpeedSimulationEvent(MainWindow2D window) {
+	public SpeedSimulation2DEvent(MainWindow2D window) {
 		super();
 		this.window = window;
 		
