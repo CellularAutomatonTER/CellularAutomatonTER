@@ -57,7 +57,7 @@ public class Simulation1D {
 	public ArrayList<ArrayList<Cell1D>> getm_cells() {
 		return m_matrixCells;
 	}
-
+	
 	public int getm_nbCellWidth() {
 		return m_nbCellWidth;
 	}
@@ -81,6 +81,10 @@ public class Simulation1D {
 	public IInitializeSimulationRules1D getm_initializeSimulationRule() {
 		return m_initializeSimulationRule;
 	}
+	
+	public int getm_idOfLines() {
+		return m_idOfLines;
+	}
 
 	/******SETTERS******/
 	public void setm_evolutionRule(HashMap<Integer, Integer> evolutionRule) {
@@ -93,6 +97,10 @@ public class Simulation1D {
 	
 	public void setm_nbCellHeight(int nbCellHeight) {
 		this.m_nbCellHeight = nbCellHeight;
+	}
+	
+	public void setm_idOfLines(int idOfLines) {
+		this.m_idOfLines = idOfLines;
 	}
 
 	/******CLASS METHODS******/ 

@@ -45,6 +45,7 @@ public class OKElementaryRules1DEvent implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		this.m_currentSimulator.getm_internalFrameSimulation().getm_simulation().setm_idOfLines(0);
 		this.m_currentSimulator.getm_internalFrameSimulation().getm_simulation().getm_initializeSimulationRule().initializeSimulation(m_currentSimulator.getm_internalFrameSimulation().getm_simulation());// Initialize simulation according to current rule of initialization of simulation.
 		this.m_currentSimulator.setm_threadSimulation(null);
 		this.m_currentSimulator.setm_simulationState(SimulationState.RUN);
