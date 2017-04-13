@@ -24,6 +24,8 @@ import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.RunApplication1D;
+import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.SpeedSimulation2DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
@@ -305,8 +307,12 @@ public class MainWindow1D extends JFrame {
 		return m_internalFrameSimulation;
 	}
 	
-	public JButton getm_sliderSpeedSimulation() {
+	public JButton getm_buttonBorderCondition() {
 		return m_buttonBorderCondition;
+	}
+	
+	public JSlider getm_sliderSpeedSimulation() {
+		return m_sliderSpeedSimulation;
 	}
 	
 	public JButton getm_buttonLauncher() {
@@ -330,7 +336,7 @@ public class MainWindow1D extends JFrame {
 	}
 
 	
-	/******SETTERS******/	
+	/******SETTERS******/
 	public void setm_internalFrameSimulation(InternalFrameSimulation1D internalFrame) {
 		this.m_internalFrameSimulation = internalFrame;
 	}
@@ -1248,11 +1254,16 @@ public class MainWindow1D extends JFrame {
 	
 	/******Listeners Lateral Tools******/
 	private void addListenerLateralTools(){
+		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
 	}
 	
 	private void addListenerSwitchTo2D(){
 		m_buttonTypeOfSimulator.addActionListener(new Switch1DTo2DSimulationEvent(this));
+	}
+	
+	private void addListenerSlider(){
+		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
 	}
 	
 
