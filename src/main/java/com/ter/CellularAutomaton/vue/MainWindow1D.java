@@ -874,7 +874,7 @@ public class MainWindow1D extends JFrame {
 	public void buildInternalFrameSimulation(){
 		IForm formOfCells = new RectangleForm();
 		Color colorOfCells = Color.BLUE;
-		Color backgroundColor = Color.BLACK;
+		Color backgroundColor = Color.ORANGE;
 		IInitializeSimulationRules1D initializeSimulationRule = new InitializeSimulation1DOneCell();
 		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 	}

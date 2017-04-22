@@ -1,6 +1,9 @@
 package com.ter.CellularAutomaton.controller;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
@@ -40,6 +43,14 @@ public class Cell1D {
 
 
 	/******GETTERS******/
+	public int getm_x() {
+		return m_x;
+	}
+	
+	public int getm_y() {
+		return m_y;
+	}
+	
 	public int getm_state() {
 		return m_state;
 	}
@@ -59,6 +70,10 @@ public class Cell1D {
 	
 	public void setm_state(int state) {
 		this.m_state = state;
+	}
+	
+	public void setm_color(Color color) {
+		this.m_color = color;
 	}
 
 	/*******CLASS METHODS*****/

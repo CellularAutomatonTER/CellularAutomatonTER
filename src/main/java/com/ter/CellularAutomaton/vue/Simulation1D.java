@@ -145,6 +145,7 @@ public class Simulation1D {
 		// For each cell.
 		for(int x = 0;x < m_nbCellWidth;x++) {
 			for (int y = 0; y < m_nbCellHeight; y++) {
+				m_matrixCells.get(1).get(1).setm_color(Color.GREEN);
 				m_matrixCells.get(x).get(y).draw(g); // Draw cell.
 			}
 		}
