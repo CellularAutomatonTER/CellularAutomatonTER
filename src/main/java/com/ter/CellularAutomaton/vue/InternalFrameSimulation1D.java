@@ -22,7 +22,7 @@ import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 import com.ter.CellularAutomaton.controller.ResizeInternalFrameSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
 
-public class InternalFrameSimulation1D extends JInternalFrame implements MouseMotionListener, MouseListener {
+public class InternalFrameSimulation1D extends JInternalFrame {
 
 	/**
 	 * 
@@ -98,8 +98,6 @@ public class InternalFrameSimulation1D extends JInternalFrame implements MouseMo
 	/******Listeners on InternalFrameSimulation1D******/
 	private void addListenerInternalFrameSimulation1D(){
 		addListenerResize();//add listener of button TypeOfSimulator
-	    this.addMouseMotionListener(this);
-	    this.addMouseListener(this);
 	}
 	
 	private void addListenerResize(){
@@ -128,75 +126,83 @@ public class InternalFrameSimulation1D extends JInternalFrame implements MouseMo
 	}
 
 
-	public class Screen extends JLabel {
+	public class Screen extends JLabel implements MouseMotionListener, MouseListener {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 
+		
+		/******CONSTRUCTOR******/
+		public Screen(){
+			addListenerInternalFrameSimulation1D();
+		}
+		
+		
+		/******CLASS METHODS******/
+		
 		@Override
 		protected void paintComponent(Graphics g) {
 			g.setColor(m_backgroundColor);
 			g.fillRect(0, 0, getWidth(), getHeight());
 			m_simulation.draw(g);
 		}
+		
+		/******Listeners on InternalFrameSimulation1D******/
+		private void addListenerInternalFrameSimulation1D(){
+		    this.addMouseMotionListener(this);
+		    this.addMouseListener(this);
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			 int mx = e.getX()/Cell1D.CELL_SIZE;
+			 int my = e.getY()/Cell1D.CELL_SIZE;
+			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
+			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
+			 m_simulation.getCellInSimulation(mx, my).setm_color(Color.CYAN);		
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		 int mx = e.getX();
-		    int my = e.getY();
-		    System.out.println("X="+mx+" et Y= "+my);
-		    //System.out.println("Vous avez cliquer sur une cellule");
-		    for(int x=0;x<m_simulation.getm_nbCellWidth();x++){
-		    	for(int y=0;y<m_simulation.getm_nbCellHeight();y++){
-				    if (m_simulation.getCellInSimulation(x, y).getm_x() < mx  && mx < m_simulation.getCellInSimulation(x, y).getm_x() + Cell1D.CELL_SIZE && m_simulation.getCellInSimulation(x, y).getm_y() < my && my < m_simulation.getCellInSimulation(x, y).getm_y() + Cell1D.CELL_SIZE) {
-				        System.out.println("Vous avez cliquer sur une cellule");
-				        m_simulation.getCellInSimulation(x, y).setm_color(Color.CYAN);
-				    }
-		    	}
-		    }
-		
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 }
