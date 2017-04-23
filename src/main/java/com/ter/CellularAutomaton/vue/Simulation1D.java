@@ -23,11 +23,11 @@ public class Simulation1D {
 	private int m_idOfLines;
 
 	private IForm m_formOfCells; // Form of cells.
-	private Color m_colorOfCells; // Color of cells.
+	private ArrayList<Color> m_colorOfCells; // Color of cells.
 	private IInitializeSimulationRules1D m_initializeSimulationRule; // Type of initialization of the matrix of cells.
 
 	/******CONSTRUCTOR******/
-	public Simulation1D(int width, int height, IForm formOfCells, Color colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
+	public Simulation1D(int width, int height, IForm formOfCells, ArrayList<Color> colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
 		m_idOfLines=0;
 		m_nbCellWidth = width/Cell1D.CELL_SIZE;
 		m_nbCellHeight = height/Cell1D.CELL_SIZE;
@@ -74,7 +74,7 @@ public class Simulation1D {
 		return m_formOfCells;
 	}
 
-	public Color getm_colorOfCells() {
+	public ArrayList<Color> getm_colorOfCells() {
 		return m_colorOfCells;
 	}
 
@@ -145,7 +145,6 @@ public class Simulation1D {
 		// For each cell.
 		for(int x = 0;x < m_nbCellWidth;x++) {
 			for (int y = 0; y < m_nbCellHeight; y++) {
-				m_matrixCells.get(1).get(1).setm_color(Color.GREEN);
 				m_matrixCells.get(x).get(y).draw(g); // Draw cell.
 			}
 		}

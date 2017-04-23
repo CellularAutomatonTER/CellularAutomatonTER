@@ -28,10 +28,10 @@ public class Cell1D {
 	private HashMap<Integer, Integer> m_evolutionRule;//Represent the table of evolution and therefore the rules: for each possible configuration (key) is associated a value of state (value) specify the rule chosen by user
 
 	private IForm m_form;//Form of cells
-	private Color m_color;//Color of cells
+	private ArrayList<Color> m_color;//Color of cells
 
 	/******CONSTRUCTOR******/
-	public Cell1D(int x, int y, int state, int radius, IForm form, Color color, HashMap<Integer, Integer> evolutionRule) {
+	public Cell1D(int x, int y, int state, int radius, IForm form, ArrayList<Color> color, HashMap<Integer, Integer> evolutionRule) {
 		this.m_x = x;
 		this.m_y = y;
 		this.m_state = state;
@@ -72,7 +72,7 @@ public class Cell1D {
 		this.m_state = state;
 	}
 	
-	public void setm_color(Color color) {
+	public void setm_color(ArrayList<Color> color) {
 		this.m_color = color;
 	}
 
@@ -154,15 +154,7 @@ public class Cell1D {
 
 	//Draw Cell
 	public void draw(Graphics g) {
-		//if the cell is alive
-				if(m_state == 0){
-					g.setColor(Color.BLACK);
-					m_form.draw(g, m_x, m_y);//Draw the form of cells
-				}
-		//if the cell is alive
-		if(m_state == 1){
-			g.setColor(m_color);
-			m_form.draw(g, m_x, m_y);//Draw the form of cells
-		}
+		g.setColor(m_color.get(m_state));//The cell which have a state take the color associate.
+		m_form.draw(g, m_x, m_y);//Draw the form of cells
 	}
 }

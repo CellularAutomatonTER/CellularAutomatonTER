@@ -9,6 +9,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -42,7 +43,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	private Color m_backgroundColor;
 
 	/******CONSTRUCTOR******/
-	public InternalFrameSimulation1D(String title, IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule) {
+	public InternalFrameSimulation1D(String title, IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule) {
 		super(title,true,true,true,true);
 		m_width=1000;
 		m_height = 600;
@@ -161,7 +162,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 			 int my = e.getY()/Cell1D.CELL_SIZE;
 			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
 			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
-			 m_simulation.getCellInSimulation(mx, my).setm_color(Color.CYAN);		
+			 m_simulation.getCellInSimulation(mx, my).setm_state(1);
 		}
 
 		@Override

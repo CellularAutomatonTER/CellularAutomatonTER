@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -873,13 +874,15 @@ public class MainWindow1D extends JFrame {
 	/******Build InternalFrameSimulation******/
 	public void buildInternalFrameSimulation(){
 		IForm formOfCells = new RectangleForm();
-		Color colorOfCells = Color.BLUE;
-		Color backgroundColor = Color.ORANGE;
+		ArrayList<Color> colorOfCells = new ArrayList<Color>();
+		colorOfCells.add(Color.BLACK);
+		colorOfCells.add(Color.BLUE);
+		Color backgroundColor = Color.BLACK;
 		IInitializeSimulationRules1D initializeSimulationRule = new InitializeSimulation1DOneCell();
 		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 	}
 	
-	public void buildInternalFrameSimulation(IForm formOfCells, Color colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
+	public void buildInternalFrameSimulation(IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
 		m_internalFrameSimulation = new InternalFrameSimulation1D("Simulation", formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
 		m_internalFrameSimulation.setBounds(53, 11, 900, 530);
 		m_internalFrameSimulation.setVisible(true);
