@@ -43,7 +43,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	private Color m_backgroundColor;
 
 	/******CONSTRUCTOR******/
-	public InternalFrameSimulation1D(String title, IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule) {
+	public InternalFrameSimulation1D(String title, IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule, MainWindow1D mainWindow1D) {
 		super(title,true,true,true,true);
 		m_width=1000;
 		m_height = 600;
@@ -62,7 +62,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		this.pack();
 		this.setSize(m_width + this.getInsets().left +  + this.getInsets().right, m_height + this.getInsets().bottom +  + this.getInsets().top);
 		
-		addListenerInternalFrameSimulation1D();
+		addListenerInternalFrameSimulation1D(mainWindow1D);
 		
 		this.setVisible(true);
 	}
@@ -97,12 +97,12 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	/******CLASS METHODS******/
 	
 	/******Listeners on InternalFrameSimulation1D******/
-	private void addListenerInternalFrameSimulation1D(){
-		addListenerResize();//add listener of button TypeOfSimulator
+	private void addListenerInternalFrameSimulation1D(MainWindow1D mainWindow1D){
+		addListenerResize(mainWindow1D);//add listener of button TypeOfSimulator
 	}
 	
-	private void addListenerResize(){
-		this.addComponentListener(new ResizeInternalFrameSimulation1DEvent(this));
+	private void addListenerResize(MainWindow1D mainWindow1D){
+		this.addComponentListener(new ResizeInternalFrameSimulation1DEvent(mainWindow1D));
 	}
 	
 	

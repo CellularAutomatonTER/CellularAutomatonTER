@@ -883,7 +883,7 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	public void buildInternalFrameSimulation(IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
-		m_internalFrameSimulation = new InternalFrameSimulation1D("Simulation", formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
+		m_internalFrameSimulation = new InternalFrameSimulation1D("Simulation", formOfCells, colorOfCells, backgroundColor, initializeSimulationRule, this);
 		m_internalFrameSimulation.setBounds(53, 11, 900, 530);
 		m_internalFrameSimulation.setVisible(true);
 		m_mainDesktopPane.setLayout(null);
