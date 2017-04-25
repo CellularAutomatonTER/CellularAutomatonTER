@@ -51,10 +51,9 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_millis = 1000/m_refreshRate;
 		m_simulation = new Simulation1D(m_width, m_height, formOfCells, colorOfCells, initializeSimulationRule);
 		m_screen = new Screen(this);
-		m_backgroundColor=backgroundColor;
-		
 		setLayout(new BorderLayout());
 		add(m_screen, BorderLayout.CENTER);
+		m_backgroundColor=backgroundColor;
 		
 		this.isClosable();
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -125,12 +124,5 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 			}
 			}
 	}
-
-
 	
-
-
-	
-
-
 }
