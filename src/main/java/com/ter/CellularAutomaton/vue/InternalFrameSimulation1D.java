@@ -48,20 +48,21 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	/******CONSTRUCTOR******/
 	public InternalFrameSimulation1D(String title, IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule, MainWindow1D mainWindow1D) {
 		super(title,true,true,true,true);
-		m_width=1000;
-		m_height = 600;
+		m_width=900;
+		m_height = 530;
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
 		
 		m_simulation = new Simulation1D(m_width, m_height, formOfCells, colorOfCells, initializeSimulationRule);
 		
 		m_screen = new Screen(this);
-		this.setBackground(Color.GREEN);
 		m_scrollPane = new JScrollPane(m_screen);
 		getContentPane().add(m_scrollPane, BorderLayout.CENTER);
 		
 		m_backgroundColor=backgroundColor;
+		this.setBackground(m_backgroundColor);
 		
+		this.setLocation(53, 11);
 		this.isClosable();
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setResizable(true);
