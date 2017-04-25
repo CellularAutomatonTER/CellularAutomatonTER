@@ -50,7 +50,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
 		m_simulation = new Simulation1D(m_width, m_height, formOfCells, colorOfCells, initializeSimulationRule);
-		m_screen = new Screen();
+		m_screen = new Screen(this);
 		m_backgroundColor=backgroundColor;
 		
 		setLayout(new BorderLayout());
@@ -127,80 +127,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	}
 
 
-	public class Screen extends JLabel implements MouseMotionListener, MouseListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		
-		/******CONSTRUCTOR******/
-		public Screen(){
-			addListenerInternalFrameSimulation1D();
-		}
-		
-		
-		/******CLASS METHODS******/
-		
-		@Override
-		protected void paintComponent(Graphics g) {
-			g.setColor(m_backgroundColor);
-			g.fillRect(0, 0, getWidth(), getHeight());
-			m_simulation.draw(g);
-		}
-		
-		/******Listeners on InternalFrameSimulation1D******/
-		private void addListenerInternalFrameSimulation1D(){
-		    this.addMouseMotionListener(this);
-		    this.addMouseListener(this);
-		}
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			 int mx = e.getX()/Cell1D.CELL_SIZE;
-			 int my = e.getY()/Cell1D.CELL_SIZE;
-			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
-			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
-			 m_simulation.getCellInSimulation(mx, my).setm_state(1);
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseDragged(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
+	
 
 
 	
