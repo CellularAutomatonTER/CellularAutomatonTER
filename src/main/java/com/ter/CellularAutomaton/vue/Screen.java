@@ -1,5 +1,6 @@
 package com.ter.CellularAutomaton.vue;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -22,6 +23,7 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	/******CONSTRUCTOR******/
 	public Screen(InternalFrameSimulation1D internalFrameSimulation){
 		m_internalFrameSimulation = internalFrameSimulation;
+		setPreferredSize(new Dimension(4*m_internalFrameSimulation.getm_width(), 4*m_internalFrameSimulation.getm_height()));
 		addListenerInternalFrameSimulation1D();
 	}
 	
@@ -31,7 +33,7 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	@Override
 	protected void paintComponent(Graphics g) {
 		g.setColor(m_internalFrameSimulation.getBackground());
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.fillRect(1000, 500, getWidth(), getHeight());
 		m_internalFrameSimulation.getm_simulation().draw(g);
 	}
 	

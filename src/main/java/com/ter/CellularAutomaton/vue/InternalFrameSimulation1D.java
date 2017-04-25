@@ -3,6 +3,7 @@ package com.ter.CellularAutomaton.vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -22,6 +23,7 @@ import com.ter.CellularAutomaton.controller.Cell1D;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 import com.ter.CellularAutomaton.controller.ResizeInternalFrameSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
+import javax.swing.JScrollPane;
 
 public class InternalFrameSimulation1D extends JInternalFrame {
 
@@ -38,6 +40,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	private int m_height;
 	private int m_refreshRate; //Updates per seconde
 	private int m_millis;
+	private JScrollPane m_scrollPane;
 	private Screen m_screen;
 	private Simulation1D m_simulation;
 	private Color m_backgroundColor;
@@ -49,10 +52,14 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_height = 600;
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
+		
 		m_simulation = new Simulation1D(m_width, m_height, formOfCells, colorOfCells, initializeSimulationRule);
+		
 		m_screen = new Screen(this);
-		setLayout(new BorderLayout());
-		add(m_screen, BorderLayout.CENTER);
+		this.setBackground(Color.GREEN);
+		m_scrollPane = new JScrollPane(m_screen);
+		getContentPane().add(m_scrollPane, BorderLayout.CENTER);
+		
 		m_backgroundColor=backgroundColor;
 		
 		this.isClosable();
