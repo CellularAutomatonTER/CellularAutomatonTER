@@ -682,9 +682,9 @@ public class MainWindow1D extends JFrame {
 		m_menuBarFileItem7.addActionListener(new ExportAllFormat1DEvent(this));//Add ActionListener on tab "Export (all formats)" in tab "File"
 		
 		//Export tab
-		m_menuBarFileItem8ChoicePNG.addActionListener(new ExportPNGFormat1DEvent(this));
-		m_menuBarFileItem8ChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));
-		m_menuBarFileItem8ChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));
+		m_menuBarFileItem8ChoicePNG.addActionListener(new ExportPNGFormat1DEvent(this));//Add ActionListener on tab "PNG" of the tab "Export As" in tab "File"
+		m_menuBarFileItem8ChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export As" in tab "File"
+		m_menuBarFileItem8ChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));//Add ActionListener on tab "GIF" of the tab "Export As" in tab "File"
 		
 		m_menuBarFileItem9.addActionListener(new Close1DEvent(this));//Add ActionListener on tab "Close" in tab "File"
 		m_menuBarFileItem10.addActionListener(new CloseAllEvent());//Add ActionListener on tab "Close All" in tab "File"
