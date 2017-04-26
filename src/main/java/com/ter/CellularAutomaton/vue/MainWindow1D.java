@@ -19,6 +19,10 @@ import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
 import com.ter.CellularAutomaton.controller.CreditsEvent;
+import com.ter.CellularAutomaton.controller.ExportAllFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportJPGFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportPNGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
@@ -89,15 +93,30 @@ public class MainWindow1D extends JFrame {
 
 	/** The menu bar file item 6. */
 	private JMenuItem m_menuBarFileItem6 = new JMenuItem("Print");
-
+	
 	/** The menu bar file item 7. */
-	private JMenuItem m_menuBarFileItem7 = new JMenuItem("Close");
-
+	private JMenuItem m_menuBarFileItem7 = new JMenuItem("Export (all formats)");
+	
 	/** The menu bar file item 8. */
-	private JMenuItem m_menuBarFileItem8 = new JMenuItem("Close All");
+	private JMenu m_menuBarFileItem8 = new JMenu("Export As");
+	
+	/** The menu bar file item 8 choice PNG. */
+	private JMenuItem m_menuBarFileItem8ChoicePNG = new JMenuItem("PNG");
+	
+	/** The menu bar file item 8 choice JPG. */
+	private JMenuItem m_menuBarFileItem8ChoiceJPG = new JMenuItem("JPG");
+	
+	/** The menu bar file item 8 choice GIF. */
+	private JMenuItem m_menuBarFileItem8ChoiceGIF = new JMenuItem("GIF");
 
 	/** The menu bar file item 9. */
-	private JMenuItem m_menuBarFileItem9 = new JMenuItem("Quit");
+	private JMenuItem m_menuBarFileItem9 = new JMenuItem("Close");
+
+	/** The menu bar file item 10. */
+	private JMenuItem m_menuBarFileItem10 = new JMenuItem("Close All");
+
+	/** The menu bar file item 11. */
+	private JMenuItem m_menuBarFileItem11 = new JMenuItem("Quit");
 
 	/** The menu bar edit item 1. */
 	// In edit menu
@@ -448,12 +467,37 @@ public class MainWindow1D extends JFrame {
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
 		this.m_menuFile.add(m_menuBarFileItem6);//Adding a tab "Print" in tab File in MenuBar
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
-		this.m_menuFile.add(m_menuBarFileItem7);//Adding a tab "Close" in tab File in MenuBar
-		this.m_menuFile.add(m_menuBarFileItem8);//Adding a tab "Close All" in tab File in MenuBar
+		this.m_menuFile.add(m_menuBarFileItem7);//Adding a tab "Export" in tab File in MenuBar
+		constructTabExportAs();
+		this.m_menuFile.add(m_menuBarFileItem8);//Adding a tab "Export As" in tab File in MenuBar
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
-		this.m_menuFile.add(m_menuBarFileItem9);//Adding a tab "Quit" in tab File in MenuBar
+		this.m_menuFile.add(m_menuBarFileItem9);//Adding a tab "Close" in tab File in MenuBar
+		this.m_menuFile.add(m_menuBarFileItem10);//Adding a tab "Close All" in tab File in MenuBar
+		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuFile.add(m_menuBarFileItem11);//Adding a tab "Quit" in tab File in MenuBar
 		this.m_menuBar.add(m_menuFile);//the File tab is added to MenuBar
-
+	}
+	
+	
+	/**
+	 * Construct tab in tab ExportAs in tab File.
+	 */
+	private void constructTabExportAs(){
+		//Build tab ExportAs in tab File.
+		constructSubTabInTabExportAs();//Build Sub-group of tabs in tab ExportAs in tab File.
+		this.m_menuFile.add(m_menuBarFileItem8);//Adding a tab "Export As" in tab File in MenuBar
+	}
+	
+	/**
+	 * Construct sub tab in tab ExportAs in tab File.
+	 */
+	private void constructSubTabInTabExportAs(){
+		//Sub-group of tab in tab ExportAs in tab File.
+		this.m_menuBarFileItem8.add(m_menuBarFileItem8ChoicePNG);//Adding a tab "PNG" in tab "Export As"
+		this.m_menuBarFileItem8.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuBarFileItem8.add(m_menuBarFileItem8ChoiceJPG);//Adding a tab "JPG" in tab "Export As"
+		this.m_menuBarFileItem8.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuBarFileItem8.add(m_menuBarFileItem8ChoiceGIF);//Adding a tab "GIF" in tab "Export As"
 	}
 
 	/**
@@ -516,7 +560,6 @@ public class MainWindow1D extends JFrame {
 		this.m_runItem2Choice2.add(m_customItemChoice3);//Adding a tab "3" in tab "Custom"
 		this.m_runItem2Choice2.add(m_customItemChoice4);//Adding a tab "4" in tab "Custom"
 		this.m_customItemChoice1.setSelected(true);//Set "1" CheckBox to true by default 
-
 	}
 
 	/**
@@ -605,9 +648,9 @@ public class MainWindow1D extends JFrame {
 		//add all the accelerators for the items of tab File
 		m_menuBarFileItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK)); //add accelerators of New in tab File
 		m_menuBarFileItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK)); //add accelerators of Open File in tab File
-		m_menuBarFileItem7.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
-		m_menuBarFileItem8.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of CloseAll in tab File
-		m_menuBarFileItem9.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
+		m_menuBarFileItem9.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
+		m_menuBarFileItem10.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of CloseAll in tab File
+		m_menuBarFileItem11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
 	}
 	
 	private void initAcceleratorRules(){
@@ -634,11 +677,18 @@ public class MainWindow1D extends JFrame {
 	}
 
 	private void addListenerFile (){
-		m_menuBarFileItem1.addActionListener(new New1DEvent());
-		m_menuBarFileItem2.addActionListener(new OpenFileEvent());
-		m_menuBarFileItem7.addActionListener(new Close1DEvent(this));
-		m_menuBarFileItem8.addActionListener(new CloseAllEvent());
-		m_menuBarFileItem9.addActionListener(new QuitEvent());
+		m_menuBarFileItem1.addActionListener(new New1DEvent());//Add ActionListener on tab "New" in tab "File"
+		m_menuBarFileItem2.addActionListener(new OpenFileEvent());//Add ActionListener on tab "Open File" in tab "File"
+		m_menuBarFileItem7.addActionListener(new ExportAllFormat1DEvent(this));//Add ActionListener on tab "Export (all formats)" in tab "File"
+		
+		//Export tab
+		m_menuBarFileItem8ChoicePNG.addActionListener(new ExportPNGFormat1DEvent(this));
+		m_menuBarFileItem8ChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));
+		m_menuBarFileItem8ChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));
+		
+		m_menuBarFileItem9.addActionListener(new Close1DEvent(this));//Add ActionListener on tab "Close" in tab "File"
+		m_menuBarFileItem10.addActionListener(new CloseAllEvent());//Add ActionListener on tab "Close All" in tab "File"
+		m_menuBarFileItem11.addActionListener(new QuitEvent());//Add ActionListener on tab "Quit" in tab "File"
 	}
 	
 	private void addListenerRules (){

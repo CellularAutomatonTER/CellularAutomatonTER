@@ -50,7 +50,12 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		 int my = e.getY()/Cell1D.CELL_SIZE;
 		 System.out.println("mouse X="+mx+" et mouse Y= "+my);
 		 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
-		 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1);
+		 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
+			 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
+		 }
+		 else {
+			 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(0);
+		}
 	}
 
 	@Override

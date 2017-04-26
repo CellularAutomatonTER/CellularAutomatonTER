@@ -75,6 +75,14 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	}
 	
 	/******GETTERS******/
+	public JScrollPane getm_scrollPane() {
+		return m_scrollPane;
+	}
+	
+	public Screen getm_screen() {
+		return m_screen;
+	}
+	
 	public Simulation1D getm_simulation() {
 		return m_simulation;
 	}
