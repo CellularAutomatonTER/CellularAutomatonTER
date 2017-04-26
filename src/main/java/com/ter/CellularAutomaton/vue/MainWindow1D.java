@@ -648,6 +648,10 @@ public class MainWindow1D extends JFrame {
 		//add all the accelerators for the items of tab File
 		m_menuBarFileItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK)); //add accelerators of New in tab File
 		m_menuBarFileItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK)); //add accelerators of Open File in tab File
+		m_menuBarFileItem7.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export (all formats)" in tab File
+		m_menuBarFileItem8ChoicePNG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export (all formats)" in tab File
+		m_menuBarFileItem8ChoiceJPG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export (all formats)" in tab File
+		m_menuBarFileItem8ChoiceGIF.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export (all formats)" in tab File
 		m_menuBarFileItem9.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
 		m_menuBarFileItem10.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of CloseAll in tab File
 		m_menuBarFileItem11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
