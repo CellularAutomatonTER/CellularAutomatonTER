@@ -669,32 +669,32 @@ public class MainWindow1D extends JFrame {
 
 
 	/***Listeners MenuBar***/
-
+	//All listener of MenuBar
 	private void addListenerMenuBar (){
 		this.addListenerFile(); //add listener of tab File
 		this.addListenerRules(); //add listener of tab Rules
 		this.addListenerHelp(); //add listener of tab Help
 	}
 
+	//Listener of tab File
 	private void addListenerFile (){
 		m_menuBarFileItem1.addActionListener(new New1DEvent());//Add ActionListener on tab "New" in tab "File"
 		m_menuBarFileItem2.addActionListener(new OpenFileEvent());//Add ActionListener on tab "Open File" in tab "File"
 		m_menuBarFileItem7.addActionListener(new ExportAllFormat1DEvent(this));//Add ActionListener on tab "Export (all formats)" in tab "File"
-		
-		//Export tab
 		m_menuBarFileItem8ChoicePNG.addActionListener(new ExportPNGFormat1DEvent(this));//Add ActionListener on tab "PNG" of the tab "Export As" in tab "File"
 		m_menuBarFileItem8ChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export As" in tab "File"
 		m_menuBarFileItem8ChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));//Add ActionListener on tab "GIF" of the tab "Export As" in tab "File"
-		
 		m_menuBarFileItem9.addActionListener(new Close1DEvent(this));//Add ActionListener on tab "Close" in tab "File"
 		m_menuBarFileItem10.addActionListener(new CloseAllEvent());//Add ActionListener on tab "Close All" in tab "File"
 		m_menuBarFileItem11.addActionListener(new QuitEvent());//Add ActionListener on tab "Quit" in tab "File"
 	}
 	
+	//Listener of tab Rules
 	private void addListenerRules (){
-		m_menuBarRulesItem1.addActionListener(new MenubarRulesElementary1DEvent(this));
+		m_menuBarRulesItem1.addActionListener(new MenubarRulesElementary1DEvent(this));//Add ActionListener on tab "Elementary" in tab "Rules"
 	}
 
+	//Listener of tab Help
 	private void addListenerHelp (){
 		m_menuBarHelpItem2.addActionListener(new CreditsEvent());
 	}
