@@ -62,10 +62,10 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_backgroundColor=backgroundColor;
 		this.setBackground(m_backgroundColor);
 		
-		this.setLocation(53, 11);
+		this.setLocation(53, 11);//Set initial location of internalFrame
 		this.isClosable();
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setResizable(true);
+		this.setResizable(true);//The internalFrame can be closed
 		this.pack();
 		this.setSize(m_width + this.getInsets().left +  + this.getInsets().right, m_height + this.getInsets().bottom +  + this.getInsets().top);
 		
