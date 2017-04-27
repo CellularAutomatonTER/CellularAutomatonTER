@@ -54,7 +54,7 @@ public class ElementaryRulesWindow extends JFrame {
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
-	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField();
+	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField(1);//By default, the radius is 1.
 	private final JLabel m_labelRules = new JLabel("Rules (0 to ?):");
 	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
