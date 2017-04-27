@@ -96,7 +96,7 @@ public class Cell1D {
 	//Init attributes m_stateOfSelfAndNeighbour with the state of Neighbors Cells and himself
 	private void initm_stateOfSelfAndNeighbour(Simulation1D simulation){
 		final int LenghtStateOfSelfAndNeighbour = 2 * m_radius + 1; // Number of the cell itself and its neighbors.
-		m_stateOfSelfAndNeighbour = new ArrayList<Integer>(); // Build the list with an initial capacity.
+		m_stateOfSelfAndNeighbour = new ArrayList<Integer>(); // Build the list.
 		int currentStateOfCell=0;
 		int xAcualPositionOfCell=m_x-m_radius;
 		for(int i=0; i<LenghtStateOfSelfAndNeighbour; i++){
@@ -109,6 +109,7 @@ public class Cell1D {
 			}
 			currentStateOfCell=simulation.getCellInSimulation(xAcualPositionOfCell,m_y).getm_state();//Stock state of Neighbor Cell
 			m_stateOfSelfAndNeighbour.add(currentStateOfCell);//Set state of Neighbor Cell in ArrayList m_stateOfSelfAndNeighbour
+			xAcualPositionOfCell=m_x-m_radius+i;
 		}
 	}
 	

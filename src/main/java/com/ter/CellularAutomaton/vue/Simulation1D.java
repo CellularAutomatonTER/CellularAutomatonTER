@@ -50,6 +50,7 @@ public class Simulation1D {
 			if(logger.isFatalEnabled()){
 				logger.fatal("Out of bounds");
 			}
+			e.printStackTrace();
 			return m_matrixCells.get(x).get(y);
 		}
 	}
