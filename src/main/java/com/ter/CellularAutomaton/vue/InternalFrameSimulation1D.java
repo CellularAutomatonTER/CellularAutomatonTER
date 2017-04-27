@@ -53,7 +53,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_refreshRate = 30;
 		m_millis = 1000/m_refreshRate;
 		
-		m_simulation = new Simulation1D(m_width, m_height, formOfCells, colorOfCells, initializeSimulationRule);
+		m_simulation = new Simulation1D(m_width, m_height, 0, 0, formOfCells, colorOfCells, initializeSimulationRule);
 		
 		m_screen = new Screen(this);
 		m_scrollPane = new JScrollPane(m_screen);

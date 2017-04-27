@@ -118,7 +118,7 @@ public class Simulation1D {
 		for (int x = 0; x < m_nbCellWidth; x++) {
 			ArrayList<Cell1D> columnOfCells = new ArrayList<Cell1D>();
 			for (int y = 0; y < m_nbCellHeight; y++) {
-				columnOfCells.add(new Cell1D(x, y, 0, 1, m_formOfCells, m_colorOfCells, m_evolutionRule));
+				columnOfCells.add(new Cell1D(x, y, 0, 1, 0, m_formOfCells, m_colorOfCells));
 			}
 			m_matrixCells.add(columnOfCells);//Create Cell (with m_state=0 and m_radius=1 by default)
 		}
@@ -127,6 +127,17 @@ public class Simulation1D {
 	// Initialize simulation according to m_initializeSimulationRule.
 	public void specifyInitializeSimulation() {
 		m_initializeSimulationRule.initializeSimulation(this);
+	}
+	
+	//For each cell of Simulation, set the radius and rules of the cell  with the global Radius and the global Rules of Simulation.
+	public void initRadiusAndRulesCellWithGlobalRadiusAndRulesSimulation(){
+		// For each cell.
+		for(int x = 0;x < m_nbCellWidth;x++) {
+			for (int y = 0; y < m_nbCellHeight; y++) {
+				m_matrixCells.get(x).get(y).setm_radius(m_globalRadius);//Set the radius of the cell with the global Radius of Simulation.
+				m_matrixCells.get(x).get(y).setm_rules(m_globalRules);//Set the rules of the cell with the global rules of Simulation.
+			}
+		}
 	}
 
 	// Run simulation according to a rule defined by user.

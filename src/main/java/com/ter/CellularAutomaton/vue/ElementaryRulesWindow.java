@@ -66,6 +66,10 @@ public class ElementaryRulesWindow extends JFrame {
 	private MainWindow1D m_currentSimulator;
 	
 	/******GETTERS******/
+	public JFormattedTextField getm_formattedTextFieldRadius() {
+		return m_formattedTextFieldRadius;
+	}
+	
 	public JFormattedTextField getm_formattedTextFieldRules() {
 		return m_formattedTextFieldRules;
 	}
