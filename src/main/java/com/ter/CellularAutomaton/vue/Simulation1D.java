@@ -19,24 +19,24 @@ public class Simulation1D {
 	private ArrayList<ArrayList<Cell1D>> m_matrixCells; // Matrix of cells.
 	private int m_nbCellWidth; // Number of cells in width in the cell matrix.
 	private int m_nbCellHeight; // Number of cells in width in the cell matrix.
-	private HashMap<Integer, Integer> m_evolutionRule; // Represent the table of evolution and therefore the rules: for each possible configuration (key) is associated a value of state (value) specify the rule chosen by user.
 	private int m_idOfLines;
-
+	private int m_globalRadius;// Global radius of the simulation.
+	private int m_globalRules;// Global rules of the simulation.
 	private IForm m_formOfCells; // Form of cells.
 	private ArrayList<Color> m_colorOfCells; // Color of cells.
 	private IInitializeSimulationRules1D m_initializeSimulationRule; // Type of initialization of the matrix of cells.
 
 	/******CONSTRUCTOR******/
-	public Simulation1D(int width, int height, IForm formOfCells, ArrayList<Color> colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
+	public Simulation1D(int width, int height, int globalRadius, int globalRules, IForm formOfCells, ArrayList<Color> colorOfCells, IInitializeSimulationRules1D initializeSimulationRule) {
 		m_idOfLines=0;
 		m_nbCellWidth = width/Cell1D.CELL_SIZE;
 		m_nbCellHeight = height/Cell1D.CELL_SIZE;
 		m_matrixCells = new ArrayList<ArrayList<Cell1D>>();// The simulator is a matrix of cell.
+		m_globalRadius = globalRadius;
+		m_globalRules=globalRules;
 		m_formOfCells=formOfCells;
 		m_colorOfCells=colorOfCells;
-		m_initializeSimulationRule=initializeSimulationRule;
-		m_evolutionRule = new HashMap<Integer, Integer>();
-		initByDefaultm_evolutionRule(8,0); // By default, there are 8 possible configurations and each configuration give 0 (which represent evolution state of cell). Thus, by default, the rule of simulation is the rule 0. 
+		m_initializeSimulationRule=initializeSimulationRule; 
 
 		initByDefaultSimulation(); // Initialize m_matrixCells with Cell configured by default.
 	}
@@ -65,9 +65,13 @@ public class Simulation1D {
 	public int getm_nbCellHeight() {
 		return m_nbCellHeight;
 	}
-
-	public HashMap<Integer, Integer> getm_evolutionRule() {
-		return m_evolutionRule;
+	
+	public int getm_globalRadius() {
+		return m_globalRadius;
+	}
+	
+	public int getm_globalRules() {
+		return m_globalRules;
 	}
 
 	public IForm getm_formOfCells() {
@@ -87,16 +91,20 @@ public class Simulation1D {
 	}
 
 	/******SETTERS******/
-	public void setm_evolutionRule(HashMap<Integer, Integer> evolutionRule) {
-		this.m_evolutionRule = evolutionRule;
-	}
-	
 	public void setm_nbCellWidth(int nbCellWidth) {
 		this.m_nbCellWidth = nbCellWidth;
 	}
 	
 	public void setm_nbCellHeight(int nbCellHeight) {
 		this.m_nbCellHeight = nbCellHeight;
+	}
+	
+	public void setm_globalRadius(int globalRadius) {
+		this.m_globalRadius = globalRadius;
+	}
+	
+	public void setm_globalRules(int globalRules) {
+		this.m_globalRules = globalRules;
 	}
 	
 	public void setm_idOfLines(int idOfLines) {
@@ -119,12 +127,6 @@ public class Simulation1D {
 	// Initialize simulation according to m_initializeSimulationRule.
 	public void specifyInitializeSimulation() {
 		m_initializeSimulationRule.initializeSimulation(this);
-	}
-
-	private void initByDefaultm_evolutionRule(int lenght, int valueByDefault){
-		for(int i=0; i<lenght; i++){
-			m_evolutionRule.put(i+1, valueByDefault);
-		}
 	}
 
 	// Run simulation according to a rule defined by user.

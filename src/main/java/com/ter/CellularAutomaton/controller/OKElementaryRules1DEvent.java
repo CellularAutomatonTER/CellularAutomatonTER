@@ -61,6 +61,5 @@ public class OKElementaryRules1DEvent implements ActionListener {
 
 		this.m_window.dispose();// Close ElementaryRulesWindow.
 
-
 	}
 }
