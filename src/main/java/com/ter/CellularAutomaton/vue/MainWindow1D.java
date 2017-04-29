@@ -18,6 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
+import com.ter.CellularAutomaton.controller.ComboBoxFormCellsEvent;
 import com.ter.CellularAutomaton.controller.ComboBoxInitialPositionCellsEvent;
 import com.ter.CellularAutomaton.controller.CreditsEvent;
 import com.ter.CellularAutomaton.controller.ExportAllFormat1DEvent;
@@ -227,6 +228,7 @@ public class MainWindow1D extends JFrame {
 	
 	/** Utilities */
 	private String[] m_stringInitialPositionCells = { "One Cell", "Three Cells", "Randomly" };
+	private String[] m_stringFormCells = { "Rectangle", "Rectangle 3D Raised", "Rectangle 3D Sunk", "Upward Triangle", "Downward Triangle" };
 	
 	
 	/** Graphic Component */
@@ -267,7 +269,7 @@ public class MainWindow1D extends JFrame {
 	private JComboBox m_comboBoxInitialPositionCells;
 	private JPanel m_panelFormCells;
 	private GroupLayout m_GroupLayoutPanelFormCells;
-	private JComboBox comboBoxFormCells;
+	private JComboBox m_comboBoxFormCells;
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
 	private JPanel m_panelBackgroundColor;
@@ -281,6 +283,7 @@ public class MainWindow1D extends JFrame {
 	
 	/**Others */
 	IInitializeSimulationRules1D m_modeInitializeSimulationRule;
+	private IForm m_modeForm;
 	private SimulationState m_simulationState;
 	boolean m_isRun;
 	private Thread m_threadSimulation;
@@ -369,8 +372,20 @@ public class MainWindow1D extends JFrame {
 		return m_stringInitialPositionCells;
 	}
 	
+	public String[] getm_stringFormCells() {
+		return m_stringFormCells;
+	}
+	
 	public JComboBox getm_comboBoxInitialPositionCells() {
 		return m_comboBoxInitialPositionCells;
+	}
+	
+	public JComboBox getm_comboBoxFormCells() {
+		return m_comboBoxFormCells;
+	}
+	
+	public IForm getm_modeForm() {
+		return m_modeForm;
 	}
 
 	
@@ -393,6 +408,15 @@ public class MainWindow1D extends JFrame {
 	
 	public void setm_threadSimulation(Thread threadSimulation) {
 		this.m_threadSimulation = threadSimulation;
+	}
+	
+	public void setm_stringFormCells(String[] stringFormCells) {
+		this.m_stringFormCells = stringFormCells;
+	}
+	
+	
+	public void setm_modeForm(IForm modeForm) {
+		this.m_modeForm = modeForm;
 	}
 	
 	
@@ -952,13 +976,13 @@ public class MainWindow1D extends JFrame {
 	
 	/******Build InternalFrameSimulation******/
 	public void buildInternalFrameSimulation(){
-		IForm formOfCells = new RectangleForm();
+		m_modeForm = new RectangleForm();
 		ArrayList<Color> colorOfCells = new ArrayList<Color>();
 		colorOfCells.add(Color.BLACK);
 		colorOfCells.add(Color.BLUE);
 		Color backgroundColor = Color.GRAY;
 		m_modeInitializeSimulationRule = new InitializeSimulation1DOneCell();
-		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, m_modeInitializeSimulationRule);
+		buildInternalFrameSimulation(m_modeForm, colorOfCells, backgroundColor, m_modeInitializeSimulationRule);
 	}
 	
 	public void buildInternalFrameSimulation(IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
@@ -1117,7 +1141,7 @@ public class MainWindow1D extends JFrame {
 	/******Components of Panel FormCells in LateralTools******/
 	//Build components for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
-		comboBoxFormCells = new JComboBox();
+		m_comboBoxFormCells = new JComboBox(m_stringFormCells);
 		m_GroupLayoutPanelFormCells = new GroupLayout(m_panelFormCells);
 		
 		buildGroupLayoutComponentFormCells();
@@ -1130,7 +1154,7 @@ public class MainWindow1D extends JFrame {
 					.addGap(0, 158, Short.MAX_VALUE)
 					.addGroup(m_GroupLayoutPanelFormCells.createSequentialGroup()
 						.addContainerGap()
-						.addComponent(comboBoxFormCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_comboBoxFormCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 			);
 			m_GroupLayoutPanelFormCells.setVerticalGroup(
@@ -1138,7 +1162,7 @@ public class MainWindow1D extends JFrame {
 					.addGap(0, 71, Short.MAX_VALUE)
 					.addGroup(m_GroupLayoutPanelFormCells.createSequentialGroup()
 						.addContainerGap()
-						.addComponent(comboBoxFormCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(m_comboBoxFormCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(17, Short.MAX_VALUE))
 			);
 			m_panelFormCells.setLayout(m_GroupLayoutPanelFormCells);
@@ -1335,6 +1359,7 @@ public class MainWindow1D extends JFrame {
 		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
 		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
+		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
 	}
 	
 	private void addListenerSwitchTo2D(){
@@ -1347,6 +1372,10 @@ public class MainWindow1D extends JFrame {
 	
 	private void addListenerComboBoxInitialPositionCells(){
 		m_comboBoxInitialPositionCells.addItemListener(new ComboBoxInitialPositionCellsEvent(this));
+	}
+	
+	private void addListenerComboBoxFormCells(){
+		m_comboBoxFormCells.addItemListener(new ComboBoxFormCellsEvent(this));
 	}
 	
 

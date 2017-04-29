@@ -111,6 +111,10 @@ public class Simulation1D {
 	public void setm_idOfLines(int idOfLines) {
 		this.m_idOfLines = idOfLines;
 	}
+	
+	public void setm_formOfCells(IForm formOfCells) {
+		this.m_formOfCells = formOfCells;
+	}
 
 	/******CLASS METHODS******/ 
 	public void initByDefaultSimulation() {
