@@ -18,6 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
+import com.ter.CellularAutomaton.controller.ComboBoxInitialPositionCellsEvent;
 import com.ter.CellularAutomaton.controller.CreditsEvent;
 import com.ter.CellularAutomaton.controller.ExportAllFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
@@ -223,6 +224,11 @@ public class MainWindow1D extends JFrame {
 	/** The view item 2 choice 3. */
 	private JRadioButtonMenuItem  m_viewItem2Choice3 = new StayOpenRadioButtonMenuItem ("4");
 	
+	
+	/** Utilities */
+	private String[] m_stringInitialPositionCells = { "One Cell", "Three Cells", "Randomly" };
+	
+	
 	/** Graphic Component */
 	private JPanel m_mainPanel;
 	private JPanel m_panelTopTools;
@@ -273,9 +279,12 @@ public class MainWindow1D extends JFrame {
 	private JSlider m_sliderSpeedSimulation;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
+	/**Others */
+	IInitializeSimulationRules1D m_modeInitializeSimulationRule;
 	private SimulationState m_simulationState;
 	boolean m_isRun;
 	private Thread m_threadSimulation;
+	
 
 	/**
 	 * ****CONSTRUCTOR*****.
@@ -351,11 +360,27 @@ public class MainWindow1D extends JFrame {
 	public Thread getm_threadSimulation() {
 		return m_threadSimulation;
 	}
+	
+	public IInitializeSimulationRules1D getm_modeInitializeSimulationRule() {
+		return m_modeInitializeSimulationRule;
+	}
+	
+	public String[] getm_stringInitialPositionCells() {
+		return m_stringInitialPositionCells;
+	}
+	
+	public JComboBox getm_comboBoxInitialPositionCells() {
+		return m_comboBoxInitialPositionCells;
+	}
 
 	
 	/******SETTERS******/
 	public void setm_internalFrameSimulation(InternalFrameSimulation1D internalFrame) {
 		this.m_internalFrameSimulation = internalFrame;
+	}
+	
+	public void setm_modeInitializeSimulationRule(IInitializeSimulationRules1D modeInitializeSimulationRule) {
+		this.m_modeInitializeSimulationRule = modeInitializeSimulationRule;
 	}
 	
 	public void setm_simulationState(SimulationState simulationState) {
@@ -932,8 +957,8 @@ public class MainWindow1D extends JFrame {
 		colorOfCells.add(Color.BLACK);
 		colorOfCells.add(Color.BLUE);
 		Color backgroundColor = Color.GRAY;
-		IInitializeSimulationRules1D initializeSimulationRule = new InitializeSimulation1DOneCell();
-		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, initializeSimulationRule);
+		m_modeInitializeSimulationRule = new InitializeSimulation1DOneCell();
+		buildInternalFrameSimulation(formOfCells, colorOfCells, backgroundColor, m_modeInitializeSimulationRule);
 	}
 	
 	public void buildInternalFrameSimulation(IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){
@@ -1061,7 +1086,7 @@ public class MainWindow1D extends JFrame {
 	/******Components of Panel InitialPositionCells in LateralTools******/
 	//Build components for InitialPositionCells in LateralTools
 	public void buildComponentLateralToolsInitialPositionCells(){
-		m_comboBoxInitialPositionCells = new JComboBox();
+		m_comboBoxInitialPositionCells = new JComboBox(m_stringInitialPositionCells);
 		m_GroupLayoutPanelInitialPositionCells = new GroupLayout(m_panelInitialPositionCells);
 		
 		buildGroupLayoutComponentInitialPositionCells();
@@ -1309,6 +1334,7 @@ public class MainWindow1D extends JFrame {
 	private void addListenerLateralTools(){
 		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
+		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
 	}
 	
 	private void addListenerSwitchTo2D(){
@@ -1317,6 +1343,10 @@ public class MainWindow1D extends JFrame {
 	
 	private void addListenerSlider(){
 		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
+	}
+	
+	private void addListenerComboBoxInitialPositionCells(){
+		m_comboBoxInitialPositionCells.addItemListener(new ComboBoxInitialPositionCellsEvent(this));
 	}
 	
 
