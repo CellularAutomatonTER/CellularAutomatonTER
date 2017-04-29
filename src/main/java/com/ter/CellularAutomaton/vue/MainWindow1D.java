@@ -228,7 +228,7 @@ public class MainWindow1D extends JFrame {
 	
 	/** Utilities */
 	private String[] m_stringInitialPositionCells = { "One Cell", "Three Cells", "Randomly" };
-	private String[] m_stringFormCells = { "Rectangle", "Rectangle 3D Raised", "Rectangle 3D Sunk", "Upward Triangle", "Downward Triangle" };
+	private String[] m_stringFormCells = { "Rectangle", "Rectangle 3D Raised", "Rectangle 3D Sunk", "Upward Triangle", "Downward Triangle", "Circle" };
 	
 	
 	/** Graphic Component */

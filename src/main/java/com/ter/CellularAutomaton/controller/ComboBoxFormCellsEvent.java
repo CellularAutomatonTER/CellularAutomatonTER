@@ -3,6 +3,7 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import com.ter.CellularAutomaton.vue.CircleForm1D;
 import com.ter.CellularAutomaton.vue.DownwardTriangleForm1D;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.vue.MainWindow1D;
@@ -51,6 +52,12 @@ public class ComboBoxFormCellsEvent implements ItemListener {
 			IForm downwardTriangleForm1D = new DownwardTriangleForm1D();
 			m_mainWindow1D.setm_modeForm(downwardTriangleForm1D);
 			m_mainWindow1D.getm_internalFrameSimulation().getm_simulation().setm_formOfCells(downwardTriangleForm1D);
+			m_mainWindow1D.getm_internalFrameSimulation().getm_simulation().initByDefaultSimulation();
+		}
+		else if(m_mainWindow1D.getm_comboBoxFormCells().getSelectedItem() == m_mainWindow1D.getm_stringFormCells()[5]){
+			IForm circleForm1D = new CircleForm1D();
+			m_mainWindow1D.setm_modeForm(circleForm1D);
+			m_mainWindow1D.getm_internalFrameSimulation().getm_simulation().setm_formOfCells(circleForm1D);
 			m_mainWindow1D.getm_internalFrameSimulation().getm_simulation().initByDefaultSimulation();
 		}
 		else{
