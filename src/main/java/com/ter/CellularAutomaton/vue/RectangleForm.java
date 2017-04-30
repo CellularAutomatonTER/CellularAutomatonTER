@@ -1,5 +1,6 @@
 package com.ter.CellularAutomaton.vue;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import com.ter.CellularAutomaton.controller.Cell1D;
