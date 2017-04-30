@@ -36,7 +36,7 @@ import com.ter.CellularAutomaton.controller.IInitializeSimulationRules2D;
 import com.ter.CellularAutomaton.controller.IRules2D;
 import com.ter.CellularAutomaton.controller.InitializeSimulation2DRandomly;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation2D;
-import com.ter.CellularAutomaton.vue.RectangleForm;
+import com.ter.CellularAutomaton.vue.RectangleForm1D;
 
 
 // TODO: Auto-generated Javadoc
@@ -832,7 +832,7 @@ public class MainWindow2D extends JFrame {
 	
 	public void buildInternalFrameSimulation(){
 		IRules2D ruleSimulation = new ConwayRules2D();
-		IForm formOfCells = new RectangleForm();
+		IForm formOfCells = new RectangleForm2D(this);
 		Color colorOfCells = Color.BLUE;
 		Color backgroundColor = Color.BLACK;
 		IInitializeSimulationRules2D initializeSimulationRule = new InitializeSimulation2DRandomly();

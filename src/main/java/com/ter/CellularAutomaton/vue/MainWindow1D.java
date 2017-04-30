@@ -30,6 +30,8 @@ import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
+import com.ter.CellularAutomaton.controller.RadioButtonGridNoEvent;
+import com.ter.CellularAutomaton.controller.RadioButtonGridYesEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
@@ -42,7 +44,7 @@ import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DOneCell;
 import com.ter.CellularAutomaton.controller.MenubarRulesElementary1DEvent;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
-import com.ter.CellularAutomaton.vue.RectangleForm;
+import com.ter.CellularAutomaton.vue.RectangleForm1D;
 import java.awt.Component;
 
 
@@ -453,6 +455,10 @@ public class MainWindow1D extends JFrame {
 	public IForm getm_modeForm() {
 		return m_modeForm;
 	}
+	
+	public boolean getm_gridSimulation() {
+		return m_gridSimulation;
+	}
 
 	
 	/******SETTERS******/
@@ -483,6 +489,10 @@ public class MainWindow1D extends JFrame {
 	
 	public void setm_modeForm(IForm modeForm) {
 		this.m_modeForm = modeForm;
+	}
+	
+	public void setm_gridSimulation(boolean gridSimulation) {
+		this.m_gridSimulation = gridSimulation;
 	}
 	
 	
@@ -1044,7 +1054,7 @@ public class MainWindow1D extends JFrame {
 	
 	/******Build InternalFrameSimulation******/
 	public void buildInternalFrameSimulation(){
-		m_modeForm = new RectangleForm();
+		m_modeForm = new RectangleForm1D(this);
 		ArrayList<Color> colorOfCells = new ArrayList<Color>();
 		colorOfCells.add(Color.BLACK);
 		colorOfCells.add(Color.BLUE);
@@ -1375,6 +1385,7 @@ public class MainWindow1D extends JFrame {
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
 		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
 		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
+		addListenerRadioButtonGrid();//add listener of Radio Button Grid
 	}
 	
 	private void addListenerSwitchTo2D(){
@@ -1394,8 +1405,8 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	private void addListenerRadioButtonGrid(){
-		//m_radioButtonGridNo.addItemListener(new ComboBoxFormCellsEvent(this));
-		//m_radioButtonGridYes.addItemListener(new ComboBoxFormCellsEvent(this));
+		m_radioButtonGridNo.addActionListener(new RadioButtonGridNoEvent(this));
+		m_radioButtonGridYes.addActionListener(new RadioButtonGridYesEvent(this));
 	}
 	
 	
