@@ -30,6 +30,7 @@ import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
@@ -324,11 +325,58 @@ public class MainWindow1D extends JFrame {
 		//Set the window visible
 		this.setVisible(true);
 		
-		m_simulationState = SimulationState.STOP;
+		m_simulationState = SimulationState.RUN;
 		m_isRun = true;
+		
+		this.runSimulation();//run simulation
 		
 	}
 
+	
+	public MainWindow1D (boolean createNewThread){
+
+		//Set the window
+		this.setWindow();
+
+		//Set mnemonic of the MenuBar
+		this.initMenuMnemonic();
+
+		//We initialize our menuBar 
+		this.initMenuBar();
+
+		//add listeners MenuBar
+		this.addListenerMenuBar();
+		
+		//Build the component of the window
+		this.buildComponentWindow();
+		
+		//add listeners TypeCellularAutomatonTools
+		addListenerTypeCellularAutomatonTools();
+		
+		//add listeners SimulationTools
+		addListenerSimulationTools();
+		
+		//add listeners ControlTools
+		addListenerControlTools();
+		
+		//add listeners LateralTools
+		addListenerLateralTools();
+
+		//Set the window visible
+		this.setVisible(true);
+		
+		m_simulationState = SimulationState.RUN;
+		m_isRun = true;
+		
+		//if we want create a new thread
+		if(createNewThread){
+			//Don't start simulation. We must create before a new thread.
+		}
+		else{
+			this.runSimulation();//run simulation
+		}
+		
+	}
 
 	
 	/******GETTERS******/

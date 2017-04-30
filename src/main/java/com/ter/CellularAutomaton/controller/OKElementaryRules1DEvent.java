@@ -42,9 +42,6 @@ public class OKElementaryRules1DEvent implements ActionListener {
 		this.m_currentSimulator.setm_simulationState(SimulationState.PAUSE);//Stop the simulation.
 		this.m_currentSimulator.getm_internalFrameSimulation().getm_simulation().setm_idOfLines(0);//Set cursor m_idOfLines to 0.
 		this.m_currentSimulator.getm_internalFrameSimulation().getm_simulation().getm_initializeSimulationRule().initializeSimulation(m_currentSimulator.getm_internalFrameSimulation().getm_simulation());// Initialize simulation according to current rule of initialization of simulation.
-		this.m_currentSimulator.setm_threadSimulation(null);//Set thread to null
-		this.m_currentSimulator.setm_threadSimulation(new Thread(new RunApplication1D(m_currentSimulator)));//Create a new thread.
-		this.m_currentSimulator.getm_threadSimulation().start();//Start the new thread.
 		
 		//Get the input of user for Radius input, transform this string to int value and stock this value.
 		String stringRadiusChooseByUser=this.m_window.getm_formattedTextFieldRadius().getText();// Stock the decimal number input from user to entry the radius.
