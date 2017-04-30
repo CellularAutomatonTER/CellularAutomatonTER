@@ -269,23 +269,20 @@ public class MainWindow1D extends JFrame {
 	private JScrollPane m_scrollPaneLateralTools;
 	private JPanel m_panelLateralTools;
 	private JPanel m_panelAlgorithm;
-	private GroupLayout m_GroupLayoutPanelAlgorithm;
 	private JComboBox m_comboBoxAlgorithm;
 	private JPanel m_panelInitialPositionCells;
-	private GroupLayout m_GroupLayoutPanelInitialPositionCells;
 	private JComboBox m_comboBoxInitialPositionCells;
 	private JPanel m_panelFormCells;
-	private GroupLayout m_GroupLayoutPanelFormCells;
 	private JComboBox m_comboBoxFormCells;
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
 	private JPanel m_panelBackgroundColor;
-	private GroupLayout m_GroupLayoutPanelBackgroundColor;
 	private JComboBox m_comboBoxBackgroundColor;
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
 	private JPanel m_panelSimulationSpeed;
 	private JSlider m_sliderSpeedSimulation;
+	private JPanel m_panelGrid;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
@@ -490,7 +487,7 @@ public class MainWindow1D extends JFrame {
 	/***Set the window***/
 	private void setWindow(){
 		m_intitialWidth = 1370;
-		m_intitialHeight = 730;
+		m_intitialHeight = 1730;
 		this.setWindow("Cellular Automaton", m_intitialWidth, m_intitialHeight, true, false);
 	}
 
@@ -1085,6 +1082,8 @@ public class MainWindow1D extends JFrame {
 		
 		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
 		
+		buildPanelGrid();//Create the panel "Grid"
+		
 		buildGroupLayoutPanelLateralTools();//Create the GroupLayout for the disposition of the panel "Lateral Tools"
 	}
 	
@@ -1152,33 +1151,29 @@ public class MainWindow1D extends JFrame {
 		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
 	}
 	
+	/******Build Panel Grid******/
+	public void buildPanelGrid(){
+		m_panelGrid = new JPanel();//Create the panel TypeOfSimulator
+		m_panelGrid.setBounds(13, 588, 158, 55);
+		m_panelGrid.setBorder(BorderFactory.createTitledBorder("Grid"));
+				
+		buildComponentLateralToolsGrid();//Create components of panel TypeOfSimulator in the LateralTools
+	}
+	
 	
 	/******Components of Panel Algorithm in LateralTools******/
 	//Build components for Algorithm in LateralTools
 	public void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
-		m_GroupLayoutPanelAlgorithm = new GroupLayout(m_panelAlgorithm);
+		m_comboBoxAlgorithm.setBounds(16, 27, 126, 20);
 		
 		buildGroupLayoutComponentAlgorithm();//Build the grouplayout for the component Algorithm
 	}
 	
 	//Build Layout for Algorithm in LateralTools
 	public void buildGroupLayoutComponentAlgorithm(){
-		m_GroupLayoutPanelAlgorithm.setHorizontalGroup(
-				m_GroupLayoutPanelAlgorithm.createParallelGroup(Alignment.LEADING)
-					.addGroup(m_GroupLayoutPanelAlgorithm.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxAlgorithm, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-			);
-			m_GroupLayoutPanelAlgorithm.setVerticalGroup(
-				m_GroupLayoutPanelAlgorithm.createParallelGroup(Alignment.LEADING)
-					.addGroup(m_GroupLayoutPanelAlgorithm.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxAlgorithm, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(17, Short.MAX_VALUE))
-			);
-			m_panelAlgorithm.setLayout(m_GroupLayoutPanelAlgorithm);
+			m_panelAlgorithm.setLayout(null);
+			m_panelAlgorithm.add(m_comboBoxAlgorithm);
 	}
 	
 	
@@ -1186,30 +1181,15 @@ public class MainWindow1D extends JFrame {
 	//Build components for InitialPositionCells in LateralTools
 	public void buildComponentLateralToolsInitialPositionCells(){
 		m_comboBoxInitialPositionCells = new JComboBox(m_stringInitialPositionCells);
-		m_GroupLayoutPanelInitialPositionCells = new GroupLayout(m_panelInitialPositionCells);
+		m_comboBoxInitialPositionCells.setBounds(16, 27, 126, 20);
 		
 		buildGroupLayoutComponentInitialPositionCells();
 	}
 	
 	//Build Layout for InitialPositionCells in LateralTools
 	public void buildGroupLayoutComponentInitialPositionCells(){
-		m_GroupLayoutPanelInitialPositionCells.setHorizontalGroup(
-				m_GroupLayoutPanelInitialPositionCells.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 158, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelInitialPositionCells.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxInitialPositionCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-			);
-			m_GroupLayoutPanelInitialPositionCells.setVerticalGroup(
-				m_GroupLayoutPanelInitialPositionCells.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 71, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelInitialPositionCells.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxInitialPositionCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(17, Short.MAX_VALUE))
-			);
-			m_panelInitialPositionCells.setLayout(m_GroupLayoutPanelInitialPositionCells);
+			m_panelInitialPositionCells.setLayout(null);
+			m_panelInitialPositionCells.add(m_comboBoxInitialPositionCells);
 	}
 	
 	
@@ -1217,30 +1197,15 @@ public class MainWindow1D extends JFrame {
 	//Build components for FormCells in LateralTools
 	public void buildComponentLateralToolsFormCells(){
 		m_comboBoxFormCells = new JComboBox(m_stringFormCells);
-		m_GroupLayoutPanelFormCells = new GroupLayout(m_panelFormCells);
+		m_comboBoxFormCells.setBounds(16, 27, 126, 20);
 		
 		buildGroupLayoutComponentFormCells();
 	}
 	
 	//Build Layout for FormCells in LateralTools
 	public void buildGroupLayoutComponentFormCells(){
-		m_GroupLayoutPanelFormCells.setHorizontalGroup(
-				m_GroupLayoutPanelFormCells.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 158, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelFormCells.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxFormCells, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-			);
-			m_GroupLayoutPanelFormCells.setVerticalGroup(
-				m_GroupLayoutPanelFormCells.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 71, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelFormCells.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxFormCells, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(17, Short.MAX_VALUE))
-			);
-			m_panelFormCells.setLayout(m_GroupLayoutPanelFormCells);
+			m_panelFormCells.setLayout(null);
+			m_panelFormCells.add(m_comboBoxFormCells);
 	}
 	
 	
@@ -1248,30 +1213,15 @@ public class MainWindow1D extends JFrame {
 	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
 		m_comboBoxBackgroundColor = new JComboBox();
-		m_GroupLayoutPanelBackgroundColor = new GroupLayout(m_panelBackgroundColor);
+		m_comboBoxBackgroundColor.setBounds(16, 27, 126, 20);
 		
 		buildGroupLayoutComponentBackgroundColor();
 	}
 	
 	//Build Layout for BackgroundColor in LateralTools
 	public void buildGroupLayoutComponentBackgroundColor(){
-		m_GroupLayoutPanelBackgroundColor.setHorizontalGroup(
-				m_GroupLayoutPanelBackgroundColor.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 158, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelBackgroundColor.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxBackgroundColor, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-			);
-			m_GroupLayoutPanelBackgroundColor.setVerticalGroup(
-					m_GroupLayoutPanelBackgroundColor.createParallelGroup(Alignment.LEADING)
-					.addGap(0, 71, Short.MAX_VALUE)
-					.addGroup(m_GroupLayoutPanelBackgroundColor.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_comboBoxBackgroundColor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(17, Short.MAX_VALUE))
-			);
-			m_panelBackgroundColor.setLayout(m_GroupLayoutPanelBackgroundColor);
+			m_panelBackgroundColor.setLayout(null);
+			m_panelBackgroundColor.add(m_comboBoxBackgroundColor);
 	}
 	
 	
@@ -1324,6 +1274,20 @@ public class MainWindow1D extends JFrame {
 		m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 	}
+	
+	/******Components of Panel Grid in LateralTools******/
+	//Build components for Grid in LateralTools
+	public void buildComponentLateralToolsGrid(){
+		
+		
+		buildGroupLayoutComponentGrid();
+	}
+	
+	//Build Layout for BackgroundColor in LateralTools
+	public void buildGroupLayoutComponentGrid(){
+			m_panelBackgroundColor.setLayout(null);
+			//m_panelBackgroundColor.add();
+	}
 
 
 	
@@ -1338,6 +1302,7 @@ public class MainWindow1D extends JFrame {
 		m_panelLateralTools.add(m_panelColorCells);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
 		m_panelLateralTools.add(m_panelSimulationSpeed);
+		m_panelLateralTools.add(m_panelGrid);
 	}
 	
 	
