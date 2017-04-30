@@ -1066,10 +1066,10 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel LateralTools and its components******/
 	public void buildPanelLateralTools(){		
 		m_panelLateralTools = new JPanel();//Create a JPanel for the "Lateral Tools"
-		m_panelLateralTools.setPreferredSize(new Dimension(180, 2*m_intitialHeight));
+		m_panelLateralTools.setPreferredSize(new Dimension(180, 2*getHeight()));
 
 		m_scrollPaneLateralTools = new JScrollPane(m_panelLateralTools);//Create a JScrollPane for the "Lateral Tools" and add the panel m_panelLateralTools to panel m_mainPanel
-		m_scrollPaneLateralTools.setPreferredSize(new Dimension(200, m_intitialHeight));
+		m_scrollPaneLateralTools.setPreferredSize(new Dimension(200, getHeight()));
 		m_mainPanel.add(m_scrollPaneLateralTools, BorderLayout.EAST);//Add the panel m_panelLateralTools to panel m_mainPanel
 		
 		buildPanelAlgorithm();//Create the panel "Algorithm"
