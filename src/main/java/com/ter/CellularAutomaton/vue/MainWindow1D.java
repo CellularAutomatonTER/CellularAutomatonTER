@@ -43,6 +43,7 @@ import com.ter.CellularAutomaton.controller.InitializeSimulation1DOneCell;
 import com.ter.CellularAutomaton.controller.MenubarRulesElementary1DEvent;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.RectangleForm;
+import java.awt.Component;
 
 
 // TODO: Auto-generated Javadoc
@@ -283,6 +284,9 @@ public class MainWindow1D extends JFrame {
 	private JPanel m_panelSimulationSpeed;
 	private JSlider m_sliderSpeedSimulation;
 	private JPanel m_panelGrid;
+	private ButtonGroup m_radioButtonGrid;
+	private JRadioButton m_radioButtonGridNo;
+	private JRadioButton m_radioButtonGridYes;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
@@ -487,7 +491,7 @@ public class MainWindow1D extends JFrame {
 	/***Set the window***/
 	private void setWindow(){
 		m_intitialWidth = 1370;
-		m_intitialHeight = 1730;
+		m_intitialHeight = 730;
 		this.setWindow("Cellular Automaton", m_intitialWidth, m_intitialHeight, true, false);
 	}
 
@@ -1278,7 +1282,19 @@ public class MainWindow1D extends JFrame {
 	/******Components of Panel Grid in LateralTools******/
 	//Build components for Grid in LateralTools
 	public void buildComponentLateralToolsGrid(){
+		m_radioButtonGridNo = new JRadioButton("No");
+		m_radioButtonGridNo.setSelected(true);//Set a CheckBox "All" to true by default
+		m_panelGrid.add(m_radioButtonGridNo);
 		
+		Component horizontalStrut = Box.createHorizontalStrut(30);
+		m_panelGrid.add(horizontalStrut);
+		
+		m_radioButtonGridYes = new JRadioButton("yes");
+		m_panelGrid.add(m_radioButtonGridYes);
+		
+		m_radioButtonGrid = new ButtonGroup();
+		m_radioButtonGrid.add(m_radioButtonGridNo);
+		m_radioButtonGrid.add(m_radioButtonGridYes);
 		
 		buildGroupLayoutComponentGrid();
 	}
