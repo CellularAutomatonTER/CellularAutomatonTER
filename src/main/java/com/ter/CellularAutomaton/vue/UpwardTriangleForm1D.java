@@ -1,5 +1,6 @@
 package com.ter.CellularAutomaton.vue;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import com.ter.CellularAutomaton.controller.Cell1D;
@@ -29,7 +30,14 @@ public class UpwardTriangleForm1D implements IForm {
 	public void draw(Graphics g,  int abscissaX, int ordinateY) {
 		int[] x={abscissaX * Cell1D.CELL_SIZE,abscissaX * Cell1D.CELL_SIZE + Cell1D.CELL_SIZE/2,abscissaX * Cell1D.CELL_SIZE + Cell1D.CELL_SIZE};
 		int[] y={ordinateY * Cell1D.CELL_SIZE + Cell1D.CELL_SIZE, ordinateY * Cell1D.CELL_SIZE, ordinateY * Cell1D.CELL_SIZE + Cell1D.CELL_SIZE};
-		g.fillPolygon(x,y,3);//Draw a upward triangle witch represent the cell
+		if(m_window.getm_gridSimulation()){
+			g.fillPolygon(x,y,3);//Draw a upward triangle witch represent the cell
+			g.setColor(Color.RED);
+			g.drawPolygon(x,y,3);
+		}
+		else{
+			g.fillPolygon(x,y,3);//Draw a upward triangle witch represent the cell
+		}
 	}
 
 }
