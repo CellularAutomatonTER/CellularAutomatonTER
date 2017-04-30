@@ -290,11 +290,12 @@ public class MainWindow1D extends JFrame {
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
-	IInitializeSimulationRules1D m_modeInitializeSimulationRule;
+	private IInitializeSimulationRules1D m_modeInitializeSimulationRule;
 	private IForm m_modeForm;
 	private SimulationState m_simulationState;
-	boolean m_isRun;
+	private boolean m_isRun;
 	private Thread m_threadSimulation;
+	private boolean m_gridSimulation;
 	
 
 	/**
@@ -334,6 +335,7 @@ public class MainWindow1D extends JFrame {
 		
 		m_simulationState = SimulationState.RUN;
 		m_isRun = true;
+		m_gridSimulation = false;
 		
 		this.runSimulation();//run simulation
 		
@@ -374,6 +376,7 @@ public class MainWindow1D extends JFrame {
 		
 		m_simulationState = SimulationState.RUN;
 		m_isRun = true;
+		m_gridSimulation = false;
 		
 		//if we want create a new thread
 		if(createNewThread){
@@ -1159,7 +1162,7 @@ public class MainWindow1D extends JFrame {
 	public void buildPanelGrid(){
 		m_panelGrid = new JPanel();//Create the panel TypeOfSimulator
 		m_panelGrid.setBounds(13, 588, 158, 55);
-		m_panelGrid.setBorder(BorderFactory.createTitledBorder("Grid"));
+		m_panelGrid.setBorder(BorderFactory.createTitledBorder("Grid On Simulation"));
 				
 		buildComponentLateralToolsGrid();//Create components of panel TypeOfSimulator in the LateralTools
 	}
@@ -1389,6 +1392,13 @@ public class MainWindow1D extends JFrame {
 	private void addListenerComboBoxFormCells(){
 		m_comboBoxFormCells.addItemListener(new ComboBoxFormCellsEvent(this));
 	}
+	
+	private void addListenerRadioButtonGrid(){
+		//m_radioButtonGridNo.addItemListener(new ComboBoxFormCellsEvent(this));
+		//m_radioButtonGridYes.addItemListener(new ComboBoxFormCellsEvent(this));
+	}
+	
+	
 	
 
 	
