@@ -3,6 +3,7 @@ package com.ter.CellularAutomaton.vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -54,6 +55,11 @@ public class MainWindow1D extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	/******ATTRIBUTES******/
+	/** Characteristics of windows */
+	private int m_intitialWidth;
+	private int m_intitialHeight;
+	
+	
 	private JMenuBar m_menuBar = new JMenuBar();
 
 	/** The menu file. */
@@ -260,6 +266,7 @@ public class MainWindow1D extends JFrame {
 	private JButton m_buttonBorderCondition;
 	private JSeparator m_separatorInControlTools;
 	private JDesktopPane m_mainDesktopPane;
+	private JScrollPane m_scrollPaneLateralTools;
 	private JPanel m_panelLateralTools;
 	private GroupLayout m_GroupLayoutPanelLateralTools;
 	private JPanel m_panelAlgorithm;
@@ -380,6 +387,14 @@ public class MainWindow1D extends JFrame {
 
 	
 	/******GETTERS******/
+	public int getm_intitialWidth() {
+		return m_intitialWidth;
+	}
+	
+	public int getm_intitialHeight() {
+		return m_intitialHeight;
+	}
+	
 	public InternalFrameSimulation1D getm_internalFrameSimulation() {
 		return m_internalFrameSimulation;
 	}
@@ -475,7 +490,9 @@ public class MainWindow1D extends JFrame {
 
 	/***Set the window***/
 	private void setWindow(){
-		this.setWindow("Cellular Automaton", 1370, 730, true, false);
+		m_intitialWidth = 1370;
+		m_intitialHeight = 730;
+		this.setWindow("Cellular Automaton", m_intitialWidth, m_intitialHeight, true, false);
 	}
 
 
@@ -1047,9 +1064,13 @@ public class MainWindow1D extends JFrame {
 	
 	
 	/******Build Panel LateralTools and its components******/
-	public void buildPanelLateralTools(){
+	public void buildPanelLateralTools(){		
 		m_panelLateralTools = new JPanel();//Create a JPanel for the "Lateral Tools"
-		m_mainPanel.add(m_panelLateralTools, BorderLayout.EAST);//Add the panel m_panelLateralTools to panel m_mainPanel
+		m_panelLateralTools.setPreferredSize(new Dimension(180, 2*m_intitialHeight));
+
+		m_scrollPaneLateralTools = new JScrollPane(m_panelLateralTools);//Create a JScrollPane for the "Lateral Tools" and add the panel m_panelLateralTools to panel m_mainPanel
+		m_scrollPaneLateralTools.setPreferredSize(new Dimension(200, m_intitialHeight));
+		m_mainPanel.add(m_scrollPaneLateralTools, BorderLayout.EAST);//Add the panel m_panelLateralTools to panel m_mainPanel
 		
 		buildPanelAlgorithm();//Create the panel "Algorithm"
 		
