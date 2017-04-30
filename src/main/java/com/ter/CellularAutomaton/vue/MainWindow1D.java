@@ -268,7 +268,6 @@ public class MainWindow1D extends JFrame {
 	private JDesktopPane m_mainDesktopPane;
 	private JScrollPane m_scrollPaneLateralTools;
 	private JPanel m_panelLateralTools;
-	private GroupLayout m_GroupLayoutPanelLateralTools;
 	private JPanel m_panelAlgorithm;
 	private GroupLayout m_GroupLayoutPanelAlgorithm;
 	private JComboBox m_comboBoxAlgorithm;
@@ -1093,6 +1092,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel Algorithm******/
 	public void buildPanelAlgorithm(){
 		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
+		m_panelAlgorithm.setBounds(13, 11, 158, 71);
 		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
 		
 		buildComponentLateralToolsAlgorithm();//Create components of panel Algorithm in the LateralTools
@@ -1101,6 +1101,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel InitialPositionCells******/
 	public void buildPanelInitialPositionCells(){
 		m_panelInitialPositionCells = new JPanel();//Create the panel InitialPositionCells
+		m_panelInitialPositionCells.setBounds(10, 100, 158, 71);
 		m_panelInitialPositionCells.setBorder(BorderFactory.createTitledBorder("Initial Position of Cells"));//Set a border for the panel InitialPositionCells
 		
 		buildComponentLateralToolsInitialPositionCells();//Create components of panel InitialPositionCells in the LateralTools
@@ -1109,6 +1110,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel FormCells******/
 	public void buildPanelFormCells(){
 		m_panelFormCells = new JPanel();//Create the panel FormCells
+		m_panelFormCells.setBounds(10, 189, 158, 71);
 		m_panelFormCells.setBorder(BorderFactory.createTitledBorder("Form of Cells"));//Set a border for the panel FormCells
 		
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
@@ -1117,6 +1119,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel ColorCells******/
 	public void buildPanelColorCells(){
 		m_panelColorCells = new JPanel();//Create the panel ColorCells
+		m_panelColorCells.setBounds(10, 367, 158, 55);
 		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
 		
 		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
@@ -1125,6 +1128,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel BackgroundColor******/
 	public void buildPanelBackgroundColor(){
 		m_panelBackgroundColor = new JPanel();//Create the panel BackgroundColor
+		m_panelBackgroundColor.setBounds(10, 278, 158, 71);
 		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));//Set a border for the panel BackgroundColor
 		
 		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
@@ -1133,6 +1137,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel TypeOfSimulator******/
 	public void buildPanelTypeOfSimulator(){
 		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
+		m_panelTypeOfSimulator.setBounds(10, 440, 158, 55);
 		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
 		
 		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
@@ -1141,6 +1146,7 @@ public class MainWindow1D extends JFrame {
 	/******Build Panel SimulationSpeed******/
 	public void buildPanelSimulationSpeed(){
 		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
+		m_panelSimulationSpeed.setBounds(10, 513, 158, 55);
 		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
 		
 		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
@@ -1299,8 +1305,8 @@ public class MainWindow1D extends JFrame {
 	}
 	
 	
-	/******Components of Panel TypeOfSimulator in LateralTools******/
-	//Build components for TypeOfSimulator in LateralTools
+	/******Components of Panel SimulationSpeed in LateralTools******/
+	//Build components for SimulationSpeed in LateralTools
 	public void buildComponentSimulationSpeed(){ 
 		m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
 		m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
@@ -1324,58 +1330,14 @@ public class MainWindow1D extends JFrame {
 	/******Layout for all components of LateralTools******/
 	//Build Layout for components of Panel LateralTools
 	public void buildGroupLayoutPanelLateralTools(){
-		m_GroupLayoutPanelLateralTools = new GroupLayout(m_panelLateralTools);
-		m_GroupLayoutPanelLateralTools.setHorizontalGroup(
-			m_GroupLayoutPanelLateralTools.createParallelGroup(Alignment.LEADING)
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(m_panelAlgorithm, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_panelInitialPositionCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_panelFormCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(m_panelSimulationSpeed, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		m_GroupLayoutPanelLateralTools.setVerticalGroup(
-			m_GroupLayoutPanelLateralTools.createParallelGroup(Alignment.LEADING)
-				.addGroup(m_GroupLayoutPanelLateralTools.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(m_panelAlgorithm, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelInitialPositionCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelFormCells, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelBackgroundColor, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelColorCells, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelTypeOfSimulator, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(m_panelSimulationSpeed, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(251, Short.MAX_VALUE))
-		);
-		m_panelLateralTools.setLayout(m_GroupLayoutPanelLateralTools);
+		m_panelLateralTools.setLayout(null);
+		m_panelLateralTools.add(m_panelAlgorithm);
+		m_panelLateralTools.add(m_panelInitialPositionCells);
+		m_panelLateralTools.add(m_panelFormCells);
+		m_panelLateralTools.add(m_panelBackgroundColor);
+		m_panelLateralTools.add(m_panelColorCells);
+		m_panelLateralTools.add(m_panelTypeOfSimulator);
+		m_panelLateralTools.add(m_panelSimulationSpeed);
 	}
 	
 	
