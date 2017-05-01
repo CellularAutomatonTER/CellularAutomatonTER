@@ -13,7 +13,7 @@ import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.vue.Simulation1D;
 
 public class Cell1D {
-	public static final int CELL_SIZE = 10;
+	public static int CELL_SIZE = 10;
 
 	/******ATTRIBUTES******/
 	// For the logging.

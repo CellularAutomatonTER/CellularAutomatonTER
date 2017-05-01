@@ -1,14 +1,19 @@
 package com.ter.CellularAutomaton.vue;
 
 import java.awt.Dimension;
+import java.awt.Event;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.Scanner;
 
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 import com.ter.CellularAutomaton.controller.Cell1D;
 
@@ -20,11 +25,13 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	/******ATTRIBUTES******/
 	private InternalFrameSimulation1D m_internalFrameSimulation;
+	private  boolean m_controlKeyIsPressed;
 	
 	
 	/******CONSTRUCTOR******/
 	public Screen(InternalFrameSimulation1D internalFrameSimulation){
 		m_internalFrameSimulation = internalFrameSimulation;
+		m_controlKeyIsPressed = false;
 		setPreferredSize(new Dimension(4*m_internalFrameSimulation.getm_width(), 4*m_internalFrameSimulation.getm_height()));
 		addListenerInternalFrameSimulation1D();
 	}
@@ -48,7 +55,6 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		 int mx = e.getX()/Cell1D.CELL_SIZE;
 		 int my = e.getY()/Cell1D.CELL_SIZE;
 		 System.out.println("mouse X="+mx+" et mouse Y= "+my);
@@ -100,7 +106,21 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
-		// TODO Auto-generated method stub
-		
+			int mouseRot = arg0.getWheelRotation();
+		     
+		    if (mouseRot < 0){
+		    	Cell1D.CELL_SIZE *= 2;
+		    }
+		    else if(mouseRot > 0){
+		    	if(Cell1D.CELL_SIZE > 2){
+		        	 Cell1D.CELL_SIZE /= 2; 
+		         }
+		    }
+		else{
+			
+			//m_internalFrameSimulation.getm_scrollPane().getVerticalScrollBar().setValue(r);
+		}
 	}
+
+
 }
