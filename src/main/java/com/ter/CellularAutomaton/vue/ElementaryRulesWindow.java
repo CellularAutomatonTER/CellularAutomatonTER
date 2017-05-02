@@ -285,7 +285,7 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		//if the user press the entry touch		
+		//if the user press the enter touch		
 		if(e.getKeyCode() == 10){
 			m_buttonOk.doClick();//The button OK click himself
 		}
