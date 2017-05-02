@@ -526,7 +526,7 @@ public class MainWindow1D extends JFrame {
 		this.setResizable(isResisable);//Prevents resizing
 		this.setAlwaysOnTop(isAlwayOnTop);//The windows will not be always on top
 		try {
-			this.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor2.png")));
+			this.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor.png")));
 		}
 		catch (IOException exc) {
 		    exc.printStackTrace();

@@ -10,8 +10,12 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
@@ -68,6 +72,16 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		this.setResizable(true);//The internalFrame can be closed
 		this.pack();
 		this.setSize(m_width + this.getInsets().left +  + this.getInsets().right, m_height + this.getInsets().bottom +  + this.getInsets().top);
+
+		ImageIcon icon;
+		try {
+			icon = new ImageIcon(ImageIO.read(new File("Files/Images/Favicon/small_penrosecolor.png")));
+			this.setFrameIcon(icon);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		addListenerInternalFrameSimulation1D(mainWindow1D);
 		
