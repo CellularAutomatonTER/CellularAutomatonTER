@@ -1,6 +1,7 @@
 package com.ter.CellularAutomaton.vue;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -25,7 +26,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSeparator;
 
 
-public class ElementaryRulesWindow extends JFrame {
+public class ElementaryRulesWindow extends JFrame implements KeyListener {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -279,6 +280,27 @@ public class ElementaryRulesWindow extends JFrame {
 	/******Listeners panel Control******/
 	private void addListenerOnComponentsOfControlPanel(){
 		m_buttonOk.addActionListener(new OKElementaryRules1DEvent(this,m_currentSimulator));//add listener of button OK
+		m_formattedTextFieldRules.addKeyListener(this);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		//if the user press the entry touch		
+		if(e.getKeyCode() == 10){
+			m_buttonOk.doClick();//The button OK click himself
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
