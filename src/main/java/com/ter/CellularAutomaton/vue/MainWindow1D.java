@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ import java.awt.Component;
 /**
  * The Class MainWindow1D.
  */
-public class MainWindow1D extends JFrame {
+public class MainWindow1D extends JFrame implements WindowListener {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -338,6 +340,7 @@ public class MainWindow1D extends JFrame {
 		m_simulationState = SimulationState.RUN;
 		m_isRun = true;
 		m_gridSimulation = false;
+		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
 		this.runSimulation();//run simulation
 		
@@ -379,6 +382,8 @@ public class MainWindow1D extends JFrame {
 		m_simulationState = SimulationState.RUN;
 		m_isRun = true;
 		m_gridSimulation = false;
+		
+		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
 		//if we want create a new thread
 		if(createNewThread){
@@ -1427,5 +1432,55 @@ public class MainWindow1D extends JFrame {
 				System.out.println("Stop");
 			}
 		}
+	}
+
+
+	@Override
+	public void windowActivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowClosed(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+	@Override
+	public void windowClosing(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		m_isRun = false;
+		m_threadSimulation = null;
+	}
+
+
+	@Override
+	public void windowDeactivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowDeiconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowIconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowOpened(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	} 
 }

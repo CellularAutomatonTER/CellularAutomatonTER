@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -43,7 +45,7 @@ import com.ter.CellularAutomaton.vue.RectangleForm1D;
 /**
  * The Class MainWindow2D.
  */
-public class MainWindow2D extends JFrame {
+public class MainWindow2D extends JFrame implements WindowListener  {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -279,6 +281,7 @@ public class MainWindow2D extends JFrame {
 		
 		m_simulationState = SimulationState.STOP;
 		m_isRun = true;
+		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
 	}
 
@@ -358,7 +361,7 @@ public class MainWindow2D extends JFrame {
 		this.setResizable(isResisable);//Prevents resizing
 		this.setAlwaysOnTop(isAlwayOnTop);//The windows will not be always on top
 		try {
-			this.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor2.png")));
+			this.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor.png")));
 		}
 		catch (IOException exc) {
 		    exc.printStackTrace();
@@ -1201,6 +1204,63 @@ public class MainWindow2D extends JFrame {
 				System.out.println("Stop");
 			}
 		}
+	}
+
+
+
+	@Override
+	public void windowActivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowClosed(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowClosing(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		m_isRun = false;
+		m_threadSimulation = null;
+	}
+
+
+
+	@Override
+	public void windowDeactivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowDeiconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowIconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowOpened(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
