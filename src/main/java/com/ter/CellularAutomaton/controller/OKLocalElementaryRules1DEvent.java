@@ -3,8 +3,6 @@ package com.ter.CellularAutomaton.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
-
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.LocalElementaryRulesWindow;
 
