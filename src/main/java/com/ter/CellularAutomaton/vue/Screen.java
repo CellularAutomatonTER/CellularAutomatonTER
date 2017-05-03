@@ -18,13 +18,34 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	/******ATTRIBUTES******/
 	private InternalFrameSimulation1D m_internalFrameSimulation;
-	
+	private int m_screenWidth;
+	private int m_screenHeight;
 	
 	/******CONSTRUCTOR******/
 	public Screen(InternalFrameSimulation1D internalFrameSimulation){
 		m_internalFrameSimulation = internalFrameSimulation;
-		setPreferredSize(new Dimension(4*m_internalFrameSimulation.getm_width(), 4*m_internalFrameSimulation.getm_height()));
+		m_screenWidth = 4*m_internalFrameSimulation.getm_width();
+		m_screenHeight = 4*m_internalFrameSimulation.getm_height();
+		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		addListenerInternalFrameSimulation1D();
+	}
+	
+	/******GETTERS******/
+	public int getm_screenWidth() {
+		return m_screenWidth;
+	}
+	
+	public int getm_screenHeight() {
+		return m_screenHeight;
+	}
+	
+	/******SETTERS******/
+	public void setm_screenWidth(int screenWidth) {
+		this.m_screenWidth = screenWidth;
+	}
+	
+	public void setm_screenHeight(int screenHeight) {
+		this.m_screenHeight = screenHeight;
 	}
 	
 	
