@@ -36,6 +36,7 @@ import com.ter.CellularAutomaton.controller.RadioButtonGridNoEvent;
 import com.ter.CellularAutomaton.controller.RadioButtonGridYesEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.RunApplication1D;
+import com.ter.CellularAutomaton.controller.SizeOfSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
@@ -267,7 +268,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelControlTools;
 	private JPanel m_panelBorderCondition;
 	private JPanel m_panelDirectionOfEvolution;
-	private JButton m_buttonDirectionOfEvolution;
+	private JButton m_buttonSizeOfSimulation;
 	private JButton m_buttonBorderCondition;
 	private JSeparator m_separatorInControlTools;
 	private JDesktopPane m_mainDesktopPane;
@@ -1029,15 +1030,15 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public void buildPanelDirectionOfEvolution(){
 		m_panelDirectionOfEvolution = new JPanel();//Creation of JPanel for DirectionOfEvolution
 		m_panelDirectionOfEvolution.setBounds(207, 16, 210, 50);//Set size of JPanel
-		m_panelDirectionOfEvolution.setBorder(BorderFactory.createTitledBorder("Direction of Evolution"));//Set a border of JPanel
+		m_panelDirectionOfEvolution.setBorder(BorderFactory.createTitledBorder("Size of Simulation"));//Set a border of JPanel
 		
 		buildComponentDirectionOfEvolution();//Set the component of Panel "DirectionOfEvolution"
 	}
 	
 	public void buildComponentDirectionOfEvolution(){
 		m_panelDirectionOfEvolution.setLayout(new BorderLayout(0, 0));//The component take full place of panel
-		m_buttonDirectionOfEvolution = new JButton("Direction of Evolution Setting");//Creation of Button for panel "Direction of evolution"
-		m_panelDirectionOfEvolution.add(m_buttonDirectionOfEvolution);//Add the radioButton m_radioButtonContinuous to panel m_panelSimulationMode
+		m_buttonSizeOfSimulation = new JButton("Size of Simulation");//Creation of Button for panel "Size of Simulation"
+		m_panelDirectionOfEvolution.add(m_buttonSizeOfSimulation);//Add the radioButton m_radioButtonContinuous to panel m_panelSimulationMode
 	}
 
 	
@@ -1379,7 +1380,11 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners Control Tools******/
 	private void addListenerControlTools(){
-		
+		addListenerSizeOfSimulation();
+	}
+	
+	private void addListenerSizeOfSimulation(){
+		m_buttonSizeOfSimulation.addActionListener(new SizeOfSimulation1DEvent(this));
 	}
 	
 	

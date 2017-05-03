@@ -55,9 +55,9 @@ public class SizeSimulationWindow extends JFrame {
 	private JScrollPane m_sizeScrollPane = new JScrollPane();
 	private final JPanel m_sizePanel = new JPanel();
 	private final JLabel m_labelWidthOfSimulation = new JLabel("Width of simulation:");
-	private JFormattedTextField m_formattedTextFieldWidthOfSimulation = new JFormattedTextField(900);
+	private JFormattedTextField m_formattedTextFieldWidthOfSimulation = new JFormattedTextField();
 	private final JLabel m_labelHeightOfSimulation = new JLabel("Height of simulation:");
-	private final JFormattedTextField m_formattedTextFieldHeightOfSimulation = new JFormattedTextField(530);
+	private final JFormattedTextField m_formattedTextFieldHeightOfSimulation = new JFormattedTextField();
 	
 	/******GETTERS******/
 	public MainWindow1D getm_mainWindow1D() {
@@ -84,6 +84,8 @@ public class SizeSimulationWindow extends JFrame {
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
 		
 		buildComponentWindow();//Build component of window
+		
+		this.setVisible(true);
 	}
 
 	/**
@@ -108,19 +110,21 @@ public class SizeSimulationWindow extends JFrame {
 		m_sizeScrollPane.setViewportView(m_sizePanel);
 		m_sizePanel.setLayout(null);
 		
-		m_labelWidthOfSimulation.setBounds(10, 38, 133, 29);
+		m_labelWidthOfSimulation.setBounds(10, 38, 151, 29);
 		m_sizePanel.add(m_labelWidthOfSimulation);
 		m_labelWidthOfSimulation.setFont(new Font(m_labelWidthOfSimulation.getFont().getName(), m_labelWidthOfSimulation.getFont().getStyle(), 15));// new font size is 15
 		
-		m_formattedTextFieldWidthOfSimulation.setBounds(153, 38, 234, 29);
+		m_formattedTextFieldWidthOfSimulation.setBounds(171, 38, 234, 29);
 		m_sizePanel.add(m_formattedTextFieldWidthOfSimulation);
 		
-		m_labelHeightOfSimulation.setBounds(10, 106, 133, 29);
+		m_labelHeightOfSimulation.setBounds(10, 106, 151, 29);
 		m_sizePanel.add(m_labelHeightOfSimulation);
 		m_labelHeightOfSimulation.setFont(new Font(m_labelHeightOfSimulation.getFont().getName(), m_labelHeightOfSimulation.getFont().getStyle(), 15));// new font size is 15
 		
-		m_formattedTextFieldHeightOfSimulation.setBounds(153, 106, 234, 29);
+		m_formattedTextFieldHeightOfSimulation.setBounds(171, 106, 234, 29);
 		m_sizePanel.add(m_formattedTextFieldHeightOfSimulation);
+		
+		addListenerComponentControlPanel ();//Add Listener on component control panel
 		
 	}
 	
