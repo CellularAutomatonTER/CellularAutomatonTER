@@ -145,6 +145,16 @@ public class Simulation1D {
 		}
 	}
 
+	//For each cell of Simulation, set the m_state to 0 (value by default)
+		public void resetSimulation(){
+			// For each cell.
+			for(int x = 0;x < m_nbCellWidth;x++) {
+				for (int y = 0; y < m_nbCellHeight; y++) {
+					m_matrixCells.get(x).get(y).setm_state(0);//Set the m_state to 0 (value by default)
+				}
+			}
+		}
+	
 	// Run simulation according to a rule defined by user.
 	public void update() {
 		int stateEvolutionOfCell;

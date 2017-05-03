@@ -24,6 +24,7 @@ import com.ter.CellularAutomaton.controller.CloseAllEvent;
 import com.ter.CellularAutomaton.controller.ComboBoxFormCellsEvent;
 import com.ter.CellularAutomaton.controller.ComboBoxInitialPositionCellsEvent;
 import com.ter.CellularAutomaton.controller.CreditsEvent;
+import com.ter.CellularAutomaton.controller.EraseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.ExportAllFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportJPGFormat1DEvent;
@@ -260,7 +261,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelSimulationTools;
 	private JButton m_buttonLauncher;
 	private JButton m_buttonPause;
-	private JButton m_buttonStop;
+	private JButton m_buttonErase;
 	private JButton m_buttonUndo;
 	private JButton m_buttonRedo;
 	private JButton m_buttonReload;
@@ -427,7 +428,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	public JButton getm_buttonStop() {
-		return m_buttonStop;
+		return m_buttonErase;
 	}
 	
 	public boolean getm_isRun() {
@@ -963,7 +964,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		m_buttonPause = new JButton(new ImageIcon(pathDirectory+"button_pause.png"));
 		
-		m_buttonStop = new JButton(new ImageIcon(pathDirectory+"button_stop.png"));
+		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
 		
 		m_buttonUndo = new JButton(new ImageIcon(pathDirectory+"button_undo.png"));
 		
@@ -974,9 +975,9 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelSimulationTools.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		m_panelSimulationTools.add(m_buttonLauncher);
 		m_panelSimulationTools.add(m_buttonPause);
-		m_panelSimulationTools.add(m_buttonStop);
 		m_panelSimulationTools.add(m_buttonUndo);
 		m_panelSimulationTools.add(m_buttonRedo);
+		m_panelSimulationTools.add(m_buttonErase);
 		m_panelSimulationTools.add(m_buttonReload);
 	}
 	
@@ -1369,7 +1370,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	private void addListenerStop(){
-		m_buttonStop.addActionListener(new StopSimulation1DEvent(this));
+		m_buttonErase.addActionListener(new EraseSimulation1DEvent(this));
 	}
 	
 	private void addListenerRefresh(){
