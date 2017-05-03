@@ -89,7 +89,11 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		}
 		// If the RIGTH button is pushed
 		else if(buttonDown == MouseEvent.BUTTON3){
-			
+			 int mx = e.getX()/Cell1D.CELL_SIZE;
+			 int my = e.getY()/Cell1D.CELL_SIZE;
+			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
+			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
+			 LocalElementaryRulesWindow localElementaryRulesWindow = new LocalElementaryRulesWindow()
 		}
 	}
 
