@@ -13,6 +13,7 @@ import com.ter.CellularAutomaton.controller.Cell1D;
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.CloseLocalElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.OKElementaryRules1DEvent;
+import com.ter.CellularAutomaton.controller.OKLocalElementaryRules1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 
 import javax.swing.JPanel;
@@ -288,7 +289,7 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 	
 	/******Listeners panel Control******/
 	private void addListenerOnComponentsOfControlPanel(){
-		//m_buttonOk.addActionListener(new OKLocalElementaryRules1DEvent(this,m_currentInternalFrameSimulation1D,m_currentCell));//add listener of button OK
+		m_buttonOk.addActionListener(new OKLocalElementaryRules1DEvent(this,m_currentInternalFrameSimulation1D,m_currentCell));//add listener of button OK
 		m_formattedTextFieldRules.addKeyListener(this);
 	}
 
