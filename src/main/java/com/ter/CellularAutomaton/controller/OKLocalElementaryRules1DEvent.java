@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Icon;
 
-import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.LocalElementaryRulesWindow;
 
