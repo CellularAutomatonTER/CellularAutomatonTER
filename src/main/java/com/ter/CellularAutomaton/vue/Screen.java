@@ -67,15 +67,29 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		 int mx = e.getX()/Cell1D.CELL_SIZE;
-		 int my = e.getY()/Cell1D.CELL_SIZE;
-		 System.out.println("mouse X="+mx+" et mouse Y= "+my);
-		 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
-		 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
-			 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
-		 }
-		 else {
-			 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(0);
+		
+	    int buttonDown = e.getButton();// stock the button of the mouse which is pushed
+	    
+	    // If the LEFT button is pushed
+		if(buttonDown == MouseEvent.BUTTON1) {
+			 int mx = e.getX()/Cell1D.CELL_SIZE;
+			 int my = e.getY()/Cell1D.CELL_SIZE;
+			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
+			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
+			 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
+				 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
+			 }
+			 else {
+				 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(0);
+			}
+		}
+		// If the CENTER button is pushed
+		else if(buttonDown == MouseEvent.BUTTON2){
+			
+		}
+		// If the RIGTH button is pushed
+		else if(buttonDown == MouseEvent.BUTTON3){
+			
 		}
 	}
 
