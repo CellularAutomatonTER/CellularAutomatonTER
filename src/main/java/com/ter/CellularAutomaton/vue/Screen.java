@@ -74,8 +74,8 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		if(buttonDown == MouseEvent.BUTTON1) {
 			 int mx = e.getX()/Cell1D.CELL_SIZE;
 			 int my = e.getY()/Cell1D.CELL_SIZE;
-			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
-			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
+			 System.out.println("mouse X="+mx+" and mouse Y= "+my);
+			 System.out.println("You are click on the cell of coordonne X="+mx+" and Y= "+my);
 			 if(mx <= m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() && my <= m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()){
 				 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
 					 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
@@ -93,8 +93,8 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		else if(buttonDown == MouseEvent.BUTTON3){
 			 int mx = e.getX()/Cell1D.CELL_SIZE;
 			 int my = e.getY()/Cell1D.CELL_SIZE;
-			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
-			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
+			 System.out.println("mouse X="+mx+" and mouse Y= "+my);
+			 System.out.println("You are click on the cell of coordonne X="+mx+" and Y= "+my);
 			 LocalElementaryRulesWindow localElementaryRulesWindow = new LocalElementaryRulesWindow(m_internalFrameSimulation, m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my));
 		}
 	}
