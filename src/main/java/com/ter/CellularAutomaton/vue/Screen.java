@@ -76,12 +76,14 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 			 int my = e.getY()/Cell1D.CELL_SIZE;
 			 System.out.println("mouse X="+mx+" et mouse Y= "+my);
 			 System.out.println("Vous avez cliqué sur la cellule de coordonne X="+mx+" et Y= "+my);
-			 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
-				 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
+			 if(mx <= m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() && my <= m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()){
+				 if(m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).getm_state() == 0){
+					 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(1); 
+				 }
+				 else {
+					 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(0);
+				}
 			 }
-			 else {
-				 m_internalFrameSimulation.getm_simulation().getCellInSimulation(mx, my).setm_state(0);
-			}
 		}
 		// If the CENTER button is pushed
 		else if(buttonDown == MouseEvent.BUTTON2){
@@ -140,10 +142,16 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		     
 		    if (mouseRot < 0){
 		    	Cell1D.CELL_SIZE *= 2;
+//		    	m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() * Cell1D.CELL_SIZE;
+//		    	m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight() * Cell1D.CELL_SIZE;
+//		    	this.setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		    }
 		    else if(mouseRot > 0){
 		    	if(Cell1D.CELL_SIZE > 2){
-		        	 Cell1D.CELL_SIZE /= 2; 
+		        	Cell1D.CELL_SIZE /= 2;
+//		        	m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() * Cell1D.CELL_SIZE;
+//				    m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight() * Cell1D.CELL_SIZE;
+//				    this.setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		         }
 		    }
 		else{
