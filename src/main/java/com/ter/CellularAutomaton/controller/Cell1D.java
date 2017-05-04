@@ -109,7 +109,7 @@ public class Cell1D {
 			}
 			currentStateOfCell=simulation.getCellInSimulation(xAcualPositionOfCell,m_y).getm_state();//Stock state of Neighbor Cell
 			m_stateOfSelfAndNeighbour.add(currentStateOfCell);//Set state of Neighbor Cell in ArrayList m_stateOfSelfAndNeighbour
-			xAcualPositionOfCell=m_x-m_radius+i;
+			xAcualPositionOfCell=m_x-m_radius;
 		}
 	}
 	
