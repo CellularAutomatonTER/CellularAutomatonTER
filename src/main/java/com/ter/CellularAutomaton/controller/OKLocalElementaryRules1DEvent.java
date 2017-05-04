@@ -40,7 +40,6 @@ public class OKLocalElementaryRules1DEvent implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		
 		//Get the input of user for Radius input, transform this string to int value and stock this value.
 		String stringRadiusChooseByUser=this.m_localElementaryRulesWindow.getm_formattedTextFieldRadius().getText();// Stock the decimal number input from user to entry the radius.
 		int intRadiusChooseByUser=convertStringNumberToIntNumber(stringRadiusChooseByUser);// Convert string number to int number and stock the int number.
