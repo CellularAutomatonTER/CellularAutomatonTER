@@ -95,7 +95,6 @@ public class Cell1D {
 
 	//Init attributes m_stateOfSelfAndNeighbour with the state of Neighbors Cells and himself
 	private void initm_stateOfSelfAndNeighbour(Simulation1D simulation){
-		int LenghtStateOfSelfAndNeighbour = 2 * m_radius + 1; // Number of the cell itself and its neighbors.
 		m_stateOfSelfAndNeighbour = new ArrayList<Integer>(); // Build the list.
 		int currentStateOfCell=0;
 		int i= -m_radius;
@@ -108,7 +107,6 @@ public class Cell1D {
 			else{
 				xAcualPositionOfCell = xAcualPositionOfCell % simulation.getm_nbCellWidth();//The simulator becomes a TOR in width for right border
 			}
-			//System.out.println(xAcualPositionOfCell);
 			currentStateOfCell=simulation.getCellInSimulation(xAcualPositionOfCell,m_y).getm_state();//Stock state of Neighbor Cell
 			m_stateOfSelfAndNeighbour.add(currentStateOfCell);//Set state of Neighbor Cell in ArrayList m_stateOfSelfAndNeighbour
 			i++;
@@ -129,11 +127,7 @@ public class Cell1D {
 	public int findStateEvolution(Simulation1D simulation){
 		initm_stateOfSelfAndNeighbour(simulation); // Initialize m_stateOfSelfAndNeighbour.
 		int k = transformNeighborhoodConfigurationToDecimalInt();//Stock decimal int which represent neighborhood configuration
-		m_stateEvolution = (int) ((m_rules & (int)(Math.pow(2, k))) /Math.pow(2, k)); // Calculation the evolution of state of the cell depending on the rule chosen by user and neighborhood configuration and initialize the attribute m_stateEvolution with the result.
-		if(m_y==0)
-		System.out.println("La cellule m_x = "+m_x+" et m_y = "+m_y+" a un k de "+k+" donne "+m_stateEvolution);
-		if(m_y==1)
-		System.out.println("La cellule m_x = "+m_x+" et m_y = "+m_y+" a un k de "+k+" donne "+m_stateEvolution);
+		m_stateEvolution = (int) ((m_rules & (int)(Math.pow(2, k))) / Math.pow(2, k)); // Calculation the evolution of state of the cell depending on the rule chosen by user and neighborhood configuration and initialize the attribute m_stateEvolution with the result (it equivalent to (m_rules & (1<<k)>>k) but fix bug when k is huge).
 		return m_stateEvolution;//Return value that the configuration give according to the rule chosen by user
 	}
 
