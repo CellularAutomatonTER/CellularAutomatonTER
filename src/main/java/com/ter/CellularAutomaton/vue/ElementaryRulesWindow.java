@@ -57,7 +57,7 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
 	private final JFormattedTextField m_formattedTextFieldRadius = new JFormattedTextField(1);//By default, the radius is 1.
 	private final JLabel m_labelRules = new JLabel("Rules (0 to ?):");
-	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField(0);
+	private final JFormattedTextField m_formattedTextFieldRules = new JFormattedTextField();
 	private final JButton m_buttonOk = new JButton("OK");
 	private final JButton m_buttonPersonalize = new JButton("Personalize");
 	private JSeparator m_separatorBetweenAlphabetAndRadius;
