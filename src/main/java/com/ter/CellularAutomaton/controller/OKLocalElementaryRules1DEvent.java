@@ -39,6 +39,14 @@ public class OKLocalElementaryRules1DEvent implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//Get the input of user for X1 input, transform this string to int value and stock this value.
+		String stringX1ChooseByUser=this.m_localElementaryRulesWindow.getm_formattedTextFieldX1().getText();// Stock the decimal number input from user to entry the X1.
+		int intX1ChooseByUser=convertStringNumberToIntNumber(stringX1ChooseByUser);// Convert string number to int number and stock the int number.
+		
+		//Get the input of user for X2 input, transform this string to int value and stock this value.
+		String stringX2ChooseByUser=this.m_localElementaryRulesWindow.getm_formattedTextFieldX2().getText();// Stock the decimal number input from user to entry the X2.
+		int intX2ChooseByUser=convertStringNumberToIntNumber(stringX2ChooseByUser);// Convert string number to int number and stock the int number.
 
 		//Get the input of user for Radius input, transform this string to int value and stock this value.
 		String stringRadiusChooseByUser=this.m_localElementaryRulesWindow.getm_formattedTextFieldRadius().getText();// Stock the decimal number input from user to entry the radius.

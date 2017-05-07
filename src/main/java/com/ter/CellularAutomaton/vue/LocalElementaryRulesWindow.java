@@ -56,6 +56,14 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 	private final JButton m_buttonReset = new JButton("Reset");
 	private final JCheckBox m_checkBoxRememberSetting = new JCheckBox("Remember this setting");
 	private final JCheckBox m_checkBoxSetActualSettingAsDefault = new JCheckBox("Set actual setting as default");
+	private final JPanel m_mainPanel = new JPanel();
+	
+	private final JPanel m_panelLocalRuleArea = new JPanel();
+	JLabel m_labelX1 = new JLabel("X1:");
+	JLabel m_labelX2 = new JLabel("X2:");
+	private final JFormattedTextField m_formattedTextFieldX1 = new JFormattedTextField();
+	private final JFormattedTextField m_formattedTextFieldX2 = new JFormattedTextField();
+	
 	private final JPanel m_panelRulesSetting = new JPanel();
 	private final JLabel m_labelAlphabet = new JLabel("Alphabet (0 to ?):  1");
 	private final JLabel m_labelRadius = new JLabel("Radius (must be equal or greater than 1):");
@@ -74,6 +82,14 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 	/******GETTERS******/
 	public Cell1D getm_currentCell() {
 		return m_currentCell;
+	}
+	
+	public JFormattedTextField getm_formattedTextFieldX1() {
+		return m_formattedTextFieldX1;
+	}
+	
+	public JFormattedTextField getm_formattedTextFieldX2() {
+		return m_formattedTextFieldX2;
 	}
 	
 	public JFormattedTextField getm_formattedTextFieldRadius() {
@@ -111,7 +127,7 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 	 */
 	private void buildComponentWindow() {
 		this.setTitle("Local Elementary Rules Window");//Set the title of window
-		this.setSize(550,320);//Set size of window
+		this.setSize(550,540);//Set size of window
 		this.setLocationRelativeTo(null);//Center the location of window
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Set Default Close Operation to DISPOSE_ON_CLOSE
 		getContentPane().add(m_panelControl, BorderLayout.SOUTH);//Set panel Control in SOUTH
@@ -122,13 +138,40 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 		m_labelRules.setFont(new Font(m_labelRules.getFont().getName(), m_labelRules.getFont().getStyle(), 15));// new font size is 15
 		m_labelRadius.setFont(new Font(m_labelRadius.getFont().getName(), m_labelRadius.getFont().getStyle(), 15));// new font size is 15
 		
-		getContentPane().add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in SOUTH
-		
 		m_separatorBetweenAlphabetAndRadius = new JSeparator();//Set separator between alphabet and Radius
 		m_separatorBetweenRadiusAndRules = new JSeparator();//Set separator between Radius and Rules
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
 		
+		m_panelRulesSetting.setBounds(0, 210, 534, 210);
+		m_mainPanel.add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in CENTER
 		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
+		getContentPane().add(m_mainPanel, BorderLayout.CENTER);
+		m_mainPanel.setLayout(null);
+		m_panelLocalRuleArea.setBounds(0, 0, 534, 210);
+		
+		m_mainPanel.add(m_panelLocalRuleArea);
+		m_panelLocalRuleArea.setLayout(null);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(-4867, 208, 10000, 2);
+		m_panelLocalRuleArea.add(separator);
+		
+		m_labelX1.setBounds(10, 37, 140, 19);
+		m_labelX1.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
+		m_panelLocalRuleArea.add(m_labelX1);
+		
+		m_labelX2.setBounds(10, 129, 140, 19);
+		m_labelX2.setFont(new Font(m_labelAlphabet.getFont().getName(), m_labelAlphabet.getFont().getStyle(), 15));// new font size is 15
+		m_panelLocalRuleArea.add(m_labelX2);
+		
+
+		m_formattedTextFieldX1.setBounds(54, 32, 450, 33);
+		m_panelLocalRuleArea.add(m_formattedTextFieldX1);
+		
+
+		m_formattedTextFieldX2.setBounds(54, 124, 450, 33);
+		m_panelLocalRuleArea.add(m_formattedTextFieldX2);
+		
 	}
 	
 	
@@ -312,5 +355,4 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
 }
