@@ -255,8 +255,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelChooseCellularAutomaton;
 	private JPanel m_panelUniform;
 	private GroupLayout m_GroupLayoutPanelTypeCellularAutomaton;
-	private JComboBox m_comboBoxUniform;
-	private JButton m_buttonCellularAutomatonSetting;
+	private JButton m_buttonNonUniformCellularAutomatonSetting;
+	private JButton m_buttonUniformCellularAutomatonSetting;
 	private JToolBar m_toolBarSimulationTools;
 	private JPanel m_panelSimulationTools;
 	private JButton m_buttonLauncher;
@@ -899,7 +899,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public void buildPanelChooseCellularAutomaton(){
 		//Build the panel ChooseCellularAutomaton
 		m_panelChooseCellularAutomaton = new JPanel();
-		m_panelChooseCellularAutomaton.setBorder(BorderFactory.createTitledBorder("Cellular Automaton"));
+		m_panelChooseCellularAutomaton.setBorder(BorderFactory.createTitledBorder("Uniform Cellular Automaton"));
 		m_panelChooseCellularAutomaton.setLayout(new BorderLayout(0, 0));
 		
 		buildComponentChooseCellularAutomaton();//Build the component of the panel ChooseCellularAutomaton
@@ -907,14 +907,14 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void buildComponentChooseCellularAutomaton(){
 		//Build the component of the panel ChooseCellularAutomaton
-		m_buttonCellularAutomatonSetting = new JButton("Cellular Automaton Setting");
-		m_panelChooseCellularAutomaton.add(m_buttonCellularAutomatonSetting, BorderLayout.CENTER);
+		m_buttonUniformCellularAutomatonSetting = new JButton("Uniform Rules");
+		m_panelChooseCellularAutomaton.add(m_buttonUniformCellularAutomatonSetting, BorderLayout.CENTER);
 	}
 	
 	public void buildPanelUniform(){
 		//Build the panel Uniform
 		m_panelUniform = new JPanel();
-		m_panelUniform.setBorder(BorderFactory.createTitledBorder("Uniform / Non-Uniform"));
+		m_panelUniform.setBorder(BorderFactory.createTitledBorder("Non Uniform Cellular Automaton"));
 		m_panelUniform.setLayout(new BorderLayout(0, 0));
 		
 		buildComponentUniform();//Build the component of the panel Uniform
@@ -922,8 +922,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void buildComponentUniform(){
 		//Build the component of the panel Uniform
-		m_comboBoxUniform = new JComboBox();
-		m_panelUniform.add(m_comboBoxUniform, BorderLayout.CENTER);
+		m_buttonNonUniformCellularAutomatonSetting = new JButton("Non Uniform Rules");
+		m_panelUniform.add(m_buttonNonUniformCellularAutomatonSetting, BorderLayout.CENTER);
 	}
 	
 	public void buildGroupLayoutPanelTypeCellularAutomaton(){
@@ -1345,11 +1345,16 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners TypeCellularAutomaton Tools******/
 	private void addListenerTypeCellularAutomatonTools(){
-		this.addListenerCellularAutomatonSetting();//add listener of button Launcher
+		this.addListenerUniformCellularAutomatonSetting();//add listener of button UniformCellularAutomatonSetting
+		this.addListenerNonUniformCellularAutomatonSetting();//add listener of button NonUniformCellularAutomatonSetting
 	}
 	
-	private void addListenerCellularAutomatonSetting(){
-		m_buttonCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent(this));
+	private void addListenerUniformCellularAutomatonSetting(){
+		m_buttonUniformCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent(this));
+	}
+	
+	private void addListenerNonUniformCellularAutomatonSetting(){
+		m_buttonNonUniformCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent(this));
 	}
 	
 	
