@@ -18,6 +18,8 @@ import com.ter.CellularAutomaton.controller.QuitEvent;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -142,11 +144,13 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 		m_separatorBetweenRadiusAndRules = new JSeparator();//Set separator between Radius and Rules
 		m_separatorBetweenRulesAndPanelControl = new JSeparator();//Set separator between Rules and panel control
 		
+		m_panelRulesSetting.setBorder(BorderFactory.createTitledBorder("Rules Setting:"));
 		m_panelRulesSetting.setBounds(0, 210, 534, 210);
 		m_mainPanel.add(m_panelRulesSetting, BorderLayout.CENTER);//Set panel RulesSetting in CENTER
 		buildGroupLayoutPanelRulesSetting();//Set Layout for Panel RulesSetting
 		getContentPane().add(m_mainPanel, BorderLayout.CENTER);
 		m_mainPanel.setLayout(null);
+		m_panelLocalRuleArea.setBorder(BorderFactory.createTitledBorder("Location of local Area:"));
 		m_panelLocalRuleArea.setBounds(0, 0, 534, 210);
 		
 		m_mainPanel.add(m_panelLocalRuleArea);
