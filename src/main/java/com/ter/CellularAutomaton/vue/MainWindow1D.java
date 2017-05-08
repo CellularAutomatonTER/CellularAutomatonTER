@@ -888,7 +888,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 	//Listener of tab Help
 	private void addListenerHelp (){
-		m_menuBarHelpItem2.addActionListener(new CreditsEvent());
+		m_menuBarHelpItem2.addActionListener(new CreditsEvent());//Add ActionListener on tab "Credits" in tab "Help"
 	}
 	
 	/******Build Windows******/
