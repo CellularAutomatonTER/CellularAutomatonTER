@@ -62,7 +62,7 @@ public class OKLocalElementaryRules1DEvent implements ActionListener {
 //		this.m_currentInternalFrameSimulation1D.getm_simulation().getCellInSimulation(m_currentCell.getm_x(), m_currentCell.getm_y()).setm_radius(intRadiusChooseByUser); //Set radius of the current cell that the user want change.
 //		this.m_currentInternalFrameSimulation1D.getm_simulation().getCellInSimulation(m_currentCell.getm_x(), m_currentCell.getm_y()).setm_rules(intRuleChooseByUser);//Set rule of the current cell that the user want change.
 
-		this.m_currentInternalFrameSimulation1D.getm_simulation().setm_idOfLines(m_currentCell.getm_y());//Set cursor m_idOfLines to ordonne of cell that the user want change.
+		this.m_currentInternalFrameSimulation1D.getm_simulation().setm_idOfLines(0);//Set cursor m_idOfLines to ordonne of cell that the user want change.
 		
 		this.m_localElementaryRulesWindow.dispose();// Close ElementaryRulesWindow.
 
