@@ -106,6 +106,23 @@ public class LocalElementaryRulesWindow extends JFrame implements KeyListener {
 	/**
 	 * Create the application.
 	 */
+	public LocalElementaryRulesWindow(InternalFrameSimulation1D currentInternalFrameSimulation1D) {
+		
+		m_currentInternalFrameSimulation1D = currentInternalFrameSimulation1D;// Initialize attribute with current InternalFrameSimulation1D
+		
+		buildComponentWindow();// Build component of window.
+		
+		this.initMenuMnemonic();// Set mnemonic of the MenuBar.
+		
+		this.initMenuBar();// We initialize our menuBar.
+		
+		this.addListenerMenuBar();// We initialize Listener of menuBar.
+		
+		this.addListenerOnComponentsOfControlPanel();// Initialize Listeners on Components of panel Control.
+		
+		this.setVisible(true);// Set the window visible.
+	}
+	
 	public LocalElementaryRulesWindow(InternalFrameSimulation1D currentInternalFrameSimulation1D, Cell1D currentCell) {
 		
 		m_currentInternalFrameSimulation1D = currentInternalFrameSimulation1D;// Initialize attribute with current InternalFrameSimulation1D

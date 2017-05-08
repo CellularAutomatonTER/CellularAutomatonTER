@@ -30,6 +30,7 @@ import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportJPGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportPNGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.New1DEvent;
+import com.ter.CellularAutomaton.controller.NonUniformCellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
@@ -1354,7 +1355,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	private void addListenerNonUniformCellularAutomatonSetting(){
-		m_buttonNonUniformCellularAutomatonSetting.addActionListener(new CellularAutomatonSetting1DEvent(this));
+		m_buttonNonUniformCellularAutomatonSetting.addActionListener(new NonUniformCellularAutomatonSetting1DEvent(this));
 	}
 	
 	
