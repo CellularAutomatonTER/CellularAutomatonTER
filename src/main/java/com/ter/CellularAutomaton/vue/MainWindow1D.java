@@ -357,7 +357,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		//Set the window visible
 		this.setVisible(true);
 		
-		m_simulationState = SimulationState.RUN;
+		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
 		this.addWindowListener(this);//Add WindowListener on MainWindow
