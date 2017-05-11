@@ -481,6 +481,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		return m_modeForm;
 	}
 	
+	public SimulationState getm_simulationState() {
+		return m_simulationState;
+	}
+	
 	public boolean getm_gridSimulation() {
 		return m_gridSimulation;
 	}
@@ -1490,7 +1494,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 					m_internalFrameSimulation.startUpdate();//The simulation of the window start
 			}
 			else if(m_simulationState == SimulationState.PAUSE){
-					System.out.println("Pause");
+				m_internalFrameSimulation.startUpdate();//The simulation of the window start
 			}
 			else{
 				//TODO

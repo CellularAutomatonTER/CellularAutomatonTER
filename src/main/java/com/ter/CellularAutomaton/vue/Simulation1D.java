@@ -201,8 +201,8 @@ public class Simulation1D {
 	public void draw(Graphics g) {
 		// For each cell.
 		for(int x = 0;x < m_nbCellWidth;x++) {
-			for (int y = 0; y < m_nbCellHeight; y++) {
-				m_matrixCells.get(x).get(y).draw(g); // Draw cell.
+			for (int y = 1; y < m_nbCellHeight; y++) {
+				m_matrixCells.get(x).get(y-1).draw(g); // Draw cell.
 			}
 		}
 	}
