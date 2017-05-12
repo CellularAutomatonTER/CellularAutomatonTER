@@ -1063,7 +1063,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	
-	public void buildControlTools(){
+	private void buildControlTools(){
 		buildToolBarControlTools();//Build the ToolBar of ControlTools
 	}
 	
