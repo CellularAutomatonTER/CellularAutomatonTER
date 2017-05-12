@@ -199,7 +199,7 @@ public class RulesEntryModeWindow extends JFrame {
 	//Build the component of Additive panel
 	private void buildComponentPanelAdditive(){		
 		m_buttonAdditive = new JButton("Additive");
-		m_buttonAdditive.setToolTipText("Allow to define an Additive global rule");
+		m_buttonAdditive.setToolTipText("Allow to define an additive global rule");
 		m_panelAdditive.add(m_buttonAdditive, BorderLayout.CENTER);
 	}
 	
@@ -216,6 +216,7 @@ public class RulesEntryModeWindow extends JFrame {
 	//Build the component of Pattern panel
 	private void buildComponentPanelPattern(){		
 		m_buttonPattern = new JButton("Pattern");
+		m_buttonPattern.setToolTipText("Allow to define an global rule by Pattern");
 		m_panelPattern.add(m_buttonPattern, BorderLayout.CENTER);
 	}
 	
