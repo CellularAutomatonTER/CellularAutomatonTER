@@ -1000,7 +1000,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelUniform.add(m_buttonNonUniformCellularAutomatonSetting, BorderLayout.CENTER);
 	}
 	
-	public void buildGroupLayoutPanelTypeCellularAutomaton(){
+	private void buildGroupLayoutPanelTypeCellularAutomaton(){
 		m_GroupLayoutPanelTypeCellularAutomaton = new GroupLayout(m_panelTypeCellularAutomaton);
 		m_GroupLayoutPanelTypeCellularAutomaton.setHorizontalGroup(
 			m_GroupLayoutPanelTypeCellularAutomaton.createParallelGroup(Alignment.LEADING)
