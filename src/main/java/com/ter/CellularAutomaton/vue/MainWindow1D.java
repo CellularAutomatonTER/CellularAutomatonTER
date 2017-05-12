@@ -1338,7 +1338,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for ColorCells in LateralTools
-	public void buildGroupLayoutComponentColorCells(){
+	private void buildGroupLayoutComponentColorCells(){
 		m_panelColorCells.setLayout(new BorderLayout(0, 0));
 		m_panelColorCells.add(m_buttonColorCells);
 	}
