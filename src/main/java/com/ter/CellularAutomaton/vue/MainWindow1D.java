@@ -1021,6 +1021,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelSimulationTools.setBorder(BorderFactory.createTitledBorder("Simulation Tools"));
 		
 		m_buttonLauncher = new JButton(new ImageIcon(pathDirectory+"button_laucher.png"));
+		m_buttonLauncher.setToolTipText("Launch the simulator");
 		
 		m_buttonPause = new JButton(new ImageIcon(pathDirectory+"button_pause.png"));
 		
