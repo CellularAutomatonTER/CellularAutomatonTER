@@ -1076,7 +1076,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	
-	public void buildPanelControlTools(){
+	private void buildPanelControlTools(){
 		m_panelControlTools = new JPanel();//Creation of panel
 		m_toolBarControlTools.add(m_panelControlTools);//Add the panel to toolBar ControlTools
 		m_panelControlTools.setBorder(BorderFactory.createTitledBorder("Control tools"));//Set a border of JPanel
