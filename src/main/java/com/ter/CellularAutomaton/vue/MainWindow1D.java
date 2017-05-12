@@ -1315,7 +1315,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel BackgroundColor in LateralTools******/
 	//Build components for BackgroundColor in LateralTools
-	public void buildComponentLateralToolsBackgroundColor(){
+	private void buildComponentLateralToolsBackgroundColor(){
 		m_buttonBackgroundColor = new JButton("Background Color");
 		m_buttonBackgroundColor.setToolTipText("Choose color of the background");
 		
