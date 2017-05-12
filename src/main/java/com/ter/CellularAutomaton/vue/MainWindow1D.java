@@ -941,7 +941,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildToolBarTypeCellularAutomaton();//Build the toolBar of TypeCellularAutomaton
 	}
 	
-	public void buildToolBarTypeCellularAutomaton(){
+	private void buildToolBarTypeCellularAutomaton(){
 		m_toolBarTypeCellularAutomaton = new JToolBar();//Creation of toolBar TypeCellularAutomaton
 		m_panelTopTools.add(m_toolBarTypeCellularAutomaton);//Add the toolBar to panel of the mainToolBar
 		
