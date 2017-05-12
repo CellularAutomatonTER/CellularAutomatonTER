@@ -1275,7 +1275,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for Algorithm in LateralTools
-	public void buildGroupLayoutComponentAlgorithm(){
+	private void buildGroupLayoutComponentAlgorithm(){
 			m_panelAlgorithm.setLayout(null);
 			m_panelAlgorithm.add(m_comboBoxAlgorithm);
 	}
