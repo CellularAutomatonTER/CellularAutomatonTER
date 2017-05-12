@@ -1416,7 +1416,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Layout for all components of LateralTools******/
 	//Build Layout for components of Panel LateralTools
-	public void buildGroupLayoutPanelLateralTools(){
+	private void buildGroupLayoutPanelLateralTools(){
 		m_panelLateralTools.setLayout(null);
 		m_panelLateralTools.add(m_panelAlgorithm);
 		m_panelLateralTools.add(m_panelInitialPositionCells);
