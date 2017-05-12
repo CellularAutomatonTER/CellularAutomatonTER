@@ -24,8 +24,8 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	/******CONSTRUCTOR******/
 	public Screen(InternalFrameSimulation1D internalFrameSimulation){
 		m_internalFrameSimulation = internalFrameSimulation;
-		m_screenWidth = 10*m_internalFrameSimulation.getm_width();
-		m_screenHeight = 10*m_internalFrameSimulation.getm_height();
+		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
+		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
 		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		addListenerInternalFrameSimulation1D();
 	}
@@ -53,8 +53,11 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	@Override
 	protected void paintComponent(Graphics g) {
+		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
+		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
+		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		g.setColor(m_internalFrameSimulation.getm_backgroundColor());
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.fillRect(0, 0, m_screenWidth,  m_screenHeight);
 		m_internalFrameSimulation.getm_simulation().draw(g);
 	}
 	
@@ -142,16 +145,16 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		     
 		    if (mouseRot < 0){
 		    	Cell1D.CELL_SIZE *= 2;
-//		    	m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() * Cell1D.CELL_SIZE;
-//		    	m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight() * Cell1D.CELL_SIZE;
-//		    	this.setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
+				m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
+				m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
+				setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		    }
 		    else if(mouseRot > 0){
 		    	if(Cell1D.CELL_SIZE > 2){
 		        	Cell1D.CELL_SIZE /= 2;
-//		        	m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth() * Cell1D.CELL_SIZE;
-//				    m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight() * Cell1D.CELL_SIZE;
-//				    this.setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
+		    		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
+		    		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
+		    		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
 		         }
 		    }
 		else{
