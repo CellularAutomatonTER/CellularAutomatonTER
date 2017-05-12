@@ -1382,7 +1382,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel Grid in LateralTools******/
 	//Build components for Grid in LateralTools
-	public void buildComponentLateralToolsGrid(){
+	private void buildComponentLateralToolsGrid(){
 		m_panelGrid.setLayout(null);
 		m_radioButtonGridNo = new JRadioButton("No");
 		m_radioButtonGridNo.setBounds(18, 21, 50, 23);
