@@ -1354,7 +1354,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for TypeOfSimulator in LateralTools
-	public void buildGroupLayoutComponentTypeOfSimulator(){
+	private void buildGroupLayoutComponentTypeOfSimulator(){
 		m_panelTypeOfSimulator.setLayout(new BorderLayout(0, 0));
 		m_panelTypeOfSimulator.add(m_buttonTypeOfSimulator);
 	}
