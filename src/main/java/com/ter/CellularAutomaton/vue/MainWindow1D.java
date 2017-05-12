@@ -1283,7 +1283,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel InitialPositionCells in LateralTools******/
 	//Build components for InitialPositionCells in LateralTools
-	public void buildComponentLateralToolsInitialPositionCells(){
+	private void buildComponentLateralToolsInitialPositionCells(){
 		m_comboBoxInitialPositionCells = new JComboBox(m_stringInitialPositionCells);
 		m_comboBoxInitialPositionCells.setBounds(16, 27, 126, 20);
 		
