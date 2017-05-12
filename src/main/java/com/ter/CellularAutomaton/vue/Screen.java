@@ -57,7 +57,7 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;//The Screen follow now the simulation when the simulation increase
 		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//The Screen follow now the simulation when the simulation increase
 		g.setColor(m_internalFrameSimulation.getm_backgroundColor());//Set the color of Screen background with the color contained in variable m_backgroundColor in Class InternalFrameSimulation
-		g.fillRect(0, 0, m_screenWidth,  m_screenHeight);
+		g.fillRect(0, 0, m_screenWidth,  m_screenHeight);//Draw Screen
 		m_internalFrameSimulation.getm_simulation().draw(g);
 	}
 	
