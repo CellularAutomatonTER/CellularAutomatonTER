@@ -962,7 +962,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildGroupLayoutPanelTypeCellularAutomaton();//Build the GroupLayout of the panel TypeCellularAutomaton
 	}
 	
-	public void buildSeparatorInTypeCellularAutomaton(){
+	private void buildSeparatorInTypeCellularAutomaton(){
 		//Build the separator of the toolBar TypeCellularAutomaton
 		m_separatorInTypeCellularAutomaton = new JSeparator();
 		m_separatorInTypeCellularAutomaton.setOrientation(SwingConstants.VERTICAL);
