@@ -216,7 +216,7 @@ public class RulesEntryModeWindow extends JFrame {
 	//Build the component of Pattern panel
 	private void buildComponentPanelPattern(){		
 		m_buttonPattern = new JButton("Pattern");
-		m_buttonPattern.setToolTipText("Allow to define an global rule by Pattern");
+		m_buttonPattern.setToolTipText("Allow to define an global rule by pattern");
 		m_panelPattern.add(m_buttonPattern, BorderLayout.CENTER);
 	}
 	
@@ -233,6 +233,7 @@ public class RulesEntryModeWindow extends JFrame {
 	//Build the component of Script panel
 	private void buildComponentPanelScript(){		
 		m_buttonScript = new JButton("Script");
+		m_buttonScript.setToolTipText("Allow to define an global rule by script");
 		m_panelScript.add(m_buttonScript, BorderLayout.CENTER);
 	}
 	
