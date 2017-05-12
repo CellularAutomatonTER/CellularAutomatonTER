@@ -948,7 +948,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildPanelTypeCellularAutomaton();//Build the panel of the toolBar TypeCellularAutomaton
 	}
 	
-	public void buildPanelTypeCellularAutomaton(){
+	private void buildPanelTypeCellularAutomaton(){
 		m_panelTypeCellularAutomaton = new JPanel();
 		m_toolBarTypeCellularAutomaton.add(m_panelTypeCellularAutomaton);
 		m_panelTypeCellularAutomaton.setBorder(BorderFactory.createTitledBorder("Type of Cellular Automaton"));
