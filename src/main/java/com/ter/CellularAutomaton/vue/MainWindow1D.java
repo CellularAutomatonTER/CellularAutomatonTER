@@ -1027,10 +1027,13 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause.setToolTipText("Pause the simulation");
 		
 		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
+		m_buttonErase.setToolTipText("Set all cells of the simulation in state by default");
 		
 		m_buttonUndo = new JButton(new ImageIcon(pathDirectory+"button_undo.png"));
+		m_buttonUndo.setToolTipText("Undo");
 		
 		m_buttonRedo = new JButton(new ImageIcon(pathDirectory+"button_redo.png"));
+		m_buttonRedo.setToolTipText("Redo");
 		
 		m_buttonReload = new JButton(new ImageIcon(pathDirectory+"button_reload.png"));
 		
