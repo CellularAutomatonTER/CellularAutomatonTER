@@ -1092,7 +1092,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	
-	public void buildPanelBorderCondition(){
+	private void buildPanelBorderCondition(){
 		m_panelBorderCondition = new JPanel();//Creation of panel for BorderCondition
 		m_panelBorderCondition.setBounds(6, 16, 190, 50);//Set size of JPanel
 		m_panelBorderCondition.setBorder(BorderFactory.createTitledBorder("Border Condition"));//Set a border of JPanel
