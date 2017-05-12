@@ -1362,7 +1362,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel SimulationSpeed in LateralTools******/
 	//Build components for SimulationSpeed in LateralTools
-	public void buildComponentSimulationSpeed(){ 
+	private void buildComponentSimulationSpeed(){ 
 		m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
 		m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
 		m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
