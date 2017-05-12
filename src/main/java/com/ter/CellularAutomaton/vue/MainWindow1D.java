@@ -900,9 +900,9 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Listener of tab Non Uniform Rules
-		private void addListenerNonUniformRules (){
-			m_menuBarNonUniformRulesItem1.addActionListener(new MenubarNonUniformRulesElementary1DEvent(this));//Add ActionListener on tab "Elementary" in tab "Non Uniform Rules"
-		}
+	private void addListenerNonUniformRules (){
+		m_menuBarNonUniformRulesItem1.addActionListener(new MenubarNonUniformRulesElementary1DEvent(this));//Add ActionListener on tab "Elementary" in tab "Non Uniform Rules"
+	}
 
 	//Listener of tab Help
 	private void addListenerHelp (){
