@@ -1299,7 +1299,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel FormCells in LateralTools******/
 	//Build components for FormCells in LateralTools
-	public void buildComponentLateralToolsFormCells(){
+	private void buildComponentLateralToolsFormCells(){
 		m_comboBoxFormCells = new JComboBox(m_stringFormCells);
 		m_comboBoxFormCells.setBounds(16, 27, 126, 20);
 		
