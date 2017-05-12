@@ -1375,7 +1375,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for SimulationSpeed in LateralTools
-	public void buildGroupLayoutComponentSimulationSpeed(){
+	private void buildGroupLayoutComponentSimulationSpeed(){
 		m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 	}
