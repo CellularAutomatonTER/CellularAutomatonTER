@@ -221,6 +221,7 @@ public class NonUniformRulesEntryModeWindow extends JFrame {
 	//Build the component of Pattern panel
 	private void buildComponentPanelPattern(){		
 		m_buttonPattern = new JButton("Pattern");
+		m_buttonPattern.setToolTipText("Allow to define an local rule by pattern");
 		m_panelPattern.add(m_buttonPattern, BorderLayout.CENTER);
 	}
 	
