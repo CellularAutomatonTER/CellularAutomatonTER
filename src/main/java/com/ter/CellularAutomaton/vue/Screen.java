@@ -53,7 +53,7 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.setColor(m_internalFrameSimulation.getBackground());
+		g.setColor(m_internalFrameSimulation.getm_backgroundColor());
 		g.fillRect(0, 0, getWidth(), getHeight());
 		m_internalFrameSimulation.getm_simulation().draw(g);
 	}

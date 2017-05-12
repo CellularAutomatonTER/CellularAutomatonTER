@@ -7,11 +7,16 @@ import javax.swing.event.*;
 
 import com.ter.CellularAutomaton.controller.CellPreviewModel;
 import com.ter.CellularAutomaton.controller.CellPreviewPanel;
-import com.ter.CellularAutomaton.controller.CloseColorChooserDialogGridEvent;
+import com.ter.CellularAutomaton.controller.CloseColorChooserDialogBackgroundEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 
 
-public class ColorChooserDialogGrid extends JDialog {
+public class ColorChooserDialogBackground extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private MainWindow1D m_window;
 	
 	private JMenuBar m_menuBar = new JMenuBar();
@@ -30,24 +35,20 @@ public class ColorChooserDialogGrid extends JDialog {
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
 	
     private JColorChooser m_colorChooser;
-    private JComboBox m_comboBoxChoiceComponent;
+    private JComboBox<String> m_comboBoxChoiceComponent;
 
     private CellPreviewPanel m_PreviewCell;
 
-    private Color m_cellColor;
     private Color m_backgroundColor;
-    private Color m_gridColor;
 
     boolean m_setCellColor;
     boolean m_setBackgroundColor;
     boolean m_setGridColor;
 
-    private static final String m_stringColorGrid = "Grid";
-    private static final String m_stringPreviewColorCell = "Preview Color Cells";
-    private static final String m_stringPreviewColorBackground = "Preview Color Background";
+    private static final String m_stringColorBackground = "Color Background";
 
-    public ColorChooserDialogGrid(MainWindow1D window) {
-    	this.setTitle("Choose color of grid");//Define a title to the window    
+    public ColorChooserDialogBackground(MainWindow1D window) {
+    	this.setTitle("Choose color of background");//Define a title to the window    
 		this.setSize(450,300);//Initial size of the window
 		this.setLocationRelativeTo(null);//We now ask our window to position itself at the center.
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -64,10 +65,8 @@ public class ColorChooserDialogGrid extends JDialog {
         panelForComboBoxChoiceComponent.setLayout(new FlowLayout());
         panelForComboBoxChoiceComponent.setBorder(BorderFactory.createTitledBorder("Set color for"));
 
-        m_comboBoxChoiceComponent = new JComboBox();
-        m_comboBoxChoiceComponent.addItem(m_stringColorGrid);
-        m_comboBoxChoiceComponent.addItem(m_stringPreviewColorCell);
-        m_comboBoxChoiceComponent.addItem(m_stringPreviewColorBackground);
+        m_comboBoxChoiceComponent = new JComboBox<String>();
+        m_comboBoxChoiceComponent.addItem(m_stringColorBackground);
 
         m_comboBoxChoiceComponent.addItemListener(new SelectElementListener());
 
@@ -80,7 +79,6 @@ public class ColorChooserDialogGrid extends JDialog {
 
         CellPreviewModel model = new CellPreviewModel(3,3);
         m_PreviewCell = new CellPreviewPanel(model, 20);
-        model.flipCell(1, 1);
 
         previewPanel.add(m_PreviewCell);
         
@@ -170,14 +168,14 @@ public class ColorChooserDialogGrid extends JDialog {
 
 	//add listeners for tab File in MenuBar
 	private void addListenerFile (){
-		m_menuBarFileItem1.addActionListener(new CloseColorChooserDialogGridEvent(this));
+		m_menuBarFileItem1.addActionListener(new CloseColorChooserDialogBackgroundEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
 	}
 
     final private class SetColorListener implements ActionListener {
         public void actionPerformed(ActionEvent evt) {
-            if (m_setGridColor) {
-            	m_window.setm_colorGrid(m_gridColor);
+            if (m_setBackgroundColor) {
+            	m_window.getm_internalFrameSimulation().setm_backgroundColor(m_backgroundColor);
             }
             dispose();
         }
@@ -191,17 +189,10 @@ public class ColorChooserDialogGrid extends JDialog {
 
     final private class SelectElementListener implements ItemListener {
         public void itemStateChanged(ItemEvent evt) {
-        	//if Cell is selected in m_comboBoxChoiceComponent
-            if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringPreviewColorCell)) {
-                m_colorChooser.setColor(m_PreviewCell.getForeground());
-            }
+
           //if background is selected in m_comboBoxChoiceComponent
-            else if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringPreviewColorBackground)) {
+          if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringColorBackground)) {
                 m_colorChooser.setColor(m_PreviewCell.getBackground());
-            }
-          //if grid is selected in m_comboBoxChoiceComponent
-            else if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringColorGrid)) {
-                m_colorChooser.setColor(m_PreviewCell.getOutline());
             }
 
             m_PreviewCell.repaint();
@@ -212,23 +203,11 @@ public class ColorChooserDialogGrid extends JDialog {
     final private class PreviewListener implements ChangeListener {
     	//if user choose a color
         public void stateChanged(ChangeEvent evt) {
-        	//if Cell is selected in m_comboBoxChoiceComponent
-            if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringPreviewColorCell)) {
-                m_cellColor = m_colorChooser.getColor();
-                m_setCellColor = true;
-                m_PreviewCell.setForeground(m_cellColor);
-            }
           //if background is selected in m_comboBoxChoiceComponent
-            else if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringPreviewColorBackground)) {
+            if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringColorBackground)) {
                 m_backgroundColor = m_colorChooser.getColor();
                 m_setBackgroundColor = true;
                 m_PreviewCell.setBackground(m_backgroundColor);
-            }
-          //if grid is selected in m_comboBoxChoiceComponent
-            else if (m_comboBoxChoiceComponent.getSelectedItem().equals(m_stringColorGrid)) {
-                m_gridColor = m_colorChooser.getColor();
-                m_setGridColor = true;
-                m_PreviewCell.setOutline(m_gridColor);
             }
 
             m_PreviewCell.repaint();//Repaint 

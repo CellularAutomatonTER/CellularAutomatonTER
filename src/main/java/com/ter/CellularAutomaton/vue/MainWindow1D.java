@@ -19,6 +19,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
+import com.ter.CellularAutomaton.controller.ChooseColorBackgroundEvent;
 import com.ter.CellularAutomaton.controller.ChooseColorGridEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
@@ -1487,12 +1488,17 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners Lateral Tools******/
 	private void addListenerLateralTools(){
+		addListenerColorBackground();//add listener of Button Color Background
 		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
 		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
 		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
 		addListenerRadioButtonGrid();//add listener of Radio Button Grid
 		addListenerColorGrid();//add listener of Button Color Grid
+	}
+	
+	private void addListenerColorBackground(){
+		m_buttonBackgroundColor.addActionListener(new ChooseColorBackgroundEvent(this));
 	}
 	
 	private void addListenerSwitchTo2D(){
