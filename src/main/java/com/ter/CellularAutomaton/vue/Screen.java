@@ -145,16 +145,16 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		     
 		    if (mouseRot < 0){
 		    	Cell1D.CELL_SIZE *= 2;
-				m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
-				m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
-				setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
+				m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+				m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+				setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
 		    }
 		    else if(mouseRot > 0){
 		    	if(Cell1D.CELL_SIZE > 2){
 		        	Cell1D.CELL_SIZE /= 2;
-		    		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
-		    		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
-		    		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
+		    		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+		    		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+		    		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
 		         }
 		    }
 		else{
