@@ -968,7 +968,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_separatorInTypeCellularAutomaton.setOrientation(SwingConstants.VERTICAL);
 	}
 	
-	public void buildPanelChooseCellularAutomaton(){
+	private void buildPanelChooseCellularAutomaton(){
 		//Build the panel ChooseCellularAutomaton
 		m_panelChooseCellularAutomaton = new JPanel();
 		m_panelChooseCellularAutomaton.setBorder(BorderFactory.createTitledBorder("Uniform Cellular Automaton"));
