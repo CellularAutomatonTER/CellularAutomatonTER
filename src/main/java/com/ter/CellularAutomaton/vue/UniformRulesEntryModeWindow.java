@@ -20,7 +20,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-public class RulesEntryModeWindow extends JFrame {
+public class UniformRulesEntryModeWindow extends JFrame {
 
 	/**
 	 * 
@@ -59,7 +59,7 @@ public class RulesEntryModeWindow extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public RulesEntryModeWindow(MainWindow1D currentSimulator) {
+	public UniformRulesEntryModeWindow(MainWindow1D currentSimulator) {
 		this.setTitle("Rules entry mode");
 		this.setSize(450, 300);
 		this.setLocationRelativeTo(null);

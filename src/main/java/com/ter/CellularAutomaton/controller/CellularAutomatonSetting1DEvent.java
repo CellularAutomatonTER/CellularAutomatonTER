@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.ter.CellularAutomaton.vue.ElementaryRulesWindow;
 import com.ter.CellularAutomaton.vue.MainWindow1D;
-import com.ter.CellularAutomaton.vue.RulesEntryModeWindow;
+import com.ter.CellularAutomaton.vue.UniformRulesEntryModeWindow;
 
 public class CellularAutomatonSetting1DEvent implements ActionListener {
 	
@@ -29,7 +29,7 @@ public class CellularAutomatonSetting1DEvent implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		RulesEntryModeWindow window = new RulesEntryModeWindow(m_window);
+		UniformRulesEntryModeWindow window = new UniformRulesEntryModeWindow(m_window);
 	}
 
 	
