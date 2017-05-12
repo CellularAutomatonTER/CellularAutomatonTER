@@ -27,7 +27,8 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;
 		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;
 		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));
-		addListenerInternalFrameSimulation1D();
+		
+		addListenerInternalFrameSimulation1D();//Add listener on Simulation
 	}
 	
 	/******GETTERS******/
