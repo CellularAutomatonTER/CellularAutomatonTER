@@ -1133,7 +1133,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	/******Build DesktopPane******/
-	public void buildDesktopPane(){
+	private void buildDesktopPane(){
 		m_mainDesktopPane = new JDesktopPane();
 		m_mainPanel.add(m_mainDesktopPane, BorderLayout.CENTER);
 	}
