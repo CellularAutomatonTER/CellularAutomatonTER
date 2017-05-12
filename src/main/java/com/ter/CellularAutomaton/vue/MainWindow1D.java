@@ -1123,7 +1123,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 
 	
-	public void buildSeparatorInControlTools(){
+	private void buildSeparatorInControlTools(){
 		//Creation of Separator between the panel of "BorderCondition" and the panel "DirectionOfEvolution"
 		m_separatorInControlTools = new JSeparator();//Create JSeparator
 		m_separatorInControlTools.setOrientation(SwingConstants.VERTICAL);//Set the orientation of separator to vertical
