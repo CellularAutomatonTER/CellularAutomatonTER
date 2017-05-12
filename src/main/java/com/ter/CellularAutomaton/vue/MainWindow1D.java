@@ -984,7 +984,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelChooseCellularAutomaton.add(m_buttonUniformCellularAutomatonSetting, BorderLayout.CENTER);
 	}
 	
-	public void buildPanelUniform(){
+	private void buildPanelUniform(){
 		//Build the panel Uniform
 		m_panelUniform = new JPanel();
 		m_panelUniform.setBorder(BorderFactory.createTitledBorder("Non Uniform Cellular Automaton"));
