@@ -19,6 +19,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
+import com.ter.CellularAutomaton.controller.ChooseColorGridEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
 import com.ter.CellularAutomaton.controller.ComboBoxFormCellsEvent;
@@ -261,6 +262,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/** Utilities */
 	private String[] m_stringInitialPositionCells = { "One Cell", "Three Cells", "Randomly" };
 	private String[] m_stringFormCells = { "Rectangle", "Rectangle 3D Raised", "Rectangle 3D Sunk", "Upward Triangle", "Downward Triangle", "Circle" };
+	private Color m_colorGrid;
 	
 	
 	/** Graphic Component */
@@ -358,6 +360,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		//Set the window visible
 		this.setVisible(true);
 		
+		m_colorGrid = Color.RED;
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
@@ -400,7 +403,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		//Set the window visible
 		this.setVisible(true);
 		
-		m_simulationState = SimulationState.RUN;
+		m_colorGrid = Color.RED;
+		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
 		
@@ -489,6 +493,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public boolean getm_gridSimulation() {
 		return m_gridSimulation;
 	}
+	
+	public Color getm_colorGrid() {
+		return m_colorGrid;
+	}
 
 	
 	/******SETTERS******/
@@ -523,6 +531,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void setm_gridSimulation(boolean gridSimulation) {
 		this.m_gridSimulation = gridSimulation;
+	}
+	
+	public void setm_colorGrid(Color colorGrid) {
+		this.m_colorGrid = colorGrid;
 	}
 	
 	
@@ -1477,6 +1489,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
 		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
 		addListenerRadioButtonGrid();//add listener of Radio Button Grid
+		addListenerColorGrid();//add listener of Button Color Grid
 	}
 	
 	private void addListenerSwitchTo2D(){
@@ -1498,6 +1511,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private void addListenerRadioButtonGrid(){
 		m_radioButtonGridNo.addActionListener(new RadioButtonGridNoEvent(this));
 		m_radioButtonGridYes.addActionListener(new RadioButtonGridYesEvent(this));
+	}
+	
+	private void addListenerColorGrid(){
+		m_buttonColorGrid.addActionListener(new ChooseColorGridEvent(this));
 	}
 	
 	
