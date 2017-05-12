@@ -1164,7 +1164,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	/******Build Panel LateralTools and its components******/
-	public void buildPanelLateralTools(){		
+	private void buildPanelLateralTools(){		
 		m_panelLateralTools = new JPanel();//Create a JPanel for the "Lateral Tools"
 		m_panelLateralTools.setPreferredSize(new Dimension(180, 2*getHeight()));
 
