@@ -1027,7 +1027,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause.setToolTipText("Pause the simulation");
 		
 		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
-		m_buttonErase.setToolTipText("Set all cells of the simulation in state by default");
+		m_buttonErase.setToolTipText("Clear simulation");
 		
 		m_buttonUndo = new JButton(new ImageIcon(pathDirectory+"button_undo.png"));
 		m_buttonUndo.setToolTipText("Undo");
@@ -1334,6 +1334,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	//Build components for TypeOfSimulator in LateralTools
 	public void buildComponentLateralToolsTypeOfSimulator(){
 		m_buttonTypeOfSimulator = new JButton("Switch to 2D");
+		m_buttonTypeOfSimulator.setToolTipText("Switch to 2D simulation");
 		
 		buildGroupLayoutComponentTypeOfSimulator();
 	}
@@ -1369,6 +1370,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	//Build components for Grid in LateralTools
 	public void buildComponentLateralToolsGrid(){
 		m_radioButtonGridNo = new JRadioButton("No");
+		m_radioButtonGridNo.setToolTipText("Disable the grid on simulation");
 		m_radioButtonGridNo.setSelected(true);//Set a CheckBox "All" to true by default
 		m_panelGrid.add(m_radioButtonGridNo);
 		
