@@ -1158,7 +1158,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	/******Build LateralTools******/
-	public void buildLateralTools(){
+	private void buildLateralTools(){
 		buildPanelLateralTools();//Build the panel "Lateral Tools"
 	}
 	
