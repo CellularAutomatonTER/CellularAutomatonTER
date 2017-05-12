@@ -238,6 +238,7 @@ public class NonUniformRulesEntryModeWindow extends JFrame {
 	//Build the component of Script panel
 	private void buildComponentPanelScript(){		
 		m_buttonScript = new JButton("Script");
+		m_buttonScript.setToolTipText("Allow to define an local rule by script");
 		m_panelScript.add(m_buttonScript, BorderLayout.CENTER);
 	}
 	
