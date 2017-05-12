@@ -1116,7 +1116,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentDirectionOfEvolution();//Set the component of Panel "DirectionOfEvolution"
 	}
 	
-	public void buildComponentDirectionOfEvolution(){
+	private void buildComponentDirectionOfEvolution(){
 		m_panelDirectionOfEvolution.setLayout(new BorderLayout(0, 0));//The component take full place of panel
 		m_buttonSizeOfSimulation = new JButton("Size of Simulation");//Creation of Button for panel "Size of Simulation"
 		m_panelDirectionOfEvolution.add(m_buttonSizeOfSimulation);//Add the radioButton m_radioButtonContinuous to panel m_panelSimulationMode
