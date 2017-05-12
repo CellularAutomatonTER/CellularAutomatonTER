@@ -311,6 +311,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private ButtonGroup m_radioButtonGrid;
 	private JRadioButton m_radioButtonGridNo;
 	private JRadioButton m_radioButtonGridYes;
+	private JButton m_buttonColorGrid;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
@@ -1244,7 +1245,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Build Panel Grid******/
 	public void buildPanelGrid(){
 		m_panelGrid = new JPanel();//Create the panel TypeOfSimulator
-		m_panelGrid.setBounds(13, 588, 158, 55);
+		m_panelGrid.setBounds(13, 588, 158, 90);
 		m_panelGrid.setBorder(BorderFactory.createTitledBorder("Grid On Simulation"));
 				
 		buildComponentLateralToolsGrid();//Create components of panel TypeOfSimulator in the LateralTools
@@ -1369,21 +1370,26 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Components of Panel Grid in LateralTools******/
 	//Build components for Grid in LateralTools
 	public void buildComponentLateralToolsGrid(){
+		m_panelGrid.setLayout(null);
 		m_radioButtonGridNo = new JRadioButton("No");
+		m_radioButtonGridNo.setBounds(18, 21, 50, 23);
 		m_radioButtonGridNo.setToolTipText("Disable the grid on simulation");
 		m_radioButtonGridNo.setSelected(true);//Set a CheckBox "All" to true by default
 		m_panelGrid.add(m_radioButtonGridNo);
 		
-		Component horizontalStrut = Box.createHorizontalStrut(30);
-		m_panelGrid.add(horizontalStrut);
-		
 		m_radioButtonGridYes = new JRadioButton("yes");
+		m_radioButtonGridYes.setBounds(90, 21, 50, 23);
 		m_radioButtonGridYes.setToolTipText("Enable the grid on simulation");
 		m_panelGrid.add(m_radioButtonGridYes);
 		
 		m_radioButtonGrid = new ButtonGroup();
 		m_radioButtonGrid.add(m_radioButtonGridNo);
 		m_radioButtonGrid.add(m_radioButtonGridYes);
+		
+		m_buttonColorGrid = new JButton("Color of grid");
+		m_buttonColorGrid.setToolTipText("Choose color of the grid");
+		m_buttonColorGrid.setBounds(10, 47, 136, 32);
+		m_panelGrid.add(m_buttonColorGrid);
 		
 		buildGroupLayoutComponentGrid();
 	}
