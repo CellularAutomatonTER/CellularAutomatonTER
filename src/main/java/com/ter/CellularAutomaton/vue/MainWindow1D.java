@@ -1452,7 +1452,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private void addListenerSimulationTools(){
 		this.addListenerLaucher();//add listener of button Launcher
 		this.addListenerPause();//add listener of button Pause
-		this.addListenerErase();//add listener of button Stop
+		this.addListenerErase();//add listener of button Erase
 		this.addListenerRefresh();//add listener of button Refresh
 	}
 
