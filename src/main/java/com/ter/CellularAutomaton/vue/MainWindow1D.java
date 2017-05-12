@@ -1022,7 +1022,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	
-	public void buildSimulationTools(){
+	private void buildSimulationTools(){
 		buildSimulationTools("Files/Images/Simulation_Tools/");
 	}
 	
