@@ -993,7 +993,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentUniform();//Build the component of the panel Uniform
 	}
 	
-	public void buildComponentUniform(){
+	private void buildComponentUniform(){
 		//Build the component of the panel Uniform
 		m_buttonNonUniformCellularAutomatonSetting = new JButton("Non Uniform Rules");
 		m_buttonNonUniformCellularAutomatonSetting.setToolTipText("Choose a local rule in the simulation");
