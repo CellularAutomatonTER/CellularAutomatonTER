@@ -1218,15 +1218,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
 	}
 	
-	/******Build Panel ColorCells******/
-	public void buildPanelColorCells(){
-		m_panelColorCells = new JPanel();//Create the panel ColorCells
-		m_panelColorCells.setBounds(10, 367, 158, 55);
-		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
-		
-		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
-	}
-	
 	/******Build Panel BackgroundColor******/
 	public void buildPanelBackgroundColor(){
 		m_panelBackgroundColor = new JPanel();//Create the panel BackgroundColor
@@ -1234,6 +1225,15 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));//Set a border for the panel BackgroundColor
 		
 		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
+	}
+	
+	/******Build Panel ColorCells******/
+	public void buildPanelColorCells(){
+		m_panelColorCells = new JPanel();//Create the panel ColorCells
+		m_panelColorCells.setBounds(10, 367, 158, 55);
+		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
+		
+		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
 	}
 	
 	/******Build Panel TypeOfSimulator******/
