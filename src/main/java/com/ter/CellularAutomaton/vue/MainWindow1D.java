@@ -937,7 +937,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 	}
 	
-	public void buildTypeCellularAutomaton(){
+	private void buildTypeCellularAutomaton(){
 		buildToolBarTypeCellularAutomaton();//Build the toolBar of TypeCellularAutomaton
 	}
 	
