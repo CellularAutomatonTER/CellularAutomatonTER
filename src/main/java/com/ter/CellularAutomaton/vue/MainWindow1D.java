@@ -1331,7 +1331,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel ColorCells in LateralTools******/
 	//Build components for ColorCells in LateralTools
-	public void buildComponentLateralToolsColorCells(){
+	private void buildComponentLateralToolsColorCells(){
 		m_buttonColorCells = new JButton("Color Cells Setting");
 		
 		buildGroupLayoutComponentColorCells();
