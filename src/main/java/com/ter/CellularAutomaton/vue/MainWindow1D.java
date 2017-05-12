@@ -1346,7 +1346,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel TypeOfSimulator in LateralTools******/
 	//Build components for TypeOfSimulator in LateralTools
-	public void buildComponentLateralToolsTypeOfSimulator(){
+	private void buildComponentLateralToolsTypeOfSimulator(){
 		m_buttonTypeOfSimulator = new JButton("Switch to 2D");
 		m_buttonTypeOfSimulator.setToolTipText("Switch to 2D simulation");
 		
