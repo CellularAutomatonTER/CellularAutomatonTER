@@ -1108,7 +1108,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	
-	public void buildPanelDirectionOfEvolution(){
+	private void buildPanelDirectionOfEvolution(){
 		m_panelDirectionOfEvolution = new JPanel();//Creation of JPanel for DirectionOfEvolution
 		m_panelDirectionOfEvolution.setBounds(207, 16, 210, 50);//Set size of JPanel
 		m_panelDirectionOfEvolution.setBorder(BorderFactory.createTitledBorder("Size of Simulation"));//Set a border of JPanel
