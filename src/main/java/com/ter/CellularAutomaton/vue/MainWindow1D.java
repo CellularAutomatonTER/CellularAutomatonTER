@@ -304,7 +304,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
 	private JPanel m_panelBackgroundColor;
-	private JComboBox m_comboBoxBackgroundColor;
+	private JButton m_buttonBackgroundColor;
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
 	private JPanel m_panelSimulationSpeed;
@@ -1315,8 +1315,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Components of Panel BackgroundColor in LateralTools******/
 	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
-		m_comboBoxBackgroundColor = new JComboBox();
-		m_comboBoxBackgroundColor.setBounds(16, 27, 126, 20);
+		m_buttonBackgroundColor = new JButton("Background Color");
+		m_buttonBackgroundColor.setBounds(16, 27, 126, 20);
 		
 		buildGroupLayoutComponentBackgroundColor();
 	}
@@ -1324,7 +1324,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	//Build Layout for BackgroundColor in LateralTools
 	public void buildGroupLayoutComponentBackgroundColor(){
 			m_panelBackgroundColor.setLayout(null);
-			m_panelBackgroundColor.add(m_comboBoxBackgroundColor);
+			m_panelBackgroundColor.add(m_buttonBackgroundColor);
 	}
 	
 	
