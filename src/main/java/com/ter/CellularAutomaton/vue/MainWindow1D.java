@@ -1068,7 +1068,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	
-	public void buildToolBarControlTools(){
+	private void buildToolBarControlTools(){
 		m_toolBarControlTools = new JToolBar();//Creation of toolBar
 		m_panelTopTools.add(m_toolBarControlTools);//Add the toolBar to panel of the mainToolBar
 		
