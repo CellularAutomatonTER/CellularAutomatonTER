@@ -1267,7 +1267,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Components of Panel Algorithm in LateralTools******/
 	//Build components for Algorithm in LateralTools
-	public void buildComponentLateralToolsAlgorithm(){
+	private void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
 		m_comboBoxAlgorithm.setBounds(16, 27, 126, 20);
 		
