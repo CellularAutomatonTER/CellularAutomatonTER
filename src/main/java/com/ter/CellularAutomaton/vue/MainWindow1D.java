@@ -1307,7 +1307,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for FormCells in LateralTools
-	public void buildGroupLayoutComponentFormCells(){
+	private void buildGroupLayoutComponentFormCells(){
 			m_panelFormCells.setLayout(null);
 			m_panelFormCells.add(m_comboBoxFormCells);
 	}
