@@ -187,6 +187,7 @@ public class NonUniformRulesEntryModeWindow extends JFrame {
 	//Build the component of Elementary panel
 	private void buildComponentPanelElementary(){		
 		m_buttonElementary = new JButton("Elementary");
+		m_buttonElementary.setToolTipText("Allow to define an elementary local rule");
 		m_panelElementary.add(m_buttonElementary, BorderLayout.CENTER);
 	}
 	
