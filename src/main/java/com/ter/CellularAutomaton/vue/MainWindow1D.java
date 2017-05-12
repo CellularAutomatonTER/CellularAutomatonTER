@@ -911,7 +911,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Build Windows******/
 	
-	public void buildComponentWindow(){
+	private void buildComponentWindow(){
 		m_mainPanel = new JPanel();
 		this.getContentPane().add(m_mainPanel, BorderLayout.CENTER);
 		m_mainPanel.setLayout(new BorderLayout(0, 0));
