@@ -19,6 +19,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
+import com.ter.CellularAutomaton.controller.ChooseColorBackgroundEvent;
 import com.ter.CellularAutomaton.controller.ChooseColorGridEvent;
 import com.ter.CellularAutomaton.controller.Close1DEvent;
 import com.ter.CellularAutomaton.controller.CloseAllEvent;
@@ -301,10 +302,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JComboBox m_comboBoxInitialPositionCells;
 	private JPanel m_panelFormCells;
 	private JComboBox m_comboBoxFormCells;
+	private JPanel m_panelBackgroundColor;
+	private JButton m_buttonBackgroundColor;
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
-	private JPanel m_panelBackgroundColor;
-	private JComboBox m_comboBoxBackgroundColor;
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
 	private JPanel m_panelSimulationSpeed;
@@ -1177,9 +1178,9 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		buildPanelFormCells();//Create the panel "FormCells"
 		
-		buildPanelColorCells();//Create the panel "ColorCells"
-		
 		buildPanelBackgroundColor();//Create the panel "BackgroundColor"
+		
+		buildPanelColorCells();//Create the panel "ColorCells"
 		
 		buildPanelTypeOfSimulator();//Create the panel "TypeOfSimulator"
 		
@@ -1192,7 +1193,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	/******Build Panel Algorithm******/
-	public void buildPanelAlgorithm(){
+	private void buildPanelAlgorithm(){
 		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
 		m_panelAlgorithm.setBounds(13, 11, 158, 71);
 		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
@@ -1201,7 +1202,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	/******Build Panel InitialPositionCells******/
-	public void buildPanelInitialPositionCells(){
+	private void buildPanelInitialPositionCells(){
 		m_panelInitialPositionCells = new JPanel();//Create the panel InitialPositionCells
 		m_panelInitialPositionCells.setBounds(10, 100, 158, 71);
 		m_panelInitialPositionCells.setBorder(BorderFactory.createTitledBorder("Initial Position of Cells"));//Set a border for the panel InitialPositionCells
@@ -1210,7 +1211,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	/******Build Panel FormCells******/
-	public void buildPanelFormCells(){
+	private void buildPanelFormCells(){
 		m_panelFormCells = new JPanel();//Create the panel FormCells
 		m_panelFormCells.setBounds(10, 189, 158, 71);
 		m_panelFormCells.setBorder(BorderFactory.createTitledBorder("Form of Cells"));//Set a border for the panel FormCells
@@ -1218,46 +1219,46 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
 	}
 	
+	/******Build Panel BackgroundColor******/
+	private void buildPanelBackgroundColor(){
+		m_panelBackgroundColor = new JPanel();
+		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));
+		m_panelBackgroundColor.setBounds(10, 276, 158, 55);
+		
+		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
+	}
+	
 	/******Build Panel ColorCells******/
-	public void buildPanelColorCells(){
+	private void buildPanelColorCells(){
 		m_panelColorCells = new JPanel();//Create the panel ColorCells
-		m_panelColorCells.setBounds(10, 367, 158, 55);
+		m_panelColorCells.setBounds(10, 349, 158, 55);
 		m_panelColorCells.setBorder(BorderFactory.createTitledBorder("Color of Cells"));//Set a border for the panel ColorCells
 		
 		buildComponentLateralToolsColorCells();//Create components of panel ColorCells in the LateralTools
 	}
 	
-	/******Build Panel BackgroundColor******/
-	public void buildPanelBackgroundColor(){
-		m_panelBackgroundColor = new JPanel();//Create the panel BackgroundColor
-		m_panelBackgroundColor.setBounds(10, 278, 158, 71);
-		m_panelBackgroundColor.setBorder(BorderFactory.createTitledBorder("Background Color"));//Set a border for the panel BackgroundColor
-		
-		buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
-	}
-	
 	/******Build Panel TypeOfSimulator******/
-	public void buildPanelTypeOfSimulator(){
+	private void buildPanelTypeOfSimulator(){
 		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
-		m_panelTypeOfSimulator.setBounds(10, 440, 158, 55);
+		m_panelTypeOfSimulator.setBounds(10, 422, 158, 55);
 		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
 		
 		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
 	}
 	
 	/******Build Panel SimulationSpeed******/
-	public void buildPanelSimulationSpeed(){
+	private void buildPanelSimulationSpeed(){
 		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
-		m_panelSimulationSpeed.setBounds(10, 513, 158, 55);
+		m_panelSimulationSpeed.setBounds(10, 495, 158, 55);
 		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
 		
 		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
 	}
 	
 	/******Build Panel Grid******/
-	public void buildPanelGrid(){
+	private void buildPanelGrid(){
 		m_panelGrid = new JPanel();//Create the panel TypeOfSimulator
-		m_panelGrid.setBounds(13, 588, 158, 90);
+		m_panelGrid.setBounds(13, 568, 158, 90);
 		m_panelGrid.setBorder(BorderFactory.createTitledBorder("Grid On Simulation"));
 				
 		buildComponentLateralToolsGrid();//Create components of panel TypeOfSimulator in the LateralTools
@@ -1315,16 +1316,16 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Components of Panel BackgroundColor in LateralTools******/
 	//Build components for BackgroundColor in LateralTools
 	public void buildComponentLateralToolsBackgroundColor(){
-		m_comboBoxBackgroundColor = new JComboBox();
-		m_comboBoxBackgroundColor.setBounds(16, 27, 126, 20);
+		m_buttonBackgroundColor = new JButton("Background Color");
+		m_buttonBackgroundColor.setToolTipText("Choose color of the background");
 		
 		buildGroupLayoutComponentBackgroundColor();
 	}
 	
 	//Build Layout for BackgroundColor in LateralTools
-	public void buildGroupLayoutComponentBackgroundColor(){
-			m_panelBackgroundColor.setLayout(null);
-			m_panelBackgroundColor.add(m_comboBoxBackgroundColor);
+	private void buildGroupLayoutComponentBackgroundColor(){
+		m_panelBackgroundColor.setLayout(new BorderLayout(0, 0));
+		m_panelBackgroundColor.add(m_buttonBackgroundColor, BorderLayout.CENTER);
 	}
 	
 	
@@ -1408,7 +1409,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	//Build Layout for BackgroundColor in LateralTools
 	public void buildGroupLayoutComponentGrid(){
-			m_panelBackgroundColor.setLayout(null);
 			//m_panelBackgroundColor.add();
 	}
 
@@ -1421,11 +1421,15 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelAlgorithm);
 		m_panelLateralTools.add(m_panelInitialPositionCells);
 		m_panelLateralTools.add(m_panelFormCells);
-		m_panelLateralTools.add(m_panelBackgroundColor);
+		m_panelLateralTools.add(m_panelBackgroundColor);//............
 		m_panelLateralTools.add(m_panelColorCells);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
 		m_panelLateralTools.add(m_panelSimulationSpeed);
 		m_panelLateralTools.add(m_panelGrid);
+		
+		
+		
+		
 	}
 	
 	
@@ -1449,7 +1453,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private void addListenerSimulationTools(){
 		this.addListenerLaucher();//add listener of button Launcher
 		this.addListenerPause();//add listener of button Pause
-		this.addListenerStop();//add listener of button Stop
+		this.addListenerErase();//add listener of button Erase
 		this.addListenerRefresh();//add listener of button Refresh
 	}
 
@@ -1461,7 +1465,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause.addActionListener(new PauseSimulation1DEvent(this));
 	}
 	
-	private void addListenerStop(){
+	private void addListenerErase(){
 		m_buttonErase.addActionListener(new EraseSimulation1DEvent(this));
 	}
 	
@@ -1484,12 +1488,17 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners Lateral Tools******/
 	private void addListenerLateralTools(){
+		addListenerColorBackground();//add listener of Button Color Background
 		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
 		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
 		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
 		addListenerRadioButtonGrid();//add listener of Radio Button Grid
 		addListenerColorGrid();//add listener of Button Color Grid
+	}
+	
+	private void addListenerColorBackground(){
+		m_buttonBackgroundColor.addActionListener(new ChooseColorBackgroundEvent(this));
 	}
 	
 	private void addListenerSwitchTo2D(){

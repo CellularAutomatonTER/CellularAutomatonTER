@@ -117,6 +117,10 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		return m_height;
 	}
 	
+	public Color getm_backgroundColor() {
+		return m_backgroundColor;
+	}
+	
 	/******SETTERS******/
 	public void setm_mainWindow1D(MainWindow1D mainWindow1D) {
 		this.m_mainWindow1D = mainWindow1D;
@@ -131,6 +135,11 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 	
 	public void setm_refreshRate(int refreshRate) {
 		this.m_refreshRate = refreshRate;
+	}
+	
+	
+	public void setm_backgroundColor(Color backgroundColor) {
+		this.m_backgroundColor = backgroundColor;
 	}
 
 	

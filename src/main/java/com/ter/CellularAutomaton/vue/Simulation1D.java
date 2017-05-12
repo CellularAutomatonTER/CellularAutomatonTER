@@ -173,6 +173,8 @@ public class Simulation1D {
 			for(int x = 0;x < m_nbCellWidth;x++) {
 				for (int y = 0; y < m_nbCellHeight; y++) {
 					m_matrixCells.get(x).get(y).setm_state(0);//Set the m_state to 0 (value by default)
+					m_matrixCells.get(x).get(y).setm_radius(1);//Set the m_radius to 1 (value by default)
+					m_matrixCells.get(x).get(y).setm_rules(0);//Set the m_rules to 0 (value by default)
 				}
 			}
 		}
