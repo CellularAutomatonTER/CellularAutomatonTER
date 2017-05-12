@@ -1291,7 +1291,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	//Build Layout for InitialPositionCells in LateralTools
-	public void buildGroupLayoutComponentInitialPositionCells(){
+	private void buildGroupLayoutComponentInitialPositionCells(){
 			m_panelInitialPositionCells.setLayout(null);
 			m_panelInitialPositionCells.add(m_comboBoxInitialPositionCells);
 	}
