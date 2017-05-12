@@ -1100,7 +1100,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentBorderCondition();//Set the component of Panel "BorderCondition"
 	}
 	
-	public void buildComponentBorderCondition(){ 
+	private void buildComponentBorderCondition(){ 
 		m_panelBorderCondition.setLayout(new BorderLayout(0, 0));
 		m_buttonBorderCondition = new JButton("Border Condition Setting");//Creation of Button for panel "BorderCondition"
 		m_panelBorderCondition.add(m_buttonBorderCondition, BorderLayout.CENTER);//Add the Button to panel BorderCondition
