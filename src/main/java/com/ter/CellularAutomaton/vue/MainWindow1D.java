@@ -1378,6 +1378,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelGrid.add(horizontalStrut);
 		
 		m_radioButtonGridYes = new JRadioButton("yes");
+		m_radioButtonGridYes.setToolTipText("Enable the grid on simulation");
 		m_panelGrid.add(m_radioButtonGridYes);
 		
 		m_radioButtonGrid = new ButtonGroup();
