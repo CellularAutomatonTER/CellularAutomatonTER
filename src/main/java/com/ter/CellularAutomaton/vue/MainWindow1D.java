@@ -1140,7 +1140,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	/******Build InternalFrameSimulation******/
-	public void buildInternalFrameSimulation(){
+	private void buildInternalFrameSimulation(){
 		m_modeForm = new RectangleForm1D(this);
 		ArrayList<Color> colorOfCells = new ArrayList<Color>();
 		colorOfCells.add(Color.BLACK);
