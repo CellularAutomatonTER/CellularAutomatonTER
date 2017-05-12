@@ -977,7 +977,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildComponentChooseCellularAutomaton();//Build the component of the panel ChooseCellularAutomaton
 	}
 	
-	public void buildComponentChooseCellularAutomaton(){
+	private void buildComponentChooseCellularAutomaton(){
 		//Build the component of the panel ChooseCellularAutomaton
 		m_buttonUniformCellularAutomatonSetting = new JButton("Uniform Rules");
 		m_buttonUniformCellularAutomatonSetting.setToolTipText("Choose the global rule of the simulation");
