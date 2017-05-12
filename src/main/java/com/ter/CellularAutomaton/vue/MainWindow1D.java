@@ -1026,7 +1026,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildSimulationTools("Files/Images/Simulation_Tools/");
 	}
 	
-	public void buildSimulationTools(String pathDirectory){
+	private void buildSimulationTools(String pathDirectory){
 		m_toolBarSimulationTools = new JToolBar();
 		m_panelTopTools.add(m_toolBarSimulationTools);
 		
