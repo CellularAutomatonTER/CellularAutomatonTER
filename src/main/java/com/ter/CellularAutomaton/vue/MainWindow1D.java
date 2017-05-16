@@ -263,6 +263,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/** Utilities */
 	private String[] m_stringInitialPositionCells = { "One Cell", "Three Cells", "Randomly" };
 	private String[] m_stringFormCells = { "Rectangle", "Rectangle 3D Raised", "Rectangle 3D Sunk", "Upward Triangle", "Downward Triangle", "Circle" };
+	private ArrayList<Color> m_colorOfCells;
 	private Color m_colorGrid;
 	
 	
@@ -498,6 +499,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public Color getm_colorGrid() {
 		return m_colorGrid;
 	}
+	
+	public ArrayList<Color> getm_colorOfCells() {
+		return m_colorOfCells;
+	}
 
 	
 	/******SETTERS******/
@@ -536,6 +541,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void setm_colorGrid(Color colorGrid) {
 		this.m_colorGrid = colorGrid;
+	}
+	
+	public void setm_colorOfCells(int index, Color newColor) {
+		this.m_colorOfCells.set(index, newColor);
 	}
 	
 	
@@ -1143,12 +1152,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Build InternalFrameSimulation******/
 	private void buildInternalFrameSimulation(){
 		m_modeForm = new RectangleForm1D(this);
-		ArrayList<Color> colorOfCells = new ArrayList<Color>();
-		colorOfCells.add(Color.BLACK);
-		colorOfCells.add(Color.BLUE);
+		m_colorOfCells = new ArrayList<Color>();
+		m_colorOfCells.add(Color.BLACK);
+		m_colorOfCells.add(Color.BLUE);
 		Color backgroundColor = Color.GRAY;
 		m_modeInitializeSimulationRule = new InitializeSimulation1DOneCell();
-		buildInternalFrameSimulation(m_modeForm, colorOfCells, backgroundColor, m_modeInitializeSimulationRule);
+		buildInternalFrameSimulation(m_modeForm, m_colorOfCells, backgroundColor, m_modeInitializeSimulationRule);
 	}
 	
 	private void buildInternalFrameSimulation(IForm formOfCells, ArrayList<Color> colorOfCells, Color backgroundColor, IInitializeSimulationRules1D initializeSimulationRule){

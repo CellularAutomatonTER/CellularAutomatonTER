@@ -10,6 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.OKElementaryRules1DEvent;
+import com.ter.CellularAutomaton.controller.PersonalizeElementaryCells1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 
 import javax.swing.JPanel;
@@ -32,6 +33,8 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 
 	/******ATTRIBUTES******/
+	private MainWindow1D m_currentSimulator;
+	
 	private JMenuBar m_menuBar = new JMenuBar();
 
 	/** The menu file. */
@@ -64,8 +67,6 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 	private JSeparator m_separatorBetweenRadiusAndRules;
 	private JSeparator m_separatorBetweenRulesAndPanelControl;
 	
-	private MainWindow1D m_currentSimulator;
-	
 	/******GETTERS******/
 	public JFormattedTextField getm_formattedTextFieldRadius() {
 		return m_formattedTextFieldRadius;
@@ -90,6 +91,8 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 		this.initMenuBar();// We initialize our menuBar.
 		
 		this.addListenerMenuBar();// We initialize Listener of menuBar.
+		
+		this.addListenerOnComponentsOfRulesSettingPanel();// Initialize Listeners on Components of panel Rules Setting.
 		
 		this.addListenerOnComponentsOfControlPanel();// Initialize Listeners on Components of panel Control.
 		
@@ -275,6 +278,15 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener {
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
 	}
 	
+	
+	/******Listeners Panel Rules Setting******/
+	private void addListenerOnComponentsOfRulesSettingPanel(){
+		addListenerOnComponentsPersonalizeButton();
+	}
+	
+	private void addListenerOnComponentsPersonalizeButton(){
+		m_buttonPersonalize.addActionListener(new PersonalizeElementaryCells1DEvent(m_currentSimulator));
+	}
 	
 	
 	/******Listeners panel Control******/
