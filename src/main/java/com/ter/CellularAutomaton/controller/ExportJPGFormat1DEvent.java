@@ -44,9 +44,9 @@ public class ExportJPGFormat1DEvent implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		BufferedImage image = new BufferedImage(m_mainWindow1D.getm_internalFrameSimulation().getm_scrollPane().getWidth(), m_mainWindow1D.getm_internalFrameSimulation().getm_scrollPane().getHeight(), BufferedImage.TYPE_INT_RGB);
+		BufferedImage image = new BufferedImage(m_mainWindow1D.getm_internalFrameSimulation().getm_screen().getWidth()-100, m_mainWindow1D.getm_internalFrameSimulation().getm_screen().getHeight()-100, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
-		m_mainWindow1D.getm_internalFrameSimulation().getm_scrollPane().printAll(g);
+		m_mainWindow1D.getm_internalFrameSimulation().getm_screen().printAll(g);
 		g.dispose();
 		try {
 
