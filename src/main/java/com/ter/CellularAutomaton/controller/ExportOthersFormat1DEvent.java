@@ -17,7 +17,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import com.ter.CellularAutomaton.vue.MainWindow1D;
 
-public class ExportGIFFormat1DEvent implements ActionListener {
+public class ExportOthersFormat1DEvent implements ActionListener {
 
 
 	/******ATTRIBUTES******/
@@ -25,13 +25,15 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 	JFrame frame;
 	private JFileChooser fileChooser;
 	private static final String titleJFileChoose = "Specify a file to save";
-	private static final String allowExtension = "gif";
+	private static final String allowExtensionPNG = "png";
+	private static final String allowExtensionJPG = "jpg";
+	private static final String allowExtensionGIF = "gif";
 
 
 	/**
 	 * ****CONSTRUCTOR*****.
 	 */
-	public ExportGIFFormat1DEvent(MainWindow1D window) {
+	public ExportOthersFormat1DEvent(MainWindow1D window) {
 		super();
 		this.m_mainWindow1D = window;
 
@@ -49,7 +51,6 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 		m_mainWindow1D.getm_internalFrameSimulation().getm_scrollPane().printAll(g);
 		g.dispose();
 		try {
-
 			// Set up the file chooser.
 			if (fileChooser == null) {
 				fileChooser = new JFileChooser();
@@ -59,9 +60,12 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 			// Set the initial directory for the fileChooser.
 			fileChooser.setCurrentDirectory(new java.io.File(".")); // start at application current directory
 			// Add a custom file filter and disable the default
+			fileChooser.addChoosableFileFilter(new ImagePNGFilter());
+			fileChooser.addChoosableFileFilter(new ImageJPGFilter());
 			fileChooser.addChoosableFileFilter(new ImageGIFFilter());
+
 			// Disable the Accept All file filter.
-			fileChooser.setAcceptAllFileFilterUsed(false);
+			//fileChooser.setAcceptAllFileFilterUsed(false);
 
 
 			//Show the fileChooser.
@@ -70,7 +74,8 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 			// When the user click on the button save.
 			if (userSelection == JFileChooser.APPROVE_OPTION) {
 				File fileToSave = fileChooser.getSelectedFile(); // Select the file to save.
-				ImageIO.write(image, "gif", new File(fileToSave.getAbsolutePath())); // Save this file with the png extension.
+				String extension = FilenameUtils.getExtension(fileToSave.getName().toLowerCase()); // Select the extension (in minuscule) of the files present in the JFileChooser.
+				ImageIO.write(image, extension, new File(fileToSave.getAbsolutePath())); // Save this file with the png extension.
 				JOptionPane.showMessageDialog(null,"The image was successfully exported"); // Show a dialog to inform the user that the export has been successful.
 
 				//Reset the file chooser for the next time it's shown.
@@ -84,16 +89,13 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 
 	}
 
+	public class ImagePNGFilter extends FileFilter {
 
-
-
-	public class ImageGIFFilter extends FileFilter {
-
-		//Accept all directories and gif files.
+		//Accept all directories and png files.
 		@Override
 		public boolean accept(File f) {
 			String extension = FilenameUtils.getExtension(f.getName().toLowerCase()); // Select the extension (in minuscule) of the files present in the JFileChooser.
-			if (f.isDirectory() || (extension != null && allowExtension.equals(extension))) { // Show the file in the JFileChooser only if it is a directory or a file with the extension png.
+			if (f.isDirectory() || (extension != null && allowExtensionPNG.equals(extension))) { // Show the file in the JFileChooser only if it is a directory or a file with the extension png.
 				return true;
 			}
 			return false;
@@ -102,9 +104,49 @@ public class ExportGIFFormat1DEvent implements ActionListener {
 		//The description of this filter
 		@Override
 		public String getDescription() {
-			return allowExtension;
+			return allowExtensionPNG;
 		}
 	}
+	
+	public class ImageJPGFilter extends FileFilter {
+
+		//Accept all directories and jpg files.
+		@Override
+		public boolean accept(File f) {
+			String extension = FilenameUtils.getExtension(f.getName().toLowerCase()); // Select the extension (in minuscule) of the files present in the JFileChooser.
+			if (f.isDirectory() || (extension != null && allowExtensionJPG.equals(extension))) { // Show the file in the JFileChooser only if it is a directory or a file with the extension png.
+				return true;
+			}
+			return false;
+		}
+
+		//The description of this filter
+		@Override
+		public String getDescription() {
+			return allowExtensionJPG;
+		}
+	}
+	
+	public class ImageGIFFilter extends FileFilter {
+
+		//Accept all directories and gif files.
+		@Override
+		public boolean accept(File f) {
+			String extension = FilenameUtils.getExtension(f.getName().toLowerCase()); // Select the extension (in minuscule) of the files present in the JFileChooser.
+			if (f.isDirectory() || (extension != null && allowExtensionGIF.equals(extension))) { // Show the file in the JFileChooser only if it is a directory or a file with the extension png.
+				return true;
+			}
+			return false;
+		}
+
+		//The description of this filter
+		@Override
+		public String getDescription() {
+			return allowExtensionGIF;
+		}
+	}
+
+
 
 
 }
