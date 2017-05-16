@@ -31,6 +31,8 @@ import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportJPGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportOthersFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportPNGFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportScreenshotJPGFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportScreenshotPNGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.NonUniformCellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
@@ -133,7 +135,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JMenuItem m_menuBarFileItemExportChoiceOthersFormats = new JMenuItem("Others Formats");
 	
 	/** The menu bar file item Export Screenshot As. */
-	private JMenuItem m_menuBarFileItemScreenshot = new JMenuItem("Export Screenshot As");
+	private JMenu m_menuBarFileItemScreenshot = new JMenu("Export Screenshot As");
 	
 	/** The menu bar file item Export Screenshot As choice PNG. */
 	private JMenuItem m_menuBarFileItemScreenshotChoicePNG = new JMenuItem("PNG");
@@ -666,7 +668,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.m_menuFile.add(m_menuBarFileItemPrint);//Adding a tab "Print" in tab File in MenuBar
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
 		constructTabExportAs();
-		this.m_menuFile.add(m_menuBarFileItemExport);//Adding a tab "Export As" in tab File in MenuBar
+		constructTabExportScreenshotAs();
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
 		this.m_menuFile.add(m_menuBarFileItemClose);//Adding a tab "Close" in tab File in MenuBar
 		this.m_menuFile.add(m_menuBarFileItemCloseAll);//Adding a tab "Close All" in tab File in MenuBar
@@ -697,6 +699,29 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.m_menuBarFileItemExport.add(m_menuBarFileItemExportChoiceGIF);//Adding a tab "GIF" in tab "Export As"
 		this.m_menuBarFileItemExport.addSeparator();//Adding a separator in tab File of the MenuBar
 		this.m_menuBarFileItemExport.add(m_menuBarFileItemExportChoiceOthersFormats);//Adding a tab "GIF" in tab "Export As"
+	}
+	
+	/**
+	 * Construct tab in tab ExportAs in tab File.
+	 */
+	private void constructTabExportScreenshotAs(){
+		//Build tab "Export Screenshot As" in tab File.
+		constructSubTabInTabExportScreenshotAs();//Build Sub-group of tabs in tab Export Screenshot As in tab File.
+		this.m_menuFile.add(m_menuBarFileItemScreenshot);//Adding a tab "Export Screenshot As" in tab File in MenuBar
+	}
+	
+	/**
+	 * Construct sub tab in tab ExportAs in tab File.
+	 */
+	private void constructSubTabInTabExportScreenshotAs(){
+		//Sub-group of tab in tab "Export Screenshot As" in tab File.
+		this.m_menuBarFileItemScreenshot.add(m_menuBarFileItemScreenshotChoicePNG);//Adding a tab "PNG" in tab "Export Screenshot As"
+		this.m_menuBarFileItemScreenshot.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuBarFileItemScreenshot.add(m_menuBarFileItemScreenshotChoiceJPG);//Adding a tab "JPG" in tab "Export Screenshot As"
+		this.m_menuBarFileItemScreenshot.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuBarFileItemScreenshot.add(m_menuBarFileItemScreenshotChoiceGIF);//Adding a tab "GIF" in tab "Export Screenshot As"
+		this.m_menuBarFileItemScreenshot.addSeparator();//Adding a separator in tab File of the MenuBar
+		this.m_menuBarFileItemScreenshot.add(m_menuBarFileItemScreenshotChoiceOthersFormats);//Adding a tab "GIF" in tab "Export Screenshot As"
 	}
 
 	/**
@@ -869,6 +894,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_menuBarFileItemExportChoiceJPG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export JPG" in tab File
 		m_menuBarFileItemExportChoiceGIF.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export GIF" in tab File
 		m_menuBarFileItemExportChoiceOthersFormats.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export Others formats" in tab File
+		m_menuBarFileItemScreenshotChoicePNG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export ScreenShot As PNG" in tab File
+		m_menuBarFileItemScreenshotChoiceJPG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export ScreenShot As JPG" in tab File
+		m_menuBarFileItemScreenshotChoiceGIF.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export ScreenShot As GIF" in tab File
+		m_menuBarFileItemScreenshotChoiceOthersFormats.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export ScreenShot As Others formats" in tab File
 		m_menuBarFileItemClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK)); //add accelerators of Close in tab File
 		m_menuBarFileItemCloseAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, KeyEvent.CTRL_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of CloseAll in tab File
 		m_menuBarFileItemQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK)); //add accelerators of Quit in tab File
@@ -914,6 +943,9 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_menuBarFileItemExportChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export As" in tab "File"
 		m_menuBarFileItemExportChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));//Add ActionListener on tab "GIF" of the tab "Export As" in tab "File"
 		m_menuBarFileItemExportChoiceOthersFormats.addActionListener(new ExportOthersFormat1DEvent(this));//Add ActionListener on tab "Others Formats" of the tab "Export As" in tab "File"
+		m_menuBarFileItemScreenshotChoicePNG.addActionListener(new ExportScreenshotPNGFormat1DEvent(this));//Add ActionListener on tab "PNG" of the tab "Export Screenshot As" in tab "File"
+		m_menuBarFileItemScreenshotChoiceJPG.addActionListener(new ExportScreenshotJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export Screenshot As" in tab "File"
+		m_menuBarFileItemScreenshotChoiceGIF.addActionListener(new ExportScreenshotGIFFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export Screenshot As" in tab "File"
 		m_menuBarFileItemClose.addActionListener(new Close1DEvent(this));//Add ActionListener on tab "Close" in tab "File"
 		m_menuBarFileItemCloseAll.addActionListener(new CloseAllEvent());//Add ActionListener on tab "Close All" in tab "File"
 		m_menuBarFileItemQuit.addActionListener(new QuitEvent());//Add ActionListener on tab "Quit" in tab "File"
