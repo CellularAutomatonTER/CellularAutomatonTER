@@ -31,7 +31,9 @@ import com.ter.CellularAutomaton.controller.ExportGIFFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportJPGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportOthersFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportPNGFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportScreenshotGIFFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportScreenshotJPGFormat1DEvent;
+import com.ter.CellularAutomaton.controller.ExportScreenshotOthersFormatFormat1DEvent;
 import com.ter.CellularAutomaton.controller.ExportScreenshotPNGFormat1DEvent;
 import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.NonUniformCellularAutomatonSetting1DEvent;
@@ -945,7 +947,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_menuBarFileItemExportChoiceOthersFormats.addActionListener(new ExportOthersFormat1DEvent(this));//Add ActionListener on tab "Others Formats" of the tab "Export As" in tab "File"
 		m_menuBarFileItemScreenshotChoicePNG.addActionListener(new ExportScreenshotPNGFormat1DEvent(this));//Add ActionListener on tab "PNG" of the tab "Export Screenshot As" in tab "File"
 		m_menuBarFileItemScreenshotChoiceJPG.addActionListener(new ExportScreenshotJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export Screenshot As" in tab "File"
-		m_menuBarFileItemScreenshotChoiceGIF.addActionListener(new ExportScreenshotGIFFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export Screenshot As" in tab "File"
+		m_menuBarFileItemScreenshotChoiceGIF.addActionListener(new ExportScreenshotGIFFormat1DEvent(this));//Add ActionListener on tab "GIF" of the tab "Export Screenshot As" in tab "File"
+		m_menuBarFileItemScreenshotChoiceOthersFormats.addActionListener(new ExportScreenshotOthersFormatFormat1DEvent(this));//Add ActionListener on tab "Others Formats" of the tab "Export Screenshot As" in tab "File"
 		m_menuBarFileItemClose.addActionListener(new Close1DEvent(this));//Add ActionListener on tab "Close" in tab "File"
 		m_menuBarFileItemCloseAll.addActionListener(new CloseAllEvent());//Add ActionListener on tab "Close All" in tab "File"
 		m_menuBarFileItemQuit.addActionListener(new QuitEvent());//Add ActionListener on tab "Quit" in tab "File"
