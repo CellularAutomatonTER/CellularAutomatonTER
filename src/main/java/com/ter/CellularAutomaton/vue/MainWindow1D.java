@@ -303,6 +303,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JButton m_buttonLauncher;
 	private final JPanel m_panelPause = new JPanel();
 	private JButton m_buttonPause;
+	private final JPanel m_panelSkipByStep = new JPanel();
+	private JButton m_buttonSkipByStep;
 	private final JPanel m_panelUndo = new JPanel();
 	private JButton m_buttonUndo;
 	private final JPanel m_panelRedo = new JPanel();
@@ -578,7 +580,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 	/***Set the window***/
 	private void setWindow(){
-		m_intitialWidth = 1370;
+		m_intitialWidth = 1450;
 		m_intitialHeight = 730;
 		this.setWindow("Cellular Automaton", m_intitialWidth, m_intitialHeight, true, false);
 	}
@@ -1099,6 +1101,14 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause = new JButton(new ImageIcon(pathDirectory+"button_pause.png"));
 		m_buttonPause.setToolTipText("Pause the simulation");
 		m_panelPause.add(m_buttonPause, BorderLayout.CENTER);
+		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
+		
+		m_panelSkipByStep.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelSkipByStep);
+		m_buttonSkipByStep = new JButton(new ImageIcon(pathDirectory+"button_skipByStep.png"));
+		m_buttonSkipByStep.setToolTipText("Launch simulation step by step");
+		m_panelSkipByStep.add(m_buttonSkipByStep, BorderLayout.CENTER);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
