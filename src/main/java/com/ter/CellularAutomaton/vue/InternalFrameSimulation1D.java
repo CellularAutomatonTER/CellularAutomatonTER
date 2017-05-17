@@ -65,6 +65,8 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		
 		m_screen = new Screen(this);
 		m_scrollPane = new JScrollPane(m_screen);
+		m_scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);// Force the scrollbars to always be displayed
+		m_scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);// Force the scrollbars to always be displayed
 		getContentPane().add(m_scrollPane, BorderLayout.CENTER);
 		
 		m_backgroundColor=backgroundColor;
