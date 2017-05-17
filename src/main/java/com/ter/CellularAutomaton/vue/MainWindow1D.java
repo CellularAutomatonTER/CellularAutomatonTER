@@ -350,6 +350,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private boolean m_isRun;
 	private Thread m_threadSimulation;
 	private boolean m_gridSimulation;
+	private final JPanel panel = new JPanel();
+	private final JButton btnN = new JButton("N");
 	
 
 	/**
@@ -580,7 +582,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 	/***Set the window***/
 	private void setWindow(){
-		m_intitialWidth = 1450;
+		m_intitialWidth = 1600;
 		m_intitialHeight = 730;
 		this.setWindow("Cellular Automaton", m_intitialWidth, m_intitialHeight, true, false);
 	}
@@ -1094,8 +1096,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonLauncher.setToolTipText("Launch the simulation");
 		m_panelLauncher.add(m_buttonLauncher, BorderLayout.CENTER);
 		
-		Component verticalStrut_1 = Box.createVerticalStrut(16);
-		m_panelLauncher.add(verticalStrut_1, BorderLayout.SOUTH);
+		Component verticalStrutLauncher = Box.createVerticalStrut(16);
+		m_panelLauncher.add(verticalStrutLauncher, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1105,8 +1107,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause.setToolTipText("Pause the simulation");
 		m_panelPause.add(m_buttonPause, BorderLayout.CENTER);
 		
-		Component verticalStrut_2 = Box.createVerticalStrut(16);
-		m_panelPause.add(verticalStrut_2, BorderLayout.SOUTH);
+		Component verticalStrutPause = Box.createVerticalStrut(16);
+		m_panelPause.add(verticalStrutPause, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1116,14 +1118,15 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonSkipByStep.setToolTipText("Launch simulation step by step");
 		m_panelSkipByStep.add(m_buttonSkipByStep, BorderLayout.CENTER);
 		
-		JSlider slider = new JSlider();
-		slider.setMinimum(1);//Set the minimum value of slider
-		slider.setMaximum(100);//Set the maximum value of slider
-		slider.setValue(1);//Set the value of slider to 1 by default
-		//slider.setPaintTicks(true);//Set the paint ticks of slider
-		slider.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
-		slider.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
-		m_panelSkipByStep.add(slider, BorderLayout.SOUTH);
+		m_panelSkipByStep.add(panel, BorderLayout.EAST);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		panel.add(btnN, BorderLayout.EAST);
+		
+		Component verticalStrutSkipByStep = Box.createVerticalStrut(16);
+		m_panelSkipByStep.add(verticalStrutSkipByStep, BorderLayout.SOUTH);
+		
+		
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1133,8 +1136,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonUndo.setToolTipText("Undo");
 		m_panelUndo.add(m_buttonUndo, BorderLayout.CENTER);
 		
-		Component verticalStrut = Box.createVerticalStrut(16);
-		m_panelUndo.add(verticalStrut, BorderLayout.SOUTH);
+		Component verticalStrutUndo = Box.createVerticalStrut(16);
+		m_panelUndo.add(verticalStrutUndo, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1144,8 +1147,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonRedo.setToolTipText("Redo");
 		m_panelRedo.add(m_buttonRedo, BorderLayout.CENTER);
 		
-		Component verticalStrut_3 = Box.createVerticalStrut(16);
-		m_panelRedo.add(verticalStrut_3, BorderLayout.SOUTH);
+		Component verticalStrutRedo = Box.createVerticalStrut(16);
+		m_panelRedo.add(verticalStrutRedo, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1155,8 +1158,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonErase.setToolTipText("Clear simulation");
 		m_panelErase.add(m_buttonErase, BorderLayout.CENTER);
 		
-		Component verticalStrut_4 = Box.createVerticalStrut(16);
-		m_panelErase.add(verticalStrut_4, BorderLayout.SOUTH);
+		Component verticalStrutErase = Box.createVerticalStrut(16);
+		m_panelErase.add(verticalStrutErase, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
@@ -1166,8 +1169,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonReload.setToolTipText("Refresh simulation");
 		m_panelReload.add(m_buttonReload, BorderLayout.CENTER);
 		
-		Component verticalStrut_5 = Box.createVerticalStrut(16);
-		m_panelReload.add(verticalStrut_5, BorderLayout.SOUTH);
+		Component verticalStrutReload = Box.createVerticalStrut(16);
+		m_panelReload.add(verticalStrutReload, BorderLayout.SOUTH);
 	}
 	
 	
