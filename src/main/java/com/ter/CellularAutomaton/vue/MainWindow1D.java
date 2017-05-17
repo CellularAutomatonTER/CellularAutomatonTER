@@ -295,16 +295,21 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JSeparator m_separatorInTypeCellularAutomaton;
 	private JPanel m_panelChooseCellularAutomaton;
 	private JPanel m_panelUniform;
-	private GroupLayout m_GroupLayoutPanelTypeCellularAutomaton;
 	private JButton m_buttonNonUniformCellularAutomatonSetting;
 	private JButton m_buttonUniformCellularAutomatonSetting;
 	private JToolBar m_toolBarSimulationTools;
 	private JPanel m_panelSimulationTools;
+	private final JPanel m_panelLauncher = new JPanel();
 	private JButton m_buttonLauncher;
+	private final JPanel m_panelPause = new JPanel();
 	private JButton m_buttonPause;
-	private JButton m_buttonErase;
+	private final JPanel m_panelUndo = new JPanel();
 	private JButton m_buttonUndo;
+	private final JPanel m_panelRedo = new JPanel();
 	private JButton m_buttonRedo;
+	private final JPanel m_panelErase = new JPanel();
+	private JButton m_buttonErase;
+	private final JPanel m_panelReload = new JPanel();
 	private JButton m_buttonReload;
 	private JToolBar m_toolBarControlTools;
 	private JPanel m_panelControlTools;
@@ -1061,23 +1066,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	}
 	
 	private void buildGroupLayoutPanelTypeCellularAutomaton(){
-		m_GroupLayoutPanelTypeCellularAutomaton = new GroupLayout(m_panelTypeCellularAutomaton);
-		m_GroupLayoutPanelTypeCellularAutomaton.setHorizontalGroup(
-			m_GroupLayoutPanelTypeCellularAutomaton.createParallelGroup(Alignment.LEADING)
-				.addGroup(m_GroupLayoutPanelTypeCellularAutomaton.createSequentialGroup()
-					.addComponent(m_panelChooseCellularAutomaton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(m_separatorInTypeCellularAutomaton, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(m_panelUniform, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-		);
-		m_GroupLayoutPanelTypeCellularAutomaton.setVerticalGroup(
-			m_GroupLayoutPanelTypeCellularAutomaton.createParallelGroup(Alignment.TRAILING)
-				.addComponent(m_separatorInTypeCellularAutomaton, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-				.addComponent(m_panelChooseCellularAutomaton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-				.addComponent(m_panelUniform, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-		);
-		m_panelTypeCellularAutomaton.setLayout(m_GroupLayoutPanelTypeCellularAutomaton);
+		m_panelTypeCellularAutomaton.setLayout(new BoxLayout(m_panelTypeCellularAutomaton, BoxLayout.X_AXIS));
+		m_panelTypeCellularAutomaton.add(m_panelChooseCellularAutomaton);
+		m_panelTypeCellularAutomaton.add(m_separatorInTypeCellularAutomaton);
+		m_panelTypeCellularAutomaton.add(m_panelUniform);
 	}
 	
 	
@@ -1094,31 +1086,43 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_toolBarSimulationTools.add(m_panelSimulationTools);
 		m_panelSimulationTools.setBorder(BorderFactory.createTitledBorder("Simulation Tools"));
 		
+		m_panelSimulationTools.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		m_panelLauncher.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelLauncher);
 		m_buttonLauncher = new JButton(new ImageIcon(pathDirectory+"button_laucher.png"));
 		m_buttonLauncher.setToolTipText("Launch the simulation");
+		m_panelLauncher.add(m_buttonLauncher, BorderLayout.CENTER);
 		
+		m_panelPause.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelPause);
 		m_buttonPause = new JButton(new ImageIcon(pathDirectory+"button_pause.png"));
 		m_buttonPause.setToolTipText("Pause the simulation");
+		m_panelPause.add(m_buttonPause, BorderLayout.CENTER);
 		
-		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
-		m_buttonErase.setToolTipText("Clear simulation");
-		
+		m_panelUndo.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelUndo);
 		m_buttonUndo = new JButton(new ImageIcon(pathDirectory+"button_undo.png"));
 		m_buttonUndo.setToolTipText("Undo");
+		m_panelUndo.add(m_buttonUndo, BorderLayout.CENTER);
 		
+		m_panelRedo.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelRedo);
 		m_buttonRedo = new JButton(new ImageIcon(pathDirectory+"button_redo.png"));
 		m_buttonRedo.setToolTipText("Redo");
+		m_panelRedo.add(m_buttonRedo, BorderLayout.CENTER);
 		
+		m_panelErase.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelErase);
+		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
+		m_buttonErase.setToolTipText("Clear simulation");
+		m_panelErase.add(m_buttonErase, BorderLayout.CENTER);
+		
+		m_panelReload.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelReload);
 		m_buttonReload = new JButton(new ImageIcon(pathDirectory+"button_reload.png"));
 		m_buttonReload.setToolTipText("Refresh simulation");
-		
-		m_panelSimulationTools.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		m_panelSimulationTools.add(m_buttonLauncher);
-		m_panelSimulationTools.add(m_buttonPause);
-		m_panelSimulationTools.add(m_buttonUndo);
-		m_panelSimulationTools.add(m_buttonRedo);
-		m_panelSimulationTools.add(m_buttonErase);
-		m_panelSimulationTools.add(m_buttonReload);
+		m_panelReload.add(m_buttonReload, BorderLayout.NORTH);
 	}
 	
 	
