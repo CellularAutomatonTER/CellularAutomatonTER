@@ -1092,11 +1092,15 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonLauncher.setToolTipText("Launch the simulation");
 		m_panelLauncher.add(m_buttonLauncher, BorderLayout.CENTER);
 		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
+		
 		m_panelPause.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelPause);
 		m_buttonPause = new JButton(new ImageIcon(pathDirectory+"button_pause.png"));
 		m_buttonPause.setToolTipText("Pause the simulation");
 		m_panelPause.add(m_buttonPause, BorderLayout.CENTER);
+		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
 		m_panelUndo.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelUndo);
@@ -1104,17 +1108,23 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonUndo.setToolTipText("Undo");
 		m_panelUndo.add(m_buttonUndo, BorderLayout.CENTER);
 		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
+		
 		m_panelRedo.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelRedo);
 		m_buttonRedo = new JButton(new ImageIcon(pathDirectory+"button_redo.png"));
 		m_buttonRedo.setToolTipText("Redo");
 		m_panelRedo.add(m_buttonRedo, BorderLayout.CENTER);
 		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
+		
 		m_panelErase.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelErase);
 		m_buttonErase = new JButton(new ImageIcon(pathDirectory+"button_erase.png"));
 		m_buttonErase.setToolTipText("Clear simulation");
 		m_panelErase.add(m_buttonErase, BorderLayout.CENTER);
+		
+		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
 		
 		m_panelReload.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelReload);
