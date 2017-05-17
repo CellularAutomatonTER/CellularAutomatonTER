@@ -317,7 +317,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelDirectionOfEvolution;
 	private JButton m_buttonSizeOfSimulation;
 	private JButton m_buttonBorderCondition;
-	private JSeparator m_separatorInControlTools;
 	private JDesktopPane m_mainDesktopPane;
 	private JScrollPane m_scrollPaneLateralTools;
 	private JPanel m_panelLateralTools;
@@ -1085,8 +1084,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelSimulationTools = new JPanel();
 		m_toolBarSimulationTools.add(m_panelSimulationTools);
 		m_panelSimulationTools.setBorder(BorderFactory.createTitledBorder("Simulation Tools"));
-		
-		m_panelSimulationTools.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		m_panelSimulationTools.setLayout(new BoxLayout(m_panelSimulationTools, BoxLayout.X_AXIS));
 		
 		m_panelLauncher.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelLauncher);
@@ -1143,11 +1141,11 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private void buildPanelControlTools(){
 		m_panelControlTools = new JPanel();//Creation of panel
 		m_toolBarControlTools.add(m_panelControlTools);//Add the panel to toolBar ControlTools
-		m_panelControlTools.setBorder(BorderFactory.createTitledBorder("Control tools"));//Set a border of JPanel
-		m_panelControlTools.setLayout(null);
+		m_panelControlTools.setBorder(BorderFactory.createTitledBorder("Control tools"));
 		
 		buildPanelBorderCondition();//Set the panel BorderCondition
 		buildPanelDirectionOfEvolution();//Set the panel DirectionOfEvolution
+		m_panelControlTools.setLayout(new BoxLayout(m_panelControlTools, BoxLayout.X_AXIS));
 		
 		m_panelControlTools.add(m_panelBorderCondition);//Add the panel of "BorderCondition" to panel of "ControlTools"
 		m_panelControlTools.add(m_panelDirectionOfEvolution);//Add the panel of "DirectionOfEvolution" to panel of "ControlTools"
@@ -1157,8 +1155,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	
 	private void buildPanelBorderCondition(){
-		m_panelBorderCondition = new JPanel();//Creation of panel for BorderCondition
-		m_panelBorderCondition.setBounds(6, 16, 190, 50);//Set size of JPanel
+		m_panelBorderCondition = new JPanel();
 		m_panelBorderCondition.setBorder(BorderFactory.createTitledBorder("Border Condition"));//Set a border of JPanel
 		
 		buildComponentBorderCondition();//Set the component of Panel "BorderCondition"
@@ -1166,15 +1163,14 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	private void buildComponentBorderCondition(){ 
 		m_panelBorderCondition.setLayout(new BorderLayout(0, 0));
-		m_buttonBorderCondition = new JButton("Border Condition Setting");//Creation of Button for panel "BorderCondition"
+		m_buttonBorderCondition = new JButton("Border Condition");//Creation of Button for panel "BorderCondition"
 		m_panelBorderCondition.add(m_buttonBorderCondition, BorderLayout.CENTER);//Add the Button to panel BorderCondition
 	}
 	
 	
 	
 	private void buildPanelDirectionOfEvolution(){
-		m_panelDirectionOfEvolution = new JPanel();//Creation of JPanel for DirectionOfEvolution
-		m_panelDirectionOfEvolution.setBounds(207, 16, 210, 50);//Set size of JPanel
+		m_panelDirectionOfEvolution = new JPanel();
 		m_panelDirectionOfEvolution.setBorder(BorderFactory.createTitledBorder("Size of Simulation"));//Set a border of JPanel
 		
 		buildComponentDirectionOfEvolution();//Set the component of Panel "DirectionOfEvolution"
@@ -1188,11 +1184,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 	
 	private void buildSeparatorInControlTools(){
-		//Creation of Separator between the panel of "BorderCondition" and the panel "DirectionOfEvolution"
-		m_separatorInControlTools = new JSeparator();//Create JSeparator
-		m_separatorInControlTools.setOrientation(SwingConstants.VERTICAL);//Set the orientation of separator to vertical
-		m_separatorInControlTools.setBounds(194, 23, 2, 43);//Set the position and size of separator
-		m_panelControlTools.add(m_separatorInControlTools);//Add the separator to panel m_panelControlTools
 	}
 	
 	
