@@ -1122,7 +1122,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelSimulationTools.add(m_panelReload);
 		m_buttonReload = new JButton(new ImageIcon(pathDirectory+"button_reload.png"));
 		m_buttonReload.setToolTipText("Refresh simulation");
-		m_panelReload.add(m_buttonReload, BorderLayout.NORTH);
+		m_panelReload.add(m_buttonReload, BorderLayout.CENTER);
 	}
 	
 	
