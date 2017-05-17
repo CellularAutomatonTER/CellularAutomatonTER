@@ -305,6 +305,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JButton m_buttonPause;
 	private final JPanel m_panelSkipByStep = new JPanel();
 	private JButton m_buttonSkipByStep;
+	private final JPanel m_panelSkipByStepSetting = new JPanel();
+	private JButton m_buttonSkipByStepSetting;
 	private final JPanel m_panelUndo = new JPanel();
 	private JButton m_buttonUndo;
 	private final JPanel m_panelRedo = new JPanel();
@@ -350,8 +352,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private boolean m_isRun;
 	private Thread m_threadSimulation;
 	private boolean m_gridSimulation;
-	private final JPanel panel = new JPanel();
-	private final JButton btnN = new JButton("N");
 	
 
 	/**
@@ -1096,7 +1096,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonLauncher.setToolTipText("Launch the simulation");
 		m_panelLauncher.add(m_buttonLauncher, BorderLayout.CENTER);
 		
-		Component verticalStrutLauncher = Box.createVerticalStrut(16);
+		Component verticalStrutLauncher = Box.createVerticalStrut(10);
 		m_panelLauncher.add(verticalStrutLauncher, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
@@ -1107,7 +1107,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonPause.setToolTipText("Pause the simulation");
 		m_panelPause.add(m_buttonPause, BorderLayout.CENTER);
 		
-		Component verticalStrutPause = Box.createVerticalStrut(16);
+		Component verticalStrutPause = Box.createVerticalStrut(10);
 		m_panelPause.add(verticalStrutPause, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
@@ -1118,12 +1118,14 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonSkipByStep.setToolTipText("Launch simulation step by step");
 		m_panelSkipByStep.add(m_buttonSkipByStep, BorderLayout.CENTER);
 		
-		m_panelSkipByStep.add(panel, BorderLayout.EAST);
-		panel.setLayout(new BorderLayout(0, 0));
+		m_panelSkipByStep.add(m_panelSkipByStepSetting, BorderLayout.EAST);
+		m_panelSkipByStepSetting.setLayout(new BorderLayout(0, 0));
 		
-		panel.add(btnN, BorderLayout.EAST);
+		m_buttonSkipByStepSetting = new JButton(new ImageIcon(pathDirectory+"button_setting.png"));
+		m_buttonSkipByStepSetting.setToolTipText("Define the step for launcher step by step");
+		m_panelSkipByStepSetting.add(m_buttonSkipByStepSetting, BorderLayout.EAST);
 		
-		Component verticalStrutSkipByStep = Box.createVerticalStrut(16);
+		Component verticalStrutSkipByStep = Box.createVerticalStrut(10);
 		m_panelSkipByStep.add(verticalStrutSkipByStep, BorderLayout.SOUTH);
 		
 		
@@ -1136,7 +1138,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonUndo.setToolTipText("Undo");
 		m_panelUndo.add(m_buttonUndo, BorderLayout.CENTER);
 		
-		Component verticalStrutUndo = Box.createVerticalStrut(16);
+		Component verticalStrutUndo = Box.createVerticalStrut(10);
 		m_panelUndo.add(verticalStrutUndo, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
@@ -1147,7 +1149,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonRedo.setToolTipText("Redo");
 		m_panelRedo.add(m_buttonRedo, BorderLayout.CENTER);
 		
-		Component verticalStrutRedo = Box.createVerticalStrut(16);
+		Component verticalStrutRedo = Box.createVerticalStrut(10);
 		m_panelRedo.add(verticalStrutRedo, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
@@ -1158,7 +1160,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonErase.setToolTipText("Clear simulation");
 		m_panelErase.add(m_buttonErase, BorderLayout.CENTER);
 		
-		Component verticalStrutErase = Box.createVerticalStrut(16);
+		Component verticalStrutErase = Box.createVerticalStrut(10);
 		m_panelErase.add(verticalStrutErase, BorderLayout.SOUTH);
 		
 		m_panelSimulationTools.add(Box.createRigidArea(new Dimension(5,0)));
@@ -1169,7 +1171,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonReload.setToolTipText("Refresh simulation");
 		m_panelReload.add(m_buttonReload, BorderLayout.CENTER);
 		
-		Component verticalStrutReload = Box.createVerticalStrut(16);
+		Component verticalStrutReload = Box.createVerticalStrut(10);
 		m_panelReload.add(verticalStrutReload, BorderLayout.SOUTH);
 	}
 	
