@@ -352,6 +352,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private boolean m_isRun;
 	private Thread m_threadSimulation;
 	private boolean m_gridSimulation;
+	private int m_stepOfLauncherStep;
 	
 
 	/**
@@ -393,6 +394,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
+		m_stepOfLauncherStep = 1;
 		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
 		this.runSimulation();//run simulation
@@ -436,6 +438,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
+		m_stepOfLauncherStep = 1;
 		
 		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
@@ -530,6 +533,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public ArrayList<Color> getm_colorOfCells() {
 		return m_colorOfCells;
 	}
+	
+	public int getm_stepOfLauncherStep() {
+		return m_stepOfLauncherStep;
+	}
 
 	
 	/******SETTERS******/
@@ -572,6 +579,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void setm_colorOfCells(int index, Color newColor) {
 		this.m_colorOfCells.set(index, newColor);
+	}
+	
+	public void setm_colorGrid(int stepOfLauncherStep) {
+		this.m_stepOfLauncherStep = stepOfLauncherStep;
 	}
 	
 	
