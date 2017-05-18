@@ -86,7 +86,7 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 		return m_formattedTextFieldRules;
 	}
 	
-	public JButton getM_buttonOk() {
+	public JButton getm_buttonOk() {
 		return m_buttonOk;
 	}
 	
