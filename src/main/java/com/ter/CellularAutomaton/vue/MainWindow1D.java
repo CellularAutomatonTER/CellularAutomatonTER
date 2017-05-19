@@ -306,6 +306,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JButton m_buttonPause;
 	private final JPanel m_panelSkipByStep = new JPanel();
 	private JButton m_buttonSkipByStep;
+	private final JPanel m_panelSkipByStepAdjustable = new JPanel();
+	private JButton m_buttonSkipByStepAdjustable;
 	private final JPanel m_panelUndo = new JPanel();
 	private JButton m_buttonUndo;
 	private final JPanel m_panelRedo = new JPanel();
@@ -1118,6 +1120,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_buttonSkipByStep.setToolTipText("Launch simulation step by step");
 		m_panelSkipByStep.add(m_buttonSkipByStep, BorderLayout.CENTER);
 		
+		m_panelSkipByStepAdjustable.setLayout(new BorderLayout(0, 0));
+		m_panelSimulationTools.add(m_panelSkipByStepAdjustable);
+		m_buttonSkipByStepAdjustable = new JButton(new ImageIcon(pathDirectory+"button_skipByStepAdjustable.png"));
+		m_buttonSkipByStepAdjustable.setToolTipText("Launch simulation step by step with step adjustable");
+		m_panelSkipByStepAdjustable.add(m_buttonSkipByStepAdjustable, BorderLayout.CENTER);
+		
 		m_panelUndo.setLayout(new BorderLayout(0, 0));
 		m_panelSimulationTools.add(m_panelUndo);
 		m_buttonUndo = new JButton(new ImageIcon(pathDirectory+"button_undo.png"));
@@ -1496,7 +1504,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelAlgorithm);
 		m_panelLateralTools.add(m_panelInitialPositionCells);
 		m_panelLateralTools.add(m_panelFormCells);
-		m_panelLateralTools.add(m_panelBackgroundColor);//............
+		m_panelLateralTools.add(m_panelBackgroundColor);
 		m_panelLateralTools.add(m_panelColorCells);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
 		m_panelLateralTools.add(m_panelSimulationSpeed);
