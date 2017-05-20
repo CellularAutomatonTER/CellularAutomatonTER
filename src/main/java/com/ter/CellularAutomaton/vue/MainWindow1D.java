@@ -327,6 +327,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelLateralTools;
 	private JPanel m_panelPropertyOfSimulation = new JPanel();
 	private JPanel m_panelSimulationColor = new JPanel();
+	private JPanel m_panelAlgorithmGroup = new JPanel();
 	private JPanel m_panelAlgorithm;
 	private JComboBox m_comboBoxAlgorithm;
 	private JPanel m_panelInitialPositionCells;
@@ -1397,18 +1398,23 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Build Panel Algorithm******/
 	private void buildPanelAlgorithm(){
+		m_panelAlgorithmGroup.setLayout(new BorderLayout(0, 0));
+		m_panelAlgorithmGroup.setBounds(0, 429, 180, 71);
+		m_panelAlgorithmGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
+		
 		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
-		m_panelAlgorithm.setBounds(13, 511, 158, 71);
 		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
 		
 		buildComponentLateralToolsAlgorithm();//Create components of panel Algorithm in the LateralTools
+		
+		m_panelAlgorithmGroup.add(m_panelAlgorithm);
 	}
 	
 	//Components of Panel Algorithm in LateralTools
 	//Build components for Algorithm in LateralTools
 	private void buildComponentLateralToolsAlgorithm(){
 		m_comboBoxAlgorithm = new JComboBox();
-		m_comboBoxAlgorithm.setBounds(16, 27, 126, 20);
+		m_comboBoxAlgorithm.setBounds(16, 27, 143, 20);
 		
 		buildGroupLayoutComponentAlgorithm();//Build the grouplayout for the component Algorithm
 	}
@@ -1529,7 +1535,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.setLayout(null);
 		m_panelLateralTools.add(m_panelPropertyOfSimulation);
 		m_panelLateralTools.add(m_panelSimulationColor);
-		m_panelLateralTools.add(m_panelAlgorithm);
+		m_panelLateralTools.add(m_panelAlgorithmGroup);
 		m_panelLateralTools.add(m_panelInitialPositionCells);
 		m_panelLateralTools.add(m_panelFormCells);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
