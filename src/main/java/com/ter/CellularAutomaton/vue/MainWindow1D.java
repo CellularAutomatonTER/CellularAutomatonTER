@@ -345,6 +345,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelFormCellsGroup = new JPanel();
 	private JPanel m_panelFormCells;
 	private JComboBox m_comboBoxFormCells;
+	private JPanel m_panelTypeOfSimulatorGroup = new JPanel();
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
 	private JPanel m_panelSimulationSpeed;
@@ -1495,11 +1496,17 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******PANEL TYPE OF SIMULATEUR******/
 	/******Build Panel TypeOfSimulator******/
 	private void buildPanelTypeOfSimulator(){
-		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
+		m_panelTypeOfSimulatorGroup.setLayout(new BorderLayout(0, 0));
+		m_panelTypeOfSimulatorGroup.setBounds(0, 0, 180, 161);
+		m_panelTypeOfSimulatorGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
+		
+		m_panelTypeOfSimulator = new JPanel();
 		m_panelTypeOfSimulator.setBounds(10, 922, 158, 55);
 		m_panelTypeOfSimulator.setBorder(BorderFactory.createTitledBorder("Type Of Simulator"));//Set a border for the panel TypeOfSimulator
 		
 		buildComponentLateralToolsTypeOfSimulator();//Create components of panel TypeOfSimulator in the LateralTools
+		
+		m_panelTypeOfSimulatorGroup.add(m_panelTypeOfSimulator);
 	}
 	
 	//Components of Panel TypeOfSimulator in LateralTools
@@ -1556,7 +1563,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelAlgorithmGroup);
 		m_panelLateralTools.add(m_panelInitialPositionCellsGroup);
 		m_panelLateralTools.add(m_panelFormCellsGroup);
-		m_panelLateralTools.add(m_panelTypeOfSimulator);
+		m_panelLateralTools.add(m_panelTypeOfSimulatorGroup);
 		m_panelLateralTools.add(m_panelSimulationSpeed);		
 	}
 	
