@@ -318,14 +318,18 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JButton m_buttonReload;
 	private JToolBar m_toolBarControlTools;
 	private JPanel m_panelControlTools;
-	private JPanel m_panelBorderCondition;
-	private JPanel m_panelSizeOfSimulation;
-	private JButton m_buttonSizeOfSimulation;
+	private JPanel m_panelSimulationSpeed;
+	private JSlider m_sliderSpeedSimulation;
+	private JPanel m_panelStepOfLauncherStepByStepAdjustable;
+	private JSlider m_sliderStepOfLauncherStepByStepAdjustable;
 	private JButton m_buttonBorderCondition;
 	private JDesktopPane m_mainDesktopPane;
 	private JScrollPane m_scrollPaneLateralTools;
 	private JPanel m_panelLateralTools;
 	private JPanel m_panelPropertyOfSimulation = new JPanel();
+	private JPanel m_panelSizeOfSimulation;
+	private JButton m_buttonSizeOfSimulation;
+	private JPanel m_panelBorderCondition;
 	private JPanel m_panelSimulationColor = new JPanel();
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
@@ -348,8 +352,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelTypeOfSimulatorGroup = new JPanel();
 	private JPanel m_panelTypeOfSimulator;
 	private JButton m_buttonTypeOfSimulator;
-	private JPanel m_panelSimulationSpeed;
-	private JSlider m_sliderSpeedSimulation;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
@@ -1180,7 +1182,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
 		
+		buildPanelStepOfLauncherStepByStepAdjustable();//Create the panel "StepOfLauncherStepByStepAdjustable"
+		
 		m_panelControlTools.add(m_panelSimulationSpeed);
+		m_panelControlTools.add(m_panelStepOfLauncherStepByStepAdjustable);
 	}
 	
 	/******PANEL SIMULATION SPEED******/
@@ -1211,6 +1216,36 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
 			m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 		}
+		
+		
+		/******PANEL STEP OF LAUNCHER STEP BY STEP ADJUSTABLE******/
+		/******Build Panel Launcher step by step adjustable******/
+		private void buildPanelStepOfLauncherStepByStepAdjustable(){
+			m_panelStepOfLauncherStepByStepAdjustable = new JPanel();//Creation of panel for StepOfLauncherStepByStepAdjustable
+			m_panelStepOfLauncherStepByStepAdjustable.setBorder(BorderFactory.createTitledBorder("Step of launcher step by step adjustable"));//Set a border of JPanel
+			
+			buildComponentStepOfLauncherStepByStepAdjustable();//Set the component of Panel "Step Of Launcher Step By Step Adjustable"
+		}
+		
+			//Components of Panel SimulationSpeed in LateralTools
+			//Build components for SimulationSpeed in LateralTools
+			private void buildComponentStepOfLauncherStepByStepAdjustable(){ 
+				m_sliderStepOfLauncherStepByStepAdjustable = new JSlider();//Creation of Slider for panel "Step Of Launcher Step By Step Adjustable"
+				m_sliderStepOfLauncherStepByStepAdjustable.setMinimum(1);//Set the minimum value of slider
+				m_sliderStepOfLauncherStepByStepAdjustable.setMaximum(100);//Set the maximum value of slider
+				m_sliderStepOfLauncherStepByStepAdjustable.setValue(30);//Set the value of slider to 30 by default
+				m_sliderStepOfLauncherStepByStepAdjustable.setPaintTicks(true);//Set the paint ticks of slider
+				m_sliderStepOfLauncherStepByStepAdjustable.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
+				m_sliderStepOfLauncherStepByStepAdjustable.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
+			
+				buildGroupLayoutComponentStepOfLauncherStepByStepAdjustable();//Build Layout for StepOfLauncherStepByStepAdjustable in LateralTools
+			}
+			
+			//Build Layout for SimulationSpeed in LateralTools
+			private void buildGroupLayoutComponentStepOfLauncherStepByStepAdjustable(){
+				m_panelStepOfLauncherStepByStepAdjustable.setLayout(new BorderLayout(0, 0));
+				m_panelStepOfLauncherStepByStepAdjustable.add(m_sliderStepOfLauncherStepByStepAdjustable);//Add the slider to panel m_panelStepOfLauncherStepByStepAdjustable
+			}
 	
 	
 	/******Build DesktopPane******/
