@@ -1187,7 +1187,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Build Panel SimulationSpeed******/
 	private void buildPanelSimulationSpeed(){
 		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
-		m_panelSimulationSpeed.setBounds(10, 995, 158, 55);
 		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
 		
 		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
