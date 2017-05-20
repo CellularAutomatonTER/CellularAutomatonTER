@@ -327,26 +327,27 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelLateralTools;
 	private JPanel m_panelPropertyOfSimulation = new JPanel();
 	private JPanel m_panelSimulationColor = new JPanel();
-	private JPanel m_panelAlgorithmGroup = new JPanel();
-	private JPanel m_panelAlgorithm;
-	private JComboBox m_comboBoxAlgorithm;
-	private JPanel m_panelInitialPositionCells;
-	private JComboBox m_comboBoxInitialPositionCells;
-	private JPanel m_panelFormCells;
-	private JComboBox m_comboBoxFormCells;
-	private JPanel m_panelBackgroundColor;
-	private JButton m_buttonBackgroundColor;
 	private JPanel m_panelColorCells;
 	private JButton m_buttonColorCells;
-	private JPanel m_panelTypeOfSimulator;
-	private JButton m_buttonTypeOfSimulator;
-	private JPanel m_panelSimulationSpeed;
-	private JSlider m_sliderSpeedSimulation;
 	private JPanel m_panelGrid;
 	private ButtonGroup m_radioButtonGrid;
 	private JRadioButton m_radioButtonGridNo;
 	private JRadioButton m_radioButtonGridYes;
 	private JButton m_buttonColorGrid;
+	private JPanel m_panelBackgroundColor;
+	private JButton m_buttonBackgroundColor;
+	private JPanel m_panelAlgorithmGroup = new JPanel();
+	private JPanel m_panelAlgorithm;
+	private JComboBox m_comboBoxAlgorithm;
+	private JPanel m_panelInitialPositionCells;
+	private JPanel m_panelInitialPositionCellsGroup = new JPanel();
+	private JComboBox m_comboBoxInitialPositionCells;
+	private JPanel m_panelFormCells;
+	private JComboBox m_comboBoxFormCells;
+	private JPanel m_panelTypeOfSimulator;
+	private JButton m_buttonTypeOfSimulator;
+	private JPanel m_panelSimulationSpeed;
+	private JSlider m_sliderSpeedSimulation;
 	private InternalFrameSimulation1D m_internalFrameSimulation;
 	
 	/**Others */
@@ -1432,11 +1433,16 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Build Panel InitialPositionCells******/
 	private void buildPanelInitialPositionCells(){
+		m_panelInitialPositionCellsGroup.setLayout(new BorderLayout(0, 0));
+		m_panelInitialPositionCellsGroup.setBounds(0, 502, 180, 71);
+		m_panelInitialPositionCellsGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
+		
 		m_panelInitialPositionCells = new JPanel();//Create the panel InitialPositionCells
-		m_panelInitialPositionCells.setBounds(10, 600, 158, 71);
 		m_panelInitialPositionCells.setBorder(BorderFactory.createTitledBorder("Initial Position of Cells"));//Set a border for the panel InitialPositionCells
 		
 		buildComponentLateralToolsInitialPositionCells();//Create components of panel InitialPositionCells in the LateralTools
+	
+		m_panelInitialPositionCellsGroup.add(m_panelInitialPositionCells);
 	}
 	
 	//Components of Panel InitialPositionCells in LateralTools
@@ -1450,8 +1456,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		//Build Layout for InitialPositionCells in LateralTools
 		private void buildGroupLayoutComponentInitialPositionCells(){
-				m_panelInitialPositionCells.setLayout(null);
-				m_panelInitialPositionCells.add(m_comboBoxInitialPositionCells);
+			m_panelInitialPositionCells.setLayout(null);
+			m_panelInitialPositionCells.add(m_comboBoxInitialPositionCells);
 		}
 	
 	/******Build Panel FormCells******/
@@ -1541,7 +1547,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelPropertyOfSimulation);
 		m_panelLateralTools.add(m_panelSimulationColor);
 		m_panelLateralTools.add(m_panelAlgorithmGroup);
-		m_panelLateralTools.add(m_panelInitialPositionCells);
+		m_panelLateralTools.add(m_panelInitialPositionCellsGroup);
 		m_panelLateralTools.add(m_panelFormCells);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
 		m_panelLateralTools.add(m_panelSimulationSpeed);		
