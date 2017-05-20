@@ -1291,7 +1291,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Build Panel Property Of Simulation******/
 	private void buildPanelSimulationColor(){
 		m_panelSimulationColor.setLayout(new BorderLayout(0, 0));
-		m_panelSimulationColor.setBounds(0, 161, 180, 300);
+		m_panelSimulationColor.setBounds(0, 163, 180, 264);
 		m_panelSimulationColor.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
 		
 		JPanel panelSimulationColor = new JPanel();
