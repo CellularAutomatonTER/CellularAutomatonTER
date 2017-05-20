@@ -342,6 +342,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelInitialPositionCells;
 	private JPanel m_panelInitialPositionCellsGroup = new JPanel();
 	private JComboBox m_comboBoxInitialPositionCells;
+	private JPanel m_panelFormCellsGroup = new JPanel();
 	private JPanel m_panelFormCells;
 	private JComboBox m_comboBoxFormCells;
 	private JPanel m_panelTypeOfSimulator;
@@ -1430,7 +1431,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			m_panelAlgorithm.add(m_comboBoxAlgorithm);
 		}
 
-	
+	/******PANEL INITIALPOSITIONCELLS******/
 	/******Build Panel InitialPositionCells******/
 	private void buildPanelInitialPositionCells(){
 		m_panelInitialPositionCellsGroup.setLayout(new BorderLayout(0, 0));
@@ -1460,13 +1461,19 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			m_panelInitialPositionCells.add(m_comboBoxInitialPositionCells);
 		}
 	
+	/******PANEL FORMCELLS******/
 	/******Build Panel FormCells******/
 	private void buildPanelFormCells(){
+		m_panelFormCellsGroup.setLayout(new BorderLayout(0, 0));
+		m_panelFormCellsGroup.setBounds(0, 575, 180, 71);
+		m_panelFormCellsGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
+		
 		m_panelFormCells = new JPanel();//Create the panel FormCells
-		m_panelFormCells.setBounds(10, 689, 158, 71);
 		m_panelFormCells.setBorder(BorderFactory.createTitledBorder("Form of Cells"));//Set a border for the panel FormCells
 		
 		buildComponentLateralToolsFormCells();//Create components of panel FormCells in the LateralTools
+		
+		m_panelFormCellsGroup.add(m_panelFormCells);
 	}
 	
 	//Components of Panel FormCells in LateralTools
@@ -1548,7 +1555,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelSimulationColor);
 		m_panelLateralTools.add(m_panelAlgorithmGroup);
 		m_panelLateralTools.add(m_panelInitialPositionCellsGroup);
-		m_panelLateralTools.add(m_panelFormCells);
+		m_panelLateralTools.add(m_panelFormCellsGroup);
 		m_panelLateralTools.add(m_panelTypeOfSimulator);
 		m_panelLateralTools.add(m_panelSimulationSpeed);		
 	}
