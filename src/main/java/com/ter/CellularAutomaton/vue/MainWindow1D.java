@@ -1492,7 +1492,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		}
 	
 	
-	
+	/******PANEL TYPE OF SIMULATEUR******/
 	/******Build Panel TypeOfSimulator******/
 	private void buildPanelTypeOfSimulator(){
 		m_panelTypeOfSimulator = new JPanel();//Create the panel TypeOfSimulator
