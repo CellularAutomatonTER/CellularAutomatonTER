@@ -1381,7 +1381,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			buildComponentLateralToolsBackgroundColor();//Create components of panel BackgroundColor in the LateralTools
 		}
 	
-	//Components of Panel BackgroundColor in LateralTools
+		//Components of Panel BackgroundColor in LateralTools
 		//Build components for BackgroundColor in LateralTools
 		private void buildComponentLateralToolsBackgroundColor(){
 			m_buttonBackgroundColor = new JButton("Background Color");
@@ -1395,35 +1395,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			m_panelBackgroundColor.setLayout(new BorderLayout(0, 0));
 			m_panelBackgroundColor.add(m_buttonBackgroundColor, BorderLayout.CENTER);
 		}
-	
-	/******Build Panel Algorithm******/
-	private void buildPanelAlgorithm(){
-		m_panelAlgorithmGroup.setLayout(new BorderLayout(0, 0));
-		m_panelAlgorithmGroup.setBounds(0, 429, 180, 71);
-		m_panelAlgorithmGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
-		
-		m_panelAlgorithm = new JPanel();//Create the panel Algorithm
-		m_panelAlgorithm.setBorder(BorderFactory.createTitledBorder("Algorithm"));//Set a border for the panel Algorithm
-		
-		buildComponentLateralToolsAlgorithm();//Create components of panel Algorithm in the LateralTools
-		
-		m_panelAlgorithmGroup.add(m_panelAlgorithm);
-	}
-	
-	//Components of Panel Algorithm in LateralTools
-	//Build components for Algorithm in LateralTools
-	private void buildComponentLateralToolsAlgorithm(){
-		m_comboBoxAlgorithm = new JComboBox();
-		m_comboBoxAlgorithm.setBounds(16, 27, 143, 20);
-		
-		buildGroupLayoutComponentAlgorithm();//Build the grouplayout for the component Algorithm
-	}
-	
-	//Build Layout for Algorithm in LateralTools
-		private void buildGroupLayoutComponentAlgorithm(){
-			m_panelAlgorithm.setLayout(null);
-			m_panelAlgorithm.add(m_comboBoxAlgorithm);
-		}
+
 	
 	/******Build Panel InitialPositionCells******/
 	private void buildPanelInitialPositionCells(){
