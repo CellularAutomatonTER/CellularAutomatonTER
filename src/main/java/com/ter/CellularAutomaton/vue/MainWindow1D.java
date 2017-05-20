@@ -47,6 +47,7 @@ import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.SizeOfSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.StepOfLauncherStepByStepAdjustable1DEvent;
 import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
@@ -546,6 +547,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public int getm_stepOfLauncherStep() {
 		return m_stepOfLauncherStep;
 	}
+	
+	public JSlider getm_sliderStepOfLauncherStepByStepAdjustable() {
+		return m_sliderStepOfLauncherStepByStepAdjustable;
+	}
 
 	
 	/******SETTERS******/
@@ -590,8 +595,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.m_colorOfCells.set(index, newColor);
 	}
 	
-	public void setm_colorGrid(int stepOfLauncherStep) {
+	public void setm_stepOfLauncherStep(int stepOfLauncherStep) {
 		this.m_stepOfLauncherStep = stepOfLauncherStep;
+	}
+	
+	public void setm_sliderStepOfLauncherStepByStepAdjustable(JSlider sliderStepOfLauncherStepByStepAdjustable) {
+		this.m_sliderStepOfLauncherStepByStepAdjustable = sliderStepOfLauncherStepByStepAdjustable;
 	}
 	
 	
@@ -1652,12 +1661,19 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners Control Tools******/
 	private void addListenerControlTools(){
-		addListenerSlider();//add listener of Slider sliderSpeedSimulation
+		addListenerSliderSpeedSimulation();//add listener of Slider sliderSpeedSimulation
+		addListenerSliderStepOfLauncherStepByStepAdjustable();//add listener of Slider StepOfLauncherStepByStepAdjustable
 	}
 	
-	private void addListenerSlider(){
+	private void addListenerSliderSpeedSimulation(){
 		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
 	}
+	
+	private void addListenerSliderStepOfLauncherStepByStepAdjustable(){
+		m_sliderStepOfLauncherStepByStepAdjustable.addChangeListener(new StepOfLauncherStepByStepAdjustable1DEvent(this));
+	}
+	
+	
 	
 	
 	
