@@ -1171,7 +1171,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildPanelControlTools();//Build the panel in the ToolBar ControlTools
 	}
 	
-	
+	//build the Panel ControlTools
 	private void buildPanelControlTools(){
 		m_panelControlTools = new JPanel();//Creation of panel
 		m_toolBarControlTools.add(m_panelControlTools);//Add the panel to toolBar ControlTools
@@ -1182,6 +1182,36 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		m_panelControlTools.add(m_panelSimulationSpeed);
 	}
+	
+	/******PANEL SIMULATION SPEED******/
+	/******Build Panel SimulationSpeed******/
+	private void buildPanelSimulationSpeed(){
+		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
+		m_panelSimulationSpeed.setBounds(10, 995, 158, 55);
+		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
+		
+		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
+	}
+	
+		//Components of Panel SimulationSpeed in LateralTools
+		//Build components for SimulationSpeed in LateralTools
+		private void buildComponentSimulationSpeed(){ 
+			m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
+			m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
+			m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
+			m_sliderSpeedSimulation.setValue(30);//Set the value of slider to 30 by default
+			m_sliderSpeedSimulation.setPaintTicks(true);//Set the paint ticks of slider
+			m_sliderSpeedSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
+			m_sliderSpeedSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
+		
+			buildGroupLayoutComponentSimulationSpeed();//Build Layout for SimulationSpeed in LateralTools
+		}
+		
+		//Build Layout for SimulationSpeed in LateralTools
+		private void buildGroupLayoutComponentSimulationSpeed(){
+			m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
+			m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
+		}
 	
 	
 	/******Build DesktopPane******/
@@ -1523,35 +1553,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		private void buildGroupLayoutComponentTypeOfSimulator(){
 			m_panelTypeOfSimulator.setLayout(new BorderLayout(0, 0));
 			m_panelTypeOfSimulator.add(m_buttonTypeOfSimulator);
-		}
-	
-	/******Build Panel SimulationSpeed******/
-	private void buildPanelSimulationSpeed(){
-		m_panelSimulationSpeed = new JPanel();//Creation of panel for SimulationSpeed
-		m_panelSimulationSpeed.setBounds(10, 995, 158, 55);
-		m_panelSimulationSpeed.setBorder(BorderFactory.createTitledBorder("Simulation Speed"));//Set a border of JPanel
-		
-		buildComponentSimulationSpeed();//Set the component of Panel "Simulation Speed"
-	}
-	
-		//Components of Panel SimulationSpeed in LateralTools
-		//Build components for SimulationSpeed in LateralTools
-		private void buildComponentSimulationSpeed(){ 
-			m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
-			m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
-			m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
-			m_sliderSpeedSimulation.setValue(30);//Set the value of slider to 30 by default
-			m_sliderSpeedSimulation.setPaintTicks(true);//Set the paint ticks of slider
-			m_sliderSpeedSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
-			m_sliderSpeedSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
-		
-			buildGroupLayoutComponentSimulationSpeed();//Build Layout for SimulationSpeed in LateralTools
-		}
-		
-		//Build Layout for SimulationSpeed in LateralTools
-		private void buildGroupLayoutComponentSimulationSpeed(){
-			m_panelSimulationSpeed.setLayout(new BorderLayout(0, 0));
-			m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 		}
 	
 	
