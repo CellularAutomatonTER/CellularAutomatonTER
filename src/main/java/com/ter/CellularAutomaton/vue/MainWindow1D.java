@@ -1228,6 +1228,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLabelSpeed.setLayout(new BorderLayout(0, 0));
 		
 		m_labelIndicatorSpeed =new JLabel("30");
+		m_labelIndicatorSpeed.setToolTipText("Indicator of speed: 30");
 		m_panelLabelSpeed.add(m_labelIndicatorSpeed, BorderLayout.CENTER);
 		m_panelLabelSpeed.setBorder(BorderFactory.createRaisedBevelBorder());
 		m_panelLabelSpeedBox.add(horizontalStrut_1);
