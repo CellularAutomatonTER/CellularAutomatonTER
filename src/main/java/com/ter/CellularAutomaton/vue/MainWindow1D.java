@@ -1176,8 +1176,11 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelControlTools = new JPanel();//Creation of panel
 		m_toolBarControlTools.add(m_panelControlTools);//Add the panel to toolBar ControlTools
 		m_panelControlTools.setBorder(BorderFactory.createTitledBorder("Control tools"));
-		
 		m_panelControlTools.setLayout(new BoxLayout(m_panelControlTools, BoxLayout.X_AXIS));
+		
+		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
+		
+		m_panelControlTools.add(m_panelSimulationSpeed);
 	}
 	
 	
@@ -1232,8 +1235,6 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildPanelFormCells();//Create the panel "FormCells"
 		
 		buildPanelTypeOfSimulator();//Create the panel "TypeOfSimulator"
-		
-		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
 		
 		buildGroupLayoutPanelLateralTools();//Create the GroupLayout for the disposition of the panel "Lateral Tools"
 	}
@@ -1563,8 +1564,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_panelLateralTools.add(m_panelAlgorithmGroup);
 		m_panelLateralTools.add(m_panelInitialPositionCellsGroup);
 		m_panelLateralTools.add(m_panelFormCellsGroup);
-		m_panelLateralTools.add(m_panelTypeOfSimulatorGroup);
-		m_panelLateralTools.add(m_panelSimulationSpeed);		
+		m_panelLateralTools.add(m_panelTypeOfSimulatorGroup);		
 	}
 	
 	
