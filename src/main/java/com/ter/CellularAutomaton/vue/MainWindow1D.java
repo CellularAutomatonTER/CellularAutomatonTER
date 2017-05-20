@@ -1018,6 +1018,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_mainPanel.add(m_mainToolBar, BorderLayout.NORTH);
 		
 		m_panelTopTools = new JPanel();
+		m_panelTopTools.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
 		m_mainToolBar.add(m_panelTopTools);
 		
 		buildTypeCellularAutomaton();//Build the ToolBar of TypeCellularAutomaton
