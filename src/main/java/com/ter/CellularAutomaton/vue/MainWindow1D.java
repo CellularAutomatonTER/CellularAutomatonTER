@@ -1652,36 +1652,41 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	/******Listeners Control Tools******/
 	private void addListenerControlTools(){
-		addListenerSizeOfSimulation();
+		addListenerSlider();//add listener of Slider sliderSpeedSimulation
 	}
 	
-	private void addListenerSizeOfSimulation(){
-		m_buttonSizeOfSimulation.addActionListener(new SizeOfSimulation1DEvent(this));
+	private void addListenerSlider(){
+		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
 	}
 	
 	
 	
 	/******Listeners Lateral Tools******/
 	private void addListenerLateralTools(){
-		addListenerColorBackground();//add listener of Button Color Background
-		addListenerSlider();//add listener of Slider sliderSpeedSimulation
-		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
-		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
-		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
+		addListenerSizeOfSimulation();//add listener of Button SizeOfSimulation
 		addListenerRadioButtonGrid();//add listener of Radio Button Grid
 		addListenerColorGrid();//add listener of Button Color Grid
+		addListenerColorBackground();//add listener of Button Color Background
+		addListenerComboBoxInitialPositionCells();//add listener of ComboBox InitialPositionCells
+		addListenerComboBoxFormCells();//add listener of ComboBox FormCells
+		addListenerSwitchTo2D();//add listener of button TypeOfSimulator
+	}
+	
+	private void addListenerSizeOfSimulation(){
+		m_buttonSizeOfSimulation.addActionListener(new SizeOfSimulation1DEvent(this));
+	}
+	
+	private void addListenerRadioButtonGrid(){
+		m_radioButtonGridNo.addActionListener(new RadioButtonGridNoEvent(this));
+		m_radioButtonGridYes.addActionListener(new RadioButtonGridYesEvent(this));
+	}
+	
+	private void addListenerColorGrid(){
+		m_buttonColorGrid.addActionListener(new ChooseColorGridEvent(this));
 	}
 	
 	private void addListenerColorBackground(){
 		m_buttonBackgroundColor.addActionListener(new ChooseColorBackgroundEvent(this));
-	}
-	
-	private void addListenerSwitchTo2D(){
-		m_buttonTypeOfSimulator.addActionListener(new Switch1DTo2DSimulationEvent(this));
-	}
-	
-	private void addListenerSlider(){
-		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
 	}
 	
 	private void addListenerComboBoxInitialPositionCells(){
@@ -1692,13 +1697,8 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_comboBoxFormCells.addItemListener(new ComboBoxFormCellsEvent(this));
 	}
 	
-	private void addListenerRadioButtonGrid(){
-		m_radioButtonGridNo.addActionListener(new RadioButtonGridNoEvent(this));
-		m_radioButtonGridYes.addActionListener(new RadioButtonGridYesEvent(this));
-	}
-	
-	private void addListenerColorGrid(){
-		m_buttonColorGrid.addActionListener(new ChooseColorGridEvent(this));
+	private void addListenerSwitchTo2D(){
+		m_buttonTypeOfSimulator.addActionListener(new Switch1DTo2DSimulationEvent(this));
 	}
 	
 	
