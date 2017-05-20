@@ -324,12 +324,20 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JSlider m_sliderSpeedSimulation;
 	private final JPanel m_panelLabelSpeedGroup = new JPanel();
 	private final JPanel m_panelLabelSpeedBox = new JPanel();
-	private final Component verticalStrut = Box.createVerticalStrut(10);
+	private final Component verticalStrutLabelSpeed = Box.createVerticalStrut(10);
 	private final JPanel m_panelLabelSpeed = new JPanel();
-	private final Component horizontalStrut_1 = Box.createHorizontalStrut(5);
+	private final Component horizontalStrutLabelSpeed = Box.createHorizontalStrut(5);
 	private JLabel m_labelIndicatorSpeed;
 	private JPanel m_panelStepOfLauncherStepByStepAdjustable;
 	private JSlider m_sliderStepOfLauncherStepByStepAdjustable;
+	
+	private final JPanel m_panelLabelLauncherStepByStepAdjustableGroup = new JPanel();
+	private final JPanel m_panelLabelLauncherStepByStepAdjustableBox = new JPanel();
+	private final Component verticalStrutLabelLauncherStepByStepAdjustable = Box.createVerticalStrut(10);
+	private final JPanel m_panelLabelLauncherStepByStepAdjustable = new JPanel();
+	private final Component horizontalStrutLabelLauncherStepByStepAdjustable = Box.createHorizontalStrut(5);
+	private JLabel m_labelIndicatorLauncherStepByStepAdjustable;
+	
 	private JButton m_buttonBorderCondition;
 	private JDesktopPane m_mainDesktopPane;
 	private JScrollPane m_scrollPaneLateralTools;
@@ -1209,8 +1217,17 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		
 		buildPanelStepOfLauncherStepByStepAdjustable();//Create the panel "StepOfLauncherStepByStepAdjustable"
 		
+		buildIndicatorSpeed();//Build indicator of speed simulation
+		
+		buildIndicatorStepOfLauncherStepByStepAdjustable();//Build indicator step of launcher step by step adjustable
+		
 		m_panelControlTools.add(m_panelSimulationSpeed);
 		
+		m_panelControlTools.add(m_panelStepOfLauncherStepByStepAdjustable);
+	}
+	
+	//Build indicator of speed simulation
+	private void buildIndicatorSpeed(){
 		m_panelSimulationSpeed.add(m_panelLabelSpeedGroup, BorderLayout.EAST);
 		m_panelLabelSpeedGroup.setLayout(new BoxLayout(m_panelLabelSpeedGroup, BoxLayout.Y_AXIS));
 		
@@ -1231,13 +1248,37 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_labelIndicatorSpeed.setToolTipText("Indicator of speed: 30");
 		m_panelLabelSpeed.add(m_labelIndicatorSpeed, BorderLayout.CENTER);
 		m_panelLabelSpeed.setBorder(BorderFactory.createRaisedBevelBorder());
-		m_panelLabelSpeedBox.add(horizontalStrut_1);
+		m_panelLabelSpeedBox.add(horizontalStrutLabelSpeed);
 		
-		m_panelLabelSpeedGroup.add(verticalStrut);
-		
-		
-		m_panelControlTools.add(m_panelStepOfLauncherStepByStepAdjustable);
+		m_panelLabelSpeedGroup.add(verticalStrutLabelSpeed);
 	}
+	
+	//Build indicator of step of launcher step by step adjustable
+		private void buildIndicatorStepOfLauncherStepByStepAdjustable(){
+			m_panelStepOfLauncherStepByStepAdjustable.add(m_panelLabelLauncherStepByStepAdjustableGroup, BorderLayout.EAST);
+			m_panelLabelLauncherStepByStepAdjustableGroup.setLayout(new BoxLayout(m_panelLabelLauncherStepByStepAdjustableGroup, BoxLayout.Y_AXIS));
+			
+			m_panelLabelLauncherStepByStepAdjustableGroup.add(m_panelLabelLauncherStepByStepAdjustableBox);
+			m_panelLabelLauncherStepByStepAdjustableBox.setLayout(new BoxLayout(m_panelLabelLauncherStepByStepAdjustableBox, BoxLayout.X_AXIS));
+			
+			JSeparator separator = new JSeparator();
+			separator.setOrientation(SwingConstants.VERTICAL);
+			m_panelLabelLauncherStepByStepAdjustableBox.add(separator);
+			
+			Component horizontalStrut = Box.createHorizontalStrut(5);
+			m_panelLabelLauncherStepByStepAdjustableBox.add(horizontalStrut);
+			
+			m_panelLabelLauncherStepByStepAdjustableBox.add(m_panelLabelLauncherStepByStepAdjustable);
+			m_panelLabelLauncherStepByStepAdjustable.setLayout(new BorderLayout(0, 0));
+			
+			m_labelIndicatorLauncherStepByStepAdjustable =new JLabel("10");
+			m_labelIndicatorLauncherStepByStepAdjustable.setToolTipText("Indicator of step of launcher step by step adjustable: 10");
+			m_panelLabelLauncherStepByStepAdjustable.add(m_labelIndicatorLauncherStepByStepAdjustable, BorderLayout.CENTER);
+			m_panelLabelLauncherStepByStepAdjustable.setBorder(BorderFactory.createRaisedBevelBorder());
+			m_panelLabelLauncherStepByStepAdjustableBox.add(horizontalStrutLabelLauncherStepByStepAdjustable);
+			
+			m_panelLabelLauncherStepByStepAdjustableGroup.add(verticalStrutLabelLauncherStepByStepAdjustable);
+		}
 	
 	/******PANEL SIMULATION SPEED******/
 	/******Build Panel SimulationSpeed******/
