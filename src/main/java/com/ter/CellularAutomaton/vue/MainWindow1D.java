@@ -1243,7 +1243,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 				m_sliderStepOfLauncherStepByStepAdjustable = new JSlider();//Creation of Slider for panel "Step Of Launcher Step By Step Adjustable"
 				m_sliderStepOfLauncherStepByStepAdjustable.setMinimum(1);//Set the minimum value of slider
 				m_sliderStepOfLauncherStepByStepAdjustable.setMaximum(100);//Set the maximum value of slider
-				m_sliderStepOfLauncherStepByStepAdjustable.setValue(30);//Set the value of slider to 30 by default
+				m_sliderStepOfLauncherStepByStepAdjustable.setValue(10);//Set the value of slider to 30 by default
 				m_sliderStepOfLauncherStepByStepAdjustable.setPaintTicks(true);//Set the paint ticks of slider
 				m_sliderStepOfLauncherStepByStepAdjustable.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
 				m_sliderStepOfLauncherStepByStepAdjustable.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
