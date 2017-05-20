@@ -54,6 +54,7 @@ import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 import com.ter.CellularAutomaton.controller.InitializeSimulation1DOneCell;
+import com.ter.CellularAutomaton.controller.LaunchByStepAdjustableSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.LaunchByStepSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.MenubarNonUniformRulesElementary1DEvent;
 import com.ter.CellularAutomaton.controller.MenubarRulesElementary1DEvent;
@@ -1633,6 +1634,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.addListenerLaucher();//add listener of button Launcher
 		this.addListenerPause();//add listener of button Pause
 		addListenerSkipByStep();//add listener of button Launch By Step
+		addListenerSkipByStepAdjustable();//add listener of button Launch By Step Adjustable
 		this.addListenerErase();//add listener of button Erase
 		this.addListenerRefresh();//add listener of button Refresh
 	}
@@ -1647,6 +1649,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	private void addListenerSkipByStep(){
 		m_buttonSkipByStep.addActionListener(new LaunchByStepSimulation1DEvent(this));
+	}
+	
+	private void addListenerSkipByStepAdjustable(){
+		m_buttonSkipByStepAdjustable.addActionListener(new LaunchByStepAdjustableSimulation1DEvent(this));
 	}
 	
 	private void addListenerErase(){
