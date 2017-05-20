@@ -559,16 +559,20 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		return m_colorOfCells;
 	}
 	
+	public JLabel getm_labelIndicatorSpeed() {
+		return m_labelIndicatorSpeed;
+	}
+	
+	public JLabel getm_labelIndicatorLauncherStepByStepAdjustable() {
+		return m_labelIndicatorLauncherStepByStepAdjustable;
+	}
+	
 	public int getm_stepOfLauncherStep() {
 		return m_stepOfLauncherStep;
 	}
 	
 	public JSlider getm_sliderStepOfLauncherStepByStepAdjustable() {
 		return m_sliderStepOfLauncherStepByStepAdjustable;
-	}
-	
-	public JLabel getm_labelIndicatorSpeed() {
-		return m_labelIndicatorSpeed;
 	}
 
 	
