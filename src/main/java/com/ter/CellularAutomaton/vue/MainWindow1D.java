@@ -1252,6 +1252,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		//Build components for SimulationSpeed in LateralTools
 		private void buildComponentSimulationSpeed(){ 
 			m_sliderSpeedSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
+			m_sliderSpeedSimulation.setToolTipText("Speed of simulation");//Set a ToolTipText on m_sliderSpeedSimulation
 			m_sliderSpeedSimulation.setMinimum(1);//Set the minimum value of slider
 			m_sliderSpeedSimulation.setMaximum(100);//Set the maximum value of slider
 			m_sliderSpeedSimulation.setValue(30);//Set the value of slider to 30 by default
@@ -1278,10 +1279,11 @@ public class MainWindow1D extends JFrame implements WindowListener {
 			buildComponentStepOfLauncherStepByStepAdjustable();//Set the component of Panel "Step Of Launcher Step By Step Adjustable"
 		}
 		
-			//Components of Panel SimulationSpeed in LateralTools
-			//Build components for SimulationSpeed in LateralTools
+			//Components of Panel Launcher step by step adjustable in LateralTools
+			//Build components for Launcher step by step adjustable in LateralTools
 			private void buildComponentStepOfLauncherStepByStepAdjustable(){ 
 				m_sliderStepOfLauncherStepByStepAdjustable = new JSlider();//Creation of Slider for panel "Step Of Launcher Step By Step Adjustable"
+				m_sliderStepOfLauncherStepByStepAdjustable.setToolTipText("Step of launcher step by step adjustable");//Set a ToolTipText on m_sliderStepOfLauncherStepByStepAdjustable
 				m_sliderStepOfLauncherStepByStepAdjustable.setMinimum(1);//Set the minimum value of slider
 				m_sliderStepOfLauncherStepByStepAdjustable.setMaximum(100);//Set the maximum value of slider
 				m_sliderStepOfLauncherStepByStepAdjustable.setValue(10);//Set the value of slider to 30 by default
