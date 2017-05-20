@@ -1497,7 +1497,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	/******Build Panel TypeOfSimulator******/
 	private void buildPanelTypeOfSimulator(){
 		m_panelTypeOfSimulatorGroup.setLayout(new BorderLayout(0, 0));
-		m_panelTypeOfSimulatorGroup.setBounds(0, 0, 180, 161);
+		m_panelTypeOfSimulatorGroup.setBounds(0, 648, 180, 55);
 		m_panelTypeOfSimulatorGroup.setBorder(BorderFactory.createRaisedBevelBorder());//Set a border of JPanel
 		
 		m_panelTypeOfSimulator = new JPanel();
