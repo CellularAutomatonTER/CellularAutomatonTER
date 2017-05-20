@@ -322,6 +322,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JPanel m_panelControlTools;
 	private JPanel m_panelSimulationSpeed;
 	private JSlider m_sliderSpeedSimulation;
+	private final JPanel m_panelLabelSpeedGroup = new JPanel();
+	private final JPanel m_panelLabelSpeedBox = new JPanel();
+	private final Component verticalStrut = Box.createVerticalStrut(10);
+	private final JPanel m_panelLabelSpeed = new JPanel();
+	private final Component horizontalStrut_1 = Box.createHorizontalStrut(5);
+	private JLabel m_labelIndicatorSpeed;
 	private JPanel m_panelStepOfLauncherStepByStepAdjustable;
 	private JSlider m_sliderStepOfLauncherStepByStepAdjustable;
 	private JButton m_buttonBorderCondition;
@@ -552,6 +558,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	public JSlider getm_sliderStepOfLauncherStepByStepAdjustable() {
 		return m_sliderStepOfLauncherStepByStepAdjustable;
 	}
+	
+	public JLabel getm_labelIndicatorSpeed() {
+		return m_labelIndicatorSpeed;
+	}
 
 	
 	/******SETTERS******/
@@ -602,6 +612,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	
 	public void setm_sliderStepOfLauncherStepByStepAdjustable(JSlider sliderStepOfLauncherStepByStepAdjustable) {
 		this.m_sliderStepOfLauncherStepByStepAdjustable = sliderStepOfLauncherStepByStepAdjustable;
+	}
+	
+	public void setm_labelIndicatorSpeed(JLabel labelIndicatorSpeed) {
+		this.m_labelIndicatorSpeed = labelIndicatorSpeed;
 	}
 	
 	
@@ -1196,6 +1210,31 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		buildPanelStepOfLauncherStepByStepAdjustable();//Create the panel "StepOfLauncherStepByStepAdjustable"
 		
 		m_panelControlTools.add(m_panelSimulationSpeed);
+		
+		m_panelSimulationSpeed.add(m_panelLabelSpeedGroup, BorderLayout.EAST);
+		m_panelLabelSpeedGroup.setLayout(new BoxLayout(m_panelLabelSpeedGroup, BoxLayout.Y_AXIS));
+		
+		m_panelLabelSpeedGroup.add(m_panelLabelSpeedBox);
+		m_panelLabelSpeedBox.setLayout(new BoxLayout(m_panelLabelSpeedBox, BoxLayout.X_AXIS));
+		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		m_panelLabelSpeedBox.add(separator);
+		
+		Component horizontalStrut = Box.createHorizontalStrut(5);
+		m_panelLabelSpeedBox.add(horizontalStrut);
+		
+		m_panelLabelSpeedBox.add(m_panelLabelSpeed);
+		m_panelLabelSpeed.setLayout(new BorderLayout(0, 0));
+		
+		m_labelIndicatorSpeed =new JLabel("30");
+		m_panelLabelSpeed.add(m_labelIndicatorSpeed, BorderLayout.CENTER);
+		m_panelLabelSpeed.setBorder(BorderFactory.createRaisedBevelBorder());
+		m_panelLabelSpeedBox.add(horizontalStrut_1);
+		
+		m_panelLabelSpeedGroup.add(verticalStrut);
+		
+		
 		m_panelControlTools.add(m_panelStepOfLauncherStepByStepAdjustable);
 	}
 	
