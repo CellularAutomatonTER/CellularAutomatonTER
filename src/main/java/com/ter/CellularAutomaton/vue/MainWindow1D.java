@@ -419,7 +419,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
-		m_stepOfLauncherStep = 1;
+		m_stepOfLauncherStep = 10;
 		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
 		this.runSimulation();//run simulation
@@ -463,7 +463,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
-		m_stepOfLauncherStep = 1;
+		m_stepOfLauncherStep = 10;
 		
 		this.addWindowListener(this);//Add WindowListener on MainWindow
 		
