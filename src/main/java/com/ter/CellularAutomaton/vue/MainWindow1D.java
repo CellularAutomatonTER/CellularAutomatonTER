@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -39,11 +40,14 @@ import com.ter.CellularAutomaton.controller.New1DEvent;
 import com.ter.CellularAutomaton.controller.NonUniformCellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.OpenFileEvent;
 import com.ter.CellularAutomaton.controller.PauseSimulation1DEvent;
+import com.ter.CellularAutomaton.controller.PrintUISimulatorWindow1DEvent;
+import com.ter.CellularAutomaton.controller.PrintUIWindow1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RadioButtonGridNoEvent;
 import com.ter.CellularAutomaton.controller.RadioButtonGridYesEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.RunApplication1D;
+import com.ter.CellularAutomaton.controller.SaveAs1DEvent;
 import com.ter.CellularAutomaton.controller.SizeOfSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
@@ -67,7 +71,7 @@ import java.awt.Component;
 /**
  * The Class MainWindow1D.
  */
-public class MainWindow1D extends JFrame implements WindowListener {
+public class MainWindow1D extends JFrame implements WindowListener, Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -122,7 +126,13 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	private JMenuItem m_menuBarFileItemSaveAs = new JMenuItem("Save As");
 
 	/** The menu bar file item Print. */
-	private JMenuItem m_menuBarFileItemPrint = new JMenuItem("Print");
+	private JMenu m_menuBarFileItemPrint = new JMenu("Print");
+	
+	/** The menu bar file item Print All window. */
+	private JMenuItem m_menuBarFileItemPrintChoicePrintAllWindow = new JMenuItem("Print all window");
+	
+	/** The menu bar file item Print simulator window. */
+	private JMenuItem m_menuBarFileItemPrintChoicePrintSimulatorWindow = new JMenuItem("Print simulator window");
 	
 	/** The menu bar file item Export. */
 	private JMenu m_menuBarFileItemExport = new JMenu("Export As");
@@ -393,12 +403,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 		//We initialize our menuBar 
 		this.initMenuBar();
-
-		//add listeners MenuBar
-		this.addListenerMenuBar();
 		
 		//Build the component of the window
 		this.buildComponentWindow();
+		
+		//add listeners MenuBar
+		this.addListenerMenuBar();
 		
 		//add listeners TypeCellularAutomatonTools
 		addListenerTypeCellularAutomatonTools();
@@ -437,12 +447,12 @@ public class MainWindow1D extends JFrame implements WindowListener {
 
 		//We initialize our menuBar 
 		this.initMenuBar();
-
-		//add listeners MenuBar
-		this.addListenerMenuBar();
 		
 		//Build the component of the window
 		this.buildComponentWindow();
+		
+		//add listeners MenuBar
+		this.addListenerMenuBar();
 		
 		//add listeners TypeCellularAutomatonTools
 		addListenerTypeCellularAutomatonTools();
@@ -731,7 +741,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.m_menuFile.add(m_menuBarFileItemSave);//Adding a tab "Save" in tab File in MenuBar
 		this.m_menuFile.add(m_menuBarFileItemSaveAs);//Adding a tab "Save As" in tab File in MenuBar
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
-		this.m_menuFile.add(m_menuBarFileItemPrint);//Adding a tab "Print" in tab File in MenuBar
+		constructTabPrint();//Adding a tab "Print" in tab File in MenuBar 
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
 		constructTabExportAs();
 		constructTabExportScreenshotAs();
@@ -741,6 +751,26 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		this.m_menuFile.addSeparator();//Adding a separator in tab File of the MenuBar
 		this.m_menuFile.add(m_menuBarFileItemQuit);//Adding a tab "Quit" in tab File in MenuBar
 		this.m_menuBar.add(m_menuFile);//the File tab is added to MenuBar
+	}
+	
+	/**
+	 * Construct tab in tab ExportAs in tab File.
+	 */
+	private void constructTabPrint(){
+		//Build tab Print in tab File.
+		constructSubTabInTabPrint();//Build Sub-group of tabs in tab Print in tab File.
+		this.m_menuFile.add(m_menuBarFileItemPrint);//Adding a tab "Print" in tab File in MenuBar
+	}
+	
+	/**
+	 * Construct sub tab in tab Print in tab File.
+	 */
+	private void constructSubTabInTabPrint(){
+		//Sub-group of tab in tab Print in tab File.
+		this.m_menuBarFileItemPrint.add(m_menuBarFileItemPrintChoicePrintAllWindow);//Adding a tab "Print All Window" in tab File in MenuBar
+		this.m_menuBarFileItemPrint.addSeparator();//Adding a separator in sub-group of tab in tab Print in tab File of the MenuBar
+		this.m_menuBarFileItemPrint.add(m_menuBarFileItemPrintChoicePrintSimulatorWindow);//Adding a tab "Print simulator Window" in tab File in MenuBar
+		
 	}
 	
 	
@@ -956,6 +986,7 @@ public class MainWindow1D extends JFrame implements WindowListener {
 		//add all the accelerators for the items of tab File
 		m_menuBarFileItemNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK)); //add accelerators of New in tab File
 		m_menuBarFileItemOpenFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK)); //add accelerators of Open File in tab File
+		m_menuBarFileItemPrintChoicePrintAllWindow.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_MASK)); //add accelerators of print in tab File
 		m_menuBarFileItemExportChoicePNG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export PNG" in tab File
 		m_menuBarFileItemExportChoiceJPG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export JPG" in tab File
 		m_menuBarFileItemExportChoiceGIF.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)); //add accelerators of "Export GIF" in tab File
@@ -1004,7 +1035,10 @@ public class MainWindow1D extends JFrame implements WindowListener {
 	//Listener of tab File
 	private void addListenerFile (){
 		m_menuBarFileItemNew.addActionListener(new New1DEvent());//Add ActionListener on tab "New" in tab "File"
-		m_menuBarFileItemOpenFile.addActionListener(new OpenFileEvent());//Add ActionListener on tab "Open File" in tab "File"
+		m_menuBarFileItemOpenFile.addActionListener(new OpenFileEvent(this));//Add ActionListener on tab "Open File" in tab "File"
+		m_menuBarFileItemSaveAs.addActionListener(new SaveAs1DEvent(this));//Add ActionListener on tab "Save As" in tab "File"
+		m_menuBarFileItemPrintChoicePrintAllWindow.addActionListener(new PrintUIWindow1DEvent(this));//Add ActionListener on tab "Print" in tab "File"
+		m_menuBarFileItemPrintChoicePrintSimulatorWindow.addActionListener(new PrintUISimulatorWindow1DEvent(this));//Add ActionListener on tab "Print" in tab "File"
 		m_menuBarFileItemExportChoicePNG.addActionListener(new ExportPNGFormat1DEvent(this));//Add ActionListener on tab "PNG" of the tab "Export As" in tab "File"
 		m_menuBarFileItemExportChoiceJPG.addActionListener(new ExportJPGFormat1DEvent(this));//Add ActionListener on tab "JPG" of the tab "Export As" in tab "File"
 		m_menuBarFileItemExportChoiceGIF.addActionListener(new ExportGIFFormat1DEvent(this));//Add ActionListener on tab "GIF" of the tab "Export As" in tab "File"

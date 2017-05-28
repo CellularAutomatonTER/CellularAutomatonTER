@@ -2,6 +2,7 @@ package com.ter.CellularAutomaton.vue;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
@@ -10,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import com.ter.CellularAutomaton.controller.Cell1D;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
 
-public class Simulation1D {
+public class Simulation1D implements Serializable {
 
 	/******ATTRIBUTES******/
 	// For the logging.
