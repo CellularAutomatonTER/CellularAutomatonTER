@@ -60,7 +60,6 @@ import com.ter.CellularAutomaton.vue.InternalFrameSimulation1D;
 import com.ter.CellularAutomaton.vue.RectangleForm1D;
 import java.awt.Component;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class MainWindow1D.
