@@ -5,7 +5,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -16,9 +15,6 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 import com.ter.CellularAutomaton.controller.CellularAutomatonSetting1DEvent;
 import com.ter.CellularAutomaton.controller.ChooseColorBackgroundEvent;
 import com.ter.CellularAutomaton.controller.ChooseColorGridEvent;
@@ -46,13 +42,11 @@ import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.RadioButtonGridNoEvent;
 import com.ter.CellularAutomaton.controller.RadioButtonGridYesEvent;
 import com.ter.CellularAutomaton.controller.RefreshSimulation1DEvent;
-import com.ter.CellularAutomaton.controller.RunApplication1D;
 import com.ter.CellularAutomaton.controller.SaveAs1DEvent;
 import com.ter.CellularAutomaton.controller.SizeOfSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StepOfLauncherStepByStepAdjustable1DEvent;
-import com.ter.CellularAutomaton.controller.StopSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.IForm;
@@ -111,83 +105,83 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 
 	/** The menu bar file item 1. */
 	// In file menu
-	private JMenuItem m_menuBarFileItemNew = new JMenuItem("New");
+	private JMenuItem m_menuBarFileItemNew = new JMenuItem("New", new ImageIcon("Files/Images/Icons/File_Menu/New_Simulation.png"));
 
 	/** The menu bar file item 2. */
-	private JMenuItem m_menuBarFileItemOpenFile = new JMenuItem("Open File");
+	private JMenuItem m_menuBarFileItemOpenFile = new JMenuItem("Open File", new ImageIcon("Files/Images/Icons/File_Menu/Open.png"));
 
 	/** The menu bar file item Recent File. */
 	private JMenuItem m_menuBarFileItemRecentFile = new JMenuItem("Recent File");
 
 	/** The menu bar file item 4. */
-	private JMenuItem m_menuBarFileItemSave = new JMenuItem("Save");
+	private JMenuItem m_menuBarFileItemSave = new JMenuItem("Save", new ImageIcon("Files/Images/Icons/File_Menu/Save.png"));
 
 	/** The menu bar file item 5. */
-	private JMenuItem m_menuBarFileItemSaveAs = new JMenuItem("Save As");
+	private JMenuItem m_menuBarFileItemSaveAs = new JMenuItem("Save As", new ImageIcon("Files/Images/Icons/File_Menu/Save_As.png"));
 
 	/** The menu bar file item Print. */
 	private JMenu m_menuBarFileItemPrint = new JMenu("Print");
 	
 	/** The menu bar file item Print All window. */
-	private JMenuItem m_menuBarFileItemPrintChoicePrintAllWindow = new JMenuItem("Print all window");
+	private JMenuItem m_menuBarFileItemPrintChoicePrintAllWindow = new JMenuItem("Print all window", new ImageIcon("Files/Images/Icons/File_Menu/Print.png"));
 	
 	/** The menu bar file item Print simulator window. */
-	private JMenuItem m_menuBarFileItemPrintChoicePrintSimulatorWindow = new JMenuItem("Print simulator window");
+	private JMenuItem m_menuBarFileItemPrintChoicePrintSimulatorWindow = new JMenuItem("Print simulator window", new ImageIcon("Files/Images/Icons/File_Menu/Print.png"));
 	
 	/** The menu bar file item Export. */
 	private JMenu m_menuBarFileItemExport = new JMenu("Export As");
 	
 	/** The menu bar file item Export As choice PNG. */
-	private JMenuItem m_menuBarFileItemExportChoicePNG = new JMenuItem("PNG");
+	private JMenuItem m_menuBarFileItemExportChoicePNG = new JMenuItem("PNG", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export As choice JPG. */
-	private JMenuItem m_menuBarFileItemExportChoiceJPG = new JMenuItem("JPG");
+	private JMenuItem m_menuBarFileItemExportChoiceJPG = new JMenuItem("JPG", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export As choice GIF. */
-	private JMenuItem m_menuBarFileItemExportChoiceGIF = new JMenuItem("GIF");
-	
+	private JMenuItem m_menuBarFileItemExportChoiceGIF = new JMenuItem("GIF", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
+
 	/** The menu bar file item Export As choice Others Formats. */
-	private JMenuItem m_menuBarFileItemExportChoiceOthersFormats = new JMenuItem("Others Formats");
+	private JMenuItem m_menuBarFileItemExportChoiceOthersFormats = new JMenuItem("Others Formats", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export Screenshot As. */
 	private JMenu m_menuBarFileItemScreenshot = new JMenu("Export Screenshot As");
 	
 	/** The menu bar file item Export Screenshot As choice PNG. */
-	private JMenuItem m_menuBarFileItemScreenshotChoicePNG = new JMenuItem("PNG");
+	private JMenuItem m_menuBarFileItemScreenshotChoicePNG = new JMenuItem("PNG", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export Screenshot As choice JPG. */
-	private JMenuItem m_menuBarFileItemScreenshotChoiceJPG = new JMenuItem("JPG");
+	private JMenuItem m_menuBarFileItemScreenshotChoiceJPG = new JMenuItem("JPG", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export Screenshot As choice GIF. */
-	private JMenuItem m_menuBarFileItemScreenshotChoiceGIF = new JMenuItem("GIF");
+	private JMenuItem m_menuBarFileItemScreenshotChoiceGIF = new JMenuItem("GIF", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 	
 	/** The menu bar file item Export Screenshot As choice Others Formats. */
-	private JMenuItem m_menuBarFileItemScreenshotChoiceOthersFormats = new JMenuItem("Others Formats");
+	private JMenuItem m_menuBarFileItemScreenshotChoiceOthersFormats = new JMenuItem("Others Formats", new ImageIcon("Files/Images/Icons/File_Menu/Export.png"));
 
 	/** The menu bar file item Close. */
-	private JMenuItem m_menuBarFileItemClose = new JMenuItem("Close");
+	private JMenuItem m_menuBarFileItemClose = new JMenuItem("Close", new ImageIcon("Files/Images/Icons/File_Menu/Close.png"));
 
 	/** The menu bar file item Close All. */
-	private JMenuItem m_menuBarFileItemCloseAll = new JMenuItem("Close All");
+	private JMenuItem m_menuBarFileItemCloseAll = new JMenuItem("Close All", new ImageIcon("Files/Images/Icons/File_Menu/Close.png"));
 
 	/** The menu bar file item Quit. */
 	private JMenuItem m_menuBarFileItemQuit = new JMenuItem("Quit");
 
 	/** The menu bar edit item 1. */
 	// In edit menu
-	private JMenuItem m_menuBarEditItem1 = new JMenuItem("Undo");
+	private JMenuItem m_menuBarEditItem1 = new JMenuItem("Undo", new ImageIcon("Files/Images/Icons/Edit_Menu/Undo.png"));
 
 	/** The menu bar edit item 2. */
-	private JMenuItem m_menuBarEditItem2 = new JMenuItem("Redo");
+	private JMenuItem m_menuBarEditItem2 = new JMenuItem("Redo", new ImageIcon("Files/Images/Icons/Edit_Menu/Redo.png"));
 
 	/** The menu bar edit item 3. */
-	private JMenuItem m_menuBarEditItem3 = new JMenuItem("Cut");
+	private JMenuItem m_menuBarEditItem3 = new JMenuItem("Cut", new ImageIcon("Files/Images/Icons/Edit_Menu/Cut.png"));
 
 	/** The menu bar edit item 4. */
-	private JMenuItem m_menuBarEditItem4 = new JMenuItem("Copy");
+	private JMenuItem m_menuBarEditItem4 = new JMenuItem("Copy", new ImageIcon("Files/Images/Icons/Edit_Menu/Copy.png"));
 
 	/** The menu bar edit item 5. */
-	private JMenuItem m_menuBarEditItem5 = new JMenuItem("Paste");
+	private JMenuItem m_menuBarEditItem5 = new JMenuItem("Paste", new ImageIcon("Files/Images/Icons/Edit_Menu/Paste.png"));
 
 	/** The menu bar edit item 6. */
 	private JMenuItem m_menuBarEditItem6 = new JMenuItem("Select all");
@@ -226,13 +220,13 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 
 	/** The menu bar run item 1. */
 	// In run menu
-	private JMenuItem m_menuBarRunItem1 = new JMenuItem("Run Current Simulation");
+	private JMenuItem m_menuBarRunItem1 = new JMenuItem("Run Current Simulation", new ImageIcon("Files/Images/Icons/Run_Menu/Run.png"));
 
 	/** The menu bar run item 2. */
 	private JMenu m_menuBarRunItem2 = new JMenu("Run Specific Screen");
 
 	/** The menu bar run item 3. */
-	private JMenuItem m_menuBarRunItem3 = new JMenuItem("Run External Simulation");
+	private JMenuItem m_menuBarRunItem3 = new JMenuItem("Run External Simulation", new ImageIcon("Files/Images/Icons/Run_Menu/Run.png"));
 
 	/** The menu bar option item 1. */
 	// In option menu
@@ -256,10 +250,10 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 
 	/** The menu bar help item 1. */
 	// In help menu
-	private JMenuItem m_menuBarHelpItem1 = new JMenuItem("Help Contents");
+	private JMenuItem m_menuBarHelpItem1 = new JMenuItem("Help Contents", new ImageIcon("Files/Images/Icons/Help_Menu/Help.png"));
 
 	/** The menu bar help item 2. */
-	private JMenuItem m_menuBarHelpItem2 = new JMenuItem("Credits");
+	private JMenuItem m_menuBarHelpItem2 = new JMenuItem("Credits", new ImageIcon("Files/Images/Favicon/small_penrosecolor.png"));
 
 	/** The run item 2 choice 1. */
 	// In tab run
