@@ -418,7 +418,7 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		//Set the window visible
 		this.setVisible(true);
 		
-		m_colorGrid = Color.RED;
+		m_colorGrid = new Color(70, 70, 80);
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
@@ -462,7 +462,7 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		//Set the window visible
 		this.setVisible(true);
 		
-		m_colorGrid = Color.RED;
+		m_colorGrid = new Color(70, 70, 80);
 		m_simulationState = SimulationState.PAUSE;
 		m_isRun = true;
 		m_gridSimulation = false;
