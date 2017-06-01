@@ -14,6 +14,11 @@ import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.vue.Simulation1D;
 
 public class Cell1D implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static int CELL_SIZE = 10;
 
 	/******ATTRIBUTES******/
