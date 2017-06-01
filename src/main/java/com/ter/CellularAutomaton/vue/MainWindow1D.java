@@ -1021,7 +1021,8 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 	private void addListenerMenuBar (){
 		this.addListenerFile(); //add listener of tab File
 		this.addListenerRules(); //add listener of tab Rules
-;		this.addListenerNonUniformRules(); //add listener of tab Non Uniform Rules
+		this.addListenerNonUniformRules(); //add listener of tab Non Uniform Rules
+		this.addListenerRun(); //add listener of tab Run
 		this.addListenerHelp(); //add listener of tab Help
 	}
 
@@ -1054,6 +1055,11 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 	private void addListenerNonUniformRules (){
 		m_menuBarNonUniformRulesItem1.addActionListener(new MenubarNonUniformRulesElementary1DEvent(this));//Add ActionListener on tab "Elementary" in tab "Non Uniform Rules"
 	}
+	
+	//Listener of tab Run
+		private void addListenerRun (){
+			m_menuBarRunItem1.addActionListener(new StartSimulation1DEvent(this));//Add ActionListener on tab "Run current simulation" in tab "Run"
+		}
 
 	//Listener of tab Help
 	private void addListenerHelp (){
