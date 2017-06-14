@@ -68,7 +68,7 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		m_scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);// Force the scrollbars to always be displayed
 		m_scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);// Force the scrollbars to always be displayed
 		getContentPane().add(m_scrollPane, BorderLayout.CENTER);
-		
+		m_scrollPane.updateUI();
 		m_backgroundColor=backgroundColor;
 		this.setBackground(m_backgroundColor);
 		
@@ -163,7 +163,12 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 			if(m_mainWindow1D.getm_simulationState() == SimulationState.RUN){
 				m_simulation.update();//Simulation update
 			}
-
+			
+			//The size of scrollbar update when the size of screen grows
+			m_scrollPane.setViewportView(m_screen);  
+			m_scrollPane.revalidate();  
+			m_scrollPane.repaint();
+			
 			m_screen.repaint();
 			long diff = m_millis - (System.currentTimeMillis() - before);
 
