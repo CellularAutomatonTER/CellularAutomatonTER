@@ -10,7 +10,7 @@ import java.awt.event.MouseWheelListener;
 import javax.swing.JLabel;
 import com.ter.CellularAutomaton.controller.Cell1D;
 
-public class Screen extends JLabel implements MouseMotionListener, MouseListener, MouseWheelListener {
+public class Screen extends JLabel implements MouseMotionListener, MouseListener {
 	/**
 	 * 
 	 */
@@ -66,7 +66,6 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	private void addListenerInternalFrameSimulation1D(){
 	    this.addMouseMotionListener(this);
 	    this.addMouseListener(this);
-	    this.addMouseWheelListener(this);
 	}
 	
 	@Override
@@ -152,29 +151,29 @@ public class Screen extends JLabel implements MouseMotionListener, MouseListener
 	}
 
 
-	@Override
-	public void mouseWheelMoved(MouseWheelEvent arg0) {
-			int mouseRot = arg0.getWheelRotation();
-		     
-		    if (mouseRot < 0){
-		    	Cell1D.CELL_SIZE *= 2;
-				m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
-				m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
-				setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
-		    }
-		    else if(mouseRot > 0){
-		    	if(Cell1D.CELL_SIZE > 2){
-		        	Cell1D.CELL_SIZE /= 2;
-		    		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
-		    		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
-		    		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
-		         }
-		    }
-		else{
-			
-			//m_internalFrameSimulation.getm_scrollPane().getVerticalScrollBar().setValue(r);
-		}
-	}
+//	@Override
+//	public void mouseWheelMoved(MouseWheelEvent arg0) {
+//			int mouseRot = arg0.getWheelRotation();
+//		     
+//		    if (mouseRot < 0){
+//		    	Cell1D.CELL_SIZE *= 2;
+//				m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+//				m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+//				setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
+//		    }
+//		    else if(mouseRot > 0){
+//		    	if(Cell1D.CELL_SIZE > 2){
+//		        	Cell1D.CELL_SIZE /= 2;
+//		    		m_screenWidth = m_internalFrameSimulation.getm_simulation().getm_nbCellWidth()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+//		    		m_screenHeight = m_internalFrameSimulation.getm_simulation().getm_nbCellHeight()*Cell1D.CELL_SIZE+100;// The Screen follow now the simulation when we zoom on simulation
+//		    		setPreferredSize(new Dimension(m_screenWidth, m_screenHeight));//Resize the Screen
+//		         }
+//		    }
+//		else{
+//			
+//			//m_internalFrameSimulation.getm_scrollPane().getVerticalScrollBar().setValue(r);
+//		}
+//	}
 
 
 }
