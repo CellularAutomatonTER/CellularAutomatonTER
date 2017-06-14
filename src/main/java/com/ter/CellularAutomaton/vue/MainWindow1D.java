@@ -1116,7 +1116,7 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 	
 	private void buildPanelTypeCellularAutomaton(){
 		m_panelTypeCellularAutomaton = new JPanel();
-		Dimension minimumWidthPanelTypeCellularAutomaton = new Dimension(420, 0);
+		Dimension minimumWidthPanelTypeCellularAutomaton = new Dimension(430, 0);
 		m_panelTypeCellularAutomaton.setPreferredSize(minimumWidthPanelTypeCellularAutomaton);
 		m_toolBarTypeCellularAutomaton.add(m_panelTypeCellularAutomaton);
 		m_panelTypeCellularAutomaton.setBorder(BorderFactory.createTitledBorder("Type of Cellular Automaton"));
@@ -1324,8 +1324,8 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 			m_panelLabelZoomBox.add(m_panelLabelZoom);
 			m_panelLabelZoom.setLayout(new BorderLayout(0, 0));
 			
-			m_labelIndicatorZoom =new JLabel("20");
-			m_labelIndicatorZoom.setToolTipText("Indicator of Zoom: 20");
+			m_labelIndicatorZoom =new JLabel("20%");
+			m_labelIndicatorZoom.setToolTipText("Indicator of Zoom: 20%");
 			m_panelLabelZoom.add(m_labelIndicatorZoom, BorderLayout.CENTER);
 			m_panelLabelZoom.setBorder(BorderFactory.createRaisedBevelBorder());
 			m_panelLabelZoomBox.add(horizontalStrutLabelZoom);
@@ -1405,11 +1405,11 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 				m_sliderZoomSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
 				m_sliderZoomSimulation.setToolTipText("Zoom of the simulation");//Set a ToolTipText on m_sliderSpeedSimulation
 				m_sliderZoomSimulation.setMinimum(1);//Set the minimum value of slider
-				m_sliderZoomSimulation.setMaximum(100);//Set the maximum value of slider
-				m_sliderZoomSimulation.setValue(20);//Set the value of slider to 30 by default
+				m_sliderZoomSimulation.setMaximum(11);//Set the maximum value of slider
+				m_sliderZoomSimulation.setValue(3);//Set the value of slider to 21 by default
 				m_sliderZoomSimulation.setPaintTicks(true);//Set the paint ticks of slider
-				m_sliderZoomSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
-				m_sliderZoomSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
+				m_sliderZoomSimulation.setMinorTickSpacing(1);//Set the space between each ticks of slider to 10
+				m_sliderZoomSimulation.setMajorTickSpacing(2);//Set the space between each major ticks of slider to 20
 			
 				buildGroupLayoutComponentSimulationZoom();//Build Layout for SimulationSpeed in LateralTools
 			}
