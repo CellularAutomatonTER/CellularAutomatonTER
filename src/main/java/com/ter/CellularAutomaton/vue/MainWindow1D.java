@@ -48,6 +48,7 @@ import com.ter.CellularAutomaton.controller.SpeedSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StartSimulation1DEvent;
 import com.ter.CellularAutomaton.controller.StepOfLauncherStepByStepAdjustable1DEvent;
 import com.ter.CellularAutomaton.controller.Switch1DTo2DSimulationEvent;
+import com.ter.CellularAutomaton.controller.ZoomSimulation1DEvent;
 import com.ter.CellularAutomaton.model.SimulationState;
 import com.ter.CellularAutomaton.vue.IForm;
 import com.ter.CellularAutomaton.controller.IInitializeSimulationRules1D;
@@ -578,12 +579,20 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		return m_labelIndicatorLauncherStepByStepAdjustable;
 	}
 	
+	public JSlider getm_sliderZoomSimulation() {
+		return m_sliderZoomSimulation;
+	}
+	
 	public int getm_stepOfLauncherStep() {
 		return m_stepOfLauncherStep;
 	}
 	
 	public JSlider getm_sliderStepOfLauncherStepByStepAdjustable() {
 		return m_sliderStepOfLauncherStepByStepAdjustable;
+	}
+	
+	public JLabel getm_labelIndicatorZoom() {
+		return m_labelIndicatorZoom;
 	}
 
 	
@@ -1862,11 +1871,16 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 	/******Listeners Control Tools******/
 	private void addListenerControlTools(){
 		addListenerSliderSpeedSimulation();//add listener of Slider sliderSpeedSimulation
+		addListenerSliderZoomSimulation();//add listener of Slider sliderZoomSimulation
 		addListenerSliderStepOfLauncherStepByStepAdjustable();//add listener of Slider StepOfLauncherStepByStepAdjustable
 	}
 	
 	private void addListenerSliderSpeedSimulation(){
 		m_sliderSpeedSimulation.addChangeListener(new SpeedSimulation1DEvent(this));
+	}
+	
+	private void addListenerSliderZoomSimulation(){
+		m_sliderZoomSimulation.addChangeListener(new ZoomSimulation1DEvent(this));
 	}
 	
 	private void addListenerSliderStepOfLauncherStepByStepAdjustable(){
