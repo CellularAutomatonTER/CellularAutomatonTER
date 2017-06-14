@@ -331,16 +331,24 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 	private final JPanel m_panelLabelSpeed = new JPanel();
 	private final Component horizontalStrutLabelSpeed = Box.createHorizontalStrut(5);
 	private JLabel m_labelIndicatorSpeed;
+	
+	private JPanel m_panelSimulationZoom;
+	private JSlider m_sliderZoomSimulation;
+	private final JPanel m_panelLabelZoomGroup = new JPanel();
+	private final JPanel m_panelLabelZoomBox = new JPanel();
+	private final Component verticalStrutLabelZoom = Box.createVerticalStrut(10);
+	private final JPanel m_panelLabelZoom = new JPanel();
+	private final Component horizontalStrutLabelZoom = Box.createHorizontalStrut(5);
+	private JLabel m_labelIndicatorZoom;
+	
 	private JPanel m_panelStepOfLauncherStepByStepAdjustable;
 	private JSlider m_sliderStepOfLauncherStepByStepAdjustable;
-	
 	private final JPanel m_panelLabelLauncherStepByStepAdjustableGroup = new JPanel();
 	private final JPanel m_panelLabelLauncherStepByStepAdjustableBox = new JPanel();
 	private final Component verticalStrutLabelLauncherStepByStepAdjustable = Box.createVerticalStrut(10);
 	private final JPanel m_panelLabelLauncherStepByStepAdjustable = new JPanel();
 	private final Component horizontalStrutLabelLauncherStepByStepAdjustable = Box.createHorizontalStrut(5);
 	private JLabel m_labelIndicatorLauncherStepByStepAdjustable;
-	
 	private JButton m_buttonBorderCondition;
 	private JDesktopPane m_mainDesktopPane;
 	private JScrollPane m_scrollPaneLateralTools;
@@ -1252,13 +1260,19 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		
 		buildPanelSimulationSpeed();//Create the panel "SimulationSpeed"
 		
+		buildPanelSimulationZoom();//Create the panel "SimulationZoom"
+		
 		buildPanelStepOfLauncherStepByStepAdjustable();//Create the panel "StepOfLauncherStepByStepAdjustable"
 		
 		buildIndicatorSpeed();//Build indicator of speed simulation
 		
+		buildIndicatorZoom();//Build indicator of zoom simulation
+		
 		buildIndicatorStepOfLauncherStepByStepAdjustable();//Build indicator step of launcher step by step adjustable
 		
 		m_panelControlTools.add(m_panelSimulationSpeed);
+		
+		m_panelControlTools.add(m_panelSimulationZoom);
 		
 		m_panelControlTools.add(m_panelStepOfLauncherStepByStepAdjustable);
 	}
@@ -1289,6 +1303,33 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		
 		m_panelLabelSpeedGroup.add(verticalStrutLabelSpeed);
 	}
+	
+	//Build indicator of zoom simulation
+		private void buildIndicatorZoom(){
+			m_panelSimulationZoom.add(m_panelLabelZoomGroup, BorderLayout.EAST);
+			m_panelLabelZoomGroup.setLayout(new BoxLayout(m_panelLabelZoomGroup, BoxLayout.Y_AXIS));
+			
+			m_panelLabelZoomGroup.add(m_panelLabelZoomBox);
+			m_panelLabelZoomBox.setLayout(new BoxLayout(m_panelLabelZoomBox, BoxLayout.X_AXIS));
+			
+			JSeparator separator = new JSeparator();
+			separator.setOrientation(SwingConstants.VERTICAL);
+			m_panelLabelZoomBox.add(separator);
+			
+			Component horizontalStrut = Box.createHorizontalStrut(5);
+			m_panelLabelZoomBox.add(horizontalStrut);
+			
+			m_panelLabelZoomBox.add(m_panelLabelZoom);
+			m_panelLabelZoom.setLayout(new BorderLayout(0, 0));
+			
+			m_labelIndicatorZoom =new JLabel("30");
+			m_labelIndicatorZoom.setToolTipText("Indicator of Zoom: 30");
+			m_panelLabelZoom.add(m_labelIndicatorZoom, BorderLayout.CENTER);
+			m_panelLabelZoom.setBorder(BorderFactory.createRaisedBevelBorder());
+			m_panelLabelZoomBox.add(horizontalStrutLabelZoom);
+			
+			m_panelLabelZoomGroup.add(verticalStrutLabelZoom);
+		}
 	
 	//Build indicator of step of launcher step by step adjustable
 		private void buildIndicatorStepOfLauncherStepByStepAdjustable(){
@@ -1347,12 +1388,42 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 			m_panelSimulationSpeed.add(m_sliderSpeedSimulation);//Add the slider to panel m_panelSimulationSpeed
 		}
 		
+		/******PANEL SIMULATION ZOOM******/
+		/******Build Panel SimulationSpeed******/
+		private void buildPanelSimulationZoom(){
+			m_panelSimulationZoom = new JPanel();//Creation of panel for SimulationSpeed
+			m_panelSimulationZoom.setBorder(BorderFactory.createTitledBorder("Zoom of the Simulation"));//Set a border of JPanel
+			
+			buildComponentSimulationZoom();//Set the component of Panel "Simulation Speed"
+		}
+		
+			//Components of Panel SimulationSpeed in LateralTools
+			//Build components for SimulationSpeed in LateralTools
+			private void buildComponentSimulationZoom(){ 
+				m_sliderZoomSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
+				m_sliderZoomSimulation.setToolTipText("Zoom of the simulation");//Set a ToolTipText on m_sliderSpeedSimulation
+				m_sliderZoomSimulation.setMinimum(1);//Set the minimum value of slider
+				m_sliderZoomSimulation.setMaximum(100);//Set the maximum value of slider
+				m_sliderZoomSimulation.setValue(30);//Set the value of slider to 30 by default
+				m_sliderZoomSimulation.setPaintTicks(true);//Set the paint ticks of slider
+				m_sliderZoomSimulation.setMinorTickSpacing(10);//Set the space between each ticks of slider to 10
+				m_sliderZoomSimulation.setMajorTickSpacing(20);//Set the space between each major ticks of slider to 20
+			
+				buildGroupLayoutComponentSimulationZoom();//Build Layout for SimulationSpeed in LateralTools
+			}
+			
+			//Build Layout for SimulationSpeed in LateralTools
+			private void buildGroupLayoutComponentSimulationZoom(){
+				m_panelSimulationZoom.setLayout(new BorderLayout(0, 0));
+				m_panelSimulationZoom.add(m_sliderZoomSimulation);//Add the slider to panel m_panelSimulationSpeed
+			}
+		
 		
 		/******PANEL STEP OF LAUNCHER STEP BY STEP ADJUSTABLE******/
 		/******Build Panel Launcher step by step adjustable******/
 		private void buildPanelStepOfLauncherStepByStepAdjustable(){
 			m_panelStepOfLauncherStepByStepAdjustable = new JPanel();//Creation of panel for StepOfLauncherStepByStepAdjustable
-			m_panelStepOfLauncherStepByStepAdjustable.setBorder(BorderFactory.createTitledBorder("Step of launcher step by step adjustable"));//Set a border of JPanel
+			m_panelStepOfLauncherStepByStepAdjustable.setBorder(BorderFactory.createTitledBorder("Step of launcher step by step"));//Set a border of JPanel
 			
 			buildComponentStepOfLauncherStepByStepAdjustable();//Set the component of Panel "Step Of Launcher Step By Step Adjustable"
 		}
