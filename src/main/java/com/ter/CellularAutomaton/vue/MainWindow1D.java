@@ -1400,19 +1400,19 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 		}
 		
 		/******PANEL SIMULATION ZOOM******/
-		/******Build Panel SimulationSpeed******/
+		/******Build Panel SimulationZoom******/
 		private void buildPanelSimulationZoom(){
-			m_panelSimulationZoom = new JPanel();//Creation of panel for SimulationSpeed
+			m_panelSimulationZoom = new JPanel();//Creation of panel for SimulationZoom
 			m_panelSimulationZoom.setBorder(BorderFactory.createTitledBorder("Zoom of the Simulation"));//Set a border of JPanel
 			
-			buildComponentSimulationZoom();//Set the component of Panel "Simulation Speed"
+			buildComponentSimulationZoom();//Set the component of Panel "Simulation Zoom"
 		}
 		
-			//Components of Panel SimulationSpeed in LateralTools
-			//Build components for SimulationSpeed in LateralTools
+			//Components of Panel SimulationZoom in LateralTools
+			//Build components for SimulationZoom in LateralTools
 			private void buildComponentSimulationZoom(){ 
-				m_sliderZoomSimulation = new JSlider();//Creation of Slider for panel "Simulation Speed"
-				m_sliderZoomSimulation.setToolTipText("Zoom of the simulation");//Set a ToolTipText on m_sliderSpeedSimulation
+				m_sliderZoomSimulation = new JSlider();//Creation of Slider for panel "Simulation Zoom"
+				m_sliderZoomSimulation.setToolTipText("Zoom of the simulation");//Set a ToolTipText on m_sliderZoomSimulation
 				m_sliderZoomSimulation.setMinimum(1);//Set the minimum value of slider
 				m_sliderZoomSimulation.setMaximum(11);//Set the maximum value of slider
 				m_sliderZoomSimulation.setValue(3);//Set the value of slider to 21 by default
@@ -1420,13 +1420,13 @@ public class MainWindow1D extends JFrame implements WindowListener, Serializable
 				m_sliderZoomSimulation.setMinorTickSpacing(1);//Set the space between each ticks of slider to 10
 				m_sliderZoomSimulation.setMajorTickSpacing(2);//Set the space between each major ticks of slider to 20
 			
-				buildGroupLayoutComponentSimulationZoom();//Build Layout for SimulationSpeed in LateralTools
+				buildGroupLayoutComponentSimulationZoom();//Build Layout for SimulationZoom in LateralTools
 			}
 			
-			//Build Layout for SimulationSpeed in LateralTools
+			//Build Layout for SimulationZoom in LateralTools
 			private void buildGroupLayoutComponentSimulationZoom(){
 				m_panelSimulationZoom.setLayout(new BorderLayout(0, 0));
-				m_panelSimulationZoom.add(m_sliderZoomSimulation);//Add the slider to panel m_panelSimulationSpeed
+				m_panelSimulationZoom.add(m_sliderZoomSimulation);//Add the slider to panel m_panelSimulationZoom
 			}
 		
 		
