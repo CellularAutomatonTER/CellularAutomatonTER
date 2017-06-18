@@ -12,7 +12,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import com.ter.CellularAutomaton.controller.CloseElementaryRulesWindowEvent;
+import com.ter.CellularAutomaton.controller.CopyElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.OKElementaryRules1DEvent;
+import com.ter.CellularAutomaton.controller.PasteElementaryRulesWindowEvent;
 import com.ter.CellularAutomaton.controller.PersonalizeElementaryCells1DEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 import com.ter.CellularAutomaton.controller.ResetElementaryRules1DEvent;
@@ -56,6 +58,19 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 
 	/** The menu bar file item 2. */
 	private JMenuItem m_menuBarFileItem2 = new JMenuItem("Quit");
+	
+	/** The menu file. */
+	//Tab in MenuBar
+	private JMenu m_menuEdit = new JMenu("Edit");
+	
+	/** The menu bar file item 1. */
+	// In file menu
+
+	/** The menu bar file item 1. */
+	private JMenuItem m_menuBarEditItem1 = new JMenuItem("Copy");
+
+	/** The menu bar file item 2. */
+	private JMenuItem m_menuBarEditItem2 = new JMenuItem("Paste");
 	
 	/** Component of window */
 	private final JPanel m_panelControl = new JPanel();
@@ -440,6 +455,8 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 	private void initMenuBar(){
 		//We initialize our menuBar 
 		this.constructTabFileMenuBar();//Construction of the tab "File" of menuBar
+		this.constructTabEditMenuBar();//Construction of the tab "Edit" of menuBar
+
 		
 		this.setJMenuBar(m_menuBar);//Add menuBar to window
 		
@@ -457,6 +474,15 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 		this.m_menuBar.add(m_menuFile);//the File tab is added to MenuBar
 	}
 	
+	/**
+	 * Construct tab Edit menu bar.
+	 */
+	private void constructTabEditMenuBar(){
+		//Construction of the tab "File" of menuBar
+		this.m_menuEdit.add(m_menuBarEditItem1);//Adding a tab "Close" in tab File in MenuBar
+		this.m_menuEdit.add(m_menuBarEditItem2);//Adding a tab "Quit" in tab File in MenuBar
+		this.m_menuBar.add(m_menuEdit);//the File tab is added to MenuBar
+	}
 	
 	/******Mnemonic******/
 	/**
@@ -465,6 +491,7 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 	private void initMenuMnemonic(){
 		//add all the mnémonic for the MenuBar
 		m_menuFile.setMnemonic('F');
+		m_menuEdit.setMnemonic('E');
 	}
 	
 	/******Accelerator******/
@@ -486,12 +513,19 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 	//add listeners MenuBar
 	private void addListenerMenuBar (){
 		this.addListenerFile(); //add listener of tab File
+		this.addListenerEdit(); //add listener of tab Edit
 	}
 
 	//add listeners for tab File in MenuBar
 	private void addListenerFile (){
 		m_menuBarFileItem1.addActionListener(new CloseElementaryRulesWindowEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
+	}
+	
+	//add listeners for tab File in MenuBar
+	private void addListenerEdit (){
+		m_menuBarEditItem1.addActionListener(new CopyElementaryRulesWindowEvent(this));
+		m_menuBarEditItem2.addActionListener(new PasteElementaryRulesWindowEvent(this));
 	}
 	
 	
