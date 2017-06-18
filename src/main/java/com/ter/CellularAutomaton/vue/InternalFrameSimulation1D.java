@@ -139,9 +139,16 @@ public class InternalFrameSimulation1D extends JInternalFrame {
 		this.m_refreshRate = refreshRate;
 	}
 	
-	
 	public void setm_backgroundColor(Color backgroundColor) {
 		this.m_backgroundColor = backgroundColor;
+	}
+	
+	public void setm_screen(Screen screen) {
+		this.m_screen = screen;
+	}
+	
+	public void setm_simulation(Simulation1D simulation) {
+		this.m_simulation = simulation;
 	}
 
 	

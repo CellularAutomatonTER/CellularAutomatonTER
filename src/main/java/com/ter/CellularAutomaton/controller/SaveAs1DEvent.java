@@ -84,7 +84,7 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 							new BufferedOutputStream(
 									new FileOutputStream(
 											new File(fileToSave.getAbsolutePath()+".cel"))));
-					oos.writeObject(m_mainWindow1D);
+					oos.writeObject(m_mainWindow1D.getm_internalFrameSimulation().getm_simulation());
 					// Close the stream.
 					oos.close();
 				}

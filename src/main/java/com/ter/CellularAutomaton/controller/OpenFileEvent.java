@@ -18,6 +18,7 @@ import javax.swing.filechooser.FileFilter;
 import org.apache.commons.io.FilenameUtils;
 
 import com.ter.CellularAutomaton.vue.MainWindow1D;
+import com.ter.CellularAutomaton.vue.Simulation1D;
 
 /**
  * * This class implement the open button. The user can choose a saved simulation and open it.
@@ -57,7 +58,7 @@ public class OpenFileEvent implements ActionListener  {
 //			JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE, img);            
 //		}
 		
-		MainWindow1D openedDocument = null;
+		Simulation1D openedSimulation = null;
 		
 		try {
 			// Set up the file chooser.
@@ -91,8 +92,11 @@ public class OpenFileEvent implements ActionListener  {
 									new FileInputStream(
 											new File(fileToSave.getAbsolutePath()))));
 					try {
-						openedDocument = (MainWindow1D) ois.readObject();
-						openedDocument.setVisible(true);
+						openedSimulation = (Simulation1D) ois.readObject();
+						MainWindow1D mainWindow1D = new MainWindow1D(true);
+						mainWindow1D.getm_internalFrameSimulation().setm_simulation(openedSimulation);
+						mainWindow1D.setm_threadSimulation(new Thread(new RunApplication1D(mainWindow1D)));//Create a new thread.
+						mainWindow1D.getm_threadSimulation().start();//Start the new thread therefore the Mainwindow1D call method runSimulation() and the simulation start update.
 						
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
