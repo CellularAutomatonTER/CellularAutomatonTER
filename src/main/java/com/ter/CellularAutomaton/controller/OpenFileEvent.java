@@ -1,20 +1,15 @@
 package com.ter.CellularAutomaton.controller;
 
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -22,9 +17,13 @@ import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.io.FilenameUtils;
 
-import com.ter.CellularAutomaton.controller.SaveAs1DEvent.ImageCelFilter;
 import com.ter.CellularAutomaton.vue.MainWindow1D;
 
+/**
+ * * This class implement the open button. The user can choose a saved simulation and open it.
+ * @author Alexandre
+ *
+ */
 public class OpenFileEvent implements ActionListener  {
 
 	/******ATTRIBUTES******/
@@ -128,6 +127,11 @@ public class OpenFileEvent implements ActionListener  {
 	
 	
 	public class ImageCelFilter extends FileFilter implements Serializable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		//Accept all directories and png files.
 		@Override

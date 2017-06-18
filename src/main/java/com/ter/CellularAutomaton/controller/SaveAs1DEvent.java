@@ -1,6 +1,5 @@
 package com.ter.CellularAutomaton.controller;
 
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedOutputStream;
@@ -11,8 +10,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -20,14 +17,12 @@ import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.io.FilenameUtils;
 
-import com.ter.CellularAutomaton.controller.ExportOthersFormat1DEvent.ImageGIFFilter;
-import com.ter.CellularAutomaton.controller.ExportOthersFormat1DEvent.ImageJPGFilter;
-import com.ter.CellularAutomaton.controller.ExportOthersFormat1DEvent.ImagePNGFilter;
 import com.ter.CellularAutomaton.vue.MainWindow1D;
 
 public class SaveAs1DEvent implements ActionListener, Serializable {
 
 	/******ATTRIBUTES******/
+	private static final long serialVersionUID = 1L;
 	private MainWindow1D m_mainWindow1D;
 	JFrame frame;
 	private JFileChooser fileChooser;
@@ -115,6 +110,11 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 	
 	
 	public class ImageCelFilter extends FileFilter implements Serializable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		//Accept all directories and png files.
 		@Override
