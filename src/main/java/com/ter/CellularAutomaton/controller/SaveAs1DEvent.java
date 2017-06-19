@@ -10,9 +10,13 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.io.FilenameUtils;
@@ -58,6 +62,21 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 			if (fileChooser == null) {
 				fileChooser = new JFileChooser();
 			}
+			SwingUtilities.invokeLater(new Runnable() {
+			     public void run() {
+			    	 try {
+				    	  //Set the « look and feel » with look and feel of system
+				    	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				    	  //Set all components of window with look and feel of system
+				    	  SwingUtilities.updateComponentTreeUI(fileChooser);
+				    	}
+				    	catch (InstantiationException e) {}
+				    	catch (ClassNotFoundException e) {}
+				    	catch (UnsupportedLookAndFeelException e) {}
+				    	catch (IllegalAccessException e) {}
+			     }
+			  });
+			 
 			// Set the title of the fileChooser.
 			fileChooser.setDialogTitle(titleJFileChoose);
 			// Set the initial directory for the fileChooser.
@@ -69,6 +88,14 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 			//fileChooser.setAcceptAllFileFilterUsed(false);
 
 
+			try {
+				frame = new JFrame();
+				frame.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor.png")));
+			}
+			catch (IOException exc) {
+			    exc.printStackTrace();
+			}
+			
 			//Show the fileChooser.
 			int userSelection = fileChooser.showSaveDialog(frame);
 
