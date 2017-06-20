@@ -1,7 +1,5 @@
 package com.ter.CellularAutomaton.controller;
 
-import java.awt.AWTException;
-import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -10,18 +8,17 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import com.ter.CellularAutomaton.vue.ElementaryRulesWindow;
+import com.ter.CellularAutomaton.vue.LocalElementaryRulesWindow;
 
 /**
- * The Class CopyElementaryRulesWindowEvent. This class is used to copy some selected text from a text field within the clipboard.
+ * The Class CopyElementaryRulesWindowEvent. This class is used to cut some selected text from a text field within the clipboard.
  */
-public class CopyElementaryRulesWindowEvent implements ActionListener {
+public class CutLocalElementaryRulesWindow implements ActionListener {
 
 	/** ****ATTRIBUTES*****. */
-	private ElementaryRulesWindow m_window;
+	private LocalElementaryRulesWindow m_window;
 
 
 	/**
@@ -29,7 +26,7 @@ public class CopyElementaryRulesWindowEvent implements ActionListener {
 	 *
 	 * @param window the window
 	 */
-	public CopyElementaryRulesWindowEvent(ElementaryRulesWindow window) {
+	public CutLocalElementaryRulesWindow(LocalElementaryRulesWindow window) {
 		super();
 		this.m_window = window;
 
@@ -92,19 +89,34 @@ public class CopyElementaryRulesWindowEvent implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 		/***FIRST METHOD***/
-		if(m_window.getm_isRadiusFocus()){
+		if(m_window.getm_isComponentFocus()[0]){
+			String selectedText = m_window.getm_formattedTextFieldX1().getSelectedText(); // Get selected text.
+			setClipboardContents(selectedText); // Put selected text in the clipboard.
+			m_window.getm_formattedTextFieldX1().replaceSelection(""); // Cut the selected text.
+			//printClipboard(); // Print the content of the clipboard.
+		}
+		else if(m_window.getm_isComponentFocus()[1]){
+			String selectedText = m_window.getm_formattedTextFieldX2().getSelectedText(); // Get selected text.
+			setClipboardContents(selectedText); // Put selected text in the clipboard.
+			m_window.getm_formattedTextFieldX2().replaceSelection(""); // Cut the selected text.
+			//printClipboard(); // Print the content of the clipboard.
+		}
+		else if(m_window.getm_isComponentFocus()[2]){
 			String selectedText = m_window.getm_formattedTextFieldRadius().getSelectedText(); // Get selected text.
 			setClipboardContents(selectedText); // Put selected text in the clipboard.
-			//printClipboard();
+			m_window.getm_formattedTextFieldRadius().replaceSelection(""); // Cut the selected text.
+			//printClipboard(); // Print the content of the clipboard.
 		}
 		else{
 			String selectedText1 = m_window.getm_formattedTextFieldRules().getSelectedText(); // Get selected text.
 			setClipboardContents(selectedText1); // Put selected text in the clipboard.
-			//printClipboard();
+			m_window.getm_formattedTextFieldRules().replaceSelection(""); // Cut the selected text.
+			//printClipboard(); // Print the content of the clipboard.
 		}
 
+	
 		/***SECOND METHOD***/
 		//		Robot robot = null;
 		//		try {

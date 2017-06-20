@@ -10,13 +10,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.io.FilenameUtils;
@@ -33,50 +29,35 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 	private static final String titleJFileChoose = "Specify a file to save";
 	private static final String allowExtension = "cel";
 
-	
-//	static final String path="C:\\";
-//	static final String imgPath = "Files/Images/error_icon.jpg";
-//	ImageIcon img = new ImageIcon(imgPath);
-	
-	
+
+	//	static final String path="C:\\";
+	//	static final String imgPath = "Files/Images/error_icon.jpg";
+	//	ImageIcon img = new ImageIcon(imgPath);
+
+
 	/******CONSTRUCTOR******/
 	public SaveAs1DEvent(MainWindow1D mainWindow1D){
 		m_mainWindow1D = mainWindow1D;
 	}
-	
+
 	/**
 	 * ****CLASS METHODS*****.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-//		try {
-//			Desktop.getDesktop().open(new File(path));
-//		} catch (IOException | NullPointerException | IllegalArgumentException e) {
-//			String errorMessage = "Message error: \n "+e.getMessage();
-//			System.out.println(errorMessage);
-//			JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE, img);            
-//		}
-	
-		    try {
+		//		try {
+		//			Desktop.getDesktop().open(new File(path));
+		//		} catch (IOException | NullPointerException | IllegalArgumentException e) {
+		//			String errorMessage = "Message error: \n "+e.getMessage();
+		//			System.out.println(errorMessage);
+		//			JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE, img);            
+		//		}
+
+		try {
 			// Set up the file chooser.
 			if (fileChooser == null) {
 				fileChooser = new JFileChooser();
 			}
-			SwingUtilities.invokeLater(new Runnable() {
-			     public void run() {
-			    	 try {
-				    	  //Set the « look and feel » with look and feel of system
-				    	  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				    	  //Set all components of window with look and feel of system
-				    	  SwingUtilities.updateComponentTreeUI(fileChooser);
-				    	}
-				    	catch (InstantiationException e) {}
-				    	catch (ClassNotFoundException e) {}
-				    	catch (UnsupportedLookAndFeelException e) {}
-				    	catch (IllegalAccessException e) {}
-			     }
-			  });
-			 
 			// Set the title of the fileChooser.
 			fileChooser.setDialogTitle(titleJFileChoose);
 			// Set the initial directory for the fileChooser.
@@ -88,14 +69,6 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 			//fileChooser.setAcceptAllFileFilterUsed(false);
 
 
-			try {
-				frame = new JFrame();
-				frame.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor.png")));
-			}
-			catch (IOException exc) {
-			    exc.printStackTrace();
-			}
-			
 			//Show the fileChooser.
 			int userSelection = fileChooser.showSaveDialog(frame);
 
@@ -103,17 +76,33 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 			if (userSelection == JFileChooser.APPROVE_OPTION) {
 				File fileToSave = fileChooser.getSelectedFile(); // Select the file to save.
 				//String extension = FilenameUtils.getExtension(fileToSave.getName().toLowerCase()); // Select the extension (in minuscule) of the files present in the JFileChooser.
-				
+				boolean hasExtension = false;
+
+				if(fileToSave.getAbsolutePath().substring(fileToSave.getAbsolutePath().length()-4, fileToSave.getAbsolutePath().length()).equals(".cel")){
+					hasExtension = true;
+				}
+
 				// We must write the object in a file.
 				ObjectOutputStream oos;
 				try{
-					oos = new ObjectOutputStream(
-							new BufferedOutputStream(
-									new FileOutputStream(
-											new File(fileToSave.getAbsolutePath()+".cel"))));
-					oos.writeObject(m_mainWindow1D.getm_internalFrameSimulation().getm_simulation());
-					// Close the stream.
-					oos.close();
+					if(!hasExtension){ // If the user has not prefix his save with an extension, we add the extension.
+						oos = new ObjectOutputStream(
+								new BufferedOutputStream(
+										new FileOutputStream(
+												new File(fileToSave.getAbsolutePath()+".cel"))));
+						oos.writeObject(m_mainWindow1D.getm_internalFrameSimulation().getm_simulation());
+						// Close the stream.
+						oos.close();
+					}
+					else{ // If there is an extension, we don't have to add an extension
+						oos = new ObjectOutputStream(
+								new BufferedOutputStream(
+										new FileOutputStream(
+												new File(fileToSave.getAbsolutePath()))));
+						oos.writeObject(m_mainWindow1D.getm_internalFrameSimulation().getm_simulation());
+						// Close the stream.
+						oos.close();
+					}
 				}
 				/**
 				 * Exceptions are handled
@@ -121,7 +110,7 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 				 * @throws IOException if file management problem occurs.
 				 */
 				catch (FileNotFoundException e) {e.printStackTrace();}
-				
+
 				JOptionPane.showMessageDialog(null,"The simulation was saved successfully."); // Show a dialog to inform the user that the export has been successful.
 
 				//Reset the file chooser for the next time it's shown.
@@ -132,10 +121,10 @@ public class SaveAs1DEvent implements ActionListener, Serializable {
 		} catch (IOException exp) {
 			exp.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
+
 	public class ImageCelFilter extends FileFilter implements Serializable {
 
 		/**

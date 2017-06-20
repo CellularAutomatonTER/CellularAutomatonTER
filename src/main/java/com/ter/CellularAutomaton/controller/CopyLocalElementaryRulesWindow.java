@@ -14,14 +14,15 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import com.ter.CellularAutomaton.vue.ElementaryRulesWindow;
+import com.ter.CellularAutomaton.vue.LocalElementaryRulesWindow;
 
 /**
  * The Class CopyElementaryRulesWindowEvent. This class is used to copy some selected text from a text field within the clipboard.
  */
-public class CopyElementaryRulesWindowEvent implements ActionListener {
+public class CopyLocalElementaryRulesWindow implements ActionListener {
 
 	/** ****ATTRIBUTES*****. */
-	private ElementaryRulesWindow m_window;
+	private LocalElementaryRulesWindow m_window;
 
 
 	/**
@@ -29,7 +30,7 @@ public class CopyElementaryRulesWindowEvent implements ActionListener {
 	 *
 	 * @param window the window
 	 */
-	public CopyElementaryRulesWindowEvent(ElementaryRulesWindow window) {
+	public CopyLocalElementaryRulesWindow(LocalElementaryRulesWindow window) {
 		super();
 		this.m_window = window;
 
@@ -92,9 +93,19 @@ public class CopyElementaryRulesWindowEvent implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 		/***FIRST METHOD***/
-		if(m_window.getm_isRadiusFocus()){
+		if(m_window.getm_isComponentFocus()[0]){
+			String selectedText = m_window.getm_formattedTextFieldX1().getSelectedText(); // Get selected text.
+			setClipboardContents(selectedText); // Put selected text in the clipboard.
+			//printClipboard();
+		}
+		else if(m_window.getm_isComponentFocus()[1]){
+			String selectedText = m_window.getm_formattedTextFieldX2().getSelectedText(); // Get selected text.
+			setClipboardContents(selectedText); // Put selected text in the clipboard.
+			//printClipboard();
+		}
+		else if(m_window.getm_isComponentFocus()[2]){
 			String selectedText = m_window.getm_formattedTextFieldRadius().getSelectedText(); // Get selected text.
 			setClipboardContents(selectedText); // Put selected text in the clipboard.
 			//printClipboard();
