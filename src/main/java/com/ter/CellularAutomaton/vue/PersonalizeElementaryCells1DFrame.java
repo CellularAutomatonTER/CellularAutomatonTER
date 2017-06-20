@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import com.ter.CellularAutomaton.controller.CancelPersonalizeElementaryCells1DFrameEvent;
+import com.ter.CellularAutomaton.controller.ClosePersonalizeElementaryCellsFrameEvent;
 import com.ter.CellularAutomaton.controller.OKPersonalizeElementaryCells1DFrameEvent;
 import com.ter.CellularAutomaton.controller.QuitEvent;
 
@@ -164,7 +165,7 @@ public class PersonalizeElementaryCells1DFrame extends JFrame {
 
 	//add listeners for tab File in MenuBar
 	private void addListenerFile (){
-		//m_menuBarFileItem1.addActionListener(new ClosePersonalizeElementaryCellsFrameEvent(this));
+		m_menuBarFileItem1.addActionListener(new ClosePersonalizeElementaryCellsFrameEvent(this));
 		m_menuBarFileItem2.addActionListener(new QuitEvent());
 	}
 	
