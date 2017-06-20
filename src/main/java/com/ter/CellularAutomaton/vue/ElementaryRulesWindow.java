@@ -177,7 +177,7 @@ public class ElementaryRulesWindow extends JFrame implements KeyListener, FocusL
 
 		this.addListenerOnComponentsOfControlPanel();// Initialize Listeners on Components of panel Control.
 
-		this.setIconWindow();
+		this.setIconWindow();//Set icon on window
 		
 		this.setVisible(true);// Set the window visible.
 	}

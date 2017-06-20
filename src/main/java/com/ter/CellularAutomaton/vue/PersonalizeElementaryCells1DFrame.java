@@ -1,6 +1,8 @@
 package com.ter.CellularAutomaton.vue;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -18,6 +20,8 @@ import com.ter.CellularAutomaton.controller.QuitEvent;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 
 
@@ -73,6 +77,8 @@ public class PersonalizeElementaryCells1DFrame extends JFrame {
 		this.initMenuBar();// We initialize our menuBar.
 		
 		this.addListenerMenuBar();// We initialize Listener of menuBar.
+		
+		this.setIconWindow();//Set icon on window
 	}
 	
 	
@@ -106,6 +112,18 @@ public class PersonalizeElementaryCells1DFrame extends JFrame {
 
         //Display the window.
         this.setVisible(true);
+	}
+	
+	/**
+	 * Set icon on the frame.
+	 */
+	private void setIconWindow() {
+		try {
+			this.setIconImage(ImageIO.read(new File("Files/Images/Favicon/PenroseColor.png")));
+		}
+		catch (IOException exc) {
+		    exc.printStackTrace();
+		}
 	}
 	
 	/******Menu bar******/
